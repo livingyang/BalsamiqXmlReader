@@ -127,6 +127,13 @@ typedef struct
 	{
 		//无名字的情况下，创建图片
 		CCSprite *image = [CCSprite spriteWithFile:picName];
+		
+		CGSize imageSize = [self getBalsamiqControlSize:data];
+		if (CGSizeEqualToSize(image.contentSize, imageSize) == NO)
+		{
+			image.scaleX = imageSize.width / image.contentSize.width;
+			image.scaleY = imageSize.height / image.contentSize.height;
+		}
 		image.position = [self getMidPosition:data];
 		[self addChild:image z:zOrder];
 		
