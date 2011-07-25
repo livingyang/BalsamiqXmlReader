@@ -1,5 +1,5 @@
 //
-//  CCLayer+BalsamiqParser.h
+//  CCBalsamiqLayer.h
 //  BalsamiqXmlReader
 //
 //  Created by lee living on 11-7-21.
@@ -11,10 +11,12 @@
 
 #import "BalsamiqXmlDef.h"
 
-@interface CCLayer(BalsamiqParser)
+@interface CCBalsamiqLayer : CCLayer
 
 - (id)initWithBalsamiqData:(NSArray *)balsamiqData eventHandle:(id<BalsamiqReaderDelegate>)handle;
 
 + (id)layerWithBalsamiqData:(NSArray *)balsamiqData eventHandle:(id<BalsamiqReaderDelegate>)handle;
 
 @end
+
+// #1 CCBalsamiqLayer所创建的UITextField，会在内部进行释放，无须外部释放

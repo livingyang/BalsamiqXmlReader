@@ -11,7 +11,7 @@
 #import "HelloWorldLayer.h"
 
 #import "BalsamiqControlData.h"
-#import "CCLayer+BalsamiqParser.h"
+#import "CCBalsamiqLayer.h"
 
 // HelloWorldLayer implementation
 @implementation HelloWorldLayer
@@ -31,6 +31,27 @@
 	return scene;
 }
 
+- (void)testResource:(ccTime)dt
+{
+	NSString *xmlPath = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"test.bmml"];
+	
+	NSArray *array = [BalsamiqControlData parseData:[NSString stringWithContentsOfFile:xmlPath encoding:NSUTF8StringEncoding error:nil]];
+	
+	[CCBalsamiqLayer layerWithBalsamiqData:array eventHandle:self];
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+	
+	NSLog(@"textField text = %@", textField.text);
+}
+
 // on "init" you need to initialize your instance
 -(id) init
 {
@@ -47,21 +68,11 @@
 		
 		balsamiqFontName = @"Vanilla.ttf";
 		
-		CCLayer *layer = [CCLayer layerWithBalsamiqData:array eventHandle:self];
+		uiLayer = [CCBalsamiqLayer layerWithBalsamiqData:array eventHandle:self];
 		
-		[self addChild:layer];
+		[self addChild:uiLayer];
 	}
 	return self;
 }
 
-// on "dealloc" you need to release all your retained objects
-- (void) dealloc
-{
-	// in case you have something to dealloc, do it in this method
-	// in this particular example nothing needs to be released.
-	// cocos2d will automatically release all the children (Label)
-	
-	// don't forget to call "super dealloc"
-	[super dealloc];
-}
 @end

@@ -15,6 +15,7 @@
 extern NSString *balsamiqFontName;
 extern ccColor3B buttonNormalTextColor;
 extern ccColor3B buttonSelectTextColor;
+extern ccColor3B textInputColor;
 
 @class CCMenuItemButton;
 @protocol BalsamiqReaderDelegate

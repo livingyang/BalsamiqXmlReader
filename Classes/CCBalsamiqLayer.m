@@ -1,19 +1,22 @@
 //
-//  CCLayer+BalsamiqParser.m
+//  CCBalsamiqLayer.m
 //  BalsamiqXmlReader
 //
 //  Created by lee living on 11-7-21.
 //  Copyright 2011 LieHuo Tech. All rights reserved.
 //
 
-#import "CCLayer+BalsamiqParser.h"
+#import "CCBalsamiqLayer.h"
 #import "BalsamiqControlData.h"
 #import "CCMenuItemButton.h"
 #import "CCLabelFX.h"
+#import "UIPaddingTextField.h"
+#import "BalsamiqLayerTextInputManager.h"
 
 NSString *balsamiqFontName = @"arial";
 ccColor3B buttonNormalTextColor = {255, 255, 255};
 ccColor3B buttonSelectTextColor = {200, 200, 200};
+ccColor3B textInputColor = {200, 200, 200};
 
 typedef struct
 {
@@ -21,7 +24,7 @@ typedef struct
 	id eventHandle;
 }ControlCreateInfo;
 
-@implementation CCLayer(BalsamiqParser)
+@implementation CCBalsamiqLayer : CCLayer
 
 ////////////////////////////////////////////////////////
 #pragma mark 私有函数
@@ -69,6 +72,12 @@ typedef struct
 				value & 0x0000FF);
 }
 
+- (UIColor *)getUIColor:(ccColor3B)color alpha:(float)alpha
+{
+	ccColor4F color4F = ccc4FFromccc3B(color);
+	return [UIColor colorWithRed:color4F.r green:color4F.g blue:color4F.b alpha:alpha];
+}
+
 - (CGSize)getBalsamiqControlSize:(BalsamiqControlData *)data
 {
 	CGSize size = CGSizeZero;
@@ -93,21 +102,45 @@ typedef struct
 			   [[data.attributeDic objectForKey:@"y"] intValue]);
 }
 
-- (CGPoint)getMidPosition:(BalsamiqControlData *)data
+- (int)getBalsamiqControlTextSize:(BalsamiqControlData *)data
 {
-	CGPoint dataPositon = [self getBalsamiqControlPosition:data];
-	dataPositon.y = self.contentSize.height - dataPositon.y;
-	
-	CGSize dataSize = [self getBalsamiqControlSize:data];
-	
-	CGPoint offsetAnchor = ccpSub(ccp(0.5, 0.5), ccp(0, 1));
-	
-	return ccpAdd(dataPositon, ccp(offsetAnchor.x * dataSize.width, offsetAnchor.y * dataSize.height));
+	NSString *sizeStr = [data.propertyDic objectForKey:@"size"];
+	int size = (sizeStr == nil) ? 13 : [sizeStr intValue];
+
+	return size;
 }
 
-- (void)setLayerInfo:(BalsamiqControlData *)layerInfo
+- (CCTextAlignment)getBalsamiqControlAlign:(BalsamiqControlData *)data
 {
-	self.contentSize = [self getBalsamiqControlSize:layerInfo];
+	NSString *align = [data.propertyDic objectForKey:@"align"];
+	CCTextAlignment textAlign = CCTextAlignmentLeft;
+	if ([align isEqualToString:@"right"])
+	{
+		textAlign = CCTextAlignmentRight;
+	}
+	else if ([align isEqualToString:@"center"])
+	{
+		textAlign = CCTextAlignmentCenter;
+	}
+	
+	return textAlign;
+}
+
+- (CGPoint)convertToMidPosition:(CGPoint)nodePosition
+					   nodeSize:(CGSize)nodeSize
+				nodeAnchorPoint:(CGPoint)nodeAnchorPoint
+{
+	nodePosition.y = self.contentSize.height - nodePosition.y;
+	CGPoint offsetAnchor = ccpSub(ccp(0.5, 0.5), nodeAnchorPoint);
+	
+	return ccpAdd(nodePosition, ccp(offsetAnchor.x * nodeSize.width, offsetAnchor.y * nodeSize.height));
+}
+
+- (CGPoint)getMidPosition:(BalsamiqControlData *)data
+{
+	return [self convertToMidPosition:[self getBalsamiqControlPosition:data]
+							 nodeSize:[self getBalsamiqControlSize:data]
+					  nodeAnchorPoint:ccp(0, 1)];
 }
 
 ////////////////////////////////////////////////////////
@@ -174,11 +207,9 @@ typedef struct
 		NSString *text = [data.propertyDic objectForKey:@"text"];
 		if (text != nil)
 		{
-			NSString *size = [data.propertyDic objectForKey:@"size"];
-			
 			[item initLabel:[self getClearText:text] 
 				   fontName:balsamiqFontName
-				   fontSize:(size == nil) ? 13 : [size intValue]
+				   fontSize:[self getBalsamiqControlTextSize:data]
 				normalColor:buttonNormalTextColor 
 				selectColor:buttonSelectTextColor
 			   disableColor:ccBLACK];
@@ -194,21 +225,6 @@ typedef struct
 
 - (void)createLabel:(BalsamiqControlData *)data byCreateInfo:(ControlCreateInfo)createInfo
 {
-	NSString *sizeStr = [data.propertyDic objectForKey:@"size"];
-	int size = (sizeStr == nil) ? 13 : [sizeStr intValue];
-	
-	//加入对齐控制
-	NSString *align = [data.propertyDic objectForKey:@"align"];
-	CCTextAlignment textAlign = CCTextAlignmentLeft;
-	if ([align isEqualToString:@"right"])
-	{
-		textAlign = CCTextAlignmentRight;
-	}
-	else if ([align isEqualToString:@"center"])
-	{
-		textAlign = CCTextAlignmentCenter;
-	}
-	
 	//加入边框显示，若在balsamiq中加入下划线，则加入边框
 	NSString *underlineStr = [data.propertyDic objectForKey:@"underline"];
 	
@@ -217,9 +233,9 @@ typedef struct
 	{
 		label = [CCLabelFX labelWithString:[self getClearText:[data.propertyDic objectForKey:@"text"]]
 								dimensions:[self getBalsamiqControlSize:data]
-								 alignment:textAlign
+								 alignment:[self getBalsamiqControlAlign:data]
 								  fontName:balsamiqFontName
-								  fontSize:size
+								  fontSize:[self getBalsamiqControlTextSize:data]
 							  shadowOffset:CGSizeMake(0, 0) 
 								shadowBlur:2.0f];
 	}
@@ -227,9 +243,9 @@ typedef struct
 	{
 		label = [CCLabelTTF labelWithString:[self getClearText:[data.propertyDic objectForKey:@"text"]]
 								 dimensions:[self getBalsamiqControlSize:data]
-								  alignment:textAlign
+								  alignment:[self getBalsamiqControlAlign:data]
 								   fontName:balsamiqFontName
-								   fontSize:size];
+								   fontSize:[self getBalsamiqControlTextSize:data]];
 	}
 	
 	label.position = [self getMidPosition:data];
@@ -243,6 +259,59 @@ typedef struct
 		[createInfo.eventHandle onLabelCreated:label
 										  name:[data.propertyDic objectForKey:@"customID"]];
 	}
+}
+
+/*!
+    @名    称：createTextInput
+    @描    述：创建文本输入框
+    @参    数：data
+    @参    数：createInfo
+    @返 回 值：
+    @备    注：文本输入框的指针保存在layer的userData中
+*/
+- (void)createTextInput:(BalsamiqControlData *)data byCreateInfo:(ControlCreateInfo)createInfo
+{
+	CGRect rect = {[self getBalsamiqControlPosition:data], [self getBalsamiqControlSize:data]};
+	rect.origin = [self convertToMidPosition:rect.origin
+									nodeSize:rect.size
+							 nodeAnchorPoint:ccp(0.5f, 0.5f)];
+	rect.origin = [[CCDirector sharedDirector] convertToUI:rect.origin];
+	
+	UIPaddingTextField *nameTextField = [[[UIPaddingTextField alloc] initWithFrame:rect] autorelease];
+	[nameTextField setPaddingLeft:5 paddingTop:4];
+	
+	//nameTextField.transform = CGAffineTransformMakeRotation(M_PI * (90.0 / 180.0)); // rotate for landscape
+	nameTextField.text = [self getClearText:[data.propertyDic objectForKey:@"text"]];
+	nameTextField.textColor = [self getUIColor:textInputColor alpha:1.0f];
+	nameTextField.textAlignment = [self getBalsamiqControlAlign:data];
+	nameTextField.font = [UIFont fontWithName:[balsamiqFontName stringByDeletingPathExtension]
+										 size:[self getBalsamiqControlTextSize:data]];
+	
+	// NOTE: UITextField won't be visible by default without setting backGroundColor & borderStyle
+	ccColor3B backgroundColor = [self getColor:[[data.propertyDic objectForKey:@"color"] intValue]];
+	nameTextField.backgroundColor = [self getUIColor:backgroundColor
+											   alpha:[[data.propertyDic objectForKey:@"backgroundAlpha"] floatValue]];
+	nameTextField.borderStyle = UITextBorderStyleNone;
+	
+	nameTextField.delegate = createInfo.eventHandle; // set this layer as the UITextFieldDelegate
+	nameTextField.returnKeyType = UIReturnKeyDone; // add the 'done' key to the keyboard
+	nameTextField.autocorrectionType = UITextAutocorrectionTypeNo; // switch of auto correction
+	nameTextField.autocapitalizationType = UITextAutocapitalizationTypeWords;
+	
+	[[BalsamiqLayerTextInputManager instance] addTextInput:nameTextField managedBy:self];
+	
+	// add the textField to the main game openGLVview
+	[[[CCDirector sharedDirector] openGLView] addSubview: nameTextField];
+}
+
+////////////////////////////////////////////////////////
+#pragma mark 继承函数
+////////////////////////////////////////////////////////
+
+- (void) dealloc
+{
+	[[BalsamiqLayerTextInputManager instance] removeTextInputManager:self];
+	[super dealloc];
 }
 
 ////////////////////////////////////////////////////////
@@ -264,7 +333,7 @@ typedef struct
 			
 			if ([@"com.balsamiq.mockups::ModalScreen" isEqualToString:[data.attributeDic objectForKey:@"controlTypeID"]])
 			{
-				[self setLayerInfo:data];
+				self.contentSize = [self getBalsamiqControlSize:data];
 				break;
 			}
 		}
@@ -302,7 +371,7 @@ typedef struct
 
 + (id)layerWithBalsamiqData:(NSArray *)balsamiqData eventHandle:(id<BalsamiqReaderDelegate>)handle
 {
-	return [[[CCLayer alloc] initWithBalsamiqData:balsamiqData eventHandle:handle] autorelease];
+	return [[[CCBalsamiqLayer alloc] initWithBalsamiqData:balsamiqData eventHandle:handle] autorelease];
 }
 
 @end

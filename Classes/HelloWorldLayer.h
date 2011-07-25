@@ -14,6 +14,7 @@
 // HelloWorldLayer
 @interface HelloWorldLayer : CCLayer <BalsamiqReaderDelegate>
 {
+	CCLayer *uiLayer;
 }
 
 // returns a CCScene that contains the HelloWorldLayer as the only child

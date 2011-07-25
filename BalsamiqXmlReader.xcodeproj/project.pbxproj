@@ -49,7 +49,7 @@
 		50F414F01069373D002A0D5E /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 50F414EC1069373D002A0D5E /* Default.png */; };
 		50F414F11069373D002A0D5E /* fps_images.png in Resources */ = {isa = PBXBuildFile; fileRef = 50F414ED1069373D002A0D5E /* fps_images.png */; };
 		50F414F21069373D002A0D5E /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 50F414EE1069373D002A0D5E /* Icon.png */; };
-		D85B22AC13D7C512007C9D59 /* CCLayer+BalsamiqParser.m in Sources */ = {isa = PBXBuildFile; fileRef = D85B22AB13D7C512007C9D59 /* CCLayer+BalsamiqParser.m */; };
+		D85B22AC13D7C512007C9D59 /* CCBalsamiqLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = D85B22AB13D7C512007C9D59 /* CCBalsamiqLayer.m */; };
 		D85B239613D81561007C9D59 /* CCMenuItemButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D85B239513D81561007C9D59 /* CCMenuItemButton.m */; };
 		D895668913DA5F2600FFA735 /* CCLabelFX.m in Sources */ = {isa = PBXBuildFile; fileRef = D895668613DA5F2600FFA735 /* CCLabelFX.m */; };
 		D895668A13DA5F2600FFA735 /* CCTexture2D+TextShadow.m in Sources */ = {isa = PBXBuildFile; fileRef = D895668813DA5F2600FFA735 /* CCTexture2D+TextShadow.m */; };
@@ -87,6 +87,8 @@
 		D8D3C6B813D6D2C7002846EC /* DDXMLPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = D8D3C6AC13D6D2C7002846EC /* DDXMLPrivate.h */; };
 		D8D3C71013D6DD0E002846EC /* libKissXml libraries.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D8D3C69813D6CF5C002846EC /* libKissXml libraries.a */; };
 		D8D3C72713D6DDD2002846EC /* BalsamiqControlData.m in Sources */ = {isa = PBXBuildFile; fileRef = D8D3C72613D6DDD2002846EC /* BalsamiqControlData.m */; };
+		D8D83BCF13DD0A0E0049AC75 /* UIPaddingTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = D8D83BCE13DD0A0E0049AC75 /* UIPaddingTextField.m */; };
+		D8D83CAA13DD19A40049AC75 /* BalsamiqLayerTextInputManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D8D83CA913DD19A40049AC75 /* BalsamiqLayerTextInputManager.m */; };
 		DC6640030F83B3EA000B3E49 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC6640020F83B3EA000B3E49 /* AudioToolbox.framework */; };
 		DC6640050F83B3EA000B3E49 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC6640040F83B3EA000B3E49 /* OpenAL.framework */; };
 		DCCBF1B70F6022AE0040855A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCCBF1B60F6022AE0040855A /* CoreGraphics.framework */; };
@@ -338,8 +340,8 @@
 		50F414ED1069373D002A0D5E /* fps_images.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fps_images.png; sourceTree = "<group>"; };
 		50F414EE1069373D002A0D5E /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		50F414EF1069373D002A0D5E /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D85B22AA13D7C512007C9D59 /* CCLayer+BalsamiqParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CCLayer+BalsamiqParser.h"; sourceTree = "<group>"; };
-		D85B22AB13D7C512007C9D59 /* CCLayer+BalsamiqParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CCLayer+BalsamiqParser.m"; sourceTree = "<group>"; };
+		D85B22AA13D7C512007C9D59 /* CCBalsamiqLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCBalsamiqLayer.h; sourceTree = "<group>"; };
+		D85B22AB13D7C512007C9D59 /* CCBalsamiqLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCBalsamiqLayer.m; sourceTree = "<group>"; };
 		D85B239413D81561007C9D59 /* CCMenuItemButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCMenuItemButton.h; sourceTree = "<group>"; };
 		D85B239513D81561007C9D59 /* CCMenuItemButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCMenuItemButton.m; sourceTree = "<group>"; };
 		D895668513DA5F2600FFA735 /* CCLabelFX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCLabelFX.h; sourceTree = "<group>"; };
@@ -382,6 +384,10 @@
 		D8D3C6AC13D6D2C7002846EC /* DDXMLPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDXMLPrivate.h; sourceTree = "<group>"; };
 		D8D3C72513D6DDD2002846EC /* BalsamiqControlData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BalsamiqControlData.h; sourceTree = "<group>"; };
 		D8D3C72613D6DDD2002846EC /* BalsamiqControlData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BalsamiqControlData.m; sourceTree = "<group>"; };
+		D8D83BCD13DD0A0E0049AC75 /* UIPaddingTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIPaddingTextField.h; sourceTree = "<group>"; };
+		D8D83BCE13DD0A0E0049AC75 /* UIPaddingTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIPaddingTextField.m; sourceTree = "<group>"; };
+		D8D83CA813DD19A40049AC75 /* BalsamiqLayerTextInputManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BalsamiqLayerTextInputManager.h; sourceTree = "<group>"; };
+		D8D83CA913DD19A40049AC75 /* BalsamiqLayerTextInputManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BalsamiqLayerTextInputManager.m; sourceTree = "<group>"; };
 		DC6640020F83B3EA000B3E49 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		DC6640040F83B3EA000B3E49 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
 		DCCBF1B60F6022AE0040855A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -862,8 +868,12 @@
 				D85B239513D81561007C9D59 /* CCMenuItemButton.m */,
 				D8D3C72513D6DDD2002846EC /* BalsamiqControlData.h */,
 				D8D3C72613D6DDD2002846EC /* BalsamiqControlData.m */,
-				D85B22AA13D7C512007C9D59 /* CCLayer+BalsamiqParser.h */,
-				D85B22AB13D7C512007C9D59 /* CCLayer+BalsamiqParser.m */,
+				D85B22AA13D7C512007C9D59 /* CCBalsamiqLayer.h */,
+				D85B22AB13D7C512007C9D59 /* CCBalsamiqLayer.m */,
+				D8D83BCD13DD0A0E0049AC75 /* UIPaddingTextField.h */,
+				D8D83BCE13DD0A0E0049AC75 /* UIPaddingTextField.m */,
+				D8D83CA813DD19A40049AC75 /* BalsamiqLayerTextInputManager.h */,
+				D8D83CA913DD19A40049AC75 /* BalsamiqLayerTextInputManager.m */,
 			);
 			name = BalsamiqXmlReader;
 			sourceTree = "<group>";
@@ -1370,10 +1380,12 @@
 				506EDC31102F528A00A389B3 /* HelloWorldLayer.m in Sources */,
 				E0F80F60120A0182005866B8 /* RootViewController.m in Sources */,
 				D8D3C72713D6DDD2002846EC /* BalsamiqControlData.m in Sources */,
-				D85B22AC13D7C512007C9D59 /* CCLayer+BalsamiqParser.m in Sources */,
+				D85B22AC13D7C512007C9D59 /* CCBalsamiqLayer.m in Sources */,
 				D85B239613D81561007C9D59 /* CCMenuItemButton.m in Sources */,
 				D895668913DA5F2600FFA735 /* CCLabelFX.m in Sources */,
 				D895668A13DA5F2600FFA735 /* CCTexture2D+TextShadow.m in Sources */,
+				D8D83BCF13DD0A0E0049AC75 /* UIPaddingTextField.m in Sources */,
+				D8D83CAA13DD19A40049AC75 /* BalsamiqLayerTextInputManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1519,6 +1531,7 @@
 				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
 				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INFOPLIST_FILE = Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"-all_load",
@@ -1543,6 +1556,7 @@
 				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
 				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INFOPLIST_FILE = Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
 					"-all_load",
