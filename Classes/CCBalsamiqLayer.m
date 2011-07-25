@@ -24,6 +24,10 @@ typedef struct
 	id eventHandle;
 }ControlCreateInfo;
 
+#define IMAGE_PREFIX @"image_"
+#define TOGGLE_PREFIX @"toggle_"
+#define TOGGLE_INDEX @"-1"
+
 @implementation CCBalsamiqLayer : CCLayer
 
 ////////////////////////////////////////////////////////
@@ -85,11 +89,18 @@ typedef struct
 	if ([@"-1" isEqualToString:[data.attributeDic objectForKey:@"w"]])
 	{
 		size.width = [[data.attributeDic objectForKey:@"measuredW"] intValue];
-		size.height = [[data.attributeDic objectForKey:@"measuredH"] intValue];
 	}
 	else
 	{
 		size.width = [[data.attributeDic objectForKey:@"w"] intValue];
+	}
+	
+	if ([@"-1" isEqualToString:[data.attributeDic objectForKey:@"h"]])
+	{
+		size.height = [[data.attributeDic objectForKey:@"measuredH"] intValue];
+	}
+	else
+	{
 		size.height = [[data.attributeDic objectForKey:@"h"] intValue];
 	}
 
@@ -151,21 +162,24 @@ typedef struct
 {
 	NSString *picName = [[data.propertyDic objectForKey:@"src"] lastPathComponent];
 	NSString *customID = [data.propertyDic objectForKey:@"customID"];
+	if (customID == nil)
+	{
+		customID = @"";
+	}
 	
 	int zOrder = [[data.attributeDic objectForKey:@"zOrder"] intValue];
 	
-	if (customID == nil || 
-		[customID isEqualToString:@""] ||
-		[customID rangeOfString:@"image_"].length != 0)
+	if ([customID hasPrefix:IMAGE_PREFIX] ||
+		[customID isEqualToString:@""])
 	{
 		//无名字的情况下，创建图片
 		CCSprite *image = [CCSprite spriteWithFile:picName];
 		
-		CGSize imageSize = [self getBalsamiqControlSize:data];
-		if (CGSizeEqualToSize(image.contentSize, imageSize) == NO)
+		CGSize itemSize = [self getBalsamiqControlSize:data];
+		if (CGSizeEqualToSize(image.contentSize, itemSize) == NO)
 		{
-			image.scaleX = imageSize.width / image.contentSize.width;
-			image.scaleY = imageSize.height / image.contentSize.height;
+			image.scaleX = itemSize.width / image.contentSize.width;
+			image.scaleY = itemSize.height / image.contentSize.height;
 		}
 		image.position = [self getMidPosition:data];
 		[self addChild:image z:zOrder];
@@ -176,7 +190,40 @@ typedef struct
 			[createInfo.eventHandle onImageCreated:image name:customID];
 		}
 	}
-	else 
+	else if ([customID hasPrefix:TOGGLE_PREFIX] &&
+			 [picName rangeOfString:TOGGLE_INDEX].length > 0)
+	{
+		CCMenuItemToggle *toggle = [CCMenuItemToggle itemWithTarget:createInfo.eventHandle
+														   selector:@selector(toggleCallBack:)
+															  items:[CCMenuItemImage itemFromNormalImage:picName selectedImage:picName], nil];
+		toggle.position = [self getMidPosition:data];
+		[createInfo.menu addChild:toggle z:zOrder];
+		
+		if (createInfo.menu.zOrder < zOrder)
+		{
+			[createInfo.menu.parent reorderChild:createInfo.menu z:zOrder];
+		}
+		
+		for (int i = 2; YES; ++i)
+		{
+			NSString *curPicName = [picName stringByReplacingOccurrencesOfString:TOGGLE_INDEX
+																	  withString:[NSString stringWithFormat:@"-%d", i]];
+			
+			if ([[CCTextureCache sharedTextureCache] addImage:curPicName] == nil)
+			{
+				break;
+			}
+			
+			[toggle.subItems addObject:[CCMenuItemImage itemFromNormalImage:curPicName selectedImage:curPicName]];
+		}
+		
+		//发送事件
+		if ([createInfo.eventHandle respondsToSelector:@selector(onToggleCreated:name:)])
+		{
+			[createInfo.eventHandle onToggleCreated:toggle name:customID];
+		}
+	}
+	else
 	{
 		//生成事件名称
 		NSString* methodName = [NSString stringWithFormat:@"on%@Click:", customID];
@@ -195,6 +242,12 @@ typedef struct
 																target:createInfo.eventHandle
 															  selector:eventSel];
 		
+		CGSize itemSize = [self getBalsamiqControlSize:data];
+		if (CGSizeEqualToSize(item.contentSize, itemSize) == NO)
+		{
+			item.scaleX = itemSize.width / item.contentSize.width;
+			item.scaleY = itemSize.height / item.contentSize.height;
+		}
 		item.position = [self getMidPosition:data];
 		
 		[createInfo.menu addChild:item z:zOrder];
@@ -213,6 +266,9 @@ typedef struct
 				normalColor:buttonNormalTextColor 
 				selectColor:buttonSelectTextColor
 			   disableColor:ccBLACK];
+			
+			item.label.scaleX = 1 / item.scaleX;
+			item.label.scaleY = 1 / item.scaleY;
 		}
 		
 		//发送事件
@@ -277,31 +333,38 @@ typedef struct
 							 nodeAnchorPoint:ccp(0.5f, 0.5f)];
 	rect.origin = [[CCDirector sharedDirector] convertToUI:rect.origin];
 	
-	UIPaddingTextField *nameTextField = [[[UIPaddingTextField alloc] initWithFrame:rect] autorelease];
-	[nameTextField setPaddingLeft:5 paddingTop:4];
+	UIPaddingTextField *textField = [[[UIPaddingTextField alloc] initWithFrame:rect] autorelease];
+	[textField setPaddingLeft:5 paddingTop:4];
 	
 	//nameTextField.transform = CGAffineTransformMakeRotation(M_PI * (90.0 / 180.0)); // rotate for landscape
-	nameTextField.text = [self getClearText:[data.propertyDic objectForKey:@"text"]];
-	nameTextField.textColor = [self getUIColor:textInputColor alpha:1.0f];
-	nameTextField.textAlignment = [self getBalsamiqControlAlign:data];
-	nameTextField.font = [UIFont fontWithName:[balsamiqFontName stringByDeletingPathExtension]
+	textField.text = [self getClearText:[data.propertyDic objectForKey:@"text"]];
+	textField.textColor = [self getUIColor:textInputColor alpha:1.0f];
+	textField.textAlignment = [self getBalsamiqControlAlign:data];
+	textField.font = [UIFont fontWithName:[balsamiqFontName stringByDeletingPathExtension]
 										 size:[self getBalsamiqControlTextSize:data]];
 	
 	// NOTE: UITextField won't be visible by default without setting backGroundColor & borderStyle
 	ccColor3B backgroundColor = [self getColor:[[data.propertyDic objectForKey:@"color"] intValue]];
-	nameTextField.backgroundColor = [self getUIColor:backgroundColor
+	textField.backgroundColor = [self getUIColor:backgroundColor
 											   alpha:[[data.propertyDic objectForKey:@"backgroundAlpha"] floatValue]];
-	nameTextField.borderStyle = UITextBorderStyleNone;
+	textField.borderStyle = UITextBorderStyleRoundedRect;
 	
-	nameTextField.delegate = createInfo.eventHandle; // set this layer as the UITextFieldDelegate
-	nameTextField.returnKeyType = UIReturnKeyDone; // add the 'done' key to the keyboard
-	nameTextField.autocorrectionType = UITextAutocorrectionTypeNo; // switch of auto correction
-	nameTextField.autocapitalizationType = UITextAutocapitalizationTypeWords;
-	
-	[[BalsamiqLayerTextInputManager instance] addTextInput:nameTextField managedBy:self];
+	textField.delegate = createInfo.eventHandle; // set this layer as the UITextFieldDelegate
+	textField.returnKeyType = UIReturnKeyDone; // add the 'done' key to the keyboard
+	textField.autocorrectionType = UITextAutocorrectionTypeNo; // switch of auto correction
+	textField.autocapitalizationType = UITextAutocapitalizationTypeWords;
 	
 	// add the textField to the main game openGLVview
-	[[[CCDirector sharedDirector] openGLView] addSubview: nameTextField];
+	[[[CCDirector sharedDirector] openGLView] addSubview:textField];
+	
+	[[BalsamiqLayerTextInputManager instance] addTextInput:textField managedBy:self];
+	
+	//发送事件
+	if ([createInfo.eventHandle respondsToSelector:@selector(onTextInputCreated:name:)])
+	{
+		[createInfo.eventHandle onTextInputCreated:textField
+											  name:[data.propertyDic objectForKey:@"customID"]];
+	}
 }
 
 ////////////////////////////////////////////////////////
@@ -318,7 +381,7 @@ typedef struct
 #pragma mark 公共函数
 ////////////////////////////////////////////////////////
 
-- (id)initWithBalsamiqData:(NSArray *)balsamiqData eventHandle:(id<BalsamiqReaderDelegate>)handle
+- (id)initWithBalsamiqData:(NSArray *)balsamiqData eventHandle:(id)handle
 {
 	self = [self init];
 	if (self != nil)
@@ -369,7 +432,7 @@ typedef struct
 	return self;
 }
 
-+ (id)layerWithBalsamiqData:(NSArray *)balsamiqData eventHandle:(id<BalsamiqReaderDelegate>)handle
++ (id)layerWithBalsamiqData:(NSArray *)balsamiqData eventHandle:(id)handle
 {
 	return [[[CCBalsamiqLayer alloc] initWithBalsamiqData:balsamiqData eventHandle:handle] autorelease];
 }

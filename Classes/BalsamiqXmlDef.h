@@ -29,6 +29,15 @@ extern ccColor3B textInputColor;
 @optional
 - (void)onLabelCreated:(CCLabelTTF *)label name:(NSString *)name;
 
+@optional
+- (void)onTextInputCreated:(UITextField *)textInput name:(NSString *)name;
+
+@optional
+- (void)onToggleCreated:(CCMenuItemToggle *)toggle name:(NSString *)name;
+
+@optional
+- (void)toggleCallBack:(id)sender;
+
 @end
 
 #endif //BALSAMIQXMLDEF_H
