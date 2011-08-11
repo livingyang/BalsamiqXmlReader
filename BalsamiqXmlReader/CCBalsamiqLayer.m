@@ -28,6 +28,9 @@ typedef struct
 #define TOGGLE_PREFIX @"toggle_"
 #define TOGGLE_INDEX @"-1"
 
+#define LABEL_NORMAL_OFFSET_POSITION ccp(3, -2)
+#define LABEL_SHADOW_OFFSET_POSITION ccp(8, -2)
+
 @implementation CCBalsamiqLayer : CCLayer
 
 ////////////////////////////////////////////////////////
@@ -294,6 +297,7 @@ typedef struct
 								  fontSize:[self getBalsamiqControlTextSize:data]
 							  shadowOffset:CGSizeMake(0, 0) 
 								shadowBlur:2.0f];
+		label.position = ccpAdd([self getMidPosition:data], LABEL_SHADOW_OFFSET_POSITION);
 	}
 	else
 	{
@@ -302,9 +306,9 @@ typedef struct
 								  alignment:[self getBalsamiqControlAlign:data]
 								   fontName:balsamiqFontName
 								   fontSize:[self getBalsamiqControlTextSize:data]];
+		label.position = ccpAdd([self getMidPosition:data], LABEL_NORMAL_OFFSET_POSITION);
 	}
 	
-	label.position = [self getMidPosition:data];
 	label.color = [self getColor:[[data.propertyDic objectForKey:@"color"] intValue]];
 	
 	[self addChild:label z:[[data.attributeDic objectForKey:@"zOrder"] intValue]];
@@ -371,9 +375,15 @@ typedef struct
 #pragma mark 继承函数
 ////////////////////////////////////////////////////////
 
-- (void) dealloc
+- (void)onExit
 {
 	[[BalsamiqLayerTextInputManager instance] removeTextInputManager:self];
+	[super onExit];
+}
+
+- (void) dealloc
+{
+	//[[BalsamiqLayerTextInputManager instance] removeTextInputManager:self];
 	[super dealloc];
 }
 

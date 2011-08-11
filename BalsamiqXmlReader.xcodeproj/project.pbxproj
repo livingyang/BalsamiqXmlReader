@@ -49,10 +49,6 @@
 		50F414F01069373D002A0D5E /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 50F414EC1069373D002A0D5E /* Default.png */; };
 		50F414F11069373D002A0D5E /* fps_images.png in Resources */ = {isa = PBXBuildFile; fileRef = 50F414ED1069373D002A0D5E /* fps_images.png */; };
 		50F414F21069373D002A0D5E /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 50F414EE1069373D002A0D5E /* Icon.png */; };
-		D85B22AC13D7C512007C9D59 /* CCBalsamiqLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = D85B22AB13D7C512007C9D59 /* CCBalsamiqLayer.m */; };
-		D85B239613D81561007C9D59 /* CCMenuItemButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D85B239513D81561007C9D59 /* CCMenuItemButton.m */; };
-		D895668913DA5F2600FFA735 /* CCLabelFX.m in Sources */ = {isa = PBXBuildFile; fileRef = D895668613DA5F2600FFA735 /* CCLabelFX.m */; };
-		D895668A13DA5F2600FFA735 /* CCTexture2D+TextShadow.m in Sources */ = {isa = PBXBuildFile; fileRef = D895668813DA5F2600FFA735 /* CCTexture2D+TextShadow.m */; };
 		D895677413DAA0FC00FFA735 /* test.bmml in Resources */ = {isa = PBXBuildFile; fileRef = D895677313DAA0FC00FFA735 /* test.bmml */; };
 		D8CF0D4C13D924BE005A6171 /* Vanilla.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D8CF0D4B13D924BE005A6171 /* Vanilla.ttf */; };
 		D8CF0D7013D924F6005A6171 /* 4-LevelSelect-pad.bmml in Resources */ = {isa = PBXBuildFile; fileRef = D8CF0D5E13D924F6005A6171 /* 4-LevelSelect-pad.bmml */; };
@@ -73,22 +69,29 @@
 		D8CF0D7F13D924F6005A6171 /* image-levelselect-star-full.png in Resources */ = {isa = PBXBuildFile; fileRef = D8CF0D6D13D924F6005A6171 /* image-levelselect-star-full.png */; };
 		D8CF0D8013D924F6005A6171 /* scene-levelselect-border-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = D8CF0D6E13D924F6005A6171 /* scene-levelselect-border-hd.png */; };
 		D8CF0D8113D924F6005A6171 /* scene-levelselect-border.png in Resources */ = {isa = PBXBuildFile; fileRef = D8CF0D6F13D924F6005A6171 /* scene-levelselect-border.png */; };
-		D8D3C6AD13D6D2C7002846EC /* DDXMLElementAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = D8D3C69F13D6D2C7002846EC /* DDXMLElementAdditions.h */; };
-		D8D3C6AE13D6D2C7002846EC /* DDXMLElementAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = D8D3C6A013D6D2C7002846EC /* DDXMLElementAdditions.m */; };
-		D8D3C6AF13D6D2C7002846EC /* NSString+DDXML.h in Headers */ = {isa = PBXBuildFile; fileRef = D8D3C6A213D6D2C7002846EC /* NSString+DDXML.h */; };
-		D8D3C6B013D6D2C7002846EC /* NSString+DDXML.m in Sources */ = {isa = PBXBuildFile; fileRef = D8D3C6A313D6D2C7002846EC /* NSString+DDXML.m */; };
-		D8D3C6B113D6D2C7002846EC /* DDXML.h in Headers */ = {isa = PBXBuildFile; fileRef = D8D3C6A413D6D2C7002846EC /* DDXML.h */; };
-		D8D3C6B213D6D2C7002846EC /* DDXMLDocument.h in Headers */ = {isa = PBXBuildFile; fileRef = D8D3C6A513D6D2C7002846EC /* DDXMLDocument.h */; };
-		D8D3C6B313D6D2C7002846EC /* DDXMLDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = D8D3C6A613D6D2C7002846EC /* DDXMLDocument.m */; };
-		D8D3C6B413D6D2C7002846EC /* DDXMLElement.h in Headers */ = {isa = PBXBuildFile; fileRef = D8D3C6A713D6D2C7002846EC /* DDXMLElement.h */; };
-		D8D3C6B513D6D2C7002846EC /* DDXMLElement.m in Sources */ = {isa = PBXBuildFile; fileRef = D8D3C6A813D6D2C7002846EC /* DDXMLElement.m */; };
-		D8D3C6B613D6D2C7002846EC /* DDXMLNode.h in Headers */ = {isa = PBXBuildFile; fileRef = D8D3C6A913D6D2C7002846EC /* DDXMLNode.h */; };
-		D8D3C6B713D6D2C7002846EC /* DDXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = D8D3C6AA13D6D2C7002846EC /* DDXMLNode.m */; };
-		D8D3C6B813D6D2C7002846EC /* DDXMLPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = D8D3C6AC13D6D2C7002846EC /* DDXMLPrivate.h */; };
 		D8D3C71013D6DD0E002846EC /* libKissXml libraries.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D8D3C69813D6CF5C002846EC /* libKissXml libraries.a */; };
-		D8D3C72713D6DDD2002846EC /* BalsamiqControlData.m in Sources */ = {isa = PBXBuildFile; fileRef = D8D3C72613D6DDD2002846EC /* BalsamiqControlData.m */; };
-		D8D83BCF13DD0A0E0049AC75 /* UIPaddingTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = D8D83BCE13DD0A0E0049AC75 /* UIPaddingTextField.m */; };
-		D8D83CAA13DD19A40049AC75 /* BalsamiqLayerTextInputManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D8D83CA913DD19A40049AC75 /* BalsamiqLayerTextInputManager.m */; };
+		D8FAD6E013F36BD100FEECF0 /* DDXMLElementAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = D8FAD6D213F36BD100FEECF0 /* DDXMLElementAdditions.h */; };
+		D8FAD6E113F36BD100FEECF0 /* DDXMLElementAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = D8FAD6D313F36BD100FEECF0 /* DDXMLElementAdditions.m */; };
+		D8FAD6E213F36BD100FEECF0 /* NSString+DDXML.h in Headers */ = {isa = PBXBuildFile; fileRef = D8FAD6D513F36BD100FEECF0 /* NSString+DDXML.h */; };
+		D8FAD6E313F36BD100FEECF0 /* NSString+DDXML.m in Sources */ = {isa = PBXBuildFile; fileRef = D8FAD6D613F36BD100FEECF0 /* NSString+DDXML.m */; };
+		D8FAD6E413F36BD100FEECF0 /* DDXML.h in Headers */ = {isa = PBXBuildFile; fileRef = D8FAD6D713F36BD100FEECF0 /* DDXML.h */; };
+		D8FAD6E513F36BD100FEECF0 /* DDXMLDocument.h in Headers */ = {isa = PBXBuildFile; fileRef = D8FAD6D813F36BD100FEECF0 /* DDXMLDocument.h */; };
+		D8FAD6E613F36BD100FEECF0 /* DDXMLDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = D8FAD6D913F36BD100FEECF0 /* DDXMLDocument.m */; };
+		D8FAD6E713F36BD100FEECF0 /* DDXMLElement.h in Headers */ = {isa = PBXBuildFile; fileRef = D8FAD6DA13F36BD100FEECF0 /* DDXMLElement.h */; };
+		D8FAD6E813F36BD100FEECF0 /* DDXMLElement.m in Sources */ = {isa = PBXBuildFile; fileRef = D8FAD6DB13F36BD100FEECF0 /* DDXMLElement.m */; };
+		D8FAD6E913F36BD100FEECF0 /* DDXMLNode.h in Headers */ = {isa = PBXBuildFile; fileRef = D8FAD6DC13F36BD100FEECF0 /* DDXMLNode.h */; };
+		D8FAD6EA13F36BD100FEECF0 /* DDXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = D8FAD6DD13F36BD100FEECF0 /* DDXMLNode.m */; };
+		D8FAD6EB13F36BD100FEECF0 /* DDXMLPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = D8FAD6DF13F36BD100FEECF0 /* DDXMLPrivate.h */; };
+		D8FAD72713F36CB100FEECF0 /* CCLabelFX.m in Sources */ = {isa = PBXBuildFile; fileRef = D8FAD6EE13F36BF100FEECF0 /* CCLabelFX.m */; };
+		D8FAD72813F36CB100FEECF0 /* CCTexture2D+TextShadow.m in Sources */ = {isa = PBXBuildFile; fileRef = D8FAD6F013F36BF100FEECF0 /* CCTexture2D+TextShadow.m */; };
+		D8FAD72913F36CB100FEECF0 /* BalsamiqControlData.m in Sources */ = {isa = PBXBuildFile; fileRef = D8FAD6F413F36C1600FEECF0 /* BalsamiqControlData.m */; };
+		D8FAD72A13F36CB100FEECF0 /* BalsamiqLayerTextInputManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D8FAD6F613F36C1600FEECF0 /* BalsamiqLayerTextInputManager.m */; };
+		D8FAD72B13F36CB100FEECF0 /* CCBalsamiqLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = D8FAD6F913F36C1600FEECF0 /* CCBalsamiqLayer.m */; };
+		D8FAD72C13F36CB100FEECF0 /* CCMenuItemButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D8FAD6FB13F36C1600FEECF0 /* CCMenuItemButton.m */; };
+		D8FAD72D13F36CB100FEECF0 /* UIPaddingTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = D8FAD6FD13F36C1600FEECF0 /* UIPaddingTextField.m */; };
+		D8FAD86313F36D9700FEECF0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCCBF1B80F6022AE0040855A /* Foundation.framework */; };
+		D8FAD86613F36D9700FEECF0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCCBF1BE0F6022AE0040855A /* UIKit.framework */; };
+		D8FAD87E13F3701700FEECF0 /* libBalsamiqXmlReader libraries.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D8FAD72413F36C9100FEECF0 /* libBalsamiqXmlReader libraries.a */; };
 		DC6640030F83B3EA000B3E49 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC6640020F83B3EA000B3E49 /* AudioToolbox.framework */; };
 		DC6640050F83B3EA000B3E49 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC6640040F83B3EA000B3E49 /* OpenAL.framework */; };
 		DCCBF1B70F6022AE0040855A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCCBF1B60F6022AE0040855A /* CoreGraphics.framework */; };
@@ -295,6 +298,13 @@
 			remoteGlobalIDString = D8D3C69713D6CF5C002846EC;
 			remoteInfo = "KissXml libraries";
 		};
+		D8FAD87C13F3701000FEECF0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D8FAD72313F36C9100FEECF0 /* BalsamiqXmlReader libraries */;
+			remoteInfo = "BalsamiqXmlReader libraries";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -340,16 +350,7 @@
 		50F414ED1069373D002A0D5E /* fps_images.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fps_images.png; sourceTree = "<group>"; };
 		50F414EE1069373D002A0D5E /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		50F414EF1069373D002A0D5E /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D85B22AA13D7C512007C9D59 /* CCBalsamiqLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCBalsamiqLayer.h; sourceTree = "<group>"; };
-		D85B22AB13D7C512007C9D59 /* CCBalsamiqLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCBalsamiqLayer.m; sourceTree = "<group>"; };
-		D85B239413D81561007C9D59 /* CCMenuItemButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCMenuItemButton.h; sourceTree = "<group>"; };
-		D85B239513D81561007C9D59 /* CCMenuItemButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCMenuItemButton.m; sourceTree = "<group>"; };
-		D895668513DA5F2600FFA735 /* CCLabelFX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCLabelFX.h; sourceTree = "<group>"; };
-		D895668613DA5F2600FFA735 /* CCLabelFX.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCLabelFX.m; sourceTree = "<group>"; };
-		D895668713DA5F2600FFA735 /* CCTexture2D+TextShadow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CCTexture2D+TextShadow.h"; sourceTree = "<group>"; };
-		D895668813DA5F2600FFA735 /* CCTexture2D+TextShadow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CCTexture2D+TextShadow.m"; sourceTree = "<group>"; };
 		D895677313DAA0FC00FFA735 /* test.bmml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test.bmml; sourceTree = "<group>"; };
-		D8CF0CC613D91826005A6171 /* BalsamiqXmlDef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BalsamiqXmlDef.h; sourceTree = "<group>"; };
 		D8CF0D4B13D924BE005A6171 /* Vanilla.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Vanilla.ttf; sourceTree = "<group>"; };
 		D8CF0D5E13D924F6005A6171 /* 4-LevelSelect-pad.bmml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "4-LevelSelect-pad.bmml"; sourceTree = "<group>"; };
 		D8CF0D5F13D924F6005A6171 /* 4-LevelSelect.bmml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "4-LevelSelect.bmml"; sourceTree = "<group>"; };
@@ -370,24 +371,34 @@
 		D8CF0D6E13D924F6005A6171 /* scene-levelselect-border-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "scene-levelselect-border-hd.png"; sourceTree = "<group>"; };
 		D8CF0D6F13D924F6005A6171 /* scene-levelselect-border.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "scene-levelselect-border.png"; sourceTree = "<group>"; };
 		D8D3C69813D6CF5C002846EC /* libKissXml libraries.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libKissXml libraries.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		D8D3C69F13D6D2C7002846EC /* DDXMLElementAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDXMLElementAdditions.h; sourceTree = "<group>"; };
-		D8D3C6A013D6D2C7002846EC /* DDXMLElementAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDXMLElementAdditions.m; sourceTree = "<group>"; };
-		D8D3C6A213D6D2C7002846EC /* NSString+DDXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+DDXML.h"; sourceTree = "<group>"; };
-		D8D3C6A313D6D2C7002846EC /* NSString+DDXML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+DDXML.m"; sourceTree = "<group>"; };
-		D8D3C6A413D6D2C7002846EC /* DDXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDXML.h; sourceTree = "<group>"; };
-		D8D3C6A513D6D2C7002846EC /* DDXMLDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDXMLDocument.h; sourceTree = "<group>"; };
-		D8D3C6A613D6D2C7002846EC /* DDXMLDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDXMLDocument.m; sourceTree = "<group>"; };
-		D8D3C6A713D6D2C7002846EC /* DDXMLElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDXMLElement.h; sourceTree = "<group>"; };
-		D8D3C6A813D6D2C7002846EC /* DDXMLElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDXMLElement.m; sourceTree = "<group>"; };
-		D8D3C6A913D6D2C7002846EC /* DDXMLNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDXMLNode.h; sourceTree = "<group>"; };
-		D8D3C6AA13D6D2C7002846EC /* DDXMLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDXMLNode.m; sourceTree = "<group>"; };
-		D8D3C6AC13D6D2C7002846EC /* DDXMLPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDXMLPrivate.h; sourceTree = "<group>"; };
-		D8D3C72513D6DDD2002846EC /* BalsamiqControlData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BalsamiqControlData.h; sourceTree = "<group>"; };
-		D8D3C72613D6DDD2002846EC /* BalsamiqControlData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BalsamiqControlData.m; sourceTree = "<group>"; };
-		D8D83BCD13DD0A0E0049AC75 /* UIPaddingTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIPaddingTextField.h; sourceTree = "<group>"; };
-		D8D83BCE13DD0A0E0049AC75 /* UIPaddingTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIPaddingTextField.m; sourceTree = "<group>"; };
-		D8D83CA813DD19A40049AC75 /* BalsamiqLayerTextInputManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BalsamiqLayerTextInputManager.h; sourceTree = "<group>"; };
-		D8D83CA913DD19A40049AC75 /* BalsamiqLayerTextInputManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BalsamiqLayerTextInputManager.m; sourceTree = "<group>"; };
+		D8FAD6D213F36BD100FEECF0 /* DDXMLElementAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDXMLElementAdditions.h; sourceTree = "<group>"; };
+		D8FAD6D313F36BD100FEECF0 /* DDXMLElementAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDXMLElementAdditions.m; sourceTree = "<group>"; };
+		D8FAD6D513F36BD100FEECF0 /* NSString+DDXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+DDXML.h"; sourceTree = "<group>"; };
+		D8FAD6D613F36BD100FEECF0 /* NSString+DDXML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+DDXML.m"; sourceTree = "<group>"; };
+		D8FAD6D713F36BD100FEECF0 /* DDXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDXML.h; sourceTree = "<group>"; };
+		D8FAD6D813F36BD100FEECF0 /* DDXMLDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDXMLDocument.h; sourceTree = "<group>"; };
+		D8FAD6D913F36BD100FEECF0 /* DDXMLDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDXMLDocument.m; sourceTree = "<group>"; };
+		D8FAD6DA13F36BD100FEECF0 /* DDXMLElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDXMLElement.h; sourceTree = "<group>"; };
+		D8FAD6DB13F36BD100FEECF0 /* DDXMLElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDXMLElement.m; sourceTree = "<group>"; };
+		D8FAD6DC13F36BD100FEECF0 /* DDXMLNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDXMLNode.h; sourceTree = "<group>"; };
+		D8FAD6DD13F36BD100FEECF0 /* DDXMLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDXMLNode.m; sourceTree = "<group>"; };
+		D8FAD6DF13F36BD100FEECF0 /* DDXMLPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDXMLPrivate.h; sourceTree = "<group>"; };
+		D8FAD6ED13F36BF100FEECF0 /* CCLabelFX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCLabelFX.h; sourceTree = "<group>"; };
+		D8FAD6EE13F36BF100FEECF0 /* CCLabelFX.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCLabelFX.m; sourceTree = "<group>"; };
+		D8FAD6EF13F36BF100FEECF0 /* CCTexture2D+TextShadow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CCTexture2D+TextShadow.h"; sourceTree = "<group>"; };
+		D8FAD6F013F36BF100FEECF0 /* CCTexture2D+TextShadow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CCTexture2D+TextShadow.m"; sourceTree = "<group>"; };
+		D8FAD6F313F36C1600FEECF0 /* BalsamiqControlData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BalsamiqControlData.h; path = BalsamiqXmlReader/BalsamiqControlData.h; sourceTree = SOURCE_ROOT; };
+		D8FAD6F413F36C1600FEECF0 /* BalsamiqControlData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BalsamiqControlData.m; path = BalsamiqXmlReader/BalsamiqControlData.m; sourceTree = SOURCE_ROOT; };
+		D8FAD6F513F36C1600FEECF0 /* BalsamiqLayerTextInputManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BalsamiqLayerTextInputManager.h; path = BalsamiqXmlReader/BalsamiqLayerTextInputManager.h; sourceTree = SOURCE_ROOT; };
+		D8FAD6F613F36C1600FEECF0 /* BalsamiqLayerTextInputManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BalsamiqLayerTextInputManager.m; path = BalsamiqXmlReader/BalsamiqLayerTextInputManager.m; sourceTree = SOURCE_ROOT; };
+		D8FAD6F713F36C1600FEECF0 /* BalsamiqXmlDef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BalsamiqXmlDef.h; path = BalsamiqXmlReader/BalsamiqXmlDef.h; sourceTree = SOURCE_ROOT; };
+		D8FAD6F813F36C1600FEECF0 /* CCBalsamiqLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCBalsamiqLayer.h; path = BalsamiqXmlReader/CCBalsamiqLayer.h; sourceTree = SOURCE_ROOT; };
+		D8FAD6F913F36C1600FEECF0 /* CCBalsamiqLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CCBalsamiqLayer.m; path = BalsamiqXmlReader/CCBalsamiqLayer.m; sourceTree = SOURCE_ROOT; };
+		D8FAD6FA13F36C1600FEECF0 /* CCMenuItemButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCMenuItemButton.h; path = BalsamiqXmlReader/CCMenuItemButton.h; sourceTree = SOURCE_ROOT; };
+		D8FAD6FB13F36C1600FEECF0 /* CCMenuItemButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CCMenuItemButton.m; path = BalsamiqXmlReader/CCMenuItemButton.m; sourceTree = SOURCE_ROOT; };
+		D8FAD6FC13F36C1600FEECF0 /* UIPaddingTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIPaddingTextField.h; path = BalsamiqXmlReader/UIPaddingTextField.h; sourceTree = SOURCE_ROOT; };
+		D8FAD6FD13F36C1600FEECF0 /* UIPaddingTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIPaddingTextField.m; path = BalsamiqXmlReader/UIPaddingTextField.m; sourceTree = SOURCE_ROOT; };
+		D8FAD72413F36C9100FEECF0 /* libBalsamiqXmlReader libraries.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libBalsamiqXmlReader libraries.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC6640020F83B3EA000B3E49 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		DC6640040F83B3EA000B3E49 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
 		DCCBF1B60F6022AE0040855A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -586,7 +597,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D8D3C71013D6DD0E002846EC /* libKissXml libraries.a in Frameworks */,
 				DCCBF1B70F6022AE0040855A /* CoreGraphics.framework in Frameworks */,
 				DCCBF1B90F6022AE0040855A /* Foundation.framework in Frameworks */,
 				DCCBF1BB0F6022AE0040855A /* OpenGLES.framework in Frameworks */,
@@ -597,6 +607,8 @@
 				506EDB88102F4C4000A389B3 /* libz.dylib in Frameworks */,
 				506EDBA5102F4C9F00A389B3 /* AVFoundation.framework in Frameworks */,
 				506EE1A91030508200A389B3 /* libcocos2d libraries.a in Frameworks */,
+				D8D3C71013D6DD0E002846EC /* libKissXml libraries.a in Frameworks */,
+				D8FAD87E13F3701700FEECF0 /* libBalsamiqXmlReader libraries.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -621,6 +633,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D8FAD72213F36C9100FEECF0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D8FAD86313F36D9700FEECF0 /* Foundation.framework in Frameworks */,
+				D8FAD86613F36D9700FEECF0 /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -630,6 +651,7 @@
 				1D6058910D05DD3D006BFB54 /* BalsamiqXmlReader.app */,
 				506EE05E10304ED200A389B3 /* libcocos2d libraries.a */,
 				D8D3C69813D6CF5C002846EC /* libKissXml libraries.a */,
+				D8FAD72413F36C9100FEECF0 /* libBalsamiqXmlReader libraries.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -677,9 +699,9 @@
 		2D500B1D0D5A766B00DBA0E3 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				D895668413DA5F2600FFA735 /* CCLabelFX */,
+				D8FAD6EC13F36BF100FEECF0 /* CCLabelFX */,
 				D8D3C70413D6DC59002846EC /* BalsamiqXmlReader */,
-				D8D3C69C13D6D2B1002846EC /* KissXml */,
+				D8FAD6D013F36BD100FEECF0 /* KissXML */,
 				E0F80F5D120A0182005866B8 /* GameConfig.h */,
 				506EDC2F102F528A00A389B3 /* HelloWorldLayer.h */,
 				506EDC30102F528A00A389B3 /* HelloWorldLayer.m */,
@@ -772,17 +794,6 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		D895668413DA5F2600FFA735 /* CCLabelFX */ = {
-			isa = PBXGroup;
-			children = (
-				D895668513DA5F2600FFA735 /* CCLabelFX.h */,
-				D895668613DA5F2600FFA735 /* CCLabelFX.m */,
-				D895668713DA5F2600FFA735 /* CCTexture2D+TextShadow.h */,
-				D895668813DA5F2600FFA735 /* CCTexture2D+TextShadow.m */,
-			);
-			path = CCLabelFX;
-			sourceTree = "<group>";
-		};
 		D8CF0D5D13D924F6005A6171 /* 4-LevelSelect */ = {
 			isa = PBXGroup;
 			children = (
@@ -809,74 +820,79 @@
 			path = "4-LevelSelect";
 			sourceTree = "<group>";
 		};
-		D8D3C69C13D6D2B1002846EC /* KissXml */ = {
+		D8D3C70413D6DC59002846EC /* BalsamiqXmlReader */ = {
 			isa = PBXGroup;
 			children = (
-				D8D3C69D13D6D2C7002846EC /* KissXML */,
+				D8FAD6F313F36C1600FEECF0 /* BalsamiqControlData.h */,
+				D8FAD6F413F36C1600FEECF0 /* BalsamiqControlData.m */,
+				D8FAD6F513F36C1600FEECF0 /* BalsamiqLayerTextInputManager.h */,
+				D8FAD6F613F36C1600FEECF0 /* BalsamiqLayerTextInputManager.m */,
+				D8FAD6F713F36C1600FEECF0 /* BalsamiqXmlDef.h */,
+				D8FAD6F813F36C1600FEECF0 /* CCBalsamiqLayer.h */,
+				D8FAD6F913F36C1600FEECF0 /* CCBalsamiqLayer.m */,
+				D8FAD6FA13F36C1600FEECF0 /* CCMenuItemButton.h */,
+				D8FAD6FB13F36C1600FEECF0 /* CCMenuItemButton.m */,
+				D8FAD6FC13F36C1600FEECF0 /* UIPaddingTextField.h */,
+				D8FAD6FD13F36C1600FEECF0 /* UIPaddingTextField.m */,
 			);
-			name = KissXml;
+			name = BalsamiqXmlReader;
 			sourceTree = "<group>";
 		};
-		D8D3C69D13D6D2C7002846EC /* KissXML */ = {
+		D8FAD6D013F36BD100FEECF0 /* KissXML */ = {
 			isa = PBXGroup;
 			children = (
-				D8D3C69E13D6D2C7002846EC /* Additions */,
-				D8D3C6A113D6D2C7002846EC /* Categories */,
-				D8D3C6A413D6D2C7002846EC /* DDXML.h */,
-				D8D3C6A513D6D2C7002846EC /* DDXMLDocument.h */,
-				D8D3C6A613D6D2C7002846EC /* DDXMLDocument.m */,
-				D8D3C6A713D6D2C7002846EC /* DDXMLElement.h */,
-				D8D3C6A813D6D2C7002846EC /* DDXMLElement.m */,
-				D8D3C6A913D6D2C7002846EC /* DDXMLNode.h */,
-				D8D3C6AA13D6D2C7002846EC /* DDXMLNode.m */,
-				D8D3C6AB13D6D2C7002846EC /* Private */,
+				D8FAD6D113F36BD100FEECF0 /* Additions */,
+				D8FAD6D413F36BD100FEECF0 /* Categories */,
+				D8FAD6D713F36BD100FEECF0 /* DDXML.h */,
+				D8FAD6D813F36BD100FEECF0 /* DDXMLDocument.h */,
+				D8FAD6D913F36BD100FEECF0 /* DDXMLDocument.m */,
+				D8FAD6DA13F36BD100FEECF0 /* DDXMLElement.h */,
+				D8FAD6DB13F36BD100FEECF0 /* DDXMLElement.m */,
+				D8FAD6DC13F36BD100FEECF0 /* DDXMLNode.h */,
+				D8FAD6DD13F36BD100FEECF0 /* DDXMLNode.m */,
+				D8FAD6DE13F36BD100FEECF0 /* Private */,
 			);
-			path = KissXML;
-			sourceTree = "<group>";
+			name = KissXML;
+			path = BalsamiqXmlReader/KissXML;
+			sourceTree = SOURCE_ROOT;
 		};
-		D8D3C69E13D6D2C7002846EC /* Additions */ = {
+		D8FAD6D113F36BD100FEECF0 /* Additions */ = {
 			isa = PBXGroup;
 			children = (
-				D8D3C69F13D6D2C7002846EC /* DDXMLElementAdditions.h */,
-				D8D3C6A013D6D2C7002846EC /* DDXMLElementAdditions.m */,
+				D8FAD6D213F36BD100FEECF0 /* DDXMLElementAdditions.h */,
+				D8FAD6D313F36BD100FEECF0 /* DDXMLElementAdditions.m */,
 			);
 			path = Additions;
 			sourceTree = "<group>";
 		};
-		D8D3C6A113D6D2C7002846EC /* Categories */ = {
+		D8FAD6D413F36BD100FEECF0 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
-				D8D3C6A213D6D2C7002846EC /* NSString+DDXML.h */,
-				D8D3C6A313D6D2C7002846EC /* NSString+DDXML.m */,
+				D8FAD6D513F36BD100FEECF0 /* NSString+DDXML.h */,
+				D8FAD6D613F36BD100FEECF0 /* NSString+DDXML.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
 		};
-		D8D3C6AB13D6D2C7002846EC /* Private */ = {
+		D8FAD6DE13F36BD100FEECF0 /* Private */ = {
 			isa = PBXGroup;
 			children = (
-				D8D3C6AC13D6D2C7002846EC /* DDXMLPrivate.h */,
+				D8FAD6DF13F36BD100FEECF0 /* DDXMLPrivate.h */,
 			);
 			path = Private;
 			sourceTree = "<group>";
 		};
-		D8D3C70413D6DC59002846EC /* BalsamiqXmlReader */ = {
+		D8FAD6EC13F36BF100FEECF0 /* CCLabelFX */ = {
 			isa = PBXGroup;
 			children = (
-				D8CF0CC613D91826005A6171 /* BalsamiqXmlDef.h */,
-				D85B239413D81561007C9D59 /* CCMenuItemButton.h */,
-				D85B239513D81561007C9D59 /* CCMenuItemButton.m */,
-				D8D3C72513D6DDD2002846EC /* BalsamiqControlData.h */,
-				D8D3C72613D6DDD2002846EC /* BalsamiqControlData.m */,
-				D85B22AA13D7C512007C9D59 /* CCBalsamiqLayer.h */,
-				D85B22AB13D7C512007C9D59 /* CCBalsamiqLayer.m */,
-				D8D83BCD13DD0A0E0049AC75 /* UIPaddingTextField.h */,
-				D8D83BCE13DD0A0E0049AC75 /* UIPaddingTextField.m */,
-				D8D83CA813DD19A40049AC75 /* BalsamiqLayerTextInputManager.h */,
-				D8D83CA913DD19A40049AC75 /* BalsamiqLayerTextInputManager.m */,
+				D8FAD6ED13F36BF100FEECF0 /* CCLabelFX.h */,
+				D8FAD6EE13F36BF100FEECF0 /* CCLabelFX.m */,
+				D8FAD6EF13F36BF100FEECF0 /* CCTexture2D+TextShadow.h */,
+				D8FAD6F013F36BF100FEECF0 /* CCTexture2D+TextShadow.m */,
 			);
-			name = BalsamiqXmlReader;
-			sourceTree = "<group>";
+			name = CCLabelFX;
+			path = BalsamiqXmlReader/CCLabelFX;
+			sourceTree = SOURCE_ROOT;
 		};
 		E02BB764126CC223006E46A2 /* cocos2d */ = {
 			isa = PBXGroup;
@@ -1239,13 +1255,20 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D8D3C6AD13D6D2C7002846EC /* DDXMLElementAdditions.h in Headers */,
-				D8D3C6AF13D6D2C7002846EC /* NSString+DDXML.h in Headers */,
-				D8D3C6B113D6D2C7002846EC /* DDXML.h in Headers */,
-				D8D3C6B213D6D2C7002846EC /* DDXMLDocument.h in Headers */,
-				D8D3C6B413D6D2C7002846EC /* DDXMLElement.h in Headers */,
-				D8D3C6B613D6D2C7002846EC /* DDXMLNode.h in Headers */,
-				D8D3C6B813D6D2C7002846EC /* DDXMLPrivate.h in Headers */,
+				D8FAD6E013F36BD100FEECF0 /* DDXMLElementAdditions.h in Headers */,
+				D8FAD6E213F36BD100FEECF0 /* NSString+DDXML.h in Headers */,
+				D8FAD6E413F36BD100FEECF0 /* DDXML.h in Headers */,
+				D8FAD6E513F36BD100FEECF0 /* DDXMLDocument.h in Headers */,
+				D8FAD6E713F36BD100FEECF0 /* DDXMLElement.h in Headers */,
+				D8FAD6E913F36BD100FEECF0 /* DDXMLNode.h in Headers */,
+				D8FAD6EB13F36BD100FEECF0 /* DDXMLPrivate.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D8FAD72013F36C9100FEECF0 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1265,6 +1288,7 @@
 			dependencies = (
 				506EE1A81030507B00A389B3 /* PBXTargetDependency */,
 				D8D3C6BA13D6D2F3002846EC /* PBXTargetDependency */,
+				D8FAD87D13F3701000FEECF0 /* PBXTargetDependency */,
 			);
 			name = BalsamiqXmlReader;
 			productName = BalsamiqXmlReader;
@@ -1305,6 +1329,23 @@
 			productReference = D8D3C69813D6CF5C002846EC /* libKissXml libraries.a */;
 			productType = "com.apple.product-type.library.static";
 		};
+		D8FAD72313F36C9100FEECF0 /* BalsamiqXmlReader libraries */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D8FAD73313F36CF600FEECF0 /* Build configuration list for PBXNativeTarget "BalsamiqXmlReader libraries" */;
+			buildPhases = (
+				D8FAD72013F36C9100FEECF0 /* Headers */,
+				D8FAD72113F36C9100FEECF0 /* Sources */,
+				D8FAD72213F36C9100FEECF0 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "BalsamiqXmlReader libraries";
+			productName = "BalsamiqXmlReader libraries";
+			productReference = D8FAD72413F36C9100FEECF0 /* libBalsamiqXmlReader libraries.a */;
+			productType = "com.apple.product-type.library.static";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -1326,6 +1367,7 @@
 			targets = (
 				506EE05D10304ED200A389B3 /* cocos2d libraries */,
 				D8D3C69713D6CF5C002846EC /* KissXml libraries */,
+				D8FAD72313F36C9100FEECF0 /* BalsamiqXmlReader libraries */,
 				1D6058900D05DD3D006BFB54 /* BalsamiqXmlReader */,
 			);
 		};
@@ -1379,13 +1421,6 @@
 				1F3B9A2D0EF2145700286867 /* BalsamiqXmlReaderAppDelegate.m in Sources */,
 				506EDC31102F528A00A389B3 /* HelloWorldLayer.m in Sources */,
 				E0F80F60120A0182005866B8 /* RootViewController.m in Sources */,
-				D8D3C72713D6DDD2002846EC /* BalsamiqControlData.m in Sources */,
-				D85B22AC13D7C512007C9D59 /* CCBalsamiqLayer.m in Sources */,
-				D85B239613D81561007C9D59 /* CCMenuItemButton.m in Sources */,
-				D895668913DA5F2600FFA735 /* CCLabelFX.m in Sources */,
-				D895668A13DA5F2600FFA735 /* CCTexture2D+TextShadow.m in Sources */,
-				D8D83BCF13DD0A0E0049AC75 /* UIPaddingTextField.m in Sources */,
-				D8D83CAA13DD19A40049AC75 /* BalsamiqLayerTextInputManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1493,11 +1528,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D8D3C6AE13D6D2C7002846EC /* DDXMLElementAdditions.m in Sources */,
-				D8D3C6B013D6D2C7002846EC /* NSString+DDXML.m in Sources */,
-				D8D3C6B313D6D2C7002846EC /* DDXMLDocument.m in Sources */,
-				D8D3C6B513D6D2C7002846EC /* DDXMLElement.m in Sources */,
-				D8D3C6B713D6D2C7002846EC /* DDXMLNode.m in Sources */,
+				D8FAD6E113F36BD100FEECF0 /* DDXMLElementAdditions.m in Sources */,
+				D8FAD6E313F36BD100FEECF0 /* NSString+DDXML.m in Sources */,
+				D8FAD6E613F36BD100FEECF0 /* DDXMLDocument.m in Sources */,
+				D8FAD6E813F36BD100FEECF0 /* DDXMLElement.m in Sources */,
+				D8FAD6EA13F36BD100FEECF0 /* DDXMLNode.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D8FAD72113F36C9100FEECF0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D8FAD72713F36CB100FEECF0 /* CCLabelFX.m in Sources */,
+				D8FAD72813F36CB100FEECF0 /* CCTexture2D+TextShadow.m in Sources */,
+				D8FAD72913F36CB100FEECF0 /* BalsamiqControlData.m in Sources */,
+				D8FAD72A13F36CB100FEECF0 /* BalsamiqLayerTextInputManager.m in Sources */,
+				D8FAD72B13F36CB100FEECF0 /* CCBalsamiqLayer.m in Sources */,
+				D8FAD72C13F36CB100FEECF0 /* CCMenuItemButton.m in Sources */,
+				D8FAD72D13F36CB100FEECF0 /* UIPaddingTextField.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1513,6 +1562,11 @@
 			isa = PBXTargetDependency;
 			target = D8D3C69713D6CF5C002846EC /* KissXml libraries */;
 			targetProxy = D8D3C6B913D6D2F3002846EC /* PBXContainerItemProxy */;
+		};
+		D8FAD87D13F3701000FEECF0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D8FAD72313F36C9100FEECF0 /* BalsamiqXmlReader libraries */;
+			targetProxy = D8FAD87C13F3701000FEECF0 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1678,6 +1732,39 @@
 			};
 			name = Release;
 		};
+		D8FAD72513F36C9200FEECF0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = BalsamiqXmlReader_Prefix.pch;
+				HEADER_SEARCH_PATHS = /usr/include/libxml2;
+				PREBINDING = NO;
+				PRODUCT_NAME = "BalsamiqXmlReader libraries";
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		D8FAD72613F36C9200FEECF0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = BalsamiqXmlReader_Prefix.pch;
+				HEADER_SEARCH_PATHS = /usr/include/libxml2;
+				PREBINDING = NO;
+				PRODUCT_NAME = "BalsamiqXmlReader libraries";
+				SDKROOT = iphoneos;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1713,6 +1800,15 @@
 			buildConfigurations = (
 				D8D3C69913D6CF5C002846EC /* Debug */,
 				D8D3C69A13D6CF5C002846EC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D8FAD73313F36CF600FEECF0 /* Build configuration list for PBXNativeTarget "BalsamiqXmlReader libraries" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D8FAD72513F36C9200FEECF0 /* Debug */,
+				D8FAD72613F36C9200FEECF0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
