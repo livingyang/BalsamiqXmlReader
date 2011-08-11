@@ -85,8 +85,8 @@
 					PBXFileDataSource_Warnings_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 334719708;
-			PBXWorkspaceStateSaveDate = 334719708;
+			PBXPerProjectTemplateStateSaveDate = 334723496;
+			PBXWorkspaceStateSaveDate = 334723496;
 		};
 		perUserProjectItems = {
 			D85B228113D7C2C5007C9D59 = D85B228113D7C2C5007C9D59 /* PBXTextBookmark */;
@@ -144,13 +144,17 @@
 			D8D8444013DD6F080049AC75 = D8D8444013DD6F080049AC75 /* PBXTextBookmark */;
 			D8D8445113DD70020049AC75 = D8D8445113DD70020049AC75 /* PBXTextBookmark */;
 			D8D844E613DD7EE20049AC75 = D8D844E613DD7EE20049AC75 /* PBXTextBookmark */;
-			D8FAD88313F3702900FEECF0 /* PBXTextBookmark */ = D8FAD88313F3702900FEECF0 /* PBXTextBookmark */;
-			D8FAD88413F3702900FEECF0 /* PBXTextBookmark */ = D8FAD88413F3702900FEECF0 /* PBXTextBookmark */;
-			D8FAD88513F3702900FEECF0 /* PBXTextBookmark */ = D8FAD88513F3702900FEECF0 /* PBXTextBookmark */;
-			D8FAD88613F3702900FEECF0 /* PBXTextBookmark */ = D8FAD88613F3702900FEECF0 /* PBXTextBookmark */;
-			D8FAD88713F3702900FEECF0 /* PBXTextBookmark */ = D8FAD88713F3702900FEECF0 /* PBXTextBookmark */;
-			D8FAD88813F3702900FEECF0 /* XCBuildMessageTextBookmark */ = D8FAD88813F3702900FEECF0 /* XCBuildMessageTextBookmark */;
-			D8FAD88913F3702900FEECF0 /* PBXTextBookmark */ = D8FAD88913F3702900FEECF0 /* PBXTextBookmark */;
+			D8FAD88313F3702900FEECF0 = D8FAD88313F3702900FEECF0 /* PBXTextBookmark */;
+			D8FAD88413F3702900FEECF0 = D8FAD88413F3702900FEECF0 /* PBXTextBookmark */;
+			D8FAD88513F3702900FEECF0 = D8FAD88513F3702900FEECF0 /* PBXTextBookmark */;
+			D8FAD88613F3702900FEECF0 = D8FAD88613F3702900FEECF0 /* PBXTextBookmark */;
+			D8FAD88713F3702900FEECF0 = D8FAD88713F3702900FEECF0 /* PBXTextBookmark */;
+			D8FAD88813F3702900FEECF0 = D8FAD88813F3702900FEECF0 /* PBXTextBookmark */;
+			D8FAD88913F3702900FEECF0 = D8FAD88913F3702900FEECF0 /* PBXTextBookmark */;
+			D8FAD89E13F379BF00FEECF0 /* PBXTextBookmark */ = D8FAD89E13F379BF00FEECF0 /* PBXTextBookmark */;
+			D8FAD89F13F379BF00FEECF0 /* PBXTextBookmark */ = D8FAD89F13F379BF00FEECF0 /* PBXTextBookmark */;
+			D8FAD8A013F379BF00FEECF0 /* PBXTextBookmark */ = D8FAD8A013F379BF00FEECF0 /* PBXTextBookmark */;
+			D8FAD8A113F379BF00FEECF0 /* PBXTextBookmark */ = D8FAD8A113F379BF00FEECF0 /* PBXTextBookmark */;
 		};
 		sourceControlManager = D8D3C69113D6CF37002846EC /* Source Control */;
 		userBuildSettings = {
@@ -256,11 +260,6 @@
 		name = CCLabelFX.h;
 		path = /Users/leeliving/Desktop/BalsamiqXmlReader/Classes/CCLabelFX/CCLabelFX.h;
 		sourceTree = "<absolute>";
-		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1973.48, 1554}}";
-			sepNavSelRange = "{381, 10}";
-			sepNavVisRange = "{301, 1382}";
-		};
 	};
 	D895668713DA5F2600FFA735 /* CCTexture2D+TextShadow.h */ = {
 		isa = PBXFileReference;
@@ -269,11 +268,6 @@
 		name = "CCTexture2D+TextShadow.h";
 		path = "/Users/leeliving/Desktop/BalsamiqXmlReader/Classes/CCLabelFX/CCTexture2D+TextShadow.h";
 		sourceTree = "<absolute>";
-		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1680.88, 658}}";
-			sepNavSelRange = "{0, 0}";
-			sepNavVisRange = "{0, 799}";
-		};
 	};
 	D895676F13DAA09F00FFA735 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
@@ -740,11 +734,6 @@
 		name = DDXMLElementAdditions.h;
 		path = /Users/leeliving/Desktop/BalsamiqXmlReader/Classes/KissXML/Additions/DDXMLElementAdditions.h;
 		sourceTree = "<absolute>";
-		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {857.279, 462}}";
-			sepNavSelRange = "{0, 0}";
-			sepNavVisRange = "{0, 189}";
-		};
 	};
 	D8D3C6A413D6D2C7002846EC /* DDXML.h */ = {
 		isa = PBXFileReference;
@@ -753,11 +742,6 @@
 		name = DDXML.h;
 		path = /Users/leeliving/Desktop/BalsamiqXmlReader/Classes/KissXML/DDXML.h;
 		sourceTree = "<absolute>";
-		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {700, 567}}";
-			sepNavSelRange = "{11, 0}";
-			sepNavVisRange = "{0, 73}";
-		};
 	};
 	D8D3C6A913D6D2C7002846EC /* DDXMLNode.h */ = {
 		isa = PBXFileReference;
@@ -766,11 +750,6 @@
 		name = DDXMLNode.h;
 		path = /Users/leeliving/Desktop/BalsamiqXmlReader/Classes/KissXML/DDXMLNode.h;
 		sourceTree = "<absolute>";
-		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1214.9, 2877}}";
-			sepNavSelRange = "{126, 0}";
-			sepNavVisRange = "{2305, 579}";
-		};
 	};
 	D8D3C6CA13D6D405002846EC /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
@@ -1022,6 +1001,20 @@
 			sepNavVisRange = "{0, 643}";
 		};
 	};
+	D8FAD6F313F36C1600FEECF0 /* BalsamiqControlData.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {715, 504}}";
+			sepNavSelRange = "{182, 0}";
+			sepNavVisRange = "{0, 490}";
+		};
+	};
+	D8FAD6F413F36C1600FEECF0 /* BalsamiqControlData.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1269.08, 1617}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 450}";
+		};
+	};
 	D8FAD6F513F36C1600FEECF0 /* BalsamiqLayerTextInputManager.h */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {715, 483}}";
@@ -1082,11 +1075,10 @@
 		vrLen = 197;
 		vrLoc = 0;
 	};
-	D8FAD88813F3702900FEECF0 /* XCBuildMessageTextBookmark */ = {
+	D8FAD88813F3702900FEECF0 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		comments = "Libxml/tree.h: No such file or directory";
 		fRef = D8FAD6DC13F36BD100FEECF0 /* DDXMLNode.h */;
-		fallbackIsa = XCBuildMessageTextBookmark;
 		rLen = 1;
 		rLoc = 1;
 		rType = 1;
@@ -1099,6 +1091,46 @@
 		rLoc = 351;
 		rType = 0;
 		vrLen = 795;
+		vrLoc = 0;
+	};
+	D8FAD89E13F379BF00FEECF0 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = D8FAD6DC13F36BD100FEECF0 /* DDXMLNode.h */;
+		name = "DDXMLNode.h: 13";
+		rLen = 0;
+		rLoc = 351;
+		rType = 0;
+		vrLen = 795;
+		vrLoc = 0;
+	};
+	D8FAD89F13F379BF00FEECF0 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = D8FAD6F413F36C1600FEECF0 /* BalsamiqControlData.m */;
+		name = "BalsamiqControlData.m: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 450;
+		vrLoc = 0;
+	};
+	D8FAD8A013F379BF00FEECF0 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = D8FAD6F313F36C1600FEECF0 /* BalsamiqControlData.h */;
+		name = "BalsamiqControlData.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 490;
+		vrLoc = 0;
+	};
+	D8FAD8A113F379BF00FEECF0 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = D8FAD6F313F36C1600FEECF0 /* BalsamiqControlData.h */;
+		name = "BalsamiqControlData.h: 9";
+		rLen = 0;
+		rLoc = 182;
+		rType = 0;
+		vrLen = 490;
 		vrLoc = 0;
 	};
 	E02BB78A126CC223006E46A2 /* CCConfiguration.h */ = {

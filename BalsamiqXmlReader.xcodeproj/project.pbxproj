@@ -302,7 +302,7 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = D8FAD72313F36C9100FEECF0 /* BalsamiqXmlReader libraries */;
+			remoteGlobalIDString = D8FAD72313F36C9100FEECF0;
 			remoteInfo = "BalsamiqXmlReader libraries";
 		};
 /* End PBXContainerItemProxy section */
