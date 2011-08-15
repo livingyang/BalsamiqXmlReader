@@ -37,6 +37,12 @@
 
 + (NSMutableArray *)parseData:(NSString *)balsamiqStr
 {
+	if (balsamiqStr == nil || [balsamiqStr isEqualToString:@""])
+	{
+		NSLog(@"BalsamiqControlData#parseData data is invalid");
+		return nil;
+	}
+	
 	DDXMLDocument *ddDoc = [[[DDXMLDocument alloc] initWithXMLString:balsamiqStr
 															 options:0 
 															   error:nil] autorelease];

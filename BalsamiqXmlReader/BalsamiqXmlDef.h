@@ -32,9 +32,12 @@ extern ccColor3B textInputColor;
 @optional
 - (void)onTextInputCreated:(UITextField *)textInput name:(NSString *)name;
 
+// 暂时去除，不支持
 @optional
 - (void)onToggleCreated:(CCMenuItemToggle *)toggle name:(NSString *)name;
 
+// 事件函数
+// 这个是toggle的事件，暂不支持
 @optional
 - (void)toggleCallBack:(id)sender;
 

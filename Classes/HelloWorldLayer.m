@@ -12,6 +12,10 @@
 
 #import "BalsamiqControlData.h"
 #import "CCBalsamiqLayer.h"
+#import "BalsamiqReaderHelper.h"
+#import "CCAlertLayer.h"
+
+#import "NextLayer.h"
 
 // HelloWorldLayer implementation
 @implementation HelloWorldLayer
@@ -31,15 +35,6 @@
 	return scene;
 }
 
-- (void)testResource:(ccTime)dt
-{
-	NSString *xmlPath = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"test.bmml"];
-	
-	NSArray *array = [BalsamiqControlData parseData:[NSString stringWithContentsOfFile:xmlPath encoding:NSUTF8StringEncoding error:nil]];
-	
-	[CCBalsamiqLayer layerWithBalsamiqData:array eventHandle:self];
-}
-
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     [textField resignFirstResponder];
@@ -52,25 +47,38 @@
 	NSLog(@"textField text = %@", textField.text);
 }
 
+- (void)onNextClick:(id)sender
+{
+	[[CCDirector sharedDirector] replaceScene:[NextLayer scene]];
+}
+
+- (void)onButtonClick:(id)sender
+{
+	[CCAlertLayer showAlert:getBalsamiqData(@"alert-ok.bmml")
+				 parentNode:self
+				  labelInfo:[NSDictionary dictionaryWithObjectsAndKeys:
+							 @"title", @"Title",
+							 @"please comfirm", @"Message",
+							 nil]
+				 buttonInfo:[NSDictionary dictionaryWithObjectsAndKeys:
+							 @"OooooK", @"Ok",
+							 nil]];
+}
+
+- (void)onOkClick:(id)sender
+{
+	[CCAlertLayer removeAlertFromNode:sender];
+}
+
 // on "init" you need to initialize your instance
 -(id) init
 {
 	if( (self=[super init]))
 	{
-		NSString *xmlPath = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"test.bmml"];
-		
-		NSArray *array = [BalsamiqControlData parseData:[NSString stringWithContentsOfFile:xmlPath encoding:NSUTF8StringEncoding error:nil]];
-		
-		for (id ele in array)
-		{
-			NSLog(@"%@", ele);
-		}
-		
 		balsamiqFontName = @"Vanilla.ttf";
 		
-		uiLayer = [CCBalsamiqLayer layerWithBalsamiqData:array eventHandle:self];
-		
-		[self addChild:uiLayer];
+		[self addChild:[CCBalsamiqLayer layerWithBalsamiqData:getBalsamiqData(@"main.bmml")
+												  eventHandle:self]];
 	}
 	return self;
 }

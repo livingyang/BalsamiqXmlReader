@@ -9,12 +9,10 @@
 
 // When you import this file, you import all the cocos2d classes
 #import "cocos2d.h"
-#import "BalsamiqXmlDef.h"
 
 // HelloWorldLayer
-@interface HelloWorldLayer : CCLayer <BalsamiqReaderDelegate>
+@interface HelloWorldLayer : CCLayer
 {
-	CCLayer *uiLayer;
 }
 
 // returns a CCScene that contains the HelloWorldLayer as the only child

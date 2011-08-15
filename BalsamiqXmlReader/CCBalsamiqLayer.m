@@ -22,6 +22,7 @@ typedef struct
 {
 	CCMenu *menu;
 	id eventHandle;
+	id createdHandle;
 }ControlCreateInfo;
 
 #define IMAGE_PREFIX @"image_"
@@ -106,7 +107,7 @@ typedef struct
 	{
 		size.height = [[data.attributeDic objectForKey:@"h"] intValue];
 	}
-
+	
 	return size;
 }
 
@@ -120,7 +121,7 @@ typedef struct
 {
 	NSString *sizeStr = [data.propertyDic objectForKey:@"size"];
 	int size = (sizeStr == nil) ? 13 : [sizeStr intValue];
-
+	
 	return size;
 }
 
@@ -188,14 +189,16 @@ typedef struct
 		[self addChild:image z:zOrder];
 		
 		//有名字的图片，需要进行通知
-		if ([createInfo.eventHandle respondsToSelector:@selector(onImageCreated:name:)])
+		if ([createInfo.createdHandle respondsToSelector:@selector(onImageCreated:name:)])
 		{
-			[createInfo.eventHandle onImageCreated:image name:customID];
+			[createInfo.createdHandle onImageCreated:image name:customID];
 		}
 	}
 	else if ([customID hasPrefix:TOGGLE_PREFIX] &&
 			 [picName rangeOfString:TOGGLE_INDEX].length > 0)
 	{
+		NSAssert(0, @"CCBalsamiqLayer#createImage 暂不支持toggle");
+		
 		CCMenuItemToggle *toggle = [CCMenuItemToggle itemWithTarget:createInfo.eventHandle
 														   selector:@selector(toggleCallBack:)
 															  items:[CCMenuItemImage itemFromNormalImage:picName selectedImage:picName], nil];
@@ -221,9 +224,9 @@ typedef struct
 		}
 		
 		//发送事件
-		if ([createInfo.eventHandle respondsToSelector:@selector(onToggleCreated:name:)])
+		if ([createInfo.createdHandle respondsToSelector:@selector(onToggleCreated:name:)])
 		{
-			[createInfo.eventHandle onToggleCreated:toggle name:customID];
+			[createInfo.createdHandle onToggleCreated:toggle name:customID];
 		}
 	}
 	else
@@ -275,9 +278,9 @@ typedef struct
 		}
 		
 		//发送事件
-		if ([createInfo.eventHandle respondsToSelector:@selector(onButtonCreated:name:)])
+		if ([createInfo.createdHandle respondsToSelector:@selector(onButtonCreated:name:)])
 		{
-			[createInfo.eventHandle onButtonCreated:item name:customID];
+			[createInfo.createdHandle onButtonCreated:item name:customID];
 		}
 	}	
 }
@@ -297,7 +300,8 @@ typedef struct
 								  fontSize:[self getBalsamiqControlTextSize:data]
 							  shadowOffset:CGSizeMake(0, 0) 
 								shadowBlur:2.0f];
-		label.position = ccpAdd([self getMidPosition:data], LABEL_SHADOW_OFFSET_POSITION);
+		label.position = [self getMidPosition:data];
+		//label.position = ccpAdd([self getMidPosition:data], LABEL_SHADOW_OFFSET_POSITION);
 	}
 	else
 	{
@@ -306,7 +310,8 @@ typedef struct
 								  alignment:[self getBalsamiqControlAlign:data]
 								   fontName:balsamiqFontName
 								   fontSize:[self getBalsamiqControlTextSize:data]];
-		label.position = ccpAdd([self getMidPosition:data], LABEL_NORMAL_OFFSET_POSITION);
+		label.position = [self getMidPosition:data];
+		//label.position = ccpAdd([self getMidPosition:data], LABEL_NORMAL_OFFSET_POSITION);
 	}
 	
 	label.color = [self getColor:[[data.propertyDic objectForKey:@"color"] intValue]];
@@ -314,21 +319,21 @@ typedef struct
 	[self addChild:label z:[[data.attributeDic objectForKey:@"zOrder"] intValue]];
 	
 	//发送事件
-	if ([createInfo.eventHandle respondsToSelector:@selector(onLabelCreated:name:)])
+	if ([createInfo.createdHandle respondsToSelector:@selector(onLabelCreated:name:)])
 	{
-		[createInfo.eventHandle onLabelCreated:label
-										  name:[data.propertyDic objectForKey:@"customID"]];
+		[createInfo.createdHandle onLabelCreated:label
+											name:[data.propertyDic objectForKey:@"customID"]];
 	}
 }
 
 /*!
-    @名    称：createTextInput
-    @描    述：创建文本输入框
-    @参    数：data
-    @参    数：createInfo
-    @返 回 值：
-    @备    注：文本输入框的指针保存在layer的userData中
-*/
+ @名    称：createTextInput
+ @描    述：创建文本输入框
+ @参    数：data
+ @参    数：createInfo
+ @返 回 值：
+ @备    注：文本输入框的指针保存在layer的userData中
+ */
 - (void)createTextInput:(BalsamiqControlData *)data byCreateInfo:(ControlCreateInfo)createInfo
 {
 	CGRect rect = {[self getBalsamiqControlPosition:data], [self getBalsamiqControlSize:data]};
@@ -345,12 +350,12 @@ typedef struct
 	textField.textColor = [self getUIColor:textInputColor alpha:1.0f];
 	textField.textAlignment = [self getBalsamiqControlAlign:data];
 	textField.font = [UIFont fontWithName:[balsamiqFontName stringByDeletingPathExtension]
-										 size:[self getBalsamiqControlTextSize:data]];
+									 size:[self getBalsamiqControlTextSize:data]];
 	
 	// NOTE: UITextField won't be visible by default without setting backGroundColor & borderStyle
 	ccColor3B backgroundColor = [self getColor:[[data.propertyDic objectForKey:@"color"] intValue]];
 	textField.backgroundColor = [self getUIColor:backgroundColor
-											   alpha:[[data.propertyDic objectForKey:@"backgroundAlpha"] floatValue]];
+										   alpha:[[data.propertyDic objectForKey:@"backgroundAlpha"] floatValue]];
 	textField.borderStyle = UITextBorderStyleRoundedRect;
 	
 	textField.delegate = createInfo.eventHandle; // set this layer as the UITextFieldDelegate
@@ -364,10 +369,10 @@ typedef struct
 	[[BalsamiqLayerTextInputManager instance] addTextInput:textField managedBy:self];
 	
 	//发送事件
-	if ([createInfo.eventHandle respondsToSelector:@selector(onTextInputCreated:name:)])
+	if ([createInfo.createdHandle respondsToSelector:@selector(onTextInputCreated:name:)])
 	{
-		[createInfo.eventHandle onTextInputCreated:textField
-											  name:[data.propertyDic objectForKey:@"customID"]];
+		[createInfo.createdHandle onTextInputCreated:textField
+												name:[data.propertyDic objectForKey:@"customID"]];
 	}
 }
 
@@ -391,7 +396,64 @@ typedef struct
 #pragma mark 公共函数
 ////////////////////////////////////////////////////////
 
-- (id)initWithBalsamiqData:(NSArray *)balsamiqData eventHandle:(id)handle
+- (id)initWithBalsamiqData:(NSArray *)balsamiqData eventHandle:(id)eventHandle
+{
+	return [self initWithBalsamiqData:balsamiqData eventHandle:eventHandle createdHandle:eventHandle];
+	self = [self init];
+	if (self != nil)
+	{
+		self.isRelativeAnchorPoint = YES;
+		self.anchorPoint = ccp(0, 0);
+		
+		// 1 初始化layer
+		for (BalsamiqControlData *data in balsamiqData)
+		{
+			NSLog(@"%@", [data.attributeDic objectForKey:@"controlTypeID"]);
+			
+			if ([@"com.balsamiq.mockups::ModalScreen" isEqualToString:[data.attributeDic objectForKey:@"controlTypeID"]])
+			{
+				self.contentSize = [self getBalsamiqControlSize:data];
+				break;
+			}
+		}
+		
+		// 2 生成创建的环境
+		CCMenu *menu = [CCMenu menuWithItems:nil];
+		[self addChild:menu];
+		menu.contentSize = self.contentSize;
+		menu.position = ccp(0, 0);
+		menu.anchorPoint = ccp(0, 0);
+		
+		ControlCreateInfo createInfo = 
+		{
+			menu,
+			eventHandle,
+		};
+		
+		// 3 生成各个控件
+		for (BalsamiqControlData *data in balsamiqData)
+		{
+			NSString *controlType = [[data.attributeDic objectForKey:@"controlTypeID"]
+									 substringFromIndex:[@"com.balsamiq.mockups::" length]];
+			
+			NSString* methodName = [NSString stringWithFormat:@"create%@:byCreateInfo:", controlType];
+			SEL creatorSel = sel_registerName([methodName UTF8String]);
+			
+			if ([self respondsToSelector:creatorSel])
+			{
+				objc_msgSend(self, creatorSel, data, createInfo);
+			}
+		}
+	}
+	return self;
+}
+
++ (id)layerWithBalsamiqData:(NSArray *)balsamiqData eventHandle:(id)eventHandle
+{
+	return [[[CCBalsamiqLayer alloc] initWithBalsamiqData:balsamiqData eventHandle:eventHandle] autorelease];
+}
+
+- (id)initWithBalsamiqData:(NSArray *)balsamiqData eventHandle:(id)eventHandle createdHandle:(id)createdHandle
 {
 	self = [self init];
 	if (self != nil)
@@ -421,7 +483,8 @@ typedef struct
 		ControlCreateInfo createInfo = 
 		{
 			menu,
-			handle,
+			eventHandle,
+			createdHandle,
 		};
 		
 		// 3 生成各个控件
@@ -429,7 +492,7 @@ typedef struct
 		{
 			NSString *controlType = [[data.attributeDic objectForKey:@"controlTypeID"]
 									 substringFromIndex:[@"com.balsamiq.mockups::" length]];
-		
+			
 			NSString* methodName = [NSString stringWithFormat:@"create%@:byCreateInfo:", controlType];
 			SEL creatorSel = sel_registerName([methodName UTF8String]);
 			
@@ -442,9 +505,9 @@ typedef struct
 	return self;
 }
 
-+ (id)layerWithBalsamiqData:(NSArray *)balsamiqData eventHandle:(id)handle
++ (id)layerWithBalsamiqData:(NSArray *)balsamiqData eventHandle:(id)eventHandle createdHandle:(id)createdHandle
 {
-	return [[[CCBalsamiqLayer alloc] initWithBalsamiqData:balsamiqData eventHandle:handle] autorelease];
+	return [[CCBalsamiqLayer alloc] initWithBalsamiqData:balsamiqData eventHandle:eventHandle createdHandle:createdHandle];
 }
 
 @end

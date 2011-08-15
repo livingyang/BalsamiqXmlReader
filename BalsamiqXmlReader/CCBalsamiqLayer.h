@@ -13,9 +13,15 @@
 
 @interface CCBalsamiqLayer : CCLayer
 
-- (id)initWithBalsamiqData:(NSArray *)balsamiqData eventHandle:(id)handle;
+// 带有事件的控件，如button，toggle，其事件的处理者为eventHandle
+// 控件创建完毕后，createdHandle将收到创建完毕的回调
+- (id)initWithBalsamiqData:(NSArray *)balsamiqData eventHandle:(id)eventHandle;
 
-+ (id)layerWithBalsamiqData:(NSArray *)balsamiqData eventHandle:(id)handle;
++ (id)layerWithBalsamiqData:(NSArray *)balsamiqData eventHandle:(id)eventHandle;
+
+- (id)initWithBalsamiqData:(NSArray *)balsamiqData eventHandle:(id)eventHandle createdHandle:(id)createdHandle;
+
++ (id)layerWithBalsamiqData:(NSArray *)balsamiqData eventHandle:(id)eventHandle createdHandle:(id)createdHandle;
 
 @end
 
