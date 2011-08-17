@@ -18,9 +18,9 @@
 @property (nonatomic, assign) NSDictionary *labelInfoDic;
 @property (nonatomic, assign) NSDictionary *buttonInfoDic;
 
-+ (void)showAlert:(NSArray *)balsamiqData parentNode:(CCNode *)parentNode;
++ (void)showAlert:(NSString *)fileName parentNode:(CCNode *)parentNode;
 
-+ (void)showAlert:(NSArray *)balsamiqData
++ (void)showAlert:(NSString *)fileName
 	   parentNode:(CCNode *)parentNode
 		labelInfo:(NSDictionary *)labelInfoDic
 	   buttonInfo:(NSDictionary *)buttonInfoDic;

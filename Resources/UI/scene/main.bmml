@@ -38,14 +38,14 @@
     <control controlID="31" controlTypeID="com.balsamiq.mockups::Image" x="329" y="274" w="-1" h="-1" measuredW="151" measuredH="45" zOrder="6" locked="false" isInGroup="-1">
       <controlProperties>
         <customID>Next</customID>
-        <src>./button-normal.png</src>
+        <src>../Common/button-normal.png</src>
         <text>Next</text>
       </controlProperties>
     </control>
     <control controlID="32" controlTypeID="com.balsamiq.mockups::Image" x="164" y="150" w="-1" h="-1" measuredW="151" measuredH="45" zOrder="7" locked="false" isInGroup="-1">
       <controlProperties>
         <customID>Button</customID>
-        <src>./button-normal.png</src>
+        <src>../Common/button-normal.png</src>
         <text>Button</text>
       </controlProperties>
     </control>

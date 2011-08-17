@@ -36,13 +36,13 @@
 
 - (void)onButtonClick:(id)sender
 {
-	[CCAlertLayer showAlert:getBalsamiqData(@"alert-yes-no.bmml")
+	[CCAlertLayer showAlert:@"alert-yes-no.bmml"
 				 parentNode:self];
 }
 
 - (void)onYesClick:(id)sender
 {
-	[CCAlertLayer showAlert:getBalsamiqData(@"alert-yes-no.bmml")
+	[CCAlertLayer showAlert:@"alert-yes-no.bmml"
 				 parentNode:self];
 }
 
@@ -55,8 +55,9 @@
 {
 	if( (self=[super init]))
 	{
-		[self addChild:[CCBalsamiqLayer layerWithBalsamiqData:getBalsamiqData(@"next.bmml")
-												  eventHandle:self]];
+		[self addChild:[CCBalsamiqLayer layerWithBalsamiqFile:@"next.bmml"
+												  eventHandle:self
+												createdHandle:self]];
 	}
 	return self;
 }

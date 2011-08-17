@@ -77,4 +77,11 @@
 	return controlsData;
 }
 
++ (NSMutableArray *)getBalsamiqControlData:(NSString *)filePath
+{
+	return [BalsamiqControlData parseData:[NSString stringWithContentsOfFile:filePath
+																	encoding:NSUTF8StringEncoding
+																	   error:nil]];
+}
+
 @end

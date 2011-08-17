@@ -22,6 +22,8 @@
 
 +(CCScene *) scene
 {
+	//[CCBalsamiqLayer setBalsamiqRootDir:@"UI"];
+	
 	// 'scene' is an autorelease object.
 	CCScene *scene = [CCScene node];
 	
@@ -54,7 +56,7 @@
 
 - (void)onButtonClick:(id)sender
 {
-	[CCAlertLayer showAlert:getBalsamiqData(@"alert-ok.bmml")
+	[CCAlertLayer showAlert:@"alert-ok.bmml"
 				 parentNode:self
 				  labelInfo:[NSDictionary dictionaryWithObjectsAndKeys:
 							 @"title", @"Title",
@@ -77,8 +79,11 @@
 	{
 		balsamiqFontName = @"Vanilla.ttf";
 		
-		[self addChild:[CCBalsamiqLayer layerWithBalsamiqData:getBalsamiqData(@"main.bmml")
-												  eventHandle:self]];
+//		[self addChild:[CCBalsamiqLayer layerWithBalsamiqData:getBalsamiqData(@"main.bmml")
+//												  eventHandle:self]];
+		[self addChild:[CCBalsamiqLayer layerWithBalsamiqFile:@"main.bmml"
+												  eventHandle:self
+												createdHandle:self]];
 	}
 	return self;
 }

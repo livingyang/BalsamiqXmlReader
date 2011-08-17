@@ -62,12 +62,12 @@
 	return YES;
 }
 
-+ (void)showAlert:(NSArray *)balsamiqData
++ (void)showAlert:(NSString *)fileName
 	   parentNode:(CCNode *)parentNode
 		labelInfo:(NSDictionary *)labelInfoDic
 	   buttonInfo:(NSDictionary *)buttonInfoDic
 {
-	if (balsamiqData == nil || parentNode == nil)
+	if (fileName == nil || parentNode == nil)
 	{
 		return;
 	}
@@ -80,7 +80,7 @@
 	alert.labelInfoDic = labelInfoDic;
 	alert.buttonInfoDic = buttonInfoDic;
 	
-	CCLayer *layer = [CCBalsamiqLayer layerWithBalsamiqData:balsamiqData
+	CCLayer *layer = [CCBalsamiqLayer layerWithBalsamiqFile:fileName
 												eventHandle:parentNode
 											  createdHandle:alert];
 	layer.scale = 0;
@@ -94,34 +94,12 @@
 	[parentNode addChild:alert z:INT_MAX];
 }
 
-+ (void)showAlert:(NSArray *)balsamiqData parentNode:(CCNode *)parentNode
++ (void)showAlert:(NSString *)fileName parentNode:(CCNode *)parentNode
 {
-	return [CCAlertLayer showAlert:balsamiqData
+	return [CCAlertLayer showAlert:fileName
 						parentNode:parentNode
 						 labelInfo:nil
 						buttonInfo:nil];
-	if (balsamiqData == nil || parentNode == nil)
-	{
-		return;
-	}
-	
-	id action = [CCScaleTo actionWithDuration:1.2 scale:1];
-	action = [CCEaseElasticOut actionWithAction:action];
-	
-	ccColor4B color = ccc4(0, 0, 0, 50);
-	CCAlertLayer *alert = [CCAlertLayer layerWithColor:color];
-	CCLayer *layer = [CCBalsamiqLayer layerWithBalsamiqData:balsamiqData
-												eventHandle:parentNode
-											  createdHandle:alert];
-	layer.scale = 0;
-	layer.anchorPoint = ccp(0.5, 0.5);
-	layer.position = ccp([CCDirector sharedDirector].winSize.width / 2,
-						 [CCDirector sharedDirector].winSize.height / 2);
-	
-	[layer runAction:action];
-	[alert addChild:layer];
-	
-	[parentNode addChild:alert z:INT_MAX];
 }
 
 + (void)removeAlertFromNode:(id)subNode

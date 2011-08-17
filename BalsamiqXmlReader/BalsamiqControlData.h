@@ -20,4 +20,6 @@
 
 + (NSMutableArray *)parseData:(NSString *)balsamiqStr;
 
++ (NSMutableArray *)getBalsamiqControlData:(NSString *)filePath;
+
 @end

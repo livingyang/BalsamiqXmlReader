@@ -13,15 +13,21 @@
 
 @interface CCBalsamiqLayer : CCLayer
 
+/*!
+    @名    称：setBalsamiqRootDir
+    @描    述：设置存放目录
+    @参    数：目录在mainBunddle中的相对地址
+    @返 回 值：
+    @备    注：使用本类时，必须设置一个界面文件的存放目录
+*/
++ (void)setBalsamiqRootDir:(NSString *)rootDir;
+
 // 带有事件的控件，如button，toggle，其事件的处理者为eventHandle
 // 控件创建完毕后，createdHandle将收到创建完毕的回调
-- (id)initWithBalsamiqData:(NSArray *)balsamiqData eventHandle:(id)eventHandle;
 
-+ (id)layerWithBalsamiqData:(NSArray *)balsamiqData eventHandle:(id)eventHandle;
+- (id)initWithBalsamiqFile:(NSString *)fileName eventHandle:(id)eventHandle createdHandle:(id)createdHandle;
 
-- (id)initWithBalsamiqData:(NSArray *)balsamiqData eventHandle:(id)eventHandle createdHandle:(id)createdHandle;
-
-+ (id)layerWithBalsamiqData:(NSArray *)balsamiqData eventHandle:(id)eventHandle createdHandle:(id)createdHandle;
++ (id)layerWithBalsamiqFile:(NSString *)fileName eventHandle:(id)eventHandle createdHandle:(id)createdHandle;
 
 @end
 

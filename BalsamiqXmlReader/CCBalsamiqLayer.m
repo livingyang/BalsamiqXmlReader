@@ -17,12 +17,17 @@ NSString *balsamiqFontName = @"arial";
 ccColor3B buttonNormalTextColor = {255, 255, 255};
 ccColor3B buttonSelectTextColor = {200, 200, 200};
 ccColor3B textInputColor = {200, 200, 200};
+NSString *balsamiqRootDir = @"";
+
+//保存根目录下的所有界面数据，以及界面对应的路径
+static NSDictionary *bmmlAndPathDic = nil;
 
 typedef struct
 {
 	CCMenu *menu;
 	id eventHandle;
 	id createdHandle;
+	NSString *fileDir;
 }ControlCreateInfo;
 
 #define IMAGE_PREFIX @"image_"
@@ -37,6 +42,31 @@ typedef struct
 ////////////////////////////////////////////////////////
 #pragma mark 私有函数
 ////////////////////////////////////////////////////////
+
+/*!
+    @名    称：getBalsamiqFilePath
+    @描    述：根据文件名，获取文件路径
+    @参    数：fileName
+    @返 回 值：
+    @备    注：
+*/
+- (NSString *)getBalsamiqFilePath:(NSString *)fileName
+{
+	if (bmmlAndPathDic == nil)
+	{
+		NSLog(@"CCBalsamiqLayer#%@ bmmlAndPathDic is nil", NSStringFromSelector(_cmd));
+		return nil;
+	}
+	NSString *filePath = [bmmlAndPathDic objectForKey:fileName];
+	if (filePath == nil)
+	{
+		return nil;
+	}
+	
+	filePath = [balsamiqRootDir stringByAppendingPathComponent:filePath];
+	
+	return filePath;
+}
 
 //格式字符串的特殊字符替换表
 - (NSDictionary *)charReplaceList
@@ -164,7 +194,9 @@ typedef struct
 
 - (void)createImage:(BalsamiqControlData *)data byCreateInfo:(ControlCreateInfo)createInfo
 {
-	NSString *picName = [[data.propertyDic objectForKey:@"src"] lastPathComponent];
+	//NSString *picPath = [[data.propertyDic objectForKey:@"src"] lastPathComponent];
+	NSString *picPath = [createInfo.fileDir stringByAppendingPathComponent:[data.propertyDic objectForKey:@"src"]];
+	
 	NSString *customID = [data.propertyDic objectForKey:@"customID"];
 	if (customID == nil)
 	{
@@ -177,7 +209,7 @@ typedef struct
 		[customID isEqualToString:@""])
 	{
 		//无名字的情况下，创建图片
-		CCSprite *image = [CCSprite spriteWithFile:picName];
+		CCSprite *image = [CCSprite spriteWithFile:picPath];
 		
 		CGSize itemSize = [self getBalsamiqControlSize:data];
 		if (CGSizeEqualToSize(image.contentSize, itemSize) == NO)
@@ -195,13 +227,13 @@ typedef struct
 		}
 	}
 	else if ([customID hasPrefix:TOGGLE_PREFIX] &&
-			 [picName rangeOfString:TOGGLE_INDEX].length > 0)
+			 [picPath rangeOfString:TOGGLE_INDEX].length > 0)
 	{
 		NSAssert(0, @"CCBalsamiqLayer#createImage 暂不支持toggle");
 		
 		CCMenuItemToggle *toggle = [CCMenuItemToggle itemWithTarget:createInfo.eventHandle
 														   selector:@selector(toggleCallBack:)
-															  items:[CCMenuItemImage itemFromNormalImage:picName selectedImage:picName], nil];
+															  items:[CCMenuItemImage itemFromNormalImage:picPath selectedImage:picPath], nil];
 		toggle.position = [self getMidPosition:data];
 		[createInfo.menu addChild:toggle z:zOrder];
 		
@@ -212,7 +244,7 @@ typedef struct
 		
 		for (int i = 2; YES; ++i)
 		{
-			NSString *curPicName = [picName stringByReplacingOccurrencesOfString:TOGGLE_INDEX
+			NSString *curPicName = [picPath stringByReplacingOccurrencesOfString:TOGGLE_INDEX
 																	  withString:[NSString stringWithFormat:@"-%d", i]];
 			
 			if ([[CCTextureCache sharedTextureCache] addImage:curPicName] == nil)
@@ -241,10 +273,10 @@ typedef struct
 				 object_getClassName(createInfo.eventHandle));
 		
 		//有名字的情况下，创建按钮
-		NSString* pressPicName = [picName stringByReplacingOccurrencesOfString:@"-normal" withString:@"-press"];
+		NSString* pressPicPath = [picPath stringByReplacingOccurrencesOfString:@"-normal" withString:@"-press"];
 		
-		CCMenuItemButton *item = [CCMenuItemButton itemFromNormalImage:picName 
-														 selectedImage:pressPicName
+		CCMenuItemButton *item = [CCMenuItemButton itemFromNormalImage:picPath 
+														 selectedImage:pressPicPath
 																target:createInfo.eventHandle
 															  selector:eventSel];
 		
@@ -386,80 +418,63 @@ typedef struct
 	[super onExit];
 }
 
-- (void) dealloc
-{
-	//[[BalsamiqLayerTextInputManager instance] removeTextInputManager:self];
-	[super dealloc];
-}
-
 ////////////////////////////////////////////////////////
 #pragma mark 公共函数
 ////////////////////////////////////////////////////////
 
-- (id)initWithBalsamiqData:(NSArray *)balsamiqData eventHandle:(id)eventHandle
++ (void)setBalsamiqRootDir:(NSString *)rootDir
 {
-	return [self initWithBalsamiqData:balsamiqData eventHandle:eventHandle createdHandle:eventHandle];
-	self = [self init];
-	if (self != nil)
+	if (bmmlAndPathDic == nil)
 	{
-		self.isRelativeAnchorPoint = YES;
-		self.anchorPoint = ccp(0, 0);
+		balsamiqRootDir = [[NSString alloc] initWithString:[[[NSBundle mainBundle] bundlePath]
+															stringByAppendingPathComponent:rootDir]];
 		
-		// 1 初始化layer
-		for (BalsamiqControlData *data in balsamiqData)
+		BOOL isDir;
+		if ([[NSFileManager defaultManager] fileExistsAtPath:balsamiqRootDir isDirectory:&isDir] == NO)
 		{
-			NSLog(@"%@", [data.attributeDic objectForKey:@"controlTypeID"]);
-			
-			if ([@"com.balsamiq.mockups::ModalScreen" isEqualToString:[data.attributeDic objectForKey:@"controlTypeID"]])
+			NSAssert(0, @"CCBalsamiqLayer#%@ rootDir = %@ is nil", NSStringFromSelector(_cmd), rootDir);
+		}
+		else if (isDir == NO)
+		{
+			NSAssert(0, @"CCBalsamiqLayer#%@ rootDir = %@ is not dir", NSStringFromSelector(_cmd), rootDir);
+		}
+
+		
+		NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
+		for (NSString *fileName in [[NSFileManager defaultManager] subpathsOfDirectoryAtPath:balsamiqRootDir error:nil])
+		{
+			if ([[fileName pathExtension] isEqualToString:@"bmml"])
 			{
-				self.contentSize = [self getBalsamiqControlSize:data];
-				break;
+				NSAssert([dic objectForKey:[fileName lastPathComponent]] == nil,
+						 @"CCBalsamiqLayer#%@ fileName = %@ is duplicate with %@",
+						 NSStringFromSelector(_cmd),
+						 fileName,
+						 [dic objectForKey:[fileName lastPathComponent]]);
+					
+				[dic setValue:fileName forKey:[fileName lastPathComponent]];
 			}
 		}
 		
-		// 2 生成创建的环境
-		CCMenu *menu = [CCMenu menuWithItems:nil];
-		[self addChild:menu];
-		menu.contentSize = self.contentSize;
-		menu.position = ccp(0, 0);
-		menu.anchorPoint = ccp(0, 0);
-		
-		ControlCreateInfo createInfo = 
-		{
-			menu,
-			eventHandle,
-		};
-		
-		// 3 生成各个控件
-		for (BalsamiqControlData *data in balsamiqData)
-		{
-			NSString *controlType = [[data.attributeDic objectForKey:@"controlTypeID"]
-									 substringFromIndex:[@"com.balsamiq.mockups::" length]];
-			
-			NSString* methodName = [NSString stringWithFormat:@"create%@:byCreateInfo:", controlType];
-			SEL creatorSel = sel_registerName([methodName UTF8String]);
-			
-			if ([self respondsToSelector:creatorSel])
-			{
-				objc_msgSend(self, creatorSel, data, createInfo);
-			}
-		}
+		bmmlAndPathDic = dic;
+		NSLog(@"dic = %@", dic);
 	}
-	return self;
 }
 
-+ (id)layerWithBalsamiqData:(NSArray *)balsamiqData eventHandle:(id)eventHandle
-{
-	return [[[CCBalsamiqLayer alloc] initWithBalsamiqData:balsamiqData eventHandle:eventHandle] autorelease];
-}
-
-- (id)initWithBalsamiqData:(NSArray *)balsamiqData eventHandle:(id)eventHandle createdHandle:(id)createdHandle
+- (id)initWithBalsamiqFile:(NSString *)fileName eventHandle:(id)eventHandle createdHandle:(id)createdHandle
 {
 	self = [self init];
 	if (self != nil)
 	{
 		self.isRelativeAnchorPoint = YES;
 		self.anchorPoint = ccp(0, 0);
+		
+		NSMutableArray *balsamiqData = [BalsamiqControlData getBalsamiqControlData:
+										[self getBalsamiqFilePath:fileName]];
+		if (balsamiqData == nil)
+		{
+			NSLog(@"CCBalsamiqLayer#%@ fileName = %@ is nil", NSStringFromSelector(_cmd), fileName);
+			return nil;
+		}
 		
 		// 1 初始化layer
 		for (BalsamiqControlData *data in balsamiqData)
@@ -485,6 +500,7 @@ typedef struct
 			menu,
 			eventHandle,
 			createdHandle,
+			[[self getBalsamiqFilePath:fileName] stringByDeletingLastPathComponent],
 		};
 		
 		// 3 生成各个控件
@@ -505,9 +521,11 @@ typedef struct
 	return self;
 }
 
-+ (id)layerWithBalsamiqData:(NSArray *)balsamiqData eventHandle:(id)eventHandle createdHandle:(id)createdHandle
++ (id)layerWithBalsamiqFile:(NSString *)fileName eventHandle:(id)eventHandle createdHandle:(id)createdHandle
 {
-	return [[CCBalsamiqLayer alloc] initWithBalsamiqData:balsamiqData eventHandle:eventHandle createdHandle:createdHandle];
+	return [[[CCBalsamiqLayer alloc] initWithBalsamiqFile:fileName
+											  eventHandle:eventHandle
+											createdHandle:createdHandle] autorelease];
 }
 
 @end
