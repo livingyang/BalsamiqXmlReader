@@ -22,7 +22,7 @@
 
 +(CCScene *) scene
 {
-	//[CCBalsamiqLayer setBalsamiqRootDir:@"UI"];
+	[CCBalsamiqLayer setBalsamiqRootDir:@"UI"];
 	
 	// 'scene' is an autorelease object.
 	CCScene *scene = [CCScene node];
