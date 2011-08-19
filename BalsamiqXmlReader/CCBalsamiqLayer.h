@@ -12,6 +12,11 @@
 #import "BalsamiqXmlDef.h"
 
 @interface CCBalsamiqLayer : CCLayer
+{
+	NSMutableArray *uiViewArray;
+}
+
+@property (nonatomic, readonly) NSMutableArray *uiViewArray;
 
 /*!
     @名    称：setBalsamiqRootDir

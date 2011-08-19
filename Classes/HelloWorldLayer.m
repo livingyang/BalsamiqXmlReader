@@ -12,8 +12,8 @@
 
 #import "BalsamiqControlData.h"
 #import "CCBalsamiqLayer.h"
-#import "BalsamiqReaderHelper.h"
 #import "CCAlertLayer.h"
+#import "CCBalsamiqScene.h"
 
 #import "NextLayer.h"
 
@@ -25,13 +25,10 @@
 	[CCBalsamiqLayer setBalsamiqRootDir:@"UI"];
 	
 	// 'scene' is an autorelease object.
-	CCScene *scene = [CCScene node];
-	
-	// 'layer' is an autorelease object.
-	HelloWorldLayer *layer = [HelloWorldLayer node];
+	CCScene *scene = [CCBalsamiqScene node];
 	
 	// add layer as a child to scene
-	[scene addChild: layer];
+	[scene addChild:[HelloWorldLayer node]];
 	
 	// return the scene
 	return scene;
@@ -51,7 +48,8 @@
 
 - (void)onNextClick:(id)sender
 {
-	[[CCDirector sharedDirector] replaceScene:[NextLayer scene]];
+	[[CCDirector sharedDirector] replaceScene:[CCTransitionSlideInR transitionWithDuration:1.0f
+																					 scene:[NextLayer scene]]];
 }
 
 - (void)onButtonClick:(id)sender
@@ -79,13 +77,16 @@
 	{
 		balsamiqFontName = @"Vanilla.ttf";
 		
-//		[self addChild:[CCBalsamiqLayer layerWithBalsamiqData:getBalsamiqData(@"main.bmml")
-//												  eventHandle:self]];
 		[self addChild:[CCBalsamiqLayer layerWithBalsamiqFile:@"main.bmml"
 												  eventHandle:self
 												createdHandle:self]];
 	}
 	return self;
+}
+
+- (void) dealloc
+{
+	[super dealloc];
 }
 
 @end

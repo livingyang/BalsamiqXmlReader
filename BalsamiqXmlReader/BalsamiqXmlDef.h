@@ -32,6 +32,9 @@ extern ccColor3B textInputColor;
 @optional
 - (void)onTextInputCreated:(UITextField *)textInput name:(NSString *)name;
 
+@optional
+- (void)onWebViewCreated:(UIWebView *)webView name:(NSString *)name;
+
 // 暂时去除，不支持
 @optional
 - (void)onToggleCreated:(CCMenuItemToggle *)toggle name:(NSString *)name;

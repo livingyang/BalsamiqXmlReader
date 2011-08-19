@@ -11,7 +11,6 @@
 #import "CCMenuItemButton.h"
 #import "CCLabelFX.h"
 #import "UIPaddingTextField.h"
-#import "BalsamiqLayerTextInputManager.h"
 
 NSString *balsamiqFontName = @"arial";
 ccColor3B buttonNormalTextColor = {255, 255, 255};
@@ -38,6 +37,8 @@ typedef struct
 #define LABEL_SHADOW_OFFSET_POSITION ccp(8, -2)
 
 @implementation CCBalsamiqLayer : CCLayer
+
+@synthesize uiViewArray;
 
 ////////////////////////////////////////////////////////
 #pragma mark 私有函数
@@ -114,6 +115,23 @@ typedef struct
 {
 	ccColor4F color4F = ccc4FFromccc3B(color);
 	return [UIColor colorWithRed:color4F.r green:color4F.g blue:color4F.b alpha:alpha];
+}
+
+- (UIColor *)getUIBackgroundColor:(BalsamiqControlData *)data
+{
+	ccColor3B backgroundColor = ccWHITE;
+	if ([data.propertyDic objectForKey:@"color"] != nil)
+	{
+		backgroundColor = [self getColor:[[data.propertyDic objectForKey:@"color"] intValue]];
+	}
+	
+	float alpha = 1.0f;
+	if ([data.propertyDic objectForKey:@"backgroundAlpha"] != nil)
+	{
+		alpha = [[data.propertyDic objectForKey:@"backgroundAlpha"] floatValue];
+	}
+	
+	return [self getUIColor:backgroundColor alpha:alpha];
 }
 
 - (CGSize)getBalsamiqControlSize:(BalsamiqControlData *)data
@@ -385,9 +403,7 @@ typedef struct
 									 size:[self getBalsamiqControlTextSize:data]];
 	
 	// NOTE: UITextField won't be visible by default without setting backGroundColor & borderStyle
-	ccColor3B backgroundColor = [self getColor:[[data.propertyDic objectForKey:@"color"] intValue]];
-	textField.backgroundColor = [self getUIColor:backgroundColor
-										   alpha:[[data.propertyDic objectForKey:@"backgroundAlpha"] floatValue]];
+	textField.backgroundColor = [self getUIBackgroundColor:data];
 	textField.borderStyle = UITextBorderStyleRoundedRect;
 	
 	textField.delegate = createInfo.eventHandle; // set this layer as the UITextFieldDelegate
@@ -398,7 +414,7 @@ typedef struct
 	// add the textField to the main game openGLVview
 	[[[CCDirector sharedDirector] openGLView] addSubview:textField];
 	
-	[[BalsamiqLayerTextInputManager instance] addTextInput:textField managedBy:self];
+	[uiViewArray addObject:textField];
 	
 	//发送事件
 	if ([createInfo.createdHandle respondsToSelector:@selector(onTextInputCreated:name:)])
@@ -408,14 +424,49 @@ typedef struct
 	}
 }
 
+- (void)createCanvas:(BalsamiqControlData *)data byCreateInfo:(ControlCreateInfo)createInfo
+{
+	CGRect rect = {[self getBalsamiqControlPosition:data], [self getBalsamiqControlSize:data]};
+	rect.origin = [self convertToMidPosition:rect.origin
+									nodeSize:rect.size
+							 nodeAnchorPoint:ccp(0.5f, 0.5f)];
+	rect.origin = [[CCDirector sharedDirector] convertToUI:rect.origin];
+	
+	UIWebView *webView = [[UIWebView alloc] initWithFrame:rect];
+	webView.backgroundColor = [self getUIBackgroundColor:data];
+	
+	// add the textField to the main game openGLVview
+	[[[CCDirector sharedDirector] openGLView] addSubview:webView];
+	
+	[uiViewArray addObject:webView];
+	
+	//发送事件
+	if ([createInfo.createdHandle respondsToSelector:@selector(onWebViewCreated:name:)])
+	{
+		[createInfo.createdHandle onWebViewCreated:webView
+											  name:[data.propertyDic objectForKey:@"customID"]];
+	}
+}
+
+
 ////////////////////////////////////////////////////////
 #pragma mark 继承函数
 ////////////////////////////////////////////////////////
 
 - (void)onExit
 {
-	[[BalsamiqLayerTextInputManager instance] removeTextInputManager:self];
+	for (UITextField *textField in uiViewArray)
+	{
+		[textField removeFromSuperview];
+	}
+	
 	[super onExit];
+}
+
+- (void) dealloc
+{
+	[uiViewArray release];
+	[super dealloc];
 }
 
 ////////////////////////////////////////////////////////
@@ -465,6 +516,8 @@ typedef struct
 	self = [self init];
 	if (self != nil)
 	{
+		uiViewArray = [[NSMutableArray alloc] init];
+		
 		self.isRelativeAnchorPoint = YES;
 		self.anchorPoint = ccp(0, 0);
 		

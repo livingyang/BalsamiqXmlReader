@@ -13,11 +13,19 @@
         <text>Back</text>
       </controlProperties>
     </control>
-    <control controlID="32" controlTypeID="com.balsamiq.mockups::Image" x="164" y="137" w="-1" h="-1" measuredW="151" measuredH="45" zOrder="3" locked="false" isInGroup="-1">
+    <control controlID="32" controlTypeID="com.balsamiq.mockups::Image" x="0" y="7" w="-1" h="-1" measuredW="151" measuredH="45" zOrder="3" locked="false" isInGroup="-1">
       <controlProperties>
         <customID>Button</customID>
         <src>../Common/button-normal.png</src>
         <text>Button</text>
+      </controlProperties>
+    </control>
+    <control controlID="33" controlTypeID="com.balsamiq.mockups::Canvas" x="166" y="0" w="314" h="320" measuredW="100" measuredH="70" zOrder="4" locked="false" isInGroup="-1">
+      <controlProperties>
+        <backgroundAlpha>0.5</backgroundAlpha>
+        <borderColor>16770457</borderColor>
+        <borderStyle>none</borderStyle>
+        <verticalScrollbar>true</verticalScrollbar>
       </controlProperties>
     </control>
   </controls>
