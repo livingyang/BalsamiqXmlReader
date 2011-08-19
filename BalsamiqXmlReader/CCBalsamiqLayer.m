@@ -36,6 +36,30 @@ typedef struct
 #define LABEL_NORMAL_OFFSET_POSITION ccp(3, -2)
 #define LABEL_SHADOW_OFFSET_POSITION ccp(8, -2)
 
+ccColor3B ccColor3BFromNSString(NSString *str)
+{
+	if (str == nil)
+	{
+		return ccWHITE;
+	}
+	
+	NSArray *sep = [[str stringByReplacingOccurrencesOfString:@" " withString:@""]
+					componentsSeparatedByString:@","];
+	if (sep.count != 3)
+	{
+		return ccWHITE;
+	}
+	
+	ccColor3B color = 
+	{
+		[[sep objectAtIndex:0] intValue],
+		[[sep objectAtIndex:1] intValue],
+		[[sep objectAtIndex:2] intValue],
+	};
+	
+	return color;
+}
+
 @implementation CCBalsamiqLayer : CCLayer
 
 @synthesize uiViewArray;
@@ -509,6 +533,51 @@ typedef struct
 		bmmlAndPathDic = dic;
 		NSLog(@"dic = %@", dic);
 	}
+}
+
++ (void)setBalsamiqConfig:(NSDictionary *)configDic
+{
+	if ([configDic objectForKey:KEY_BALSAMIQ_ROOT_DIR] != nil)
+	{
+		[CCBalsamiqLayer setBalsamiqRootDir:[configDic objectForKey:KEY_BALSAMIQ_ROOT_DIR]];
+	}
+	
+	if ([configDic objectForKey:KEY_BALSAMIQ_FONT_NAME] != nil
+		&& [configDic objectForKey:KEY_BALSAMIQ_FONT_NAME] != balsamiqFontName)
+	{
+		if (balsamiqFontName != nil)
+		{
+			[balsamiqFontName release];
+		}
+		
+		balsamiqFontName = [configDic objectForKey:KEY_BALSAMIQ_FONT_NAME];
+		[balsamiqFontName retain];
+	}
+	
+	if ([configDic objectForKey:KEY_BALSAMIQ_BTN_NORMAL_TEXT_COLOR] != nil)
+	{
+		buttonNormalTextColor =
+		ccColor3BFromNSString([configDic objectForKey:KEY_BALSAMIQ_BTN_NORMAL_TEXT_COLOR]);
+	}
+	
+	if ([configDic objectForKey:KEY_BALSAMIQ_BTN_SELECT_TEXT_COLOR] != nil)
+	{
+		buttonSelectTextColor =
+		ccColor3BFromNSString([configDic objectForKey:KEY_BALSAMIQ_BTN_SELECT_TEXT_COLOR]);
+	}
+	
+	if ([configDic objectForKey:KEY_BALSAMIQ_INPUT_TEXT_COLOR] != nil)
+	{
+		textInputColor =
+		ccColor3BFromNSString([configDic objectForKey:KEY_BALSAMIQ_INPUT_TEXT_COLOR]);
+	}
+}
+
++ (void)setBalsamiqConfigWithPropertyListFile:(NSString *)configKey
+{
+	NSDictionary *dic = [[NSBundle mainBundle] objectForInfoDictionaryKey:configKey];
+	
+	[CCBalsamiqLayer setBalsamiqConfig:dic];
 }
 
 - (id)initWithBalsamiqFile:(NSString *)fileName eventHandle:(id)eventHandle createdHandle:(id)createdHandle

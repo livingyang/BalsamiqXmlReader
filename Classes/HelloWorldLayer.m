@@ -22,7 +22,8 @@
 
 +(CCScene *) scene
 {
-	[CCBalsamiqLayer setBalsamiqRootDir:@"UI"];
+//	[CCBalsamiqLayer setBalsamiqRootDir:@"UI"];
+	[CCBalsamiqLayer setBalsamiqConfigWithPropertyListFile:@"BalsamiqConfig"];
 	
 	// 'scene' is an autorelease object.
 	CCScene *scene = [CCBalsamiqScene node];
@@ -75,8 +76,6 @@
 {
 	if( (self=[super init]))
 	{
-		balsamiqFontName = @"Vanilla.ttf";
-		
 		[self addChild:[CCBalsamiqLayer layerWithBalsamiqFile:@"main.bmml"
 												  eventHandle:self
 												createdHandle:self]];

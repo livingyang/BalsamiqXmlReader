@@ -27,6 +27,24 @@
 */
 + (void)setBalsamiqRootDir:(NSString *)rootDir;
 
+/*!
+    @名    称：setBalsamiqConfig
+    @描    述：使用一个字典对象，进行配置
+    @参    数：configDic
+    @返 回 值：
+    @备    注：
+*/
++ (void)setBalsamiqConfig:(NSDictionary *)configDic;
+
+/*!
+	@名    称：setBalsamiqConfigWithPropertyListFile
+	@描    述：在默认的plist文件中，查找指定的字典对象，进行配置
+	@参    数：configKey
+	@返 回 值：
+	@备    注：
+*/
++ (void)setBalsamiqConfigWithPropertyListFile:(NSString *)configKey;
+
 // 带有事件的控件，如button，toggle，其事件的处理者为eventHandle
 // 控件创建完毕后，createdHandle将收到创建完毕的回调
 

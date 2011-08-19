@@ -36,7 +36,7 @@
 			1D6058900D05DD3D006BFB54 /* BalsamiqXmlReader */,
 		);
 		breakpoints = (
-			D87A127713FE34170019CB2D /* CCBalsamiqLayer.m:436 */,
+			D87A132013FE44FD0019CB2D /* HelloWorldLayer.m:26 */,
 		);
 		codeSenseManager = D8D3C69213D6CF37002846EC /* Code sense */;
 		executables = (
@@ -329,6 +329,38 @@
 			D87A12EB13FE3A560019CB2D /* PBXTextBookmark */ = D87A12EB13FE3A560019CB2D /* PBXTextBookmark */;
 			D87A12EC13FE3A560019CB2D /* PBXTextBookmark */ = D87A12EC13FE3A560019CB2D /* PBXTextBookmark */;
 			D87A12ED13FE3A560019CB2D /* PBXTextBookmark */ = D87A12ED13FE3A560019CB2D /* PBXTextBookmark */;
+			D87A12F813FE406F0019CB2D /* PBXBookmark */ = D87A12F813FE406F0019CB2D /* PBXBookmark */;
+			D87A130713FE419A0019CB2D /* PBXTextBookmark */ = D87A130713FE419A0019CB2D /* PBXTextBookmark */;
+			D87A130813FE419A0019CB2D /* PBXTextBookmark */ = D87A130813FE419A0019CB2D /* PBXTextBookmark */;
+			D87A130913FE419A0019CB2D /* PBXTextBookmark */ = D87A130913FE419A0019CB2D /* PBXTextBookmark */;
+			D87A130A13FE419A0019CB2D /* PBXTextBookmark */ = D87A130A13FE419A0019CB2D /* PBXTextBookmark */;
+			D87A130B13FE419A0019CB2D /* PBXTextBookmark */ = D87A130B13FE419A0019CB2D /* PBXTextBookmark */;
+			D87A130D13FE419A0019CB2D /* PBXTextBookmark */ = D87A130D13FE419A0019CB2D /* PBXTextBookmark */;
+			D87A130E13FE419A0019CB2D /* PlistBookmark */ = D87A130E13FE419A0019CB2D /* PlistBookmark */;
+			D87A130F13FE419A0019CB2D /* PBXTextBookmark */ = D87A130F13FE419A0019CB2D /* PBXTextBookmark */;
+			D87A131013FE419A0019CB2D /* PBXTextBookmark */ = D87A131013FE419A0019CB2D /* PBXTextBookmark */;
+			D87A131313FE419A0019CB2D /* PBXTextBookmark */ = D87A131313FE419A0019CB2D /* PBXTextBookmark */;
+			D87A131413FE419A0019CB2D /* PBXTextBookmark */ = D87A131413FE419A0019CB2D /* PBXTextBookmark */;
+			D87A132413FE44FF0019CB2D /* PBXTextBookmark */ = D87A132413FE44FF0019CB2D /* PBXTextBookmark */;
+			D87A132513FE44FF0019CB2D /* PBXTextBookmark */ = D87A132513FE44FF0019CB2D /* PBXTextBookmark */;
+			D87A132613FE44FF0019CB2D /* PBXTextBookmark */ = D87A132613FE44FF0019CB2D /* PBXTextBookmark */;
+			D87A132713FE44FF0019CB2D /* PBXTextBookmark */ = D87A132713FE44FF0019CB2D /* PBXTextBookmark */;
+			D87A132813FE44FF0019CB2D /* PBXTextBookmark */ = D87A132813FE44FF0019CB2D /* PBXTextBookmark */;
+			D87A132913FE44FF0019CB2D /* PlistBookmark */ = D87A132913FE44FF0019CB2D /* PlistBookmark */;
+			D87A132A13FE44FF0019CB2D /* PBXTextBookmark */ = D87A132A13FE44FF0019CB2D /* PBXTextBookmark */;
+			D87A132B13FE44FF0019CB2D /* PBXTextBookmark */ = D87A132B13FE44FF0019CB2D /* PBXTextBookmark */;
+			D87A132C13FE44FF0019CB2D /* PBXTextBookmark */ = D87A132C13FE44FF0019CB2D /* PBXTextBookmark */;
+			D87A132D13FE44FF0019CB2D /* PBXTextBookmark */ = D87A132D13FE44FF0019CB2D /* PBXTextBookmark */;
+			D87A133113FE450B0019CB2D /* PBXTextBookmark */ = D87A133113FE450B0019CB2D /* PBXTextBookmark */;
+			D87A133213FE450B0019CB2D /* PBXTextBookmark */ = D87A133213FE450B0019CB2D /* PBXTextBookmark */;
+			D87A133313FE450B0019CB2D /* PBXTextBookmark */ = D87A133313FE450B0019CB2D /* PBXTextBookmark */;
+			D87A133413FE450B0019CB2D /* PBXTextBookmark */ = D87A133413FE450B0019CB2D /* PBXTextBookmark */;
+			D87A133513FE450B0019CB2D /* PBXTextBookmark */ = D87A133513FE450B0019CB2D /* PBXTextBookmark */;
+			D87A133713FE452A0019CB2D /* PBXTextBookmark */ = D87A133713FE452A0019CB2D /* PBXTextBookmark */;
+			D87A133813FE452A0019CB2D /* PBXTextBookmark */ = D87A133813FE452A0019CB2D /* PBXTextBookmark */;
+			D87A133913FE452A0019CB2D /* PBXTextBookmark */ = D87A133913FE452A0019CB2D /* PBXTextBookmark */;
+			D87A133A13FE452A0019CB2D /* PBXTextBookmark */ = D87A133A13FE452A0019CB2D /* PBXTextBookmark */;
+			D87A133B13FE452A0019CB2D /* PBXTextBookmark */ = D87A133B13FE452A0019CB2D /* PBXTextBookmark */;
 			D895677E13DAA12900FFA735 = D895677E13DAA12900FFA735 /* PBXTextBookmark */;
 			D895679A13DAA31400FFA735 = D895679A13DAA31400FFA735 /* PBXTextBookmark */;
 			D895679C13DAA31400FFA735 = D895679C13DAA31400FFA735 /* PBXTextBookmark */;
@@ -424,9 +456,9 @@
 	};
 	506EDC30102F528A00A389B3 /* HelloWorldLayer.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1214.9, 1953}}";
-			sepNavSelRange = "{1492, 0}";
-			sepNavVisRange = "{1172, 653}";
+			sepNavIntBoundsRect = "{{0, 0}, {1214.9, 1974}}";
+			sepNavSelRange = "{1663, 0}";
+			sepNavVisRange = "{1476, 361}";
 		};
 	};
 	506EE05D10304ED200A389B3 /* cocos2d libraries */ = {
@@ -539,7 +571,7 @@
 		fRef = 506EDC30102F528A00A389B3 /* HelloWorldLayer.m */;
 		name = "HelloWorldLayer.m: 37";
 		rLen = 0;
-		rLoc = 667;
+		rLoc = 745;
 		rType = 0;
 		vrLen = 716;
 		vrLoc = 200;
@@ -549,7 +581,7 @@
 		fRef = 506EDC30102F528A00A389B3 /* HelloWorldLayer.m */;
 		name = "HelloWorldLayer.m: 53";
 		rLen = 0;
-		rLoc = 928;
+		rLoc = 1006;
 		rType = 0;
 		vrLen = 747;
 		vrLoc = 475;
@@ -559,7 +591,7 @@
 		fRef = 506EDC30102F528A00A389B3 /* HelloWorldLayer.m */;
 		name = "HelloWorldLayer.m: 53";
 		rLen = 0;
-		rLoc = 928;
+		rLoc = 1006;
 		rType = 0;
 		vrLen = 768;
 		vrLoc = 475;
@@ -599,7 +631,7 @@
 		fRef = D8FAD6F913F36C1600FEECF0 /* CCBalsamiqLayer.m */;
 		name = "CCBalsamiqLayer.m: 423";
 		rLen = 0;
-		rLoc = 930;
+		rLoc = 1344;
 		rType = 0;
 		vrLen = 1125;
 		vrLoc = 11838;
@@ -609,7 +641,7 @@
 		fRef = D8FAD6F913F36C1600FEECF0 /* CCBalsamiqLayer.m */;
 		name = "CCBalsamiqLayer.m: 421";
 		rLen = 0;
-		rLoc = 930;
+		rLoc = 1344;
 		rType = 0;
 		vrLen = 802;
 		vrLoc = 12428;
@@ -619,7 +651,7 @@
 		fRef = D8FAD6F913F36C1600FEECF0 /* CCBalsamiqLayer.m */;
 		name = "CCBalsamiqLayer.m: 421";
 		rLen = 0;
-		rLoc = 930;
+		rLoc = 1344;
 		rType = 0;
 		vrLen = 802;
 		vrLoc = 12428;
@@ -629,7 +661,7 @@
 		fRef = D8FAD6F913F36C1600FEECF0 /* CCBalsamiqLayer.m */;
 		name = "CCBalsamiqLayer.m: 421";
 		rLen = 0;
-		rLoc = 930;
+		rLoc = 1344;
 		rType = 0;
 		vrLen = 258;
 		vrLoc = 12720;
@@ -639,7 +671,7 @@
 		fRef = D8FAD6F913F36C1600FEECF0 /* CCBalsamiqLayer.m */;
 		name = "CCBalsamiqLayer.m: 421";
 		rLen = 0;
-		rLoc = 930;
+		rLoc = 1344;
 		rType = 0;
 		vrLen = 802;
 		vrLoc = 12428;
@@ -649,7 +681,7 @@
 		fRef = D8FAD6F913F36C1600FEECF0 /* CCBalsamiqLayer.m */;
 		name = "CCBalsamiqLayer.m: 421";
 		rLen = 0;
-		rLoc = 930;
+		rLoc = 1344;
 		rType = 0;
 		vrLen = 742;
 		vrLoc = 12516;
@@ -659,7 +691,7 @@
 		fRef = 506EDC30102F528A00A389B3 /* HelloWorldLayer.m */;
 		name = "HelloWorldLayer.m: 85";
 		rLen = 0;
-		rLoc = 1638;
+		rLoc = 1676;
 		rType = 0;
 		vrLen = 802;
 		vrLoc = 1178;
@@ -668,7 +700,7 @@
 		isa = PBXTextBookmark;
 		fRef = D8FAD6F913F36C1600FEECF0 /* CCBalsamiqLayer.m */;
 		rLen = 0;
-		rLoc = 524;
+		rLoc = 593;
 		rType = 1;
 	};
 	D87A113B13FE082B0019CB2D /* PBXTextBookmark */ = {
@@ -676,7 +708,7 @@
 		fRef = D8FAD6F913F36C1600FEECF0 /* CCBalsamiqLayer.m */;
 		name = "CCBalsamiqLayer.m: 486";
 		rLen = 0;
-		rLoc = 15689;
+		rLoc = 17389;
 		rType = 0;
 		vrLen = 886;
 		vrLoc = 14196;
@@ -716,7 +748,7 @@
 		fRef = D8FAD6F913F36C1600FEECF0 /* CCBalsamiqLayer.m */;
 		name = "CCBalsamiqLayer.m: 416";
 		rLen = 0;
-		rLoc = 930;
+		rLoc = 1344;
 		rType = 0;
 		vrLen = 688;
 		vrLoc = 12573;
@@ -726,7 +758,7 @@
 		fRef = D8FAD6F913F36C1600FEECF0 /* CCBalsamiqLayer.m */;
 		name = "CCBalsamiqLayer.m: 416";
 		rLen = 0;
-		rLoc = 930;
+		rLoc = 1344;
 		rType = 0;
 		vrLen = 670;
 		vrLoc = 12591;
@@ -740,9 +772,9 @@
 	};
 	D87A115113FE09F80019CB2D /* CCBalsamiqScene.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1214.9, 1659}}";
-			sepNavSelRange = "{391, 0}";
-			sepNavVisRange = "{145, 829}";
+			sepNavIntBoundsRect = "{{0, 0}, {1214.9, 1512}}";
+			sepNavSelRange = "{423, 0}";
+			sepNavVisRange = "{145, 833}";
 		};
 	};
 	D87A118513FE0DE60019CB2D /* PBXTextBookmark */ = {
@@ -750,7 +782,7 @@
 		fRef = D8FAD6F713F36C1600FEECF0 /* BalsamiqXmlDef.h */;
 		name = "BalsamiqXmlDef.h: 18";
 		rLen = 0;
-		rLoc = 391;
+		rLoc = 668;
 		rType = 0;
 		vrLen = 868;
 		vrLoc = 3;
@@ -770,7 +802,7 @@
 		fRef = D8FAD6F913F36C1600FEECF0 /* CCBalsamiqLayer.m */;
 		name = "CCBalsamiqLayer.m: 412";
 		rLen = 0;
-		rLoc = 930;
+		rLoc = 1344;
 		rType = 0;
 		vrLen = 874;
 		vrLoc = 11969;
@@ -937,7 +969,7 @@
 		fRef = D8FAD6F913F36C1600FEECF0 /* CCBalsamiqLayer.m */;
 		name = "CCBalsamiqLayer.m: 418";
 		rLen = 0;
-		rLoc = 930;
+		rLoc = 1344;
 		rType = 0;
 		vrLen = 352;
 		vrLoc = 13203;
@@ -1044,7 +1076,7 @@
 		fRef = D8FAD6F913F36C1600FEECF0 /* CCBalsamiqLayer.m */;
 		name = "CCBalsamiqLayer.m: 41";
 		rLen = 0;
-		rLoc = 930;
+		rLoc = 1344;
 		rType = 0;
 		vrLen = 829;
 		vrLoc = 287;
@@ -1121,7 +1153,7 @@
 		fRef = D8FAD6F913F36C1600FEECF0 /* CCBalsamiqLayer.m */;
 		name = "CCBalsamiqLayer.m: 418";
 		rLen = 0;
-		rLoc = 930;
+		rLoc = 1344;
 		rType = 0;
 		vrLen = 241;
 		vrLoc = 12545;
@@ -1188,7 +1220,7 @@
 		fRef = 506EDC30102F528A00A389B3 /* HelloWorldLayer.m */;
 		name = "HelloWorldLayer.m: 28";
 		rLen = 0;
-		rLoc = 518;
+		rLoc = 596;
 		rType = 0;
 		vrLen = 641;
 		vrLoc = 144;
@@ -1248,7 +1280,7 @@
 		fRef = D8FAD6F913F36C1600FEECF0 /* CCBalsamiqLayer.m */;
 		name = "CCBalsamiqLayer.m: 414";
 		rLen = 0;
-		rLoc = 930;
+		rLoc = 1344;
 		rType = 0;
 		vrLen = 394;
 		vrLoc = 12476;
@@ -1684,7 +1716,7 @@
 		fRef = 506EDC30102F528A00A389B3 /* HelloWorldLayer.m */;
 		name = "HelloWorldLayer.m: 28";
 		rLen = 0;
-		rLoc = 518;
+		rLoc = 596;
 		rType = 0;
 		vrLen = 643;
 		vrLoc = 141;
@@ -1694,7 +1726,7 @@
 		fRef = 506EDC30102F528A00A389B3 /* HelloWorldLayer.m */;
 		name = "HelloWorldLayer.m: 51";
 		rLen = 0;
-		rLoc = 993;
+		rLoc = 1071;
 		rType = 0;
 		vrLen = 773;
 		vrLoc = 784;
@@ -1714,7 +1746,7 @@
 		fRef = 506EDC30102F528A00A389B3 /* HelloWorldLayer.m */;
 		name = "HelloWorldLayer.m: 51";
 		rLen = 0;
-		rLoc = 993;
+		rLoc = 1071;
 		rType = 0;
 		vrLen = 773;
 		vrLoc = 784;
@@ -1846,7 +1878,7 @@
 		fRef = 506EDC30102F528A00A389B3 /* HelloWorldLayer.m */;
 		name = "HelloWorldLayer.m: 86";
 		rLen = 0;
-		rLoc = 1585;
+		rLoc = 1663;
 		rType = 0;
 		vrLen = 682;
 		vrLoc = 1071;
@@ -1856,7 +1888,7 @@
 		fRef = 506EDC30102F528A00A389B3 /* HelloWorldLayer.m */;
 		name = "HelloWorldLayer.m: 97";
 		rLen = 0;
-		rLoc = 1779;
+		rLoc = 1817;
 		rType = 0;
 		vrLen = 561;
 		vrLoc = 1491;
@@ -1886,7 +1918,7 @@
 		fRef = 506EDC30102F528A00A389B3 /* HelloWorldLayer.m */;
 		name = "HelloWorldLayer.m: 82";
 		rLen = 0;
-		rLoc = 1585;
+		rLoc = 1663;
 		rType = 0;
 		vrLen = 559;
 		vrLoc = 1493;
@@ -1906,7 +1938,7 @@
 		fRef = 506EDC30102F528A00A389B3 /* HelloWorldLayer.m */;
 		name = "HelloWorldLayer.m: 94";
 		rLen = 0;
-		rLoc = 1585;
+		rLoc = 1663;
 		rType = 0;
 		vrLen = 831;
 		vrLoc = 1416;
@@ -1946,7 +1978,7 @@
 		fRef = D8FAD6F913F36C1600FEECF0 /* CCBalsamiqLayer.m */;
 		name = "CCBalsamiqLayer.m: 370";
 		rLen = 0;
-		rLoc = 930;
+		rLoc = 1344;
 		rType = 0;
 		vrLen = 1525;
 		vrLoc = 10300;
@@ -1956,7 +1988,7 @@
 		fRef = 506EDC30102F528A00A389B3 /* HelloWorldLayer.m */;
 		name = "HelloWorldLayer.m: 95";
 		rLen = 0;
-		rLoc = 1585;
+		rLoc = 1663;
 		rType = 0;
 		vrLen = 870;
 		vrLoc = 1416;
@@ -1966,7 +1998,7 @@
 		fRef = 506EDC30102F528A00A389B3 /* HelloWorldLayer.m */;
 		name = "HelloWorldLayer.m: 95";
 		rLen = 0;
-		rLoc = 1585;
+		rLoc = 1663;
 		rType = 0;
 		vrLen = 851;
 		vrLoc = 1445;
@@ -1986,7 +2018,7 @@
 		fRef = 506EDC30102F528A00A389B3 /* HelloWorldLayer.m */;
 		name = "HelloWorldLayer.m: 94";
 		rLen = 0;
-		rLoc = 1585;
+		rLoc = 1663;
 		rType = 0;
 		vrLen = 869;
 		vrLoc = 1491;
@@ -2016,7 +2048,7 @@
 		fRef = 506EDC30102F528A00A389B3 /* HelloWorldLayer.m */;
 		name = "HelloWorldLayer.m: 92";
 		rLen = 0;
-		rLoc = 1585;
+		rLoc = 1663;
 		rType = 0;
 		vrLen = 811;
 		vrLoc = 1415;
@@ -2026,7 +2058,7 @@
 		fRef = D8FAD6F713F36C1600FEECF0 /* BalsamiqXmlDef.h */;
 		name = "BalsamiqXmlDef.h: 37";
 		rLen = 0;
-		rLoc = 854;
+		rLoc = 1131;
 		rType = 0;
 		vrLen = 828;
 		vrLoc = 163;
@@ -2036,7 +2068,7 @@
 		fRef = D8FAD6F913F36C1600FEECF0 /* CCBalsamiqLayer.m */;
 		name = "CCBalsamiqLayer.m: 370";
 		rLen = 0;
-		rLoc = 930;
+		rLoc = 1344;
 		rType = 0;
 		vrLen = 1269;
 		vrLoc = 9480;
@@ -2046,7 +2078,7 @@
 		fRef = D8FAD6F913F36C1600FEECF0 /* CCBalsamiqLayer.m */;
 		name = "CCBalsamiqLayer.m: 412";
 		rLen = 0;
-		rLoc = 930;
+		rLoc = 1344;
 		rType = 0;
 		vrLen = 1119;
 		vrLoc = 11768;
@@ -2061,30 +2093,12 @@
 		vrLen = 1868;
 		vrLoc = 1160;
 	};
-	D87A127713FE34170019CB2D /* CCBalsamiqLayer.m:436 */ = {
-		isa = PBXFileBreakpoint;
-		actions = (
-		);
-		breakpointStyle = 0;
-		continueAfterActions = 0;
-		countType = 0;
-		delayBeforeContinue = 0;
-		fileReference = D8FAD6F913F36C1600FEECF0 /* CCBalsamiqLayer.m */;
-		functionName = "-createCanvasInput:byCreateInfo:";
-		hitCount = 1;
-		ignoreCount = 0;
-		lineNumber = 436;
-		location = BalsamiqXmlReader;
-		modificationTime = 335426759.547306;
-		originalNumberOfMultipleMatches = 1;
-		state = 1;
-	};
 	D87A127A13FE34210019CB2D /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = D8FAD6F913F36C1600FEECF0 /* CCBalsamiqLayer.m */;
 		name = "CCBalsamiqLayer.m: 420";
 		rLen = 0;
-		rLoc = 930;
+		rLoc = 1344;
 		rType = 0;
 		vrLen = 940;
 		vrLoc = 12318;
@@ -2167,7 +2181,7 @@
 		fRef = D8FAD6F913F36C1600FEECF0 /* CCBalsamiqLayer.m */;
 		name = "CCBalsamiqLayer.m: 420";
 		rLen = 0;
-		rLoc = 930;
+		rLoc = 1344;
 		rType = 0;
 		vrLen = 940;
 		vrLoc = 12318;
@@ -2177,7 +2191,7 @@
 		fRef = D8FAD6F913F36C1600FEECF0 /* CCBalsamiqLayer.m */;
 		name = "CCBalsamiqLayer.m: 420";
 		rLen = 0;
-		rLoc = 930;
+		rLoc = 1344;
 		rType = 0;
 		vrLen = 938;
 		vrLoc = 12320;
@@ -2197,7 +2211,7 @@
 		fRef = 506EDC30102F528A00A389B3 /* HelloWorldLayer.m */;
 		name = "HelloWorldLayer.m: 96";
 		rLen = 0;
-		rLoc = 1798;
+		rLoc = 1836;
 		rType = 0;
 		vrLen = 710;
 		vrLoc = 1416;
@@ -2217,7 +2231,7 @@
 		fRef = D8FAD6F913F36C1600FEECF0 /* CCBalsamiqLayer.m */;
 		name = "CCBalsamiqLayer.m: 420";
 		rLen = 0;
-		rLoc = 930;
+		rLoc = 1344;
 		rType = 0;
 		vrLen = 938;
 		vrLoc = 12320;
@@ -2227,7 +2241,7 @@
 		fRef = D8FAD6F913F36C1600FEECF0 /* CCBalsamiqLayer.m */;
 		name = "CCBalsamiqLayer.m: 412";
 		rLen = 0;
-		rLoc = 930;
+		rLoc = 1344;
 		rType = 0;
 		vrLen = 1244;
 		vrLoc = 11825;
@@ -2277,7 +2291,7 @@
 		fRef = D8FAD6F913F36C1600FEECF0 /* CCBalsamiqLayer.m */;
 		name = "CCBalsamiqLayer.m: 560";
 		rLen = 0;
-		rLoc = 17407;
+		rLoc = 19107;
 		rType = 0;
 		vrLen = 826;
 		vrLoc = 287;
@@ -2287,7 +2301,7 @@
 		fRef = D8FAD6F913F36C1600FEECF0 /* CCBalsamiqLayer.m */;
 		name = "CCBalsamiqLayer.m: 431";
 		rLen = 0;
-		rLoc = 13660;
+		rLoc = 14074;
 		rType = 0;
 		vrLen = 891;
 		vrLoc = 12726;
@@ -2327,7 +2341,7 @@
 		fRef = D8FAD6F913F36C1600FEECF0 /* CCBalsamiqLayer.m */;
 		name = "CCBalsamiqLayer.m: 420";
 		rLen = 9;
-		rLoc = 13243;
+		rLoc = 13657;
 		rType = 0;
 		vrLen = 1199;
 		vrLoc = 12157;
@@ -2367,7 +2381,7 @@
 		fRef = D8FAD6F713F36C1600FEECF0 /* BalsamiqXmlDef.h */;
 		name = "BalsamiqXmlDef.h: 35";
 		rLen = 69;
-		rLoc = 784;
+		rLoc = 1061;
 		rType = 0;
 		vrLen = 828;
 		vrLoc = 163;
@@ -2377,7 +2391,7 @@
 		fRef = 506EDC30102F528A00A389B3 /* HelloWorldLayer.m */;
 		name = "HelloWorldLayer.m: 71";
 		rLen = 0;
-		rLoc = 1492;
+		rLoc = 1570;
 		rType = 0;
 		vrLen = 653;
 		vrLoc = 1172;
@@ -2427,7 +2441,7 @@
 		fRef = 506EDC30102F528A00A389B3 /* HelloWorldLayer.m */;
 		name = "HelloWorldLayer.m: 71";
 		rLen = 0;
-		rLoc = 1492;
+		rLoc = 1570;
 		rType = 0;
 		vrLen = 674;
 		vrLoc = 1151;
@@ -2437,7 +2451,7 @@
 		fRef = D8FAD6F913F36C1600FEECF0 /* CCBalsamiqLayer.m */;
 		name = "CCBalsamiqLayer.m: 420";
 		rLen = 9;
-		rLoc = 13243;
+		rLoc = 13657;
 		rType = 0;
 		vrLen = 1203;
 		vrLoc = 12155;
@@ -2447,7 +2461,7 @@
 		fRef = D8FAD6F913F36C1600FEECF0 /* CCBalsamiqLayer.m */;
 		name = "CCBalsamiqLayer.m: 423";
 		rLen = 0;
-		rLoc = 13317;
+		rLoc = 13731;
 		rType = 0;
 		vrLen = 1263;
 		vrLoc = 12413;
@@ -2467,7 +2481,7 @@
 		fRef = D8FAD6F913F36C1600FEECF0 /* CCBalsamiqLayer.m */;
 		name = "CCBalsamiqLayer.m: 122";
 		rLen = 0;
-		rLoc = 2787;
+		rLoc = 3201;
 		rType = 0;
 		vrLen = 1027;
 		vrLoc = 2127;
@@ -2477,7 +2491,7 @@
 		fRef = D8FAD6F913F36C1600FEECF0 /* CCBalsamiqLayer.m */;
 		name = "CCBalsamiqLayer.m: 399";
 		rLen = 0;
-		rLoc = 12061;
+		rLoc = 12475;
 		rType = 0;
 		vrLen = 1796;
 		vrLoc = 10803;
@@ -2497,7 +2511,7 @@
 		fRef = D8FAD6F913F36C1600FEECF0 /* CCBalsamiqLayer.m */;
 		name = "CCBalsamiqLayer.m: 399";
 		rLen = 0;
-		rLoc = 12061;
+		rLoc = 12475;
 		rType = 0;
 		vrLen = 1799;
 		vrLoc = 10803;
@@ -2637,7 +2651,7 @@
 		fRef = 506EDC30102F528A00A389B3 /* HelloWorldLayer.m */;
 		name = "HelloWorldLayer.m: 71";
 		rLen = 0;
-		rLoc = 1492;
+		rLoc = 1570;
 		rType = 0;
 		vrLen = 653;
 		vrLoc = 1172;
@@ -2647,7 +2661,7 @@
 		fRef = D8FAD6F913F36C1600FEECF0 /* CCBalsamiqLayer.m */;
 		name = "CCBalsamiqLayer.m: 399";
 		rLen = 0;
-		rLoc = 12061;
+		rLoc = 12475;
 		rType = 0;
 		vrLen = 1704;
 		vrLoc = 10898;
@@ -2657,12 +2671,348 @@
 		fRef = D8FAD6F913F36C1600FEECF0 /* CCBalsamiqLayer.m */;
 		name = "CCBalsamiqLayer.m: 122";
 		rLen = 0;
-		rLoc = 2635;
+		rLoc = 3049;
 		rType = 0;
 		vrLen = 855;
 		vrLoc = 2222;
 	};
 	D87A12ED13FE3A560019CB2D /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = D87A121713FE176A0019CB2D /* UIView.h */;
+		name = "UIView.h: 180";
+		rLen = 10;
+		rLoc = 8451;
+		rType = 0;
+		vrLen = 1806;
+		vrLoc = 1160;
+	};
+	D87A12F813FE406F0019CB2D /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = D8FAD6F713F36C1600FEECF0 /* BalsamiqXmlDef.h */;
+	};
+	D87A130713FE419A0019CB2D /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = D87A115113FE09F80019CB2D /* CCBalsamiqScene.m */;
+		name = "CCBalsamiqScene.m: 21";
+		rLen = 0;
+		rLoc = 423;
+		rType = 0;
+		vrLen = 833;
+		vrLoc = 145;
+	};
+	D87A130813FE419A0019CB2D /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = D8FAD6F313F36C1600FEECF0 /* BalsamiqControlData.h */;
+		name = "BalsamiqControlData.h: 23";
+		rLen = 65;
+		rLoc = 490;
+		rType = 0;
+		vrLen = 561;
+		vrLoc = 0;
+	};
+	D87A130913FE419A0019CB2D /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = D8FAD6F713F36C1600FEECF0 /* BalsamiqXmlDef.h */;
+		name = "BalsamiqXmlDef.h: 19";
+		rLen = 0;
+		rLoc = 505;
+		rType = 0;
+		vrLen = 962;
+		vrLoc = 3;
+	};
+	D87A130A13FE419A0019CB2D /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = D8FAD6F813F36C1600FEECF0 /* CCBalsamiqLayer.h */;
+		name = "CCBalsamiqLayer.h: 41";
+		rLen = 0;
+		rLoc = 789;
+		rType = 0;
+		vrLen = 804;
+		vrLoc = 297;
+	};
+	D87A130B13FE419A0019CB2D /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = D87A130C13FE419A0019CB2D /* NSBundle.h */;
+		name = "NSBundle.h: 24";
+		rLen = 26;
+		rLoc = 640;
+		rType = 0;
+		vrLen = 1031;
+		vrLoc = 0;
+	};
+	D87A130C13FE419A0019CB2D /* NSBundle.h */ = {
+		isa = PBXFileReference;
+		name = NSBundle.h;
+		path = /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSBundle.h;
+		sourceTree = "<absolute>";
+	};
+	D87A130D13FE419A0019CB2D /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = D8FAD6F913F36C1600FEECF0 /* CCBalsamiqLayer.m */;
+		name = "CCBalsamiqLayer.m: 525";
+		rLen = 0;
+		rLoc = 16996;
+		rType = 0;
+		vrLen = 863;
+		vrLoc = 15136;
+	};
+	D87A130E13FE419A0019CB2D /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = 50F414EF1069373D002A0D5E /* Info.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+		);
+		name = /Users/leeliving/Desktop/BalsamiqXmlReader/Resources/Info.plist;
+		rLen = 0;
+		rLoc = 9223372036854775807;
+	};
+	D87A130F13FE419A0019CB2D /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 506EDC30102F528A00A389B3 /* HelloWorldLayer.m */;
+		name = "HelloWorldLayer.m: 26";
+		rLen = 0;
+		rLoc = 547;
+		rType = 0;
+		vrLen = 732;
+		vrLoc = 0;
+	};
+	D87A131013FE419A0019CB2D /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 506EDC30102F528A00A389B3 /* HelloWorldLayer.m */;
+		name = "HelloWorldLayer.m: 26";
+		rLen = 0;
+		rLoc = 544;
+		rType = 0;
+		vrLen = 743;
+		vrLoc = 3;
+	};
+	D87A131313FE419A0019CB2D /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = D8FAD6F713F36C1600FEECF0 /* BalsamiqXmlDef.h */;
+		name = "BalsamiqXmlDef.h: 19";
+		rLen = 0;
+		rLoc = 505;
+		rType = 0;
+		vrLen = 965;
+		vrLoc = 0;
+	};
+	D87A131413FE419A0019CB2D /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = D87A121713FE176A0019CB2D /* UIView.h */;
+		name = "UIView.h: 180";
+		rLen = 10;
+		rLoc = 8451;
+		rType = 0;
+		vrLen = 1806;
+		vrLoc = 1160;
+	};
+	D87A132013FE44FD0019CB2D /* HelloWorldLayer.m:26 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = 506EDC30102F528A00A389B3 /* HelloWorldLayer.m */;
+		functionName = "+scene";
+		hitCount = 2;
+		ignoreCount = 0;
+		lineNumber = 26;
+		location = BalsamiqXmlReader;
+		modificationTime = 335430954.94089;
+		originalNumberOfMultipleMatches = 1;
+		state = 1;
+	};
+	D87A132413FE44FF0019CB2D /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = E02BB7DC126CC224006E46A2 /* ccTypes.h */;
+		name = "ccTypes.h: 49";
+		rLen = 13;
+		rLoc = 1556;
+		rType = 0;
+		vrLen = 1301;
+		vrLoc = 135;
+	};
+	D87A132513FE44FF0019CB2D /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = E02BB79C126CC223006E46A2 /* ccMacros.h */;
+		name = "ccMacros.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1282;
+		vrLoc = 3678;
+	};
+	D87A132613FE44FF0019CB2D /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = D8CF0CAE13D916CE005A6171 /* NSString.h */;
+		name = "NSString.h: 256";
+		rLen = 0;
+		rLoc = 16089;
+		rType = 0;
+		vrLen = 2383;
+		vrLoc = 14727;
+	};
+	D87A132713FE44FF0019CB2D /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = D8FAD6F713F36C1600FEECF0 /* BalsamiqXmlDef.h */;
+		name = "BalsamiqXmlDef.h: 17";
+		rLen = 68;
+		rLoc = 328;
+		rType = 0;
+		vrLen = 710;
+		vrLoc = 189;
+	};
+	D87A132813FE44FF0019CB2D /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = D8FAD6F913F36C1600FEECF0 /* CCBalsamiqLayer.m */;
+		name = "CCBalsamiqLayer.m: 578";
+		rLen = 0;
+		rLoc = 16966;
+		rType = 0;
+		vrLen = 769;
+		vrLoc = 16424;
+	};
+	D87A132913FE44FF0019CB2D /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = 50F414EF1069373D002A0D5E /* Info.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+			BalsamiqConfig,
+			FontName,
+		);
+		name = /Users/leeliving/Desktop/BalsamiqXmlReader/Resources/Info.plist;
+		rLen = 0;
+		rLoc = 9223372036854775807;
+	};
+	D87A132A13FE44FF0019CB2D /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 506EDC30102F528A00A389B3 /* HelloWorldLayer.m */;
+		name = "HelloWorldLayer.m: 26";
+		rLen = 0;
+		rLoc = 493;
+		rType = 0;
+		vrLen = 544;
+		vrLoc = 260;
+	};
+	D87A132B13FE44FF0019CB2D /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 506EDC30102F528A00A389B3 /* HelloWorldLayer.m */;
+		name = "HelloWorldLayer.m: 26";
+		rLen = 0;
+		rLoc = 493;
+		rType = 0;
+		vrLen = 519;
+		vrLoc = 285;
+	};
+	D87A132C13FE44FF0019CB2D /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = D8FAD6F713F36C1600FEECF0 /* BalsamiqXmlDef.h */;
+		name = "BalsamiqXmlDef.h: 16";
+		rLen = 8;
+		rLoc = 318;
+		rType = 0;
+		vrLen = 965;
+		vrLoc = 0;
+	};
+	D87A132D13FE44FF0019CB2D /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = D87A121713FE176A0019CB2D /* UIView.h */;
+		name = "UIView.h: 180";
+		rLen = 10;
+		rLoc = 8451;
+		rType = 0;
+		vrLen = 1806;
+		vrLoc = 1160;
+	};
+	D87A133113FE450B0019CB2D /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 506EDC30102F528A00A389B3 /* HelloWorldLayer.m */;
+		name = "HelloWorldLayer.m: 26";
+		rLen = 0;
+		rLoc = 493;
+		rType = 0;
+		vrLen = 519;
+		vrLoc = 285;
+	};
+	D87A133213FE450B0019CB2D /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = D8FAD6F913F36C1600FEECF0 /* CCBalsamiqLayer.m */;
+		rLen = 0;
+		rLoc = 577;
+		rType = 1;
+	};
+	D87A133313FE450B0019CB2D /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = D8FAD6F913F36C1600FEECF0 /* CCBalsamiqLayer.m */;
+		name = "CCBalsamiqLayer.m: 578";
+		rLen = 0;
+		rLoc = 16981;
+		rType = 0;
+		vrLen = 646;
+		vrLoc = 16588;
+	};
+	D87A133413FE450B0019CB2D /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = D8FAD6F713F36C1600FEECF0 /* BalsamiqXmlDef.h */;
+		name = "BalsamiqXmlDef.h: 16";
+		rLen = 8;
+		rLoc = 318;
+		rType = 0;
+		vrLen = 965;
+		vrLoc = 0;
+	};
+	D87A133513FE450B0019CB2D /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = D87A121713FE176A0019CB2D /* UIView.h */;
+		name = "UIView.h: 180";
+		rLen = 10;
+		rLoc = 8451;
+		rType = 0;
+		vrLen = 1806;
+		vrLoc = 1160;
+	};
+	D87A133713FE452A0019CB2D /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 506EDC30102F528A00A389B3 /* HelloWorldLayer.m */;
+		name = "HelloWorldLayer.m: 26";
+		rLen = 0;
+		rLoc = 472;
+		rType = 0;
+		vrLen = 464;
+		vrLoc = 285;
+	};
+	D87A133813FE452A0019CB2D /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = D8FAD6F913F36C1600FEECF0 /* CCBalsamiqLayer.m */;
+		rLen = 0;
+		rLoc = 577;
+		rType = 1;
+	};
+	D87A133913FE452A0019CB2D /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = D8FAD6F913F36C1600FEECF0 /* CCBalsamiqLayer.m */;
+		name = "CCBalsamiqLayer.m: 460";
+		rLen = 0;
+		rLoc = 13712;
+		rType = 0;
+		vrLen = 788;
+		vrLoc = 13344;
+	};
+	D87A133A13FE452A0019CB2D /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = D8FAD6F713F36C1600FEECF0 /* BalsamiqXmlDef.h */;
+		name = "BalsamiqXmlDef.h: 16";
+		rLen = 8;
+		rLoc = 318;
+		rType = 0;
+		vrLen = 965;
+		vrLoc = 0;
+	};
+	D87A133B13FE452A0019CB2D /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = D87A121713FE176A0019CB2D /* UIView.h */;
 		name = "UIView.h: 180";
@@ -3041,7 +3391,7 @@
 		fRef = D8FAD6F713F36C1600FEECF0 /* BalsamiqXmlDef.h */;
 		name = "BalsamiqXmlDef.h: 18";
 		rLen = 0;
-		rLoc = 391;
+		rLoc = 668;
 		rType = 0;
 		vrLen = 773;
 		vrLoc = 24;
@@ -3168,7 +3518,7 @@
 		fRef = D8FAD6F913F36C1600FEECF0 /* CCBalsamiqLayer.m */;
 		name = "CCBalsamiqLayer.m: 240";
 		rLen = 0;
-		rLoc = 930;
+		rLoc = 1344;
 		rType = 0;
 		vrLen = 1197;
 		vrLoc = 5564;
@@ -3178,7 +3528,7 @@
 		fRef = 506EDC30102F528A00A389B3 /* HelloWorldLayer.m */;
 		name = "HelloWorldLayer.m: 25";
 		rLen = 0;
-		rLoc = 667;
+		rLoc = 745;
 		rType = 0;
 		vrLen = 696;
 		vrLoc = 47;
@@ -3188,7 +3538,7 @@
 		fRef = 506EDC30102F528A00A389B3 /* HelloWorldLayer.m */;
 		name = "HelloWorldLayer.m: 31";
 		rLen = 0;
-		rLoc = 667;
+		rLoc = 745;
 		rType = 0;
 		vrLen = 684;
 		vrLoc = 232;
@@ -3209,6 +3559,11 @@
 		name = NSString.h;
 		path = /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSString.h;
 		sourceTree = "<absolute>";
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {5658.03, 8589}}";
+			sepNavSelRange = "{16089, 0}";
+			sepNavVisRange = "{14727, 2383}";
+		};
 	};
 	D8CF0E4D13D9866D005A6171 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
@@ -3376,7 +3731,7 @@
 		argumentStrings = (
 		);
 		autoAttachOnCrash = 1;
-		breakpointsEnabled = 0;
+		breakpointsEnabled = 1;
 		configStateDict = {
 		};
 		customDataFormattersEnabled = 1;
@@ -3606,7 +3961,7 @@
 	};
 	D8FAD6F313F36C1600FEECF0 /* BalsamiqControlData.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {916, 694}}";
+			sepNavIntBoundsRect = "{{0, 0}, {916, 717}}";
 			sepNavSelRange = "{490, 65}";
 			sepNavVisRange = "{0, 561}";
 		};
@@ -3646,23 +4001,23 @@
 	};
 	D8FAD6F713F36C1600FEECF0 /* BalsamiqXmlDef.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {916, 1029}}";
-			sepNavSelRange = "{784, 69}";
-			sepNavVisRange = "{163, 828}";
+			sepNavIntBoundsRect = "{{0, 0}, {868, 1071}}";
+			sepNavSelRange = "{318, 8}";
+			sepNavVisRange = "{0, 965}";
 		};
 	};
 	D8FAD6F813F36C1600FEECF0 /* CCBalsamiqLayer.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1193.22, 1029}}";
-			sepNavSelRange = "{354, 5}";
-			sepNavVisRange = "{50, 859}";
+			sepNavIntBoundsRect = "{{0, 0}, {1193.22, 1386}}";
+			sepNavSelRange = "{789, 0}";
+			sepNavVisRange = "{297, 804}";
 		};
 	};
 	D8FAD6F913F36C1600FEECF0 /* CCBalsamiqLayer.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1182.39, 12831}}";
-			sepNavSelRange = "{2635, 0}";
-			sepNavVisRange = "{2222, 855}";
+			sepNavIntBoundsRect = "{{0, 0}, {1312.43, 13566}}";
+			sepNavSelRange = "{13712, 0}";
+			sepNavVisRange = "{13344, 788}";
 		};
 	};
 	D8FAD6FA13F36C1600FEECF0 /* CCMenuItemButton.h */ = {
@@ -3777,9 +4132,9 @@
 	};
 	E02BB79C126CC223006E46A2 /* ccMacros.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1420.8, 5313}}";
+			sepNavIntBoundsRect = "{{0, 0}, {1420.8, 5250}}";
 			sepNavSelRange = "{0, 0}";
-			sepNavVisRange = "{7175, 1095}";
+			sepNavVisRange = "{3678, 1282}";
 		};
 	};
 	E02BB7A3126CC224006E46A2 /* CCNode.h */ = {
@@ -3842,7 +4197,7 @@
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {916, 6048}}";
 			sepNavSelRange = "{1556, 13}";
-			sepNavVisRange = "{1488, 937}";
+			sepNavVisRange = "{135, 1301}";
 		};
 	};
 	E02BB7E0126CC224006E46A2 /* CCGL.h */ = {
