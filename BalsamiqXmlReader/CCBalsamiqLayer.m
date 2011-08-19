@@ -456,7 +456,7 @@ ccColor3B ccColor3BFromNSString(NSString *str)
 							 nodeAnchorPoint:ccp(0.5f, 0.5f)];
 	rect.origin = [[CCDirector sharedDirector] convertToUI:rect.origin];
 	
-	UIWebView *webView = [[UIWebView alloc] initWithFrame:rect];
+	UIWebView *webView = [[[UIWebView alloc] initWithFrame:rect] autorelease];
 	webView.backgroundColor = [self getUIBackgroundColor:data];
 	
 	// add the textField to the main game openGLVview
