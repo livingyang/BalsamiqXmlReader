@@ -13,6 +13,7 @@
 
 @synthesize labelInfoDic;
 @synthesize buttonInfoDic;
+@synthesize parentNode;
 
 ////////////////////////////////////////////////////////
 #pragma mark 私有函数
@@ -47,10 +48,19 @@
 	{
 		[button setText:text];
 	}
+	
+	if ([self.parentNode respondsToSelector:@selector(onButtonCreated:name:)])
+	{
+		[self.parentNode onButtonCreated:button name:name];
+	}
 }
 
 - (void)onImageCreated:(CCSprite *)image name:(NSString *)name
 {
+	if ([self.parentNode respondsToSelector:@selector(onImageCreated:name:)])
+	{
+		[self.parentNode onImageCreated:image name:name];
+	}
 }
 
 - (void)onLabelCreated:(CCLabelTTF *)label name:(NSString *)name
@@ -61,10 +71,29 @@
 	{
 		[label setString:text];
 	}
+	
+	if ([self.parentNode respondsToSelector:@selector(onLabelCreated:name:)])
+	{
+		[self.parentNode onLabelCreated:label name:name];
+	}
 }
 
 - (void)onTextInputCreated:(UITextField *)textInput name:(NSString *)name
-{}
+{
+	
+	if ([self.parentNode respondsToSelector:@selector(onTextInputCreated:name:)])
+	{
+		[self.parentNode onTextInputCreated:textInput name:name];
+	}
+}
+
+- (void)onWebViewCreated:(UIWebView *)webView name:(NSString *)name
+{
+	if ([self.parentNode respondsToSelector:@selector(onWebViewCreated:name:)])
+	{
+		[self.parentNode onWebViewCreated:webView name:name];
+	}
+}
 
 ////////////////////////////////////////////////////////
 #pragma mark 继承函数
@@ -107,6 +136,7 @@
 	
 	ccColor4B color = ccc4(0, 0, 0, 50);
 	CCAlertLayer *alert = [CCAlertLayer layerWithColor:color];
+	alert.parentNode = parentNode;
 	alert.labelInfoDic = labelInfoDic;
 	alert.buttonInfoDic = buttonInfoDic;
 	

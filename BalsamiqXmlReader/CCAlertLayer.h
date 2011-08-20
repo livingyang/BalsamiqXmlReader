@@ -19,10 +19,13 @@ typedef enum
 {
 	NSDictionary *labelInfoDic_;
 	NSDictionary *buttonInfoDic_;
+	
+	id parentNode_;
 }
 
 @property (nonatomic, assign) NSDictionary *labelInfoDic;
 @property (nonatomic, assign) NSDictionary *buttonInfoDic;
+@property (nonatomic, assign) id parentNode;
 
 + (void)showAlert:(NSString *)fileName
 	   parentNode:(CCNode *)parentNode;
