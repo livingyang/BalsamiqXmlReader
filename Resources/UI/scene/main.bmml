@@ -42,7 +42,7 @@
         <text>Next</text>
       </controlProperties>
     </control>
-    <control controlID="32" controlTypeID="com.balsamiq.mockups::Image" x="164" y="150" w="-1" h="-1" measuredW="151" measuredH="45" zOrder="7" locked="false" isInGroup="-1">
+    <control controlID="32" controlTypeID="com.balsamiq.mockups::Image" x="134" y="147" w="-1" h="-1" measuredW="151" measuredH="45" zOrder="7" locked="false" isInGroup="-1">
       <controlProperties>
         <customID>Button</customID>
         <src>../Common/button-normal.png</src>

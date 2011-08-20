@@ -35,10 +35,17 @@
 																					 scene:[HelloWorldLayer scene]]];
 }
 
-- (void)onButtonClick:(id)sender
+- (void)onPopAlertClick:(id)sender
 {
 	[CCAlertLayer showAlert:@"alert-yes-no.bmml"
 				 parentNode:self];
+}
+
+- (void)onShowAlertClick:(id)sender
+{
+	[CCAlertLayer showAlert:@"alert-yes-no.bmml"
+				 parentNode:self
+				  showModal:kNormalShowModal];
 }
 
 - (void)onYesClick:(id)sender

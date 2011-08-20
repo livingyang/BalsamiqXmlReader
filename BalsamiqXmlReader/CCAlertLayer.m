@@ -14,6 +14,31 @@
 @synthesize labelInfoDic;
 @synthesize buttonInfoDic;
 
+////////////////////////////////////////////////////////
+#pragma mark 私有函数
+////////////////////////////////////////////////////////
+
++ (CCAction *)getShowAction:(AlertShowModal)modal
+{
+	switch (modal)
+	{
+		case kPopAlertModal:
+		{
+			return [CCSequence actions:
+					[CCEaseElasticOut actionWithAction:[CCScaleTo actionWithDuration:1.2 scale:1]],
+					 nil];
+		}break;
+		default:
+		{
+			return [CCScaleTo actionWithDuration:0 scale:1.0f];
+		}break;
+	}
+}
+
+////////////////////////////////////////////////////////
+#pragma mark 控件创建函数
+////////////////////////////////////////////////////////
+
 - (void)onButtonCreated:(CCMenuItemButton *)button name:(NSString *)name
 {
 	NSString *text = [self.buttonInfoDic objectForKey:name];
@@ -41,6 +66,9 @@
 - (void)onTextInputCreated:(UITextField *)textInput name:(NSString *)name
 {}
 
+////////////////////////////////////////////////////////
+#pragma mark 继承函数
+////////////////////////////////////////////////////////
 
 - (void)onEnter
 {
@@ -62,8 +90,13 @@
 	return YES;
 }
 
+////////////////////////////////////////////////////////
+#pragma mark 公共函数
+////////////////////////////////////////////////////////
+
 + (void)showAlert:(NSString *)fileName
 	   parentNode:(CCNode *)parentNode
+		showModal:(AlertShowModal)modal
 		labelInfo:(NSDictionary *)labelInfoDic
 	   buttonInfo:(NSDictionary *)buttonInfoDic
 {
@@ -71,9 +104,6 @@
 	{
 		return;
 	}
-	
-	id action = [CCScaleTo actionWithDuration:1.2 scale:1];
-	action = [CCEaseElasticOut actionWithAction:action];
 	
 	ccColor4B color = ccc4(0, 0, 0, 50);
 	CCAlertLayer *alert = [CCAlertLayer layerWithColor:color];
@@ -88,18 +118,43 @@
 	layer.position = ccp([CCDirector sharedDirector].winSize.width / 2,
 						 [CCDirector sharedDirector].winSize.height / 2);
 	
-	[layer runAction:action];
 	[alert addChild:layer];
 	
 	[parentNode addChild:alert z:INT_MAX];
+	
+	[layer runAction:[CCAlertLayer getShowAction:modal]];
+}
+
++ (void)showAlert:(NSString *)fileName
+	   parentNode:(CCNode *)parentNode
+		labelInfo:(NSDictionary *)labelInfoDic
+	   buttonInfo:(NSDictionary *)buttonInfoDic
+{
+	[CCAlertLayer showAlert:fileName
+				 parentNode:parentNode
+				  showModal:kPopAlertModal
+				  labelInfo:labelInfoDic
+				 buttonInfo:buttonInfoDic];
 }
 
 + (void)showAlert:(NSString *)fileName parentNode:(CCNode *)parentNode
 {
-	return [CCAlertLayer showAlert:fileName
-						parentNode:parentNode
-						 labelInfo:nil
-						buttonInfo:nil];
+	[CCAlertLayer showAlert:fileName
+				 parentNode:parentNode
+				  showModal:kPopAlertModal
+				  labelInfo:nil
+				 buttonInfo:nil];
+}
+
++ (void)showAlert:(NSString *)fileName
+	   parentNode:(CCNode *)parentNode
+		showModal:(AlertShowModal)modal
+{
+	[CCAlertLayer showAlert:fileName
+				 parentNode:parentNode
+				  showModal:modal
+				  labelInfo:nil
+				 buttonInfo:nil];
 }
 
 + (void)removeAlertFromNode:(id)subNode
