@@ -427,7 +427,7 @@ ccColor3B ccColor3BFromNSString(NSString *str)
 									 size:[self getBalsamiqControlTextSize:data]];
 	
 	// NOTE: UITextField won't be visible by default without setting backGroundColor & borderStyle
-	textField.backgroundColor = [self getUIBackgroundColor:data];
+	//textField.backgroundColor = [self getUIBackgroundColor:data];
 	textField.borderStyle = UITextBorderStyleRoundedRect;
 	
 	textField.delegate = createInfo.eventHandle; // set this layer as the UITextFieldDelegate
