@@ -429,6 +429,7 @@ ccColor3B ccColor3BFromNSString(NSString *str)
 	// NOTE: UITextField won't be visible by default without setting backGroundColor & borderStyle
 	//textField.backgroundColor = [self getUIBackgroundColor:data];
 	textField.borderStyle = UITextBorderStyleRoundedRect;
+	textField.clearButtonMode = UITextFieldViewModeWhileEditing;
 	
 	textField.delegate = createInfo.eventHandle; // set this layer as the UITextFieldDelegate
 	textField.returnKeyType = UIReturnKeyDone; // add the 'done' key to the keyboard

@@ -113,8 +113,8 @@
 					PBXFileDataSource_Warnings_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 335512565;
-			PBXWorkspaceStateSaveDate = 335512565;
+			PBXPerProjectTemplateStateSaveDate = 335516676;
+			PBXWorkspaceStateSaveDate = 335516676;
 		};
 		perUserProjectItems = {
 			D87A11A213FE0F080019CB2D /* PBXTextBookmark */ = D87A11A213FE0F080019CB2D /* PBXTextBookmark */;
@@ -182,10 +182,10 @@
 			D8CA6E8413FF67030014AEF8 /* PBXTextBookmark */ = D8CA6E8413FF67030014AEF8 /* PBXTextBookmark */;
 			D8CA6F0313FF87F50014AEF8 /* PBXTextBookmark */ = D8CA6F0313FF87F50014AEF8 /* PBXTextBookmark */;
 			D8CA6F0413FF87F50014AEF8 /* PBXTextBookmark */ = D8CA6F0413FF87F50014AEF8 /* PBXTextBookmark */;
-			D8CA6F1313FF88150014AEF8 /* PBXTextBookmark */ = D8CA6F1313FF88150014AEF8 /* PBXTextBookmark */;
-			D8CA6F1E13FF88830014AEF8 /* PBXTextBookmark */ = D8CA6F1E13FF88830014AEF8 /* PBXTextBookmark */;
-			D8CA6F1F13FF88830014AEF8 /* PBXTextBookmark */ = D8CA6F1F13FF88830014AEF8 /* PBXTextBookmark */;
-			D8CA6F2113FF88830014AEF8 /* PBXTextBookmark */ = D8CA6F2113FF88830014AEF8 /* PBXTextBookmark */;
+			D8CA6F8013FF94FA0014AEF8 /* PBXTextBookmark */ = D8CA6F8013FF94FA0014AEF8 /* PBXTextBookmark */;
+			D8CA6F8113FF94FA0014AEF8 /* PBXTextBookmark */ = D8CA6F8113FF94FA0014AEF8 /* PBXTextBookmark */;
+			D8CA6F8213FF94FA0014AEF8 /* PBXTextBookmark */ = D8CA6F8213FF94FA0014AEF8 /* PBXTextBookmark */;
+			D8CA6F8313FF94FA0014AEF8 /* PBXTextBookmark */ = D8CA6F8313FF94FA0014AEF8 /* PBXTextBookmark */;
 			D8CAD62513FB581C00FFFC6A /* PBXTextBookmark */ = D8CAD62513FB581C00FFFC6A /* PBXTextBookmark */;
 			D8CAD62713FB581C00FFFC6A /* PBXTextBookmark */ = D8CAD62713FB581C00FFFC6A /* PBXTextBookmark */;
 			D8CF0C7F13D90F88005A6171 /* PBXTextBookmark */ = D8CF0C7F13D90F88005A6171 /* PBXTextBookmark */;
@@ -887,9 +887,9 @@
 		path = /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/System/Library/Frameworks/UIKit.framework/Headers/UITextField.h;
 		sourceTree = "<absolute>";
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1019.83, 4494}}";
-			sepNavSelRange = "{668, 27}";
-			sepNavVisRange = "{378, 600}";
+			sepNavIntBoundsRect = "{{0, 0}, {2049.34, 4326}}";
+			sepNavSelRange = "{5978, 142}";
+			sepNavVisRange = "{94, 628}";
 		};
 	};
 	D8C3A8D513FA774E00306DF1 /* NSFileManager.h */ = {
@@ -1102,64 +1102,62 @@
 	};
 	D8CA6F0513FF87F50014AEF8 /* UITextField.h */ = {
 		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
 		name = UITextField.h;
 		path = /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/System/Library/Frameworks/UIKit.framework/Headers/UITextField.h;
 		sourceTree = "<absolute>";
 	};
-	D8CA6F1313FF88150014AEF8 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = D895692613DADF8F00FFA735 /* UITextField.h */;
-		name = "UITextField.h: 28";
-		rLen = 27;
-		rLoc = 668;
-		rType = 0;
-		vrLen = 600;
-		vrLoc = 378;
-	};
-	D8CA6F1E13FF88830014AEF8 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = D8FAD6F913F36C1600FEECF0 /* CCBalsamiqLayer.m */;
-		name = "CCBalsamiqLayer.m: 430";
-		rLen = 0;
-		rLoc = 12416;
-		rType = 0;
-		vrLen = 1377;
-		vrLoc = 11420;
-	};
-	D8CA6F1F13FF88830014AEF8 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = D8CA6F2013FF88830014AEF8 /* CCBalsamiqLayer.m */;
-		rLen = 0;
-		rLoc = 9223372036854775809;
-		rType = 0;
-	};
-	D8CA6F2013FF88830014AEF8 /* CCBalsamiqLayer.m */ = {
+	D8CA6F2213FF88830014AEF8 /* CCBalsamiqLayer.m */ = {
 		isa = PBXFileReference;
 		lastKnownFileType = sourcecode.c.objc;
 		name = CCBalsamiqLayer.m;
 		path = "/Users/leeliving/Desktop/棋类游戏/TicTacToe/libs/BalsamiqXmlReader/BalsamiqXmlReader/CCBalsamiqLayer.m";
 		sourceTree = "<absolute>";
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1193.22, 13272}}";
-			sepNavSelRange = "{12441, 0}";
-			sepNavVisRange = "{11709, 1280}";
+			sepNavIntBoundsRect = "{{0, 0}, {1193.22, 13377}}";
+			sepNavSelRange = "{12544, 15}";
+			sepNavVisRange = "{11807, 1236}";
 		};
 	};
-	D8CA6F2113FF88830014AEF8 /* PBXTextBookmark */ = {
+	D8CA6F8013FF94FA0014AEF8 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = D8CA6F2213FF88830014AEF8 /* CCBalsamiqLayer.m */;
+		name = "CCBalsamiqLayer.m: 432";
+		rLen = 15;
+		rLoc = 12544;
+		rType = 0;
+		vrLen = 1236;
+		vrLoc = 11807;
+	};
+	D8CA6F8113FF94FA0014AEF8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = D895692613DADF8F00FFA735 /* UITextField.h */;
+		name = "UITextField.h: 144";
+		rLen = 142;
+		rLoc = 5978;
+		rType = 0;
+		vrLen = 628;
+		vrLoc = 94;
+	};
+	D8CA6F8213FF94FA0014AEF8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = D8FAD6F913F36C1600FEECF0 /* CCBalsamiqLayer.m */;
 		name = "CCBalsamiqLayer.m: 430";
 		rLen = 0;
-		rLoc = 12441;
+		rLoc = 12416;
 		rType = 0;
-		vrLen = 1280;
-		vrLoc = 11709;
+		vrLen = 1228;
+		vrLoc = 11569;
 	};
-	D8CA6F2213FF88830014AEF8 /* CCBalsamiqLayer.m */ = {
-		isa = PBXFileReference;
-		name = CCBalsamiqLayer.m;
-		path = "/Users/leeliving/Desktop/棋类游戏/TicTacToe/libs/BalsamiqXmlReader/BalsamiqXmlReader/CCBalsamiqLayer.m";
-		sourceTree = "<absolute>";
+	D8CA6F8313FF94FA0014AEF8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = D8FAD6F913F36C1600FEECF0 /* CCBalsamiqLayer.m */;
+		name = "CCBalsamiqLayer.m: 432";
+		rLen = 0;
+		rLoc = 12594;
+		rType = 0;
+		vrLen = 1138;
+		vrLoc = 12107;
 	};
 	D8CAD62513FB581C00FFFC6A /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
@@ -1535,9 +1533,9 @@
 	};
 	D8FAD6F913F36C1600FEECF0 /* CCBalsamiqLayer.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1193.22, 13356}}";
-			sepNavSelRange = "{12416, 0}";
-			sepNavVisRange = "{11420, 1377}";
+			sepNavIntBoundsRect = "{{0, 0}, {1193.22, 13377}}";
+			sepNavSelRange = "{12594, 0}";
+			sepNavVisRange = "{12107, 1138}";
 		};
 	};
 	D8FAD6FA13F36C1600FEECF0 /* CCMenuItemButton.h */ = {
