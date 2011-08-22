@@ -10,7 +10,7 @@
 
 #import "BalsamiqXmlReaderAppDelegate.h"
 #import "GameConfig.h"
-#import "HelloWorldLayer.h"
+#import "MainLayer.h"
 #import "RootViewController.h"
 
 @implementation BalsamiqXmlReaderAppDelegate
@@ -110,7 +110,7 @@
 	[self removeStartupFlicker];
 	
 	// Run the intro Scene
-	[[CCDirector sharedDirector] runWithScene: [HelloWorldLayer scene]];
+	[[CCDirector sharedDirector] runWithScene: [MainLayer scene]];
 }
 
 

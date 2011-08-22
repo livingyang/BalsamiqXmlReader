@@ -13,7 +13,19 @@
 
 @interface CCBalsamiqLayer : CCLayer
 {
+	/*!
+		@名    称：uiViewArray
+		@描    述：保存webView控件的数组
+		@备    注：
+	*/
 	NSMutableArray *uiViewArray;
+	
+	/*!
+		@名    称：radioArray
+		@描    述：保存radio控件的数组
+		@备    注：
+	*/
+	NSMutableDictionary *groupAndRadioDic;
 }
 
 @property (nonatomic, readonly) NSMutableArray *uiViewArray;

@@ -6,24 +6,25 @@
 //  Copyright 2011 LieHuo Tech. All rights reserved.
 //
 
-#import "NextLayer.h"
+#import "TestAlertLayer.h"
 
 #import "BalsamiqControlData.h"
 #import "CCBalsamiqLayer.h"
 #import "CCAlertLayer.h"
 #import "CCBalsamiqScene.h"
 
-#import "HelloWorldLayer.h"
+#import "MainLayer.h"
+#import "TestWebViewLayer.h"
 
-@implementation NextLayer
+@implementation TestAlertLayer
 
 +(CCScene *) scene
 {
 	// 'scene' is an autorelease object.
-	CCScene *scene = [CCBalsamiqScene node];
+	CCScene *scene = [CCScene node];
 
 	// add layer as a child to scene
-	[scene addChild:[NextLayer node]];
+	[scene addChild:[TestAlertLayer node]];
 	
 	// return the scene
 	return scene;
@@ -31,8 +32,14 @@
 
 - (void)onBackClick:(id)sender
 {
-	[[CCDirector sharedDirector] replaceScene:[CCTransitionSlideInL transitionWithDuration:1.0f
-																					 scene:[HelloWorldLayer scene]]];
+	[[CCDirector sharedDirector] replaceScene:[CCTransitionSlideInL transitionWithDuration:0.5f
+																					 scene:[MainLayer scene]]];
+}
+
+- (void)onNextClick:(id)sender
+{
+	[[CCDirector sharedDirector] replaceScene:[CCTransitionSlideInR transitionWithDuration:0.5f
+																					 scene:[TestWebViewLayer scene]]];
 }
 
 - (void)onPopAlertClick:(id)sender
@@ -59,24 +66,11 @@
 	[CCAlertLayer removeAlertFromNode:sender];
 }
 
--(void)loadDocument:(NSString*)documentName inView:(UIWebView*)view
-{
-    NSString *path = [[NSBundle mainBundle] pathForResource:documentName ofType:nil];
-    NSURL *url = [NSURL fileURLWithPath:path];
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    [view loadRequest:request];
-}
-
-- (void)onWebViewCreated:(UIWebView *)webView name:(NSString *)name
-{
-	[self loadDocument:@"box2d.pdf" inView:webView];
-}
-
 -(id) init
 {
 	if( (self=[super init]))
 	{
-		[self addChild:[CCBalsamiqLayer layerWithBalsamiqFile:@"next.bmml"
+		[self addChild:[CCBalsamiqLayer layerWithBalsamiqFile:@"test-alert.bmml"
 												  eventHandle:self
 												createdHandle:self]];
 	}

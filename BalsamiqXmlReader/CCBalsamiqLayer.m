@@ -11,6 +11,7 @@
 #import "CCMenuItemButton.h"
 #import "CCLabelFX.h"
 #import "UIPaddingTextField.h"
+#import "RadioManager.h"
 
 NSString *balsamiqFontName = @"arial";
 ccColor3B buttonNormalTextColor = {255, 255, 255};
@@ -30,8 +31,7 @@ typedef struct
 }ControlCreateInfo;
 
 #define IMAGE_PREFIX @"image_"
-#define TOGGLE_PREFIX @"toggle_"
-#define TOGGLE_INDEX @"-1"
+#define RADIO_PREFIX @"radio_"
 
 #define LABEL_NORMAL_OFFSET_POSITION ccp(3, -2)
 #define LABEL_SHADOW_OFFSET_POSITION ccp(8, -2)
@@ -230,6 +230,71 @@ ccColor3B ccColor3BFromNSString(NSString *str)
 					  nodeAnchorPoint:ccp(0, 1)];
 }
 
+- (id)createButton:(BalsamiqControlData *)data
+	  byCreateInfo:(ControlCreateInfo)createInfo
+			target:(id)target
+			   sel:(SEL)sel
+{
+	NSString *picPath = [createInfo.fileDir stringByAppendingPathComponent:[data.propertyDic objectForKey:@"src"]];
+	
+	NSString *customID = [data.propertyDic objectForKey:@"customID"];
+	if (customID == nil)
+	{
+		customID = @"";
+	}
+	
+	int zOrder = [[data.attributeDic objectForKey:@"zOrder"] intValue];
+	
+	NSString* pressPicPath = [picPath stringByReplacingOccurrencesOfString:@"-normal" withString:@"-press"];
+	
+	CCMenuItemButton *item = [CCMenuItemButton itemFromNormalImage:picPath 
+													 selectedImage:pressPicPath
+															target:target
+														  selector:sel];
+	
+	CGSize itemSize = [self getBalsamiqControlSize:data];
+	if (CGSizeEqualToSize(item.contentSize, itemSize) == NO)
+	{
+		item.scaleX = itemSize.width / item.contentSize.width;
+		item.scaleY = itemSize.height / item.contentSize.height;
+	}
+	item.position = [self getMidPosition:data];
+	
+	[createInfo.menu addChild:item z:zOrder];
+	if (createInfo.menu.zOrder < zOrder)
+	{
+		[createInfo.menu.parent reorderChild:createInfo.menu z:zOrder];
+	}
+	
+	//若有文本，则需要生成标签
+	NSString *text = [data.propertyDic objectForKey:@"text"];
+	if (text != nil)
+	{
+		[item initLabel:[self getClearText:text] 
+			   fontName:balsamiqFontName
+			   fontSize:[self getBalsamiqControlTextSize:data]
+			normalColor:buttonNormalTextColor 
+			selectColor:buttonSelectTextColor
+		   disableColor:ccBLACK];
+		
+		item.label.scaleX = 1 / item.scaleX;
+		item.label.scaleY = 1 / item.scaleY;
+	}
+	
+	return item;
+}
+
+- (void)onRadioItemClick:(id)sender
+{
+	for (RadioManager *chkManager in [groupAndRadioDic allValues])
+	{
+		if ([chkManager isSubitem:sender])
+		{
+			[chkManager selectItem:sender];
+		}
+	}
+}
+
 ////////////////////////////////////////////////////////
 #pragma mark 控件创建函数
 ////////////////////////////////////////////////////////
@@ -268,40 +333,27 @@ ccColor3B ccColor3BFromNSString(NSString *str)
 			[createInfo.createdHandle onImageCreated:image name:customID];
 		}
 	}
-	else if ([customID hasPrefix:TOGGLE_PREFIX] &&
-			 [picPath rangeOfString:TOGGLE_INDEX].length > 0)
+	else if ([customID hasPrefix:RADIO_PREFIX])
 	{
-		NSAssert(0, @"CCBalsamiqLayer#createImage 暂不支持toggle");
+		NSArray *radioParamArray = [customID componentsSeparatedByString:@"_"];
+		NSAssert(radioParamArray.count == 3,
+				 @"CCBalsamiqLayer#createImage radio param count = %d",
+				 radioParamArray.count);
 		
-		CCMenuItemToggle *toggle = [CCMenuItemToggle itemWithTarget:createInfo.eventHandle
-														   selector:@selector(toggleCallBack:)
-															  items:[CCMenuItemImage itemFromNormalImage:picPath selectedImage:picPath], nil];
-		toggle.position = [self getMidPosition:data];
-		[createInfo.menu addChild:toggle z:zOrder];
-		
-		if (createInfo.menu.zOrder < zOrder)
+		RadioManager *chkManager = [groupAndRadioDic objectForKey:[radioParamArray objectAtIndex:1]];
+		if (chkManager == nil)
 		{
-			[createInfo.menu.parent reorderChild:createInfo.menu z:zOrder];
+			chkManager = [[[RadioManager alloc] init] autorelease];
+			chkManager.delegate = createInfo.eventHandle;
+			[groupAndRadioDic setValue:chkManager forKey:[radioParamArray objectAtIndex:1]];
 		}
 		
-		for (int i = 2; YES; ++i)
-		{
-			NSString *curPicName = [picPath stringByReplacingOccurrencesOfString:TOGGLE_INDEX
-																	  withString:[NSString stringWithFormat:@"-%d", i]];
-			
-			if ([[CCTextureCache sharedTextureCache] addImage:curPicName] == nil)
-			{
-				break;
-			}
-			
-			[toggle.subItems addObject:[CCMenuItemImage itemFromNormalImage:curPicName selectedImage:curPicName]];
-		}
+		id button = [self createButton:data
+						  byCreateInfo:createInfo
+								target:self
+								   sel:@selector(onRadioItemClick:)];
 		
-		//发送事件
-		if ([createInfo.createdHandle respondsToSelector:@selector(onToggleCreated:name:)])
-		{
-			[createInfo.createdHandle onToggleCreated:toggle name:customID];
-		}
+		[chkManager addItem:button withInfo:customID];
 	}
 	else
 	{
@@ -314,47 +366,15 @@ ccColor3B ccColor3BFromNSString(NSString *str)
 				 methodName,
 				 object_getClassName(createInfo.eventHandle));
 		
-		//有名字的情况下，创建按钮
-		NSString* pressPicPath = [picPath stringByReplacingOccurrencesOfString:@"-normal" withString:@"-press"];
-		
-		CCMenuItemButton *item = [CCMenuItemButton itemFromNormalImage:picPath 
-														 selectedImage:pressPicPath
-																target:createInfo.eventHandle
-															  selector:eventSel];
-		
-		CGSize itemSize = [self getBalsamiqControlSize:data];
-		if (CGSizeEqualToSize(item.contentSize, itemSize) == NO)
-		{
-			item.scaleX = itemSize.width / item.contentSize.width;
-			item.scaleY = itemSize.height / item.contentSize.height;
-		}
-		item.position = [self getMidPosition:data];
-		
-		[createInfo.menu addChild:item z:zOrder];
-		if (createInfo.menu.zOrder < zOrder)
-		{
-			[createInfo.menu.parent reorderChild:createInfo.menu z:zOrder];
-		}
-		
-		//若有文本，则需要生成标签
-		NSString *text = [data.propertyDic objectForKey:@"text"];
-		if (text != nil)
-		{
-			[item initLabel:[self getClearText:text] 
-				   fontName:balsamiqFontName
-				   fontSize:[self getBalsamiqControlTextSize:data]
-				normalColor:buttonNormalTextColor 
-				selectColor:buttonSelectTextColor
-			   disableColor:ccBLACK];
-			
-			item.label.scaleX = 1 / item.scaleX;
-			item.label.scaleY = 1 / item.scaleY;
-		}
+		id button = [self createButton:data
+						  byCreateInfo:createInfo
+								target:createInfo.eventHandle
+								   sel:eventSel];
 		
 		//发送事件
 		if ([createInfo.createdHandle respondsToSelector:@selector(onButtonCreated:name:)])
 		{
-			[createInfo.createdHandle onButtonCreated:item name:customID];
+			[createInfo.createdHandle onButtonCreated:button name:customID];
 		}
 	}	
 }
@@ -490,6 +510,7 @@ ccColor3B ccColor3BFromNSString(NSString *str)
 
 - (void) dealloc
 {
+	[groupAndRadioDic release];
 	[uiViewArray release];
 	[super dealloc];
 }
@@ -587,6 +608,7 @@ ccColor3B ccColor3BFromNSString(NSString *str)
 	if (self != nil)
 	{
 		uiViewArray = [[NSMutableArray alloc] init];
+		groupAndRadioDic = [[NSMutableDictionary alloc] init];
 		
 		self.isRelativeAnchorPoint = YES;
 		self.anchorPoint = ccp(0, 0);
@@ -639,6 +661,12 @@ ccColor3B ccColor3BFromNSString(NSString *str)
 			{
 				objc_msgSend(self, creatorSel, data, createInfo);
 			}
+		}
+		
+		// 4 初始化Radio控件
+		for (RadioManager *radioManager in [groupAndRadioDic allValues])
+		{
+			[radioManager selectFirstItem];
 		}
 	}
 	return self;

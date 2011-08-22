@@ -27,7 +27,7 @@
 		50674855107A3AF30090963A /* ZAttributedStringPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = 50674852107A3AF30090963A /* ZAttributedStringPrivate.h */; };
 		506EDB88102F4C4000A389B3 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 506EDB87102F4C4000A389B3 /* libz.dylib */; };
 		506EDBA5102F4C9F00A389B3 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 506EDBA4102F4C9F00A389B3 /* AVFoundation.framework */; };
-		506EDC31102F528A00A389B3 /* HelloWorldLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 506EDC30102F528A00A389B3 /* HelloWorldLayer.m */; };
+		506EDC31102F528A00A389B3 /* MainLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 506EDC30102F528A00A389B3 /* MainLayer.m */; };
 		506EE1A91030508200A389B3 /* libcocos2d libraries.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 506EE05E10304ED200A389B3 /* libcocos2d libraries.a */; };
 		507ED63C11C638C6002ED3FC /* CDAudioManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 507ED63311C638C6002ED3FC /* CDAudioManager.h */; };
 		507ED63D11C638C6002ED3FC /* CDAudioManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 507ED63411C638C6002ED3FC /* CDAudioManager.m */; };
@@ -50,10 +50,14 @@
 		50F414F11069373D002A0D5E /* fps_images.png in Resources */ = {isa = PBXBuildFile; fileRef = 50F414ED1069373D002A0D5E /* fps_images.png */; };
 		50F414F21069373D002A0D5E /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 50F414EE1069373D002A0D5E /* Icon.png */; };
 		D82B060E13FE582E00F98C41 /* CCBalsamiqScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D87A115113FE09F80019CB2D /* CCBalsamiqScene.m */; };
+		D86510B014022E1C0081ABD8 /* RadioManager.h in Headers */ = {isa = PBXBuildFile; fileRef = D86510AE14022E1C0081ABD8 /* RadioManager.h */; };
+		D86510B114022E1C0081ABD8 /* RadioManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D86510AF14022E1C0081ABD8 /* RadioManager.m */; };
+		D879F5E414021FE2003F22CD /* TestWebViewLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = D879F5E314021FE2003F22CD /* TestWebViewLayer.m */; };
+		D879F5FB14022124003F22CD /* TestRadioLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = D879F5FA14022124003F22CD /* TestRadioLayer.m */; };
 		D87A123913FE2F3F0019CB2D /* box2d.pdf in Resources */ = {isa = PBXBuildFile; fileRef = D87A123813FE2F3F0019CB2D /* box2d.pdf */; };
 		D8C3A93513FA79FD00306DF1 /* UI in Resources */ = {isa = PBXBuildFile; fileRef = D8C3A87B13FA709D00306DF1 /* UI */; };
 		D8CF0D4C13D924BE005A6171 /* Vanilla.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D8CF0D4B13D924BE005A6171 /* Vanilla.ttf */; };
-		D8CF3CC313F8BA4B001B4F05 /* NextLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = D8CF3CC213F8BA4B001B4F05 /* NextLayer.m */; };
+		D8CF3CC313F8BA4B001B4F05 /* TestAlertLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = D8CF3CC213F8BA4B001B4F05 /* TestAlertLayer.m */; };
 		D8CF3D3E13F8C4F1001B4F05 /* CCAlertLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = D8CF3D3C13F8C4F1001B4F05 /* CCAlertLayer.h */; };
 		D8CF3D3F13F8C4F1001B4F05 /* CCAlertLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = D8CF3D3D13F8C4F1001B4F05 /* CCAlertLayer.m */; };
 		D8D3C71013D6DD0E002846EC /* libKissXml libraries.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D8D3C69813D6CF5C002846EC /* libKissXml libraries.a */; };
@@ -312,8 +316,8 @@
 		50674852107A3AF30090963A /* ZAttributedStringPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZAttributedStringPrivate.h; sourceTree = "<group>"; };
 		506EDB87102F4C4000A389B3 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		506EDBA4102F4C9F00A389B3 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		506EDC2F102F528A00A389B3 /* HelloWorldLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelloWorldLayer.h; sourceTree = "<group>"; };
-		506EDC30102F528A00A389B3 /* HelloWorldLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelloWorldLayer.m; sourceTree = "<group>"; };
+		506EDC2F102F528A00A389B3 /* MainLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainLayer.h; sourceTree = "<group>"; };
+		506EDC30102F528A00A389B3 /* MainLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainLayer.m; sourceTree = "<group>"; };
 		506EE05E10304ED200A389B3 /* libcocos2d libraries.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libcocos2d libraries.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		507ED63311C638C6002ED3FC /* CDAudioManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAudioManager.h; sourceTree = "<group>"; };
 		507ED63411C638C6002ED3FC /* CDAudioManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDAudioManager.m; sourceTree = "<group>"; };
@@ -336,13 +340,19 @@
 		50F414ED1069373D002A0D5E /* fps_images.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fps_images.png; sourceTree = "<group>"; };
 		50F414EE1069373D002A0D5E /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		50F414EF1069373D002A0D5E /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D86510AE14022E1C0081ABD8 /* RadioManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RadioManager.h; path = BalsamiqXmlReader/RadioManager.h; sourceTree = SOURCE_ROOT; };
+		D86510AF14022E1C0081ABD8 /* RadioManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RadioManager.m; path = BalsamiqXmlReader/RadioManager.m; sourceTree = SOURCE_ROOT; };
+		D879F5E214021FE2003F22CD /* TestWebViewLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestWebViewLayer.h; sourceTree = "<group>"; };
+		D879F5E314021FE2003F22CD /* TestWebViewLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestWebViewLayer.m; sourceTree = "<group>"; };
+		D879F5F914022124003F22CD /* TestRadioLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestRadioLayer.h; sourceTree = "<group>"; };
+		D879F5FA14022124003F22CD /* TestRadioLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestRadioLayer.m; sourceTree = "<group>"; };
 		D87A115013FE09F80019CB2D /* CCBalsamiqScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCBalsamiqScene.h; path = BalsamiqXmlReader/CCBalsamiqScene.h; sourceTree = SOURCE_ROOT; };
 		D87A115113FE09F80019CB2D /* CCBalsamiqScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CCBalsamiqScene.m; path = BalsamiqXmlReader/CCBalsamiqScene.m; sourceTree = SOURCE_ROOT; };
 		D87A123813FE2F3F0019CB2D /* box2d.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = box2d.pdf; sourceTree = "<group>"; };
 		D8C3A87B13FA709D00306DF1 /* UI */ = {isa = PBXFileReference; lastKnownFileType = folder; path = UI; sourceTree = "<group>"; };
 		D8CF0D4B13D924BE005A6171 /* Vanilla.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Vanilla.ttf; sourceTree = "<group>"; };
-		D8CF3CC113F8BA4B001B4F05 /* NextLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NextLayer.h; sourceTree = "<group>"; };
-		D8CF3CC213F8BA4B001B4F05 /* NextLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NextLayer.m; sourceTree = "<group>"; };
+		D8CF3CC113F8BA4B001B4F05 /* TestAlertLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestAlertLayer.h; sourceTree = "<group>"; };
+		D8CF3CC213F8BA4B001B4F05 /* TestAlertLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestAlertLayer.m; sourceTree = "<group>"; };
 		D8CF3D3C13F8C4F1001B4F05 /* CCAlertLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCAlertLayer.h; path = BalsamiqXmlReader/CCAlertLayer.h; sourceTree = SOURCE_ROOT; };
 		D8CF3D3D13F8C4F1001B4F05 /* CCAlertLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CCAlertLayer.m; path = BalsamiqXmlReader/CCAlertLayer.m; sourceTree = SOURCE_ROOT; };
 		D8D3C69813D6CF5C002846EC /* libKissXml libraries.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libKissXml libraries.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -672,14 +682,11 @@
 		2D500B1D0D5A766B00DBA0E3 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				D879F5D614020BF2003F22CD /* TestLayer */,
 				D8FAD6EC13F36BF100FEECF0 /* CCLabelFX */,
 				D8D3C70413D6DC59002846EC /* BalsamiqXmlReader */,
 				D8FAD6D013F36BD100FEECF0 /* KissXML */,
 				E0F80F5D120A0182005866B8 /* GameConfig.h */,
-				506EDC2F102F528A00A389B3 /* HelloWorldLayer.h */,
-				506EDC30102F528A00A389B3 /* HelloWorldLayer.m */,
-				D8CF3CC113F8BA4B001B4F05 /* NextLayer.h */,
-				D8CF3CC213F8BA4B001B4F05 /* NextLayer.m */,
 				E0F80F5E120A0182005866B8 /* RootViewController.h */,
 				E0F80F5F120A0182005866B8 /* RootViewController.m */,
 				1F3B9A2C0EF2145700286867 /* BalsamiqXmlReaderAppDelegate.h */,
@@ -770,12 +777,29 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		D879F5D614020BF2003F22CD /* TestLayer */ = {
+			isa = PBXGroup;
+			children = (
+				506EDC2F102F528A00A389B3 /* MainLayer.h */,
+				506EDC30102F528A00A389B3 /* MainLayer.m */,
+				D8CF3CC113F8BA4B001B4F05 /* TestAlertLayer.h */,
+				D8CF3CC213F8BA4B001B4F05 /* TestAlertLayer.m */,
+				D879F5E214021FE2003F22CD /* TestWebViewLayer.h */,
+				D879F5E314021FE2003F22CD /* TestWebViewLayer.m */,
+				D879F5F914022124003F22CD /* TestRadioLayer.h */,
+				D879F5FA14022124003F22CD /* TestRadioLayer.m */,
+			);
+			name = TestLayer;
+			sourceTree = "<group>";
+		};
 		D8D3C70413D6DC59002846EC /* BalsamiqXmlReader */ = {
 			isa = PBXGroup;
 			children = (
+				D8FAD6F713F36C1600FEECF0 /* BalsamiqXmlDef.h */,
 				D8FAD6F313F36C1600FEECF0 /* BalsamiqControlData.h */,
 				D8FAD6F413F36C1600FEECF0 /* BalsamiqControlData.m */,
-				D8FAD6F713F36C1600FEECF0 /* BalsamiqXmlDef.h */,
+				D86510AE14022E1C0081ABD8 /* RadioManager.h */,
+				D86510AF14022E1C0081ABD8 /* RadioManager.m */,
 				D8FAD6F813F36C1600FEECF0 /* CCBalsamiqLayer.h */,
 				D8FAD6F913F36C1600FEECF0 /* CCBalsamiqLayer.m */,
 				D8CF3D3C13F8C4F1001B4F05 /* CCAlertLayer.h */,
@@ -1222,6 +1246,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D8CF3D3E13F8C4F1001B4F05 /* CCAlertLayer.h in Headers */,
+				D86510B014022E1C0081ABD8 /* RadioManager.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1355,9 +1380,11 @@
 			files = (
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				1F3B9A2D0EF2145700286867 /* BalsamiqXmlReaderAppDelegate.m in Sources */,
-				506EDC31102F528A00A389B3 /* HelloWorldLayer.m in Sources */,
+				506EDC31102F528A00A389B3 /* MainLayer.m in Sources */,
 				E0F80F60120A0182005866B8 /* RootViewController.m in Sources */,
-				D8CF3CC313F8BA4B001B4F05 /* NextLayer.m in Sources */,
+				D8CF3CC313F8BA4B001B4F05 /* TestAlertLayer.m in Sources */,
+				D879F5E414021FE2003F22CD /* TestWebViewLayer.m in Sources */,
+				D879F5FB14022124003F22CD /* TestRadioLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1485,6 +1512,7 @@
 				D8FAD72C13F36CB100FEECF0 /* CCMenuItemButton.m in Sources */,
 				D8FAD72D13F36CB100FEECF0 /* UIPaddingTextField.m in Sources */,
 				D8CF3D3F13F8C4F1001B4F05 /* CCAlertLayer.m in Sources */,
+				D86510B114022E1C0081ABD8 /* RadioManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

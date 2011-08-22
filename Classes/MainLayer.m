@@ -8,28 +8,32 @@
 
 
 // Import the interfaces
-#import "HelloWorldLayer.h"
+#import "MainLayer.h"
 
 #import "BalsamiqControlData.h"
 #import "CCBalsamiqLayer.h"
 #import "CCAlertLayer.h"
 #import "CCBalsamiqScene.h"
 
-#import "NextLayer.h"
+#import "TestAlertLayer.h"
 
-// HelloWorldLayer implementation
-@implementation HelloWorldLayer
+@implementation MainLayer
+
++(void)initialize
+{
+	if (self == [MainLayer class])
+	{
+		[CCBalsamiqLayer setBalsamiqConfigWithPropertyListFile:@"BalsamiqConfig"];
+	}
+}
 
 +(CCScene *) scene
 {
-//	[CCBalsamiqLayer setBalsamiqRootDir:@"UI"];
-	[CCBalsamiqLayer setBalsamiqConfigWithPropertyListFile:@"BalsamiqConfig"];
-	
 	// 'scene' is an autorelease object.
 	CCScene *scene = [CCBalsamiqScene node];
 	
 	// add layer as a child to scene
-	[scene addChild:[HelloWorldLayer node]];
+	[scene addChild:[MainLayer node]];
 	
 	// return the scene
 	return scene;
@@ -49,26 +53,8 @@
 
 - (void)onNextClick:(id)sender
 {
-	[[CCDirector sharedDirector] replaceScene:[CCTransitionSlideInR transitionWithDuration:1.0f
-																					 scene:[NextLayer scene]]];
-}
-
-- (void)onButtonClick:(id)sender
-{
-	[CCAlertLayer showAlert:@"alert-ok.bmml"
-				 parentNode:self
-				  labelInfo:[NSDictionary dictionaryWithObjectsAndKeys:
-							 @"title", @"Title",
-							 @"please comfirm", @"Message",
-							 nil]
-				 buttonInfo:[NSDictionary dictionaryWithObjectsAndKeys:
-							 @"OooooK", @"Ok",
-							 nil]];
-}
-
-- (void)onOkClick:(id)sender
-{
-	[CCAlertLayer removeAlertFromNode:sender];
+	[[CCDirector sharedDirector] replaceScene:[CCTransitionSlideInR transitionWithDuration:0.5f
+																					 scene:[TestAlertLayer scene]]];
 }
 
 // on "init" you need to initialize your instance
