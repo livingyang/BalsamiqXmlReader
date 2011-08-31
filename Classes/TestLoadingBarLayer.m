@@ -8,6 +8,7 @@
 
 #import "TestLoadingBarLayer.h"
 #import "TestRadioLayer.h"
+#import "CCAlertLayer.h"
 #import "CCBalsamiqLayer.h"
 
 @implementation TestLoadingBarLayer
@@ -34,6 +35,17 @@
 {
 //	[[CCDirector sharedDirector] replaceScene:[CCTransitionSlideInR transitionWithDuration:0.5f
 //																					 scene:[TestAlertLayer scene]]];
+}
+
+- (void)onLoadingAlertClick:(id)sender
+{
+	[CCAlertLayer showAlert:@"alert-loading.bmml"
+				 parentNode:self];
+}
+
+- (void)onCancleClick:(id)sender
+{
+	[CCAlertLayer removeAlertFromNode:sender];
 }
 
 -(id) init

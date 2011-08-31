@@ -20,28 +20,35 @@
         <text>Back</text>
       </controlProperties>
     </control>
-    <control controlID="47" controlTypeID="com.balsamiq.mockups::Icon" x="343" y="114" w="-1" h="-1" measuredW="48" measuredH="48" zOrder="4" locked="false" isInGroup="-1">
+    <control controlID="47" controlTypeID="com.balsamiq.mockups::Icon" x="350" y="173" w="-1" h="-1" measuredW="48" measuredH="48" zOrder="4" locked="false" isInGroup="-1">
       <controlProperties>
         <borderStyle>none</borderStyle>
         <icon>SpinningIcon%7Clarge</icon>
       </controlProperties>
     </control>
-    <control controlID="48" controlTypeID="com.balsamiq.mockups::Icon" x="256" y="122" w="-1" h="-1" measuredW="32" measuredH="32" zOrder="5" locked="false" isInGroup="-1">
+    <control controlID="48" controlTypeID="com.balsamiq.mockups::Icon" x="263" y="181" w="-1" h="-1" measuredW="32" measuredH="32" zOrder="5" locked="false" isInGroup="-1">
       <controlProperties>
         <borderStyle>none</borderStyle>
         <icon>SpinningIcon%7Cmedium</icon>
       </controlProperties>
     </control>
-    <control controlID="49" controlTypeID="com.balsamiq.mockups::Icon" x="165" y="126" w="-1" h="-1" measuredW="24" measuredH="24" zOrder="6" locked="false" isInGroup="-1">
+    <control controlID="49" controlTypeID="com.balsamiq.mockups::Icon" x="172" y="185" w="-1" h="-1" measuredW="24" measuredH="24" zOrder="6" locked="false" isInGroup="-1">
       <controlProperties>
         <borderStyle>none</borderStyle>
         <icon>SpinningIcon%7Csmall</icon>
       </controlProperties>
     </control>
-    <control controlID="50" controlTypeID="com.balsamiq.mockups::Icon" x="74" y="130" w="-1" h="-1" measuredW="16" measuredH="16" zOrder="7" locked="false" isInGroup="-1">
+    <control controlID="50" controlTypeID="com.balsamiq.mockups::Icon" x="81" y="189" w="-1" h="-1" measuredW="16" measuredH="16" zOrder="7" locked="false" isInGroup="-1">
       <controlProperties>
         <borderStyle>none</borderStyle>
         <icon>SpinningIcon%7Cxsmall</icon>
+      </controlProperties>
+    </control>
+    <control controlID="51" controlTypeID="com.balsamiq.mockups::Image" x="151" y="87" w="-1" h="-1" measuredW="151" measuredH="45" zOrder="8" locked="false" isInGroup="-1">
+      <controlProperties>
+        <customID>LoadingAlert</customID>
+        <src>../Common/button-normal.png</src>
+        <text>Loading</text>
       </controlProperties>
     </control>
   </controls>
