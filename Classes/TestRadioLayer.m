@@ -26,7 +26,7 @@
 	return scene;
 }
 
-- (void)onItemSelected:(CCMenuItemImage *)item withInfo:(NSString *)info
+- (void)onRadioItemSelected:(CCMenuItemImage *)item withInfo:(NSString *)info
 {
 	NSLog(@"item = %@ clicked, info = %@", item, info);
 }

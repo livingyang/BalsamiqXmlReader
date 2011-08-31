@@ -50,9 +50,9 @@
 		{
 			[value selected];
 			
-			if ([self.delegate respondsToSelector:@selector(onItemSelected:withInfo:)])
+			if ([self.delegate respondsToSelector:@selector(onRadioItemSelected:withInfo:)])
 			{
-				[self.delegate onItemSelected:value withInfo:infoKey];
+				[self.delegate onRadioItemSelected:value withInfo:infoKey];
 			}
 		}
 		else

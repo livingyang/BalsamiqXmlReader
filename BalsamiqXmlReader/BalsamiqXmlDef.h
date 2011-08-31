@@ -42,7 +42,7 @@ extern ccColor3B textInputColor;
 - (void)onWebViewCreated:(UIWebView *)webView name:(NSString *)name;
 
 @optional
-- (void)onItemSelected:(CCMenuItemImage *)item withInfo:(NSString *)info;
+- (void)onRadioItemSelected:(CCMenuItemImage *)item withInfo:(NSString *)info;
 
 @end
 

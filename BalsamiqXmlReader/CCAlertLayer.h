@@ -27,23 +27,23 @@ typedef enum
 @property (nonatomic, assign) NSDictionary *buttonInfoDic;
 @property (nonatomic, assign) id parentNode;
 
-+ (void)showAlert:(NSString *)fileName
-	   parentNode:(CCNode *)parentNode;
++ (id)showAlert:(NSString *)fileName
+	 parentNode:(CCNode *)parentNode;
 
-+ (void)showAlert:(NSString *)fileName
-	   parentNode:(CCNode *)parentNode
-		showModal:(AlertShowModal)modal;
++ (id)showAlert:(NSString *)fileName
+	 parentNode:(CCNode *)parentNode
+	  showModal:(AlertShowModal)modal;
 
-+ (void)showAlert:(NSString *)fileName
-	   parentNode:(CCNode *)parentNode
-		labelInfo:(NSDictionary *)labelInfoDic
-	   buttonInfo:(NSDictionary *)buttonInfoDic;
++ (id)showAlert:(NSString *)fileName
+	 parentNode:(CCNode *)parentNode
+	  labelInfo:(NSDictionary *)labelInfoDic
+	 buttonInfo:(NSDictionary *)buttonInfoDic;
 
-+ (void)showAlert:(NSString *)fileName
-	   parentNode:(CCNode *)parentNode
-		showModal:(AlertShowModal)modal
-		labelInfo:(NSDictionary *)labelInfoDic
-	   buttonInfo:(NSDictionary *)buttonInfoDic;
++ (id)showAlert:(NSString *)fileName
+	 parentNode:(CCNode *)parentNode
+	  showModal:(AlertShowModal)modal
+	  labelInfo:(NSDictionary *)labelInfoDic
+	 buttonInfo:(NSDictionary *)buttonInfoDic;
 
 + (void)removeAlertFromNode:(id)subNode;
 

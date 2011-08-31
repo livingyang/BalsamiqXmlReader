@@ -123,15 +123,15 @@
 #pragma mark 公共函数
 ////////////////////////////////////////////////////////
 
-+ (void)showAlert:(NSString *)fileName
-	   parentNode:(CCNode *)parentNode
-		showModal:(AlertShowModal)modal
-		labelInfo:(NSDictionary *)labelInfoDic
-	   buttonInfo:(NSDictionary *)buttonInfoDic
++ (id)showAlert:(NSString *)fileName
+	 parentNode:(CCNode *)parentNode
+	  showModal:(AlertShowModal)modal
+	  labelInfo:(NSDictionary *)labelInfoDic
+	 buttonInfo:(NSDictionary *)buttonInfoDic
 {
 	if (fileName == nil || parentNode == nil)
 	{
-		return;
+		return nil;
 	}
 	
 	ccColor4B color = ccc4(0, 0, 0, 50);
@@ -153,38 +153,40 @@
 	[parentNode addChild:alert z:INT_MAX];
 	
 	[layer runAction:[CCAlertLayer getShowAction:modal]];
+	
+	return alert;
 }
 
-+ (void)showAlert:(NSString *)fileName
-	   parentNode:(CCNode *)parentNode
-		labelInfo:(NSDictionary *)labelInfoDic
-	   buttonInfo:(NSDictionary *)buttonInfoDic
++ (id)showAlert:(NSString *)fileName
+	 parentNode:(CCNode *)parentNode
+	  labelInfo:(NSDictionary *)labelInfoDic
+	 buttonInfo:(NSDictionary *)buttonInfoDic
 {
-	[CCAlertLayer showAlert:fileName
-				 parentNode:parentNode
-				  showModal:kPopAlertModal
-				  labelInfo:labelInfoDic
-				 buttonInfo:buttonInfoDic];
+	return [CCAlertLayer showAlert:fileName
+						parentNode:parentNode
+						 showModal:kPopAlertModal
+						 labelInfo:labelInfoDic
+						buttonInfo:buttonInfoDic];
 }
 
-+ (void)showAlert:(NSString *)fileName parentNode:(CCNode *)parentNode
++ (id)showAlert:(NSString *)fileName parentNode:(CCNode *)parentNode
 {
-	[CCAlertLayer showAlert:fileName
-				 parentNode:parentNode
-				  showModal:kPopAlertModal
-				  labelInfo:nil
-				 buttonInfo:nil];
+	return [CCAlertLayer showAlert:fileName
+						parentNode:parentNode
+						 showModal:kPopAlertModal
+						 labelInfo:nil
+						buttonInfo:nil];
 }
 
-+ (void)showAlert:(NSString *)fileName
-	   parentNode:(CCNode *)parentNode
-		showModal:(AlertShowModal)modal
++ (id)showAlert:(NSString *)fileName
+	 parentNode:(CCNode *)parentNode
+	  showModal:(AlertShowModal)modal
 {
-	[CCAlertLayer showAlert:fileName
-				 parentNode:parentNode
-				  showModal:modal
-				  labelInfo:nil
-				 buttonInfo:nil];
+	return [CCAlertLayer showAlert:fileName
+						parentNode:parentNode
+						 showModal:modal
+						 labelInfo:nil
+						buttonInfo:nil];
 }
 
 + (void)removeAlertFromNode:(id)subNode

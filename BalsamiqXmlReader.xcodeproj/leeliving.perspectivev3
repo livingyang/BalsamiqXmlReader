@@ -231,6 +231,8 @@
 			<key>Layout</key>
 			<array>
 				<dict>
+					<key>BecomeActive</key>
+					<true/>
 					<key>ContentConfiguration</key>
 					<dict>
 						<key>PBXBottomSmartGroupGIDs</key>
@@ -278,8 +280,8 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>18</integer>
-									<integer>10</integer>
+									<integer>29</integer>
+									<integer>20</integer>
 									<integer>9</integer>
 									<integer>0</integer>
 								</array>
@@ -313,14 +315,12 @@
 					<key>Dock</key>
 					<array>
 						<dict>
-							<key>BecomeActive</key>
-							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
 								<string>D8D3C68B13D6CF37002846EC</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>TestRadioLayer.m</string>
+								<string>CCAlertLayer.m</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -328,11 +328,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>D8D3C68C13D6CF37002846EC</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>TestRadioLayer.m</string>
+										<string>CCAlertLayer.m</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>D86511051402335A0081ABD8</string>
+										<string>D87E0677140E407800C147A1</string>
 										<key>history</key>
 										<array>
 											<string>D8D3C71A13D6DD5F002846EC</string>
@@ -415,9 +415,7 @@
 											<string>D8CA6E1E13FF64060014AEF8</string>
 											<string>D8CA6E1F13FF64060014AEF8</string>
 											<string>D8CA6E8213FF67030014AEF8</string>
-											<string>D8CA6E8413FF67030014AEF8</string>
 											<string>D8CA6F0413FF87F50014AEF8</string>
-											<string>D8CA6F8013FF94FA0014AEF8</string>
 											<string>D8CA6F8113FF94FA0014AEF8</string>
 											<string>D879F5D814020C05003F22CD</string>
 											<string>D879F5DA14020C05003F22CD</string>
@@ -426,16 +424,17 @@
 											<string>D879F5F4140220F1003F22CD</string>
 											<string>D879F64E14022C30003F22CD</string>
 											<string>D879F64F14022C30003F22CD</string>
-											<string>D879F65A14022CA9003F22CD</string>
 											<string>D879F65B14022CA9003F22CD</string>
 											<string>D86510D9140231CF0081ABD8</string>
-											<string>D86510DA140231CF0081ABD8</string>
 											<string>D86510DC140231CF0081ABD8</string>
-											<string>D86510F8140233040081ABD8</string>
-											<string>D86510F9140233040081ABD8</string>
-											<string>D86510FA140233040081ABD8</string>
 											<string>D86510FB140233040081ABD8</string>
-											<string>D8651103140233410081ABD8</string>
+											<string>D8C7F5381404939A002398C2</string>
+											<string>D8C7F5391404939A002398C2</string>
+											<string>D8C7F53A1404939A002398C2</string>
+											<string>D8C7F53B1404939A002398C2</string>
+											<string>D87E0675140E407800C147A1</string>
+											<string>D87E0676140E407800C147A1</string>
+											<string>D879F65A14022CA9003F22CD</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -492,7 +491,7 @@
 									<key>GeometryConfiguration</key>
 									<dict>
 										<key>Frame</key>
-										<string>{{10, 27}, {977, 260}}</string>
+										<string>{{10, 27}, {977, 205}}</string>
 									</dict>
 									<key>Module</key>
 									<string>PBXProjectFindModule</string>
@@ -558,11 +557,11 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>D86510DF140231CF0081ABD8</string>
+				<string>D87E0678140E407800C147A1</string>
 				<string>1CA23ED40692098700951B8B</string>
-				<string>D86510E0140231CF0081ABD8</string>
+				<string>D87E0679140E407800C147A1</string>
 				<string>D8D3C68B13D6CF37002846EC</string>
-				<string>D86510E1140231CF0081ABD8</string>
+				<string>D87E067A140E407800C147A1</string>
 				<string>1CA23EDF0692099D00951B8B</string>
 				<string>1CA23EE00692099D00951B8B</string>
 				<string>1CA23EE10692099D00951B8B</string>
@@ -711,14 +710,14 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>D86510E2140231CF0081ABD8</string>
+				<string>D8C7F5421404939D002398C2</string>
 				<string>1CCC7628064C1048000F2A68</string>
 				<string>1CCC7629064C1048000F2A68</string>
-				<string>D86510E3140231CF0081ABD8</string>
-				<string>D86510E4140231CF0081ABD8</string>
-				<string>D86510E5140231CF0081ABD8</string>
-				<string>D86510E6140231CF0081ABD8</string>
-				<string>D86510E7140231CF0081ABD8</string>
+				<string>D8C7F5431404939D002398C2</string>
+				<string>D8C7F5441404939D002398C2</string>
+				<string>D8C7F5451404939D002398C2</string>
+				<string>D8C7F5461404939D002398C2</string>
+				<string>D8D3C68B13D6CF37002846EC</string>
 			</array>
 			<key>ToolbarConfigUserDefaultsMinorVersion</key>
 			<string>2</string>
@@ -752,7 +751,6 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>D8CF0D5813D924C9005A6171</string>
 		<string>/Users/leeliving/Desktop/BalsamiqXmlReader/BalsamiqXmlReader.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
