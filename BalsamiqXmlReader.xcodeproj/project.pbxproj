@@ -55,6 +55,11 @@
 		D879F5E414021FE2003F22CD /* TestWebViewLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = D879F5E314021FE2003F22CD /* TestWebViewLayer.m */; };
 		D879F5FB14022124003F22CD /* TestRadioLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = D879F5FA14022124003F22CD /* TestRadioLayer.m */; };
 		D87A123913FE2F3F0019CB2D /* box2d.pdf in Resources */ = {isa = PBXBuildFile; fileRef = D87A123813FE2F3F0019CB2D /* box2d.pdf */; };
+		D87E06BB140E41A100C147A1 /* loading-bar.png in Resources */ = {isa = PBXBuildFile; fileRef = D87E06B3140E417600C147A1 /* loading-bar.png */; };
+		D87E06BC140E41A100C147A1 /* loading-bar-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = D87E06B4140E417600C147A1 /* loading-bar-hd.png */; };
+		D87E06DE140E42CC00C147A1 /* TestLoadingBarLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = D87E06DD140E42CC00C147A1 /* TestLoadingBarLayer.m */; };
+		D87E0740140E4A3F00C147A1 /* CCLoadingBar.h in Headers */ = {isa = PBXBuildFile; fileRef = D87E073E140E4A3F00C147A1 /* CCLoadingBar.h */; };
+		D87E0741140E4A3F00C147A1 /* CCLoadingBar.m in Sources */ = {isa = PBXBuildFile; fileRef = D87E073F140E4A3F00C147A1 /* CCLoadingBar.m */; };
 		D8C3A93513FA79FD00306DF1 /* UI in Resources */ = {isa = PBXBuildFile; fileRef = D8C3A87B13FA709D00306DF1 /* UI */; };
 		D8CF0D4C13D924BE005A6171 /* Vanilla.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D8CF0D4B13D924BE005A6171 /* Vanilla.ttf */; };
 		D8CF3CC313F8BA4B001B4F05 /* TestAlertLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = D8CF3CC213F8BA4B001B4F05 /* TestAlertLayer.m */; };
@@ -349,6 +354,12 @@
 		D87A115013FE09F80019CB2D /* CCBalsamiqScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCBalsamiqScene.h; path = BalsamiqXmlReader/CCBalsamiqScene.h; sourceTree = SOURCE_ROOT; };
 		D87A115113FE09F80019CB2D /* CCBalsamiqScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CCBalsamiqScene.m; path = BalsamiqXmlReader/CCBalsamiqScene.m; sourceTree = SOURCE_ROOT; };
 		D87A123813FE2F3F0019CB2D /* box2d.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = box2d.pdf; sourceTree = "<group>"; };
+		D87E06B3140E417600C147A1 /* loading-bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loading-bar.png"; sourceTree = "<group>"; };
+		D87E06B4140E417600C147A1 /* loading-bar-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loading-bar-hd.png"; sourceTree = "<group>"; };
+		D87E06DC140E42CC00C147A1 /* TestLoadingBarLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestLoadingBarLayer.h; sourceTree = "<group>"; };
+		D87E06DD140E42CC00C147A1 /* TestLoadingBarLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestLoadingBarLayer.m; sourceTree = "<group>"; };
+		D87E073E140E4A3F00C147A1 /* CCLoadingBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCLoadingBar.h; sourceTree = "<group>"; };
+		D87E073F140E4A3F00C147A1 /* CCLoadingBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCLoadingBar.m; sourceTree = "<group>"; };
 		D8C3A87B13FA709D00306DF1 /* UI */ = {isa = PBXFileReference; lastKnownFileType = folder; path = UI; sourceTree = "<group>"; };
 		D8CF0D4B13D924BE005A6171 /* Vanilla.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Vanilla.ttf; sourceTree = "<group>"; };
 		D8CF3CC113F8BA4B001B4F05 /* TestAlertLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestAlertLayer.h; sourceTree = "<group>"; };
@@ -760,6 +771,8 @@
 		50F414EB1069373D002A0D5E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D87E06B3140E417600C147A1 /* loading-bar.png */,
+				D87E06B4140E417600C147A1 /* loading-bar-hd.png */,
 				D87A123813FE2F3F0019CB2D /* box2d.pdf */,
 				D8C3A87B13FA709D00306DF1 /* UI */,
 				D8CF0D4B13D924BE005A6171 /* Vanilla.ttf */,
@@ -788,6 +801,8 @@
 				D879F5E314021FE2003F22CD /* TestWebViewLayer.m */,
 				D879F5F914022124003F22CD /* TestRadioLayer.h */,
 				D879F5FA14022124003F22CD /* TestRadioLayer.m */,
+				D87E06DC140E42CC00C147A1 /* TestLoadingBarLayer.h */,
+				D87E06DD140E42CC00C147A1 /* TestLoadingBarLayer.m */,
 			);
 			name = TestLayer;
 			sourceTree = "<group>";
@@ -806,6 +821,8 @@
 				D8CF3D3D13F8C4F1001B4F05 /* CCAlertLayer.m */,
 				D8FAD6FA13F36C1600FEECF0 /* CCMenuItemButton.h */,
 				D8FAD6FB13F36C1600FEECF0 /* CCMenuItemButton.m */,
+				D87E073E140E4A3F00C147A1 /* CCLoadingBar.h */,
+				D87E073F140E4A3F00C147A1 /* CCLoadingBar.m */,
 				D8FAD6FC13F36C1600FEECF0 /* UIPaddingTextField.h */,
 				D8FAD6FD13F36C1600FEECF0 /* UIPaddingTextField.m */,
 				D87A115013FE09F80019CB2D /* CCBalsamiqScene.h */,
@@ -1247,6 +1264,7 @@
 			files = (
 				D8CF3D3E13F8C4F1001B4F05 /* CCAlertLayer.h in Headers */,
 				D86510B014022E1C0081ABD8 /* RadioManager.h in Headers */,
+				D87E0740140E4A3F00C147A1 /* CCLoadingBar.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1356,6 +1374,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D87E06BB140E41A100C147A1 /* loading-bar.png in Resources */,
+				D87E06BC140E41A100C147A1 /* loading-bar-hd.png in Resources */,
 				D8C3A93513FA79FD00306DF1 /* UI in Resources */,
 				50F414F01069373D002A0D5E /* Default.png in Resources */,
 				50F414F11069373D002A0D5E /* fps_images.png in Resources */,
@@ -1385,6 +1405,7 @@
 				D8CF3CC313F8BA4B001B4F05 /* TestAlertLayer.m in Sources */,
 				D879F5E414021FE2003F22CD /* TestWebViewLayer.m in Sources */,
 				D879F5FB14022124003F22CD /* TestRadioLayer.m in Sources */,
+				D87E06DE140E42CC00C147A1 /* TestLoadingBarLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1513,6 +1534,7 @@
 				D8FAD72D13F36CB100FEECF0 /* UIPaddingTextField.m in Sources */,
 				D8CF3D3F13F8C4F1001B4F05 /* CCAlertLayer.m in Sources */,
 				D86510B114022E1C0081ABD8 /* RadioManager.m in Sources */,
+				D87E0741140E4A3F00C147A1 /* CCLoadingBar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -24,6 +24,7 @@ extern ccColor3B buttonSelectTextColor;
 extern ccColor3B textInputColor;
 
 @class CCMenuItemButton;
+@class CCLoadingBar;
 @protocol BalsamiqReaderDelegate
 
 @optional
@@ -43,6 +44,9 @@ extern ccColor3B textInputColor;
 
 @optional
 - (void)onRadioItemSelected:(CCMenuItemImage *)item withInfo:(NSString *)info;
+
+@optional
+- (void)onLoadingBarCreated:(CCLoadingBar *)loadingBar name:(NSString *)name;
 
 @end
 

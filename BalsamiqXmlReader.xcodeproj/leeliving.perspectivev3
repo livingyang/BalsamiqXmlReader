@@ -231,8 +231,6 @@
 			<key>Layout</key>
 			<array>
 				<dict>
-					<key>BecomeActive</key>
-					<true/>
 					<key>ContentConfiguration</key>
 					<dict>
 						<key>PBXBottomSmartGroupGIDs</key>
@@ -275,19 +273,22 @@
 								<string>D8D3C70413D6DC59002846EC</string>
 								<string>19C28FACFE9D520D11CA2CBB</string>
 								<string>1C37FBAC04509CD000000102</string>
+								<string>D87E06AF140E416100C147A1</string>
+								<string>D87E06B0140E416100C147A1</string>
+								<string>D87E06F6140E43AC00C147A1</string>
 								<string>1C77FABC04509CD000000102</string>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>29</integer>
-									<integer>20</integer>
+									<integer>23</integer>
+									<integer>22</integer>
 									<integer>9</integer>
 									<integer>0</integer>
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
-							<string>{{0, 0}, {247, 761}}</string>
+							<string>{{0, 236}, {247, 761}}</string>
 						</dict>
 						<key>PBXTopSmartGroupGIDs</key>
 						<array/>
@@ -304,7 +305,7 @@
 							<real>247</real>
 						</array>
 						<key>RubberWindowFrame</key>
-						<string>312 238 1246 820 0 0 1920 1058 </string>
+						<string>547 238 1246 820 0 0 1920 1058 </string>
 					</dict>
 					<key>Module</key>
 					<string>PBXSmartGroupTreeModule</string>
@@ -315,12 +316,14 @@
 					<key>Dock</key>
 					<array>
 						<dict>
+							<key>BecomeActive</key>
+							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
 								<string>D8D3C68B13D6CF37002846EC</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>CCAlertLayer.m</string>
+								<string>CCBalsamiqLayer.m</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -328,11 +331,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>D8D3C68C13D6CF37002846EC</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>CCAlertLayer.m</string>
+										<string>CCBalsamiqLayer.m</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>D87E0677140E407800C147A1</string>
+										<string>D87E0765140E4BC600C147A1</string>
 										<key>history</key>
 										<array>
 											<string>D8D3C71A13D6DD5F002846EC</string>
@@ -399,7 +402,6 @@
 											<string>D87A124A13FE30990019CB2D</string>
 											<string>D87A126D13FE33D00019CB2D</string>
 											<string>D87A12A113FE35AD0019CB2D</string>
-											<string>D87A130813FE419A0019CB2D</string>
 											<string>D87A130B13FE419A0019CB2D</string>
 											<string>D87A132413FE44FF0019CB2D</string>
 											<string>D87A132513FE44FF0019CB2D</string>
@@ -427,14 +429,20 @@
 											<string>D879F65B14022CA9003F22CD</string>
 											<string>D86510D9140231CF0081ABD8</string>
 											<string>D86510DC140231CF0081ABD8</string>
-											<string>D86510FB140233040081ABD8</string>
-											<string>D8C7F5381404939A002398C2</string>
 											<string>D8C7F5391404939A002398C2</string>
-											<string>D8C7F53A1404939A002398C2</string>
 											<string>D8C7F53B1404939A002398C2</string>
-											<string>D87E0675140E407800C147A1</string>
-											<string>D87E0676140E407800C147A1</string>
-											<string>D879F65A14022CA9003F22CD</string>
+											<string>D87E06A4140E40F100C147A1</string>
+											<string>D87E06F7140E43AC00C147A1</string>
+											<string>D87E06F8140E43AC00C147A1</string>
+											<string>D87E06F9140E43AC00C147A1</string>
+											<string>D87E06FA140E43AC00C147A1</string>
+											<string>D87E06FB140E43AC00C147A1</string>
+											<string>D87E0701140E43D100C147A1</string>
+											<string>D87E0760140E4BC600C147A1</string>
+											<string>D87E0761140E4BC600C147A1</string>
+											<string>D87E0762140E4BC600C147A1</string>
+											<string>D87E0763140E4BC600C147A1</string>
+											<string>D87E0764140E4BC600C147A1</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -450,7 +458,7 @@
 								<key>Frame</key>
 								<string>{{0, 0}, {977, 774}}</string>
 								<key>RubberWindowFrame</key>
-								<string>312 238 1246 820 0 0 1920 1058 </string>
+								<string>547 238 1246 820 0 0 1920 1058 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
@@ -475,7 +483,7 @@
 										<key>Frame</key>
 										<string>{{10, 27}, {977, -27}}</string>
 										<key>RubberWindowFrame</key>
-										<string>312 238 1246 820 0 0 1920 1058 </string>
+										<string>547 238 1246 820 0 0 1920 1058 </string>
 									</dict>
 									<key>Module</key>
 									<string>XCDetailModule</string>
@@ -710,14 +718,14 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>D8C7F5421404939D002398C2</string>
+				<string>D87E06A6140E40F100C147A1</string>
 				<string>1CCC7628064C1048000F2A68</string>
 				<string>1CCC7629064C1048000F2A68</string>
-				<string>D8C7F5431404939D002398C2</string>
-				<string>D8C7F5441404939D002398C2</string>
-				<string>D8C7F5451404939D002398C2</string>
-				<string>D8C7F5461404939D002398C2</string>
-				<string>D8D3C68B13D6CF37002846EC</string>
+				<string>D87E06A7140E40F100C147A1</string>
+				<string>D87E06A8140E40F100C147A1</string>
+				<string>D87E06A9140E40F100C147A1</string>
+				<string>D87E06AA140E40F100C147A1</string>
+				<string>D87E06AB140E40F100C147A1</string>
 			</array>
 			<key>ToolbarConfigUserDefaultsMinorVersion</key>
 			<string>2</string>
@@ -754,7 +762,7 @@
 		<string>/Users/leeliving/Desktop/BalsamiqXmlReader/BalsamiqXmlReader.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
-	<string>312 238 1246 820 0 0 1920 1058 </string>
+	<string>547 238 1246 820 0 0 1920 1058 </string>
 	<key>WindowToolsV3</key>
 	<array>
 		<dict>

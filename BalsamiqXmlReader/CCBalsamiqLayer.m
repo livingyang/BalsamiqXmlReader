@@ -12,12 +12,14 @@
 #import "CCLabelFX.h"
 #import "UIPaddingTextField.h"
 #import "RadioManager.h"
+#import "CCLoadingBar.h"
 
 NSString *balsamiqFontName = @"arial";
 ccColor3B buttonNormalTextColor = {255, 255, 255};
 ccColor3B buttonSelectTextColor = {200, 200, 200};
 ccColor3B textInputColor = {200, 200, 200};
 NSString *balsamiqRootDir = @"";
+NSString *loadingBarPic = @"loading-bar.png";
 
 //保存根目录下的所有界面数据，以及界面对应的路径
 static NSDictionary *bmmlAndPathDic = nil;
@@ -493,6 +495,34 @@ ccColor3B ccColor3BFromNSString(NSString *str)
 	}
 }
 
+- (void)createIcon:(BalsamiqControlData *)data byCreateInfo:(ControlCreateInfo)createInfo
+{
+	NSString *customID = [data.propertyDic objectForKey:@"customID"];
+	if (customID == nil)
+	{
+		customID = @"";
+	}
+	
+	int zOrder = [[data.attributeDic objectForKey:@"zOrder"] intValue];
+	
+	//无名字的情况下，创建图片
+	CCLoadingBar *loadingBar = [CCLoadingBar spriteWithFile:loadingBarPic];
+	[loadingBar setBarDisplayCycle:1.0 barLeafCount:12];
+	
+	CGSize itemSize = [self getBalsamiqControlSize:data];
+	if (CGSizeEqualToSize(loadingBar.contentSize, itemSize) == NO)
+	{
+		[loadingBar setBarSize:itemSize.width];
+	}
+	loadingBar.position = [self getMidPosition:data];
+	[self addChild:loadingBar z:zOrder];
+	
+	//有名字的图片，需要进行通知
+	if ([createInfo.createdHandle respondsToSelector:@selector(onLoadingBarCreated:name:)])
+	{
+		[createInfo.createdHandle onLoadingBarCreated:loadingBar name:customID];
+	}
+}
 
 ////////////////////////////////////////////////////////
 #pragma mark 继承函数
