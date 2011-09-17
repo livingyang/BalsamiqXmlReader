@@ -9,7 +9,7 @@
 		<key>RootDir</key>
 		<string>UI</string>
 		<key>FontName</key>
-		<string>Vanilla.ttf</string>
+		<string>Vanilla</string>
 		<key>ButtonNormalTextColor</key>
 		<string>100, 100, 100</string>
 		<key>ButtonSelectTextColor</key>
@@ -17,6 +17,10 @@
 		<key>TextInputColor</key>
 		<string>200, 200, 200</string>
 	</dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Vanilla.ttf</string>
+	</array>
 	<key>CFBundleDisplayName</key>
 	<string>${PRODUCT_NAME}</string>
 	<key>CFBundleExecutable</key>
