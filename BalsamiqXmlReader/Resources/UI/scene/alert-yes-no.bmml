@@ -1,0 +1,42 @@
+<mockup version="1.0" skin="sketch" measuredW="318" measuredH="177" mockupW="318" mockupH="177">
+  <controls>
+    <control controlID="11" controlTypeID="com.balsamiq.mockups::ModalScreen" x="0" y="0" w="318" h="177" measuredW="320" measuredH="240" zOrder="0" locked="true" isInGroup="-1"/>
+    <control controlID="12" controlTypeID="com.balsamiq.mockups::Image" x="0" y="0" w="-1" h="-1" measuredW="318" measuredH="177" zOrder="1" locked="false" isInGroup="-1">
+      <controlProperties>
+        <src>./alert-backgroud.png</src>
+      </controlProperties>
+    </control>
+    <control controlID="14" controlTypeID="com.balsamiq.mockups::Image" x="41" y="115" w="-1" h="-1" measuredW="111" measuredH="41" zOrder="2" locked="false" isInGroup="-1">
+      <controlProperties>
+        <customID>Yes</customID>
+        <src>./button-alert-normal.png</src>
+        <text>YES</text>
+      </controlProperties>
+    </control>
+    <control controlID="15" controlTypeID="com.balsamiq.mockups::Image" x="176" y="116" w="-1" h="-1" measuredW="111" measuredH="41" zOrder="3" locked="false" isInGroup="-1">
+      <controlProperties>
+        <customID>No</customID>
+        <src>./button-alert-normal.png</src>
+        <text>NO</text>
+      </controlProperties>
+    </control>
+    <control controlID="16" controlTypeID="com.balsamiq.mockups::Label" x="0" y="15" w="317" h="27" measuredW="65" measuredH="27" zOrder="4" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>center</align>
+        <color>10066329</color>
+        <customID>Title</customID>
+        <size>20</size>
+        <text>Title</text>
+      </controlProperties>
+    </control>
+    <control controlID="17" controlTypeID="com.balsamiq.mockups::Label" x="0" y="64" w="317" h="23" measuredW="92" measuredH="23" zOrder="5" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>center</align>
+        <color>10066329</color>
+        <customID>Message</customID>
+        <size>16</size>
+        <text>Message</text>
+      </controlProperties>
+    </control>
+  </controls>
+</mockup>

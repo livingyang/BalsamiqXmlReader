@@ -121,7 +121,27 @@
 		1846F2951425061100884CCC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1846F2941425061100884CCC /* main.m */; };
 		1846F2981425061100884CCC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1846F2971425061100884CCC /* AppDelegate.m */; };
 		1846F29B1425061100884CCC /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1846F29A1425061100884CCC /* RootViewController.m */; };
-		1846F29E1425061100884CCC /* HelloWorldLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1846F29D1425061100884CCC /* HelloWorldLayer.m */; };
+		1846F2D614250B4F00884CCC /* BalsamiqControlData.m in Sources */ = {isa = PBXBuildFile; fileRef = 1846F2B314250B4F00884CCC /* BalsamiqControlData.m */; };
+		1846F2D714250B4F00884CCC /* CCAlertLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1846F2B614250B4F00884CCC /* CCAlertLayer.m */; };
+		1846F2D814250B4F00884CCC /* CCBalsamiqLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1846F2B814250B4F00884CCC /* CCBalsamiqLayer.m */; };
+		1846F2D914250B4F00884CCC /* CCBalsamiqScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 1846F2BA14250B4F00884CCC /* CCBalsamiqScene.m */; };
+		1846F2DA14250B4F00884CCC /* CCLabelFX.m in Sources */ = {isa = PBXBuildFile; fileRef = 1846F2BD14250B4F00884CCC /* CCLabelFX.m */; };
+		1846F2DB14250B4F00884CCC /* CCTexture2D+TextShadow.m in Sources */ = {isa = PBXBuildFile; fileRef = 1846F2BF14250B4F00884CCC /* CCTexture2D+TextShadow.m */; };
+		1846F2DC14250B4F00884CCC /* CCMenuItemButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 1846F2C114250B4F00884CCC /* CCMenuItemButton.m */; };
+		1846F2DD14250B4F00884CCC /* DDXMLElementAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1846F2C514250B4F00884CCC /* DDXMLElementAdditions.m */; };
+		1846F2DE14250B4F00884CCC /* NSString+DDXML.m in Sources */ = {isa = PBXBuildFile; fileRef = 1846F2C814250B4F00884CCC /* NSString+DDXML.m */; };
+		1846F2DF14250B4F00884CCC /* DDXMLDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 1846F2CB14250B4F00884CCC /* DDXMLDocument.m */; };
+		1846F2E014250B4F00884CCC /* DDXMLElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 1846F2CD14250B4F00884CCC /* DDXMLElement.m */; };
+		1846F2E114250B4F00884CCC /* DDXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 1846F2CF14250B4F00884CCC /* DDXMLNode.m */; };
+		1846F2E214250B4F00884CCC /* RadioManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1846F2D314250B4F00884CCC /* RadioManager.m */; };
+		1846F2E314250B4F00884CCC /* UIPaddingTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 1846F2D514250B4F00884CCC /* UIPaddingTextField.m */; };
+		1846F2E714250BE400884CCC /* CCLoadingBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 1846F2E614250BE400884CCC /* CCLoadingBar.m */; };
+		1846F2F314250CA800884CCC /* MainLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1846F2EA14250CA800884CCC /* MainLayer.m */; };
+		1846F2F414250CA800884CCC /* TestAlertLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1846F2EC14250CA800884CCC /* TestAlertLayer.m */; };
+		1846F2F514250CA800884CCC /* TestWebViewLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1846F2EE14250CA800884CCC /* TestWebViewLayer.m */; };
+		1846F2F614250CA800884CCC /* TestRadioLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1846F2F014250CA800884CCC /* TestRadioLayer.m */; };
+		1846F2F714250CA800884CCC /* TestLoadingBarLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1846F2F214250CA800884CCC /* TestLoadingBarLayer.m */; };
+		1846F2FB14250CF200884CCC /* UI in Resources */ = {isa = PBXBuildFile; fileRef = 1846F2FA14250CF200884CCC /* UI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -357,9 +377,51 @@
 		1846F2971425061100884CCC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		1846F2991425061100884CCC /* RootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		1846F29A1425061100884CCC /* RootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
-		1846F29C1425061100884CCC /* HelloWorldLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HelloWorldLayer.h; sourceTree = "<group>"; };
-		1846F29D1425061100884CCC /* HelloWorldLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HelloWorldLayer.m; sourceTree = "<group>"; };
 		1846F29F1425061100884CCC /* GameConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameConfig.h; sourceTree = "<group>"; };
+		1846F2B214250B4F00884CCC /* BalsamiqControlData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BalsamiqControlData.h; sourceTree = "<group>"; };
+		1846F2B314250B4F00884CCC /* BalsamiqControlData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BalsamiqControlData.m; sourceTree = "<group>"; };
+		1846F2B414250B4F00884CCC /* BalsamiqXmlDef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BalsamiqXmlDef.h; sourceTree = "<group>"; };
+		1846F2B514250B4F00884CCC /* CCAlertLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCAlertLayer.h; sourceTree = "<group>"; };
+		1846F2B614250B4F00884CCC /* CCAlertLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCAlertLayer.m; sourceTree = "<group>"; };
+		1846F2B714250B4F00884CCC /* CCBalsamiqLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCBalsamiqLayer.h; sourceTree = "<group>"; };
+		1846F2B814250B4F00884CCC /* CCBalsamiqLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCBalsamiqLayer.m; sourceTree = "<group>"; };
+		1846F2B914250B4F00884CCC /* CCBalsamiqScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCBalsamiqScene.h; sourceTree = "<group>"; };
+		1846F2BA14250B4F00884CCC /* CCBalsamiqScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCBalsamiqScene.m; sourceTree = "<group>"; };
+		1846F2BC14250B4F00884CCC /* CCLabelFX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCLabelFX.h; sourceTree = "<group>"; };
+		1846F2BD14250B4F00884CCC /* CCLabelFX.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCLabelFX.m; sourceTree = "<group>"; };
+		1846F2BE14250B4F00884CCC /* CCTexture2D+TextShadow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CCTexture2D+TextShadow.h"; sourceTree = "<group>"; };
+		1846F2BF14250B4F00884CCC /* CCTexture2D+TextShadow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CCTexture2D+TextShadow.m"; sourceTree = "<group>"; };
+		1846F2C014250B4F00884CCC /* CCMenuItemButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCMenuItemButton.h; sourceTree = "<group>"; };
+		1846F2C114250B4F00884CCC /* CCMenuItemButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCMenuItemButton.m; sourceTree = "<group>"; };
+		1846F2C414250B4F00884CCC /* DDXMLElementAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDXMLElementAdditions.h; sourceTree = "<group>"; };
+		1846F2C514250B4F00884CCC /* DDXMLElementAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDXMLElementAdditions.m; sourceTree = "<group>"; };
+		1846F2C714250B4F00884CCC /* NSString+DDXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+DDXML.h"; sourceTree = "<group>"; };
+		1846F2C814250B4F00884CCC /* NSString+DDXML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+DDXML.m"; sourceTree = "<group>"; };
+		1846F2C914250B4F00884CCC /* DDXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDXML.h; sourceTree = "<group>"; };
+		1846F2CA14250B4F00884CCC /* DDXMLDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDXMLDocument.h; sourceTree = "<group>"; };
+		1846F2CB14250B4F00884CCC /* DDXMLDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDXMLDocument.m; sourceTree = "<group>"; };
+		1846F2CC14250B4F00884CCC /* DDXMLElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDXMLElement.h; sourceTree = "<group>"; };
+		1846F2CD14250B4F00884CCC /* DDXMLElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDXMLElement.m; sourceTree = "<group>"; };
+		1846F2CE14250B4F00884CCC /* DDXMLNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDXMLNode.h; sourceTree = "<group>"; };
+		1846F2CF14250B4F00884CCC /* DDXMLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDXMLNode.m; sourceTree = "<group>"; };
+		1846F2D114250B4F00884CCC /* DDXMLPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDXMLPrivate.h; sourceTree = "<group>"; };
+		1846F2D214250B4F00884CCC /* RadioManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RadioManager.h; sourceTree = "<group>"; };
+		1846F2D314250B4F00884CCC /* RadioManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RadioManager.m; sourceTree = "<group>"; };
+		1846F2D414250B4F00884CCC /* UIPaddingTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIPaddingTextField.h; sourceTree = "<group>"; };
+		1846F2D514250B4F00884CCC /* UIPaddingTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIPaddingTextField.m; sourceTree = "<group>"; };
+		1846F2E514250BE400884CCC /* CCLoadingBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCLoadingBar.h; path = BalsamiqXmlReader/libs/BalsamiqXmlReader/CCLoadingBar.h; sourceTree = SOURCE_ROOT; };
+		1846F2E614250BE400884CCC /* CCLoadingBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CCLoadingBar.m; path = BalsamiqXmlReader/libs/BalsamiqXmlReader/CCLoadingBar.m; sourceTree = SOURCE_ROOT; };
+		1846F2E914250CA800884CCC /* MainLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainLayer.h; sourceTree = "<group>"; };
+		1846F2EA14250CA800884CCC /* MainLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainLayer.m; sourceTree = "<group>"; };
+		1846F2EB14250CA800884CCC /* TestAlertLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestAlertLayer.h; sourceTree = "<group>"; };
+		1846F2EC14250CA800884CCC /* TestAlertLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestAlertLayer.m; sourceTree = "<group>"; };
+		1846F2ED14250CA800884CCC /* TestWebViewLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestWebViewLayer.h; sourceTree = "<group>"; };
+		1846F2EE14250CA800884CCC /* TestWebViewLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestWebViewLayer.m; sourceTree = "<group>"; };
+		1846F2EF14250CA800884CCC /* TestRadioLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestRadioLayer.h; sourceTree = "<group>"; };
+		1846F2F014250CA800884CCC /* TestRadioLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestRadioLayer.m; sourceTree = "<group>"; };
+		1846F2F114250CA800884CCC /* TestLoadingBarLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestLoadingBarLayer.h; sourceTree = "<group>"; };
+		1846F2F214250CA800884CCC /* TestLoadingBarLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestLoadingBarLayer.m; sourceTree = "<group>"; };
+		1846F2FA14250CF200884CCC /* UI */ = {isa = PBXFileReference; lastKnownFileType = folder; name = UI; path = Resources/UI; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -416,12 +478,11 @@
 		1846F1441425060F00884CCC /* BalsamiqXmlReader */ = {
 			isa = PBXGroup;
 			children = (
+				1846F2E814250C7C00884CCC /* TestLayer */,
 				1846F2961425061100884CCC /* AppDelegate.h */,
 				1846F2971425061100884CCC /* AppDelegate.m */,
 				1846F2991425061100884CCC /* RootViewController.h */,
 				1846F29A1425061100884CCC /* RootViewController.m */,
-				1846F29C1425061100884CCC /* HelloWorldLayer.h */,
-				1846F29D1425061100884CCC /* HelloWorldLayer.m */,
 				1846F29F1425061100884CCC /* GameConfig.h */,
 				1846F1451425060F00884CCC /* Resources */,
 				1846F1591425060F00884CCC /* libs */,
@@ -433,6 +494,7 @@
 		1846F1451425060F00884CCC /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				1846F2FA14250CF200884CCC /* UI */,
 				1846F1461425060F00884CCC /* Default.png */,
 				1846F1481425060F00884CCC /* fps_images.png */,
 				1846F14A1425060F00884CCC /* Icon-72.png */,
@@ -454,6 +516,7 @@
 				1846F25E1425061100884CCC /* LICENSE_CocosDenshion.txt */,
 				1846F2691425061100884CCC /* LICENSE_TouchJSON.txt */,
 				1846F2911425061100884CCC /* LICENSE_FontLabel.txt */,
+				1846F2B114250B4F00884CCC /* BalsamiqXmlReader */,
 				1846F15A1425060F00884CCC /* cocos2d */,
 				1846F2501425061100884CCC /* CocosDenshion */,
 				1846F25F1425061100884CCC /* cocoslive */,
@@ -758,6 +821,104 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		1846F2B114250B4F00884CCC /* BalsamiqXmlReader */ = {
+			isa = PBXGroup;
+			children = (
+				1846F2B214250B4F00884CCC /* BalsamiqControlData.h */,
+				1846F2B314250B4F00884CCC /* BalsamiqControlData.m */,
+				1846F2B414250B4F00884CCC /* BalsamiqXmlDef.h */,
+				1846F2B514250B4F00884CCC /* CCAlertLayer.h */,
+				1846F2B614250B4F00884CCC /* CCAlertLayer.m */,
+				1846F2B714250B4F00884CCC /* CCBalsamiqLayer.h */,
+				1846F2B814250B4F00884CCC /* CCBalsamiqLayer.m */,
+				1846F2B914250B4F00884CCC /* CCBalsamiqScene.h */,
+				1846F2BA14250B4F00884CCC /* CCBalsamiqScene.m */,
+				1846F2BB14250B4F00884CCC /* CCLabelFX */,
+				1846F2E514250BE400884CCC /* CCLoadingBar.h */,
+				1846F2E614250BE400884CCC /* CCLoadingBar.m */,
+				1846F2C014250B4F00884CCC /* CCMenuItemButton.h */,
+				1846F2C114250B4F00884CCC /* CCMenuItemButton.m */,
+				1846F2C214250B4F00884CCC /* KissXML */,
+				1846F2D214250B4F00884CCC /* RadioManager.h */,
+				1846F2D314250B4F00884CCC /* RadioManager.m */,
+				1846F2D414250B4F00884CCC /* UIPaddingTextField.h */,
+				1846F2D514250B4F00884CCC /* UIPaddingTextField.m */,
+			);
+			name = BalsamiqXmlReader;
+			path = "../../../Downloads/livingyang-BalsamiqXmlReader-92018df/BalsamiqXmlReader";
+			sourceTree = "<group>";
+		};
+		1846F2BB14250B4F00884CCC /* CCLabelFX */ = {
+			isa = PBXGroup;
+			children = (
+				1846F2BC14250B4F00884CCC /* CCLabelFX.h */,
+				1846F2BD14250B4F00884CCC /* CCLabelFX.m */,
+				1846F2BE14250B4F00884CCC /* CCTexture2D+TextShadow.h */,
+				1846F2BF14250B4F00884CCC /* CCTexture2D+TextShadow.m */,
+			);
+			path = CCLabelFX;
+			sourceTree = "<group>";
+		};
+		1846F2C214250B4F00884CCC /* KissXML */ = {
+			isa = PBXGroup;
+			children = (
+				1846F2C314250B4F00884CCC /* Additions */,
+				1846F2C614250B4F00884CCC /* Categories */,
+				1846F2C914250B4F00884CCC /* DDXML.h */,
+				1846F2CA14250B4F00884CCC /* DDXMLDocument.h */,
+				1846F2CB14250B4F00884CCC /* DDXMLDocument.m */,
+				1846F2CC14250B4F00884CCC /* DDXMLElement.h */,
+				1846F2CD14250B4F00884CCC /* DDXMLElement.m */,
+				1846F2CE14250B4F00884CCC /* DDXMLNode.h */,
+				1846F2CF14250B4F00884CCC /* DDXMLNode.m */,
+				1846F2D014250B4F00884CCC /* Private */,
+			);
+			path = KissXML;
+			sourceTree = "<group>";
+		};
+		1846F2C314250B4F00884CCC /* Additions */ = {
+			isa = PBXGroup;
+			children = (
+				1846F2C414250B4F00884CCC /* DDXMLElementAdditions.h */,
+				1846F2C514250B4F00884CCC /* DDXMLElementAdditions.m */,
+			);
+			path = Additions;
+			sourceTree = "<group>";
+		};
+		1846F2C614250B4F00884CCC /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				1846F2C714250B4F00884CCC /* NSString+DDXML.h */,
+				1846F2C814250B4F00884CCC /* NSString+DDXML.m */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		1846F2D014250B4F00884CCC /* Private */ = {
+			isa = PBXGroup;
+			children = (
+				1846F2D114250B4F00884CCC /* DDXMLPrivate.h */,
+			);
+			path = Private;
+			sourceTree = "<group>";
+		};
+		1846F2E814250C7C00884CCC /* TestLayer */ = {
+			isa = PBXGroup;
+			children = (
+				1846F2E914250CA800884CCC /* MainLayer.h */,
+				1846F2EA14250CA800884CCC /* MainLayer.m */,
+				1846F2EB14250CA800884CCC /* TestAlertLayer.h */,
+				1846F2EC14250CA800884CCC /* TestAlertLayer.m */,
+				1846F2ED14250CA800884CCC /* TestWebViewLayer.h */,
+				1846F2EE14250CA800884CCC /* TestWebViewLayer.m */,
+				1846F2EF14250CA800884CCC /* TestRadioLayer.h */,
+				1846F2F014250CA800884CCC /* TestRadioLayer.m */,
+				1846F2F114250CA800884CCC /* TestLoadingBarLayer.h */,
+				1846F2F214250CA800884CCC /* TestLoadingBarLayer.m */,
+			);
+			name = TestLayer;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -814,6 +975,7 @@
 				1846F1531425060F00884CCC /* Icon.png in Resources */,
 				1846F1551425060F00884CCC /* Icon@2x.png in Resources */,
 				1846F1581425060F00884CCC /* iTunesArtwork in Resources */,
+				1846F2FB14250CF200884CCC /* UI in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -921,7 +1083,26 @@
 				1846F2951425061100884CCC /* main.m in Sources */,
 				1846F2981425061100884CCC /* AppDelegate.m in Sources */,
 				1846F29B1425061100884CCC /* RootViewController.m in Sources */,
-				1846F29E1425061100884CCC /* HelloWorldLayer.m in Sources */,
+				1846F2D614250B4F00884CCC /* BalsamiqControlData.m in Sources */,
+				1846F2D714250B4F00884CCC /* CCAlertLayer.m in Sources */,
+				1846F2D814250B4F00884CCC /* CCBalsamiqLayer.m in Sources */,
+				1846F2D914250B4F00884CCC /* CCBalsamiqScene.m in Sources */,
+				1846F2DA14250B4F00884CCC /* CCLabelFX.m in Sources */,
+				1846F2DB14250B4F00884CCC /* CCTexture2D+TextShadow.m in Sources */,
+				1846F2DC14250B4F00884CCC /* CCMenuItemButton.m in Sources */,
+				1846F2DD14250B4F00884CCC /* DDXMLElementAdditions.m in Sources */,
+				1846F2DE14250B4F00884CCC /* NSString+DDXML.m in Sources */,
+				1846F2DF14250B4F00884CCC /* DDXMLDocument.m in Sources */,
+				1846F2E014250B4F00884CCC /* DDXMLElement.m in Sources */,
+				1846F2E114250B4F00884CCC /* DDXMLNode.m in Sources */,
+				1846F2E214250B4F00884CCC /* RadioManager.m in Sources */,
+				1846F2E314250B4F00884CCC /* UIPaddingTextField.m in Sources */,
+				1846F2E714250BE400884CCC /* CCLoadingBar.m in Sources */,
+				1846F2F314250CA800884CCC /* MainLayer.m in Sources */,
+				1846F2F414250CA800884CCC /* TestAlertLayer.m in Sources */,
+				1846F2F514250CA800884CCC /* TestWebViewLayer.m in Sources */,
+				1846F2F614250CA800884CCC /* TestRadioLayer.m in Sources */,
+				1846F2F714250CA800884CCC /* TestLoadingBarLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -973,8 +1154,12 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = BalsamiqXmlReader/Prefix.pch;
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
+				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INFOPLIST_FILE = BalsamiqXmlReader/Resources/Info.plist;
-				OTHER_LDFLAGS = "-lz";
+				OTHER_LDFLAGS = (
+					"-lz",
+					"-lxml2",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -988,8 +1173,12 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = BalsamiqXmlReader/Prefix.pch;
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
+				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INFOPLIST_FILE = BalsamiqXmlReader/Resources/Info.plist;
-				OTHER_LDFLAGS = "-lz";
+				OTHER_LDFLAGS = (
+					"-lz",
+					"-lxml2",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
@@ -1015,6 +1204,7 @@
 				1846F2A41425061100884CCC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
