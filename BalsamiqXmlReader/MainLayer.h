@@ -2,8 +2,8 @@
 //  HelloWorldLayer.h
 //  BalsamiqXmlReader
 //
-//  Created by apple on 11-9-18.
-//  Copyright __MyCompanyName__ 2011年. All rights reserved.
+//  Created by lee living on 11-7-20.
+//  Copyright LieHuo Tech 2011. All rights reserved.
 //
 
 
@@ -11,7 +11,7 @@
 #import "cocos2d.h"
 
 // HelloWorldLayer
-@interface HelloWorldLayer : CCLayer
+@interface MainLayer : CCLayer
 {
 }
 
