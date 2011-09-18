@@ -142,7 +142,10 @@
 		1846F2F614250CA800884CCC /* TestRadioLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1846F2F014250CA800884CCC /* TestRadioLayer.m */; };
 		1846F2F714250CA800884CCC /* TestLoadingBarLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1846F2F214250CA800884CCC /* TestLoadingBarLayer.m */; };
 		1846F2FB14250CF200884CCC /* UI in Resources */ = {isa = PBXBuildFile; fileRef = 1846F2FA14250CF200884CCC /* UI */; };
-		1846F301142510FB00884CCC /* Vanilla.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1846F300142510FB00884CCC /* Vanilla.ttf */; };
+		18AF26D11425CBA000D0D60F /* Vanilla.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 18AF26D01425CBA000D0D60F /* Vanilla.ttf */; };
+		18AF26D31425CC7500D0D60F /* WebViewFile.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 18AF26D21425CC7500D0D60F /* WebViewFile.rtf */; };
+		18AF26D61425CCEE00D0D60F /* loading-bar-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 18AF26D41425CCEE00D0D60F /* loading-bar-hd.png */; };
+		18AF26D71425CCEE00D0D60F /* loading-bar.png in Resources */ = {isa = PBXBuildFile; fileRef = 18AF26D51425CCEE00D0D60F /* loading-bar.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -423,7 +426,10 @@
 		1846F2F114250CA800884CCC /* TestLoadingBarLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestLoadingBarLayer.h; sourceTree = "<group>"; };
 		1846F2F214250CA800884CCC /* TestLoadingBarLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestLoadingBarLayer.m; sourceTree = "<group>"; };
 		1846F2FA14250CF200884CCC /* UI */ = {isa = PBXFileReference; lastKnownFileType = folder; name = UI; path = Resources/UI; sourceTree = "<group>"; };
-		1846F300142510FB00884CCC /* Vanilla.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Vanilla.ttf; sourceTree = "<group>"; };
+		18AF26D01425CBA000D0D60F /* Vanilla.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Vanilla.ttf; path = Resources/Vanilla.ttf; sourceTree = "<group>"; };
+		18AF26D21425CC7500D0D60F /* WebViewFile.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; name = WebViewFile.rtf; path = Resources/WebViewFile.rtf; sourceTree = "<group>"; };
+		18AF26D41425CCEE00D0D60F /* loading-bar-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "loading-bar-hd.png"; path = "Resources/loading-bar-hd.png"; sourceTree = "<group>"; };
+		18AF26D51425CCEE00D0D60F /* loading-bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "loading-bar.png"; path = "Resources/loading-bar.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -496,8 +502,10 @@
 		1846F1451425060F00884CCC /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				18AF26D41425CCEE00D0D60F /* loading-bar-hd.png */,
+				18AF26D51425CCEE00D0D60F /* loading-bar.png */,
+				18AF26D01425CBA000D0D60F /* Vanilla.ttf */,
 				1846F2FA14250CF200884CCC /* UI */,
-				1846F300142510FB00884CCC /* Vanilla.ttf */,
 				1846F1461425060F00884CCC /* Default.png */,
 				1846F1481425060F00884CCC /* fps_images.png */,
 				1846F14A1425060F00884CCC /* Icon-72.png */,
@@ -508,6 +516,7 @@
 				1846F1541425060F00884CCC /* Icon@2x.png */,
 				1846F1561425060F00884CCC /* Info.plist */,
 				1846F1571425060F00884CCC /* iTunesArtwork */,
+				18AF26D21425CC7500D0D60F /* WebViewFile.rtf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -979,7 +988,10 @@
 				1846F1551425060F00884CCC /* Icon@2x.png in Resources */,
 				1846F1581425060F00884CCC /* iTunesArtwork in Resources */,
 				1846F2FB14250CF200884CCC /* UI in Resources */,
-				1846F301142510FB00884CCC /* Vanilla.ttf in Resources */,
+				18AF26D11425CBA000D0D60F /* Vanilla.ttf in Resources */,
+				18AF26D31425CC7500D0D60F /* WebViewFile.rtf in Resources */,
+				18AF26D61425CCEE00D0D60F /* loading-bar-hd.png in Resources */,
+				18AF26D71425CCEE00D0D60F /* loading-bar.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

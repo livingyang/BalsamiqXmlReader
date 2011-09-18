@@ -48,7 +48,7 @@
 
 - (void)onWebViewCreated:(UIWebView *)webView name:(NSString *)name
 {
-	[self loadDocument:@"box2d.pdf" inView:webView];
+	[self loadDocument:@"webviewfile.rtf" inView:webView];
 }
 
 -(id) init
