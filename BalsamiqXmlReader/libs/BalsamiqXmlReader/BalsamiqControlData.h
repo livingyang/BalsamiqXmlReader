@@ -18,8 +18,4 @@
 @property (nonatomic, retain) NSMutableDictionary *attributeDic;
 @property (nonatomic, retain) NSMutableDictionary *propertyDic;
 
-+ (NSMutableArray *)parseData:(NSString *)balsamiqStr;
-
-+ (NSMutableArray *)getBalsamiqControlData:(NSString *)filePath;
-
 @end

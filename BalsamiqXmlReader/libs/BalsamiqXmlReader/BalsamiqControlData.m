@@ -7,7 +7,6 @@
 //
 
 #import "BalsamiqControlData.h"
-#import "DDXML.h"
 
 @implementation BalsamiqControlData
 
@@ -23,65 +22,24 @@
 	return [NSString stringWithFormat:@"<attributes = %@,\n properties = %@>", self.attributeDic, self.propertyDic];
 }
 
+- (id)init
+{
+    self = [super init];
+    if (self)
+    {
+        self.attributeDic = [NSMutableDictionary dictionary];
+        self.propertyDic = [NSMutableDictionary dictionary];
+    }
+    
+    return self;
+}
+
 - (void) dealloc
 {
 	self.attributeDic = nil;
 	self.propertyDic = nil;
 	
 	[super dealloc];
-}
-
-////////////////////////////////////////////////////////
-#pragma mark 公共函数
-////////////////////////////////////////////////////////
-
-+ (NSMutableArray *)parseData:(NSString *)balsamiqStr
-{
-	if (balsamiqStr == nil || [balsamiqStr isEqualToString:@""])
-	{
-		NSLog(@"BalsamiqControlData#parseData data is invalid");
-		return nil;
-	}
-	
-	DDXMLDocument *ddDoc = [[[DDXMLDocument alloc] initWithXMLString:balsamiqStr
-															 options:0 
-															   error:nil] autorelease];
-	
-	NSArray *controls = [ddDoc nodesForXPath:@"//control" error:nil];
-	
-	NSMutableArray *controlsData = [NSMutableArray arrayWithCapacity:controls.count];
-	
-	for (DDXMLElement *element in controls)
-	{
-		BalsamiqControlData *controlData = [[[BalsamiqControlData alloc] init] autorelease];
-		controlData.attributeDic = [NSMutableDictionary dictionary];
-		controlData.propertyDic = [NSMutableDictionary dictionary];
-		
-		[controlsData addObject:controlData];
-		
-		// 1解析属性
-		for (DDXMLNode *node in [element attributes])
-		{
-			[controlData.attributeDic setObject:[node stringValue] forKey:[node name]];
-		}
-		
-		// 2解析属性节点
-		NSArray *propertys = [element nodesForXPath:@"controlProperties/*" error:nil];
-		
-		for (DDXMLNode *node in propertys)
-		{
-			[controlData.propertyDic setObject:[node stringValue] forKey:[node name]];
-		}
-	}
-	
-	return controlsData;
-}
-
-+ (NSMutableArray *)getBalsamiqControlData:(NSString *)filePath
-{
-	return [BalsamiqControlData parseData:[NSString stringWithContentsOfFile:filePath
-																	encoding:NSUTF8StringEncoding
-																	   error:nil]];
 }
 
 @end

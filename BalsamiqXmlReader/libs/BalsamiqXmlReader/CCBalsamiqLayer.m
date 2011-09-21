@@ -7,12 +7,14 @@
 //
 
 #import "CCBalsamiqLayer.h"
+#import <objc/message.h>
 #import "BalsamiqControlData.h"
 #import "CCMenuItemButton.h"
 #import "CCLabelFX.h"
 #import "UIPaddingTextField.h"
 #import "RadioManager.h"
 #import "CCLoadingBar.h"
+#import "BalsamiqFileParser.h"
 
 NSString *balsamiqFontName = @"arial";
 ccColor3B buttonNormalTextColor = {255, 255, 255};
@@ -628,6 +630,8 @@ ccColor3B ccColor3BFromNSString(NSString *str)
 + (void)setBalsamiqConfigWithPropertyListFile:(NSString *)configKey
 {
 	NSDictionary *dic = [[NSBundle mainBundle] objectForInfoDictionaryKey:configKey];
+    
+    NSAssert(dic != nil, @"CCBalsamiqLayer#setBalsamiqConfigWithPropertyListFile: config = %@ is nil", configKey);
 	
 	[CCBalsamiqLayer setBalsamiqConfig:dic];
 }
@@ -643,9 +647,12 @@ ccColor3B ccColor3BFromNSString(NSString *str)
 		self.isRelativeAnchorPoint = YES;
 		self.anchorPoint = ccp(0, 0);
 		
-		NSMutableArray *balsamiqData = [BalsamiqControlData getBalsamiqControlData:
-										[self getBalsamiqFilePath:fileName]];
-		if (balsamiqData == nil)
+//		NSMutableArray *balsamiqData = [BalsamiqControlData getBalsamiqControlData:
+//										[self getBalsamiqFilePath:fileName]];
+		NSMutableArray *balsamiqData = [[BalsamiqFileParser instance] getControlsData:
+                                        [self getBalsamiqFilePath:fileName]];
+		
+        if (balsamiqData == nil)
 		{
 			NSLog(@"CCBalsamiqLayer#%@ fileName = %@ is nil", NSStringFromSelector(_cmd), fileName);
 			return nil;
