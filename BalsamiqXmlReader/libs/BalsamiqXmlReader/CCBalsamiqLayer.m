@@ -585,7 +585,7 @@ ccColor3B ccColor3BFromNSString(NSString *str)
 		}
 		
 		bmmlAndPathDic = dic;
-		NSLog(@"dic = %@", dic);
+		CCLOG(@"dic = %@", dic);
 	}
 }
 
@@ -661,8 +661,6 @@ ccColor3B ccColor3BFromNSString(NSString *str)
 		// 1 初始化layer
 		for (BalsamiqControlData *data in balsamiqData)
 		{
-			NSLog(@"%@", [data.attributeDic objectForKey:@"controlTypeID"]);
-			
 			if ([@"com.balsamiq.mockups::ModalScreen" isEqualToString:[data.attributeDic objectForKey:@"controlTypeID"]])
 			{
 				self.contentSize = [self getBalsamiqControlSize:data];
