@@ -12,20 +12,9 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
-#define KEY_BALSAMIQ_ROOT_DIR @"RootDir"
-#define KEY_BALSAMIQ_FONT_NAME @"FontName"
-#define KEY_BALSAMIQ_BTN_NORMAL_TEXT_COLOR @"ButtonNormalTextColor"
-#define KEY_BALSAMIQ_BTN_SELECT_TEXT_COLOR @"ButtonSelectTextColor"
-#define KEY_BALSAMIQ_INPUT_TEXT_COLOR @"TextInputColor"
-
-extern NSString *balsamiqFontName;
-extern ccColor3B buttonNormalTextColor;
-extern ccColor3B buttonSelectTextColor;
-extern ccColor3B textInputColor;
-
 @class CCMenuItemButton;
 @class CCLoadingBar;
-@protocol BalsamiqReaderDelegate
+@protocol BalsamiqReaderCreateDelegate
 
 @optional
 - (void)onButtonCreated:(CCMenuItemButton *)button name:(NSString *)name;
