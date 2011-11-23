@@ -8,7 +8,7 @@
 
 #import "RadioManager.h"
 #import "cocos2d.h"
-#import "BalsamiqXmlDef.h"
+#import "BalsamiqReaderCreateDelegate.h"
 
 @implementation RadioManager
 

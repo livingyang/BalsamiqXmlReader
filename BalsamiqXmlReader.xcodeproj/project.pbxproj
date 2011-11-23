@@ -140,6 +140,7 @@
 		18AF26D31425CC7500D0D60F /* WebViewFile.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 18AF26D21425CC7500D0D60F /* WebViewFile.rtf */; };
 		18AF26D61425CCEE00D0D60F /* loading-bar-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 18AF26D41425CCEE00D0D60F /* loading-bar-hd.png */; };
 		18AF26D71425CCEE00D0D60F /* loading-bar.png in Resources */ = {isa = PBXBuildFile; fileRef = 18AF26D51425CCEE00D0D60F /* loading-bar.png */; };
+		27DC774F147C86C100890457 /* BalsamiqReaderConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 27DC774E147C86C100890457 /* BalsamiqReaderConfig.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -391,7 +392,7 @@
 		18847B5A142A2E11005D7C4F /* BalsamiqControlData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BalsamiqControlData.m; sourceTree = "<group>"; };
 		18847B5B142A2E11005D7C4F /* BalsamiqFileParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BalsamiqFileParser.h; sourceTree = "<group>"; };
 		18847B5C142A2E11005D7C4F /* BalsamiqFileParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BalsamiqFileParser.m; sourceTree = "<group>"; };
-		18847B5D142A2E11005D7C4F /* BalsamiqXmlDef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BalsamiqXmlDef.h; sourceTree = "<group>"; };
+		18847B5D142A2E11005D7C4F /* BalsamiqReaderCreateDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; path = BalsamiqReaderCreateDelegate.h; sourceTree = "<group>"; };
 		18847B5E142A2E11005D7C4F /* CCAlertLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCAlertLayer.h; sourceTree = "<group>"; };
 		18847B5F142A2E11005D7C4F /* CCAlertLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCAlertLayer.m; sourceTree = "<group>"; };
 		18847B60142A2E11005D7C4F /* CCBalsamiqLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCBalsamiqLayer.h; sourceTree = "<group>"; };
@@ -410,6 +411,8 @@
 		18AF26D21425CC7500D0D60F /* WebViewFile.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; name = WebViewFile.rtf; path = Resources/WebViewFile.rtf; sourceTree = "<group>"; };
 		18AF26D41425CCEE00D0D60F /* loading-bar-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "loading-bar-hd.png"; path = "Resources/loading-bar-hd.png"; sourceTree = "<group>"; };
 		18AF26D51425CCEE00D0D60F /* loading-bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "loading-bar.png"; path = "Resources/loading-bar.png"; sourceTree = "<group>"; };
+		27DC774D147C86C100890457 /* BalsamiqReaderConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BalsamiqReaderConfig.h; sourceTree = "<group>"; };
+		27DC774E147C86C100890457 /* BalsamiqReaderConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BalsamiqReaderConfig.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -833,11 +836,13 @@
 		18847B58142A2E11005D7C4F /* BalsamiqXmlReader */ = {
 			isa = PBXGroup;
 			children = (
+				27DC774D147C86C100890457 /* BalsamiqReaderConfig.h */,
+				27DC774E147C86C100890457 /* BalsamiqReaderConfig.m */,
 				18847B59142A2E11005D7C4F /* BalsamiqControlData.h */,
 				18847B5A142A2E11005D7C4F /* BalsamiqControlData.m */,
 				18847B5B142A2E11005D7C4F /* BalsamiqFileParser.h */,
 				18847B5C142A2E11005D7C4F /* BalsamiqFileParser.m */,
-				18847B5D142A2E11005D7C4F /* BalsamiqXmlDef.h */,
+				18847B5D142A2E11005D7C4F /* BalsamiqReaderCreateDelegate.h */,
 				18847B5E142A2E11005D7C4F /* CCAlertLayer.h */,
 				18847B5F142A2E11005D7C4F /* CCAlertLayer.m */,
 				18847B60142A2E11005D7C4F /* CCBalsamiqLayer.h */,
@@ -1039,6 +1044,7 @@
 				18847B79142A2E11005D7C4F /* CCMenuItemButton.m in Sources */,
 				18847B7A142A2E11005D7C4F /* RadioManager.m in Sources */,
 				18847B7B142A2E11005D7C4F /* UIPaddingTextField.m in Sources */,
+				27DC774F147C86C100890457 /* BalsamiqReaderConfig.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

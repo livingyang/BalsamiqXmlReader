@@ -14,16 +14,8 @@
 #import "RadioManager.h"
 #import "CCLoadingBar.h"
 #import "BalsamiqFileParser.h"
-
-NSString *balsamiqFontName = @"arial";
-ccColor3B buttonNormalTextColor = {255, 255, 255};
-ccColor3B buttonSelectTextColor = {200, 200, 200};
-ccColor3B textInputColor = {200, 200, 200};
-NSString *balsamiqRootDir = @"";
-NSString *loadingBarPic = @"loading-bar.png";
-
-//保存根目录下的所有界面数据，以及界面对应的路径
-static NSDictionary *bmmlAndPathDic = nil;
+#import "BalsamiqReaderConfig.h"
+#import "BalsamiqReaderCreateDelegate.h"
 
 typedef struct
 {
@@ -36,33 +28,6 @@ typedef struct
 #define IMAGE_PREFIX @"image_"
 #define RADIO_PREFIX @"radio_"
 
-#define LABEL_NORMAL_OFFSET_POSITION ccp(3, -2)
-#define LABEL_SHADOW_OFFSET_POSITION ccp(8, -2)
-
-ccColor3B ccColor3BFromNSString(NSString *str)
-{
-	if (str == nil)
-	{
-		return ccWHITE;
-	}
-	
-	NSArray *sep = [[str stringByReplacingOccurrencesOfString:@" " withString:@""]
-					componentsSeparatedByString:@","];
-	if (sep.count != 3)
-	{
-		return ccWHITE;
-	}
-	
-	ccColor3B color = 
-	{
-		[[sep objectAtIndex:0] intValue],
-		[[sep objectAtIndex:1] intValue],
-		[[sep objectAtIndex:2] intValue],
-	};
-	
-	return color;
-}
-
 @implementation CCBalsamiqLayer : CCLayer
 
 @synthesize uiViewArray;
@@ -70,31 +35,6 @@ ccColor3B ccColor3BFromNSString(NSString *str)
 ////////////////////////////////////////////////////////
 #pragma mark 私有函数
 ////////////////////////////////////////////////////////
-
-/*!
-    @名    称：getBalsamiqFilePath
-    @描    述：根据文件名，获取文件路径
-    @参    数：fileName
-    @返 回 值：
-    @备    注：
-*/
-- (NSString *)getBalsamiqFilePath:(NSString *)fileName
-{
-	if (bmmlAndPathDic == nil)
-	{
-		NSLog(@"CCBalsamiqLayer#%@ bmmlAndPathDic is nil", NSStringFromSelector(_cmd));
-		return nil;
-	}
-	NSString *filePath = [bmmlAndPathDic objectForKey:fileName];
-	if (filePath == nil)
-	{
-		return nil;
-	}
-	
-	filePath = [balsamiqRootDir stringByAppendingPathComponent:filePath];
-	
-	return filePath;
-}
 
 //格式字符串的特殊字符替换表
 - (NSDictionary *)charReplaceList
@@ -274,10 +214,10 @@ ccColor3B ccColor3BFromNSString(NSString *str)
 	if (text != nil)
 	{
 		[item initLabel:[self getClearText:text] 
-			   fontName:balsamiqFontName
+			   fontName:[BalsamiqReaderConfig instance].balsamiqFontName
 			   fontSize:[self getBalsamiqControlTextSize:data]
-			normalColor:buttonNormalTextColor 
-			selectColor:buttonSelectTextColor
+			normalColor:[BalsamiqReaderConfig instance].buttonNormalTextColor 
+			selectColor:[BalsamiqReaderConfig instance].buttonSelectTextColor
 		   disableColor:ccBLACK];
 		
 		item.label.scaleX = 1 / item.scaleX;
@@ -387,7 +327,7 @@ ccColor3B ccColor3BFromNSString(NSString *str)
     CCLabelTTF *label = [CCLabelTTF labelWithString:[self getClearText:[data.propertyDic objectForKey:@"text"]]
                                          dimensions:[self getBalsamiqControlSize:data]
                                           alignment:[self getBalsamiqControlAlign:data]
-                                           fontName:balsamiqFontName
+                                           fontName:[BalsamiqReaderConfig instance].balsamiqFontName
                                            fontSize:[self getBalsamiqControlTextSize:data]];
     label.position = [self getMidPosition:data];
 	
@@ -424,9 +364,9 @@ ccColor3B ccColor3BFromNSString(NSString *str)
 	
 	//nameTextField.transform = CGAffineTransformMakeRotation(M_PI * (90.0 / 180.0)); // rotate for landscape
 	textField.text = [self getClearText:[data.propertyDic objectForKey:@"text"]];
-	textField.textColor = [self getUIColor:textInputColor alpha:1.0f];
+	textField.textColor = [self getUIColor:[BalsamiqReaderConfig instance].textInputColor alpha:1.0f];
 	textField.textAlignment = [self getBalsamiqControlAlign:data];
-	textField.font = [UIFont fontWithName:[balsamiqFontName stringByDeletingPathExtension]
+	textField.font = [UIFont fontWithName:[[BalsamiqReaderConfig instance].balsamiqFontName stringByDeletingPathExtension]
 									 size:[self getBalsamiqControlTextSize:data]];
 	
 	// NOTE: UITextField won't be visible by default without setting backGroundColor & borderStyle
@@ -487,7 +427,7 @@ ccColor3B ccColor3BFromNSString(NSString *str)
 	int zOrder = [[data.attributeDic objectForKey:@"zOrder"] intValue];
 	
 	//无名字的情况下，创建图片
-	CCLoadingBar *loadingBar = [CCLoadingBar spriteWithFile:loadingBarPic];
+	CCLoadingBar *loadingBar = [CCLoadingBar spriteWithFile:[BalsamiqReaderConfig instance].loadingBarPic];
 	[loadingBar setBarDisplayCycle:1.0 barLeafCount:12];
 	
 	CGSize itemSize = [self getBalsamiqControlSize:data];
@@ -530,91 +470,6 @@ ccColor3B ccColor3BFromNSString(NSString *str)
 #pragma mark 公共函数
 ////////////////////////////////////////////////////////
 
-+ (void)setBalsamiqRootDir:(NSString *)rootDir
-{
-	if (bmmlAndPathDic == nil)
-	{
-		balsamiqRootDir = [[NSString alloc] initWithString:[[[NSBundle mainBundle] bundlePath]
-															stringByAppendingPathComponent:rootDir]];
-		
-		BOOL isDir;
-		if ([[NSFileManager defaultManager] fileExistsAtPath:balsamiqRootDir isDirectory:&isDir] == NO)
-		{
-			NSAssert(0, @"CCBalsamiqLayer#%@ rootDir = %@ is nil", NSStringFromSelector(_cmd), rootDir);
-		}
-		else if (isDir == NO)
-		{
-			NSAssert(0, @"CCBalsamiqLayer#%@ rootDir = %@ is not dir", NSStringFromSelector(_cmd), rootDir);
-		}
-
-		
-		NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
-		for (NSString *fileName in [[NSFileManager defaultManager] subpathsOfDirectoryAtPath:balsamiqRootDir error:nil])
-		{
-			if ([[fileName pathExtension] isEqualToString:@"bmml"])
-			{
-				NSAssert([dic objectForKey:[fileName lastPathComponent]] == nil,
-						 @"CCBalsamiqLayer#%@ fileName = %@ is duplicate with %@",
-						 NSStringFromSelector(_cmd),
-						 fileName,
-						 [dic objectForKey:[fileName lastPathComponent]]);
-					
-				[dic setValue:fileName forKey:[fileName lastPathComponent]];
-			}
-		}
-		
-		bmmlAndPathDic = dic;
-		CCLOG(@"dic = %@", dic);
-	}
-}
-
-+ (void)setBalsamiqConfig:(NSDictionary *)configDic
-{
-	if ([configDic objectForKey:KEY_BALSAMIQ_ROOT_DIR] != nil)
-	{
-		[CCBalsamiqLayer setBalsamiqRootDir:[configDic objectForKey:KEY_BALSAMIQ_ROOT_DIR]];
-	}
-	
-	if ([configDic objectForKey:KEY_BALSAMIQ_FONT_NAME] != nil
-		&& [configDic objectForKey:KEY_BALSAMIQ_FONT_NAME] != balsamiqFontName)
-	{
-		if (balsamiqFontName != nil)
-		{
-			[balsamiqFontName release];
-		}
-		
-		balsamiqFontName = [configDic objectForKey:KEY_BALSAMIQ_FONT_NAME];
-		[balsamiqFontName retain];
-	}
-	
-	if ([configDic objectForKey:KEY_BALSAMIQ_BTN_NORMAL_TEXT_COLOR] != nil)
-	{
-		buttonNormalTextColor =
-		ccColor3BFromNSString([configDic objectForKey:KEY_BALSAMIQ_BTN_NORMAL_TEXT_COLOR]);
-	}
-	
-	if ([configDic objectForKey:KEY_BALSAMIQ_BTN_SELECT_TEXT_COLOR] != nil)
-	{
-		buttonSelectTextColor =
-		ccColor3BFromNSString([configDic objectForKey:KEY_BALSAMIQ_BTN_SELECT_TEXT_COLOR]);
-	}
-	
-	if ([configDic objectForKey:KEY_BALSAMIQ_INPUT_TEXT_COLOR] != nil)
-	{
-		textInputColor =
-		ccColor3BFromNSString([configDic objectForKey:KEY_BALSAMIQ_INPUT_TEXT_COLOR]);
-	}
-}
-
-+ (void)setBalsamiqConfigWithPropertyListFile:(NSString *)configKey
-{
-	NSDictionary *dic = [[NSBundle mainBundle] objectForInfoDictionaryKey:configKey];
-    
-    NSAssert(dic != nil, @"CCBalsamiqLayer#setBalsamiqConfigWithPropertyListFile: config = %@ is nil", configKey);
-	
-	[CCBalsamiqLayer setBalsamiqConfig:dic];
-}
-
 - (id)initWithBalsamiqFile:(NSString *)fileName eventHandle:(id)eventHandle createdHandle:(id)createdHandle
 {
 	self = [self init];
@@ -626,10 +481,8 @@ ccColor3B ccColor3BFromNSString(NSString *str)
 		self.isRelativeAnchorPoint = YES;
 		self.anchorPoint = ccp(0, 0);
 		
-//		NSMutableArray *balsamiqData = [BalsamiqControlData getBalsamiqControlData:
-//										[self getBalsamiqFilePath:fileName]];
 		NSMutableArray *balsamiqData = [[BalsamiqFileParser instance] getControlsData:
-                                        [self getBalsamiqFilePath:fileName]];
+                                        [[BalsamiqReaderConfig instance] getBalsamiqFilePath:fileName]];
 		
         if (balsamiqData == nil)
 		{
@@ -659,7 +512,7 @@ ccColor3B ccColor3BFromNSString(NSString *str)
 			menu,
 			eventHandle,
 			createdHandle,
-			[[self getBalsamiqFilePath:fileName] stringByDeletingLastPathComponent],
+			[[[BalsamiqReaderConfig instance] getBalsamiqFilePath:fileName] stringByDeletingLastPathComponent],
 		};
 		
 		// 3 生成各个控件

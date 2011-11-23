@@ -7,6 +7,7 @@
 //
 
 #import "CCAlertLayer.h"
+#import "BalsamiqReaderCreateDelegate.h"
 #import "CCBalsamiqLayer.h"
 
 @implementation CCAlertLayer

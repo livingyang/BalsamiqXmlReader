@@ -16,6 +16,7 @@
 #import "CCBalsamiqScene.h"
 
 #import "TestAlertLayer.h"
+#import "BalsamiqReaderConfig.h"
 
 @implementation MainLayer
 
@@ -23,7 +24,7 @@
 {
 	if (self == [MainLayer class])
 	{
-		[CCBalsamiqLayer setBalsamiqConfigWithPropertyListFile:@"BalsamiqConfig"];
+        [[BalsamiqReaderConfig instance] loadBalsamiqConfigWithPropertyListFile:@"BalsamiqConfig"];
 	}
 }
 
