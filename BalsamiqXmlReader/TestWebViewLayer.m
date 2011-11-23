@@ -40,7 +40,7 @@
 
 -(void)loadDocument:(NSString*)documentName inView:(UIWebView*)view
 {
-    NSString *path = [[NSBundle mainBundle] pathForResource:documentName ofType:nil];
+    NSString *path = [[NSBundle mainBundle] pathForResource:documentName ofType:@""];
     NSURL *url = [NSURL fileURLWithPath:path];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     [view loadRequest:request];
@@ -48,7 +48,7 @@
 
 - (void)onWebViewCreated:(UIWebView *)webView name:(NSString *)name
 {
-	[self loadDocument:@"webviewfile.rtf" inView:webView];
+	[self loadDocument:@"WebViewFile.rtf" inView:webView];
 }
 
 -(id) init
