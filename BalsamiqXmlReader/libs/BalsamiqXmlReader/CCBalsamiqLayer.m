@@ -10,7 +10,6 @@
 #import <objc/message.h>
 #import "BalsamiqControlData.h"
 #import "CCMenuItemButton.h"
-#import "CCLabelFX.h"
 #import "UIPaddingTextField.h"
 #import "RadioManager.h"
 #import "CCLoadingBar.h"
@@ -385,32 +384,12 @@ ccColor3B ccColor3BFromNSString(NSString *str)
 
 - (void)createLabel:(BalsamiqControlData *)data byCreateInfo:(ControlCreateInfo)createInfo
 {
-	//加入边框显示，若在balsamiq中加入下划线，则加入边框
-	NSString *underlineStr = [data.propertyDic objectForKey:@"underline"];
-	
-	CCLabelTTF *label = nil;
-	if (underlineStr != nil && [underlineStr isEqualToString:@"true"])
-	{
-		label = [CCLabelFX labelWithString:[self getClearText:[data.propertyDic objectForKey:@"text"]]
-								dimensions:[self getBalsamiqControlSize:data]
-								 alignment:[self getBalsamiqControlAlign:data]
-								  fontName:balsamiqFontName
-								  fontSize:[self getBalsamiqControlTextSize:data]
-							  shadowOffset:CGSizeMake(0, 0) 
-								shadowBlur:2.0f];
-		label.position = [self getMidPosition:data];
-		//label.position = ccpAdd([self getMidPosition:data], LABEL_SHADOW_OFFSET_POSITION);
-	}
-	else
-	{
-		label = [CCLabelTTF labelWithString:[self getClearText:[data.propertyDic objectForKey:@"text"]]
-								 dimensions:[self getBalsamiqControlSize:data]
-								  alignment:[self getBalsamiqControlAlign:data]
-								   fontName:balsamiqFontName
-								   fontSize:[self getBalsamiqControlTextSize:data]];
-		label.position = [self getMidPosition:data];
-		//label.position = ccpAdd([self getMidPosition:data], LABEL_NORMAL_OFFSET_POSITION);
-	}
+    CCLabelTTF *label = [CCLabelTTF labelWithString:[self getClearText:[data.propertyDic objectForKey:@"text"]]
+                                         dimensions:[self getBalsamiqControlSize:data]
+                                          alignment:[self getBalsamiqControlAlign:data]
+                                           fontName:balsamiqFontName
+                                           fontSize:[self getBalsamiqControlTextSize:data]];
+    label.position = [self getMidPosition:data];
 	
 	label.color = [self getColor:[[data.propertyDic objectForKey:@"color"] intValue]];
 	

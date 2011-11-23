@@ -132,8 +132,6 @@
 		18847B73142A2E11005D7C4F /* CCAlertLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 18847B5F142A2E11005D7C4F /* CCAlertLayer.m */; };
 		18847B74142A2E11005D7C4F /* CCBalsamiqLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 18847B61142A2E11005D7C4F /* CCBalsamiqLayer.m */; };
 		18847B75142A2E11005D7C4F /* CCBalsamiqScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 18847B63142A2E11005D7C4F /* CCBalsamiqScene.m */; };
-		18847B76142A2E11005D7C4F /* CCLabelFX.m in Sources */ = {isa = PBXBuildFile; fileRef = 18847B66142A2E11005D7C4F /* CCLabelFX.m */; };
-		18847B77142A2E11005D7C4F /* CCTexture2D+TextShadow.m in Sources */ = {isa = PBXBuildFile; fileRef = 18847B68142A2E11005D7C4F /* CCTexture2D+TextShadow.m */; };
 		18847B78142A2E11005D7C4F /* CCLoadingBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 18847B6A142A2E11005D7C4F /* CCLoadingBar.m */; };
 		18847B79142A2E11005D7C4F /* CCMenuItemButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 18847B6C142A2E11005D7C4F /* CCMenuItemButton.m */; };
 		18847B7A142A2E11005D7C4F /* RadioManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 18847B6E142A2E11005D7C4F /* RadioManager.m */; };
@@ -400,10 +398,6 @@
 		18847B61142A2E11005D7C4F /* CCBalsamiqLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCBalsamiqLayer.m; sourceTree = "<group>"; };
 		18847B62142A2E11005D7C4F /* CCBalsamiqScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCBalsamiqScene.h; sourceTree = "<group>"; };
 		18847B63142A2E11005D7C4F /* CCBalsamiqScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCBalsamiqScene.m; sourceTree = "<group>"; };
-		18847B65142A2E11005D7C4F /* CCLabelFX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCLabelFX.h; sourceTree = "<group>"; };
-		18847B66142A2E11005D7C4F /* CCLabelFX.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCLabelFX.m; sourceTree = "<group>"; };
-		18847B67142A2E11005D7C4F /* CCTexture2D+TextShadow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CCTexture2D+TextShadow.h"; sourceTree = "<group>"; };
-		18847B68142A2E11005D7C4F /* CCTexture2D+TextShadow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CCTexture2D+TextShadow.m"; sourceTree = "<group>"; };
 		18847B69142A2E11005D7C4F /* CCLoadingBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCLoadingBar.h; sourceTree = "<group>"; };
 		18847B6A142A2E11005D7C4F /* CCLoadingBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCLoadingBar.m; sourceTree = "<group>"; };
 		18847B6B142A2E11005D7C4F /* CCMenuItemButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCMenuItemButton.h; sourceTree = "<group>"; };
@@ -850,7 +844,6 @@
 				18847B61142A2E11005D7C4F /* CCBalsamiqLayer.m */,
 				18847B62142A2E11005D7C4F /* CCBalsamiqScene.h */,
 				18847B63142A2E11005D7C4F /* CCBalsamiqScene.m */,
-				18847B64142A2E11005D7C4F /* CCLabelFX */,
 				18847B69142A2E11005D7C4F /* CCLoadingBar.h */,
 				18847B6A142A2E11005D7C4F /* CCLoadingBar.m */,
 				18847B6B142A2E11005D7C4F /* CCMenuItemButton.h */,
@@ -862,17 +855,6 @@
 			);
 			name = BalsamiqXmlReader;
 			path = libs/BalsamiqXmlReader;
-			sourceTree = "<group>";
-		};
-		18847B64142A2E11005D7C4F /* CCLabelFX */ = {
-			isa = PBXGroup;
-			children = (
-				18847B65142A2E11005D7C4F /* CCLabelFX.h */,
-				18847B66142A2E11005D7C4F /* CCLabelFX.m */,
-				18847B67142A2E11005D7C4F /* CCTexture2D+TextShadow.h */,
-				18847B68142A2E11005D7C4F /* CCTexture2D+TextShadow.m */,
-			);
-			path = CCLabelFX;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1053,8 +1035,6 @@
 				18847B73142A2E11005D7C4F /* CCAlertLayer.m in Sources */,
 				18847B74142A2E11005D7C4F /* CCBalsamiqLayer.m in Sources */,
 				18847B75142A2E11005D7C4F /* CCBalsamiqScene.m in Sources */,
-				18847B76142A2E11005D7C4F /* CCLabelFX.m in Sources */,
-				18847B77142A2E11005D7C4F /* CCTexture2D+TextShadow.m in Sources */,
 				18847B78142A2E11005D7C4F /* CCLoadingBar.m in Sources */,
 				18847B79142A2E11005D7C4F /* CCMenuItemButton.m in Sources */,
 				18847B7A142A2E11005D7C4F /* RadioManager.m in Sources */,
@@ -1080,7 +1060,7 @@
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -1095,7 +1075,7 @@
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 			};
