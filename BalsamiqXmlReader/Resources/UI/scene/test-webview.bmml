@@ -25,6 +25,7 @@
         <backgroundAlpha>0.5</backgroundAlpha>
         <borderColor>16770457</borderColor>
         <borderStyle>none</borderStyle>
+        <customID>webview</customID>
         <verticalScrollbar>true</verticalScrollbar>
       </controlProperties>
     </control>

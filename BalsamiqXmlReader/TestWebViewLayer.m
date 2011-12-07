@@ -46,18 +46,15 @@
     [view loadRequest:request];
 }
 
-- (void)onWebViewCreated:(UIWebView *)webView name:(NSString *)name
-{
-	[self loadDocument:@"WebViewFile.rtf" inView:webView];
-}
-
 -(id) init
 {
 	if( (self=[super init]))
 	{
-		[self addChild:[CCBalsamiqLayer layerWithBalsamiqFile:@"test-webview.bmml"
-												  eventHandle:self
-												createdHandle:self]];
+        CCBalsamiqLayer *balsamiqLayer = [CCBalsamiqLayer layerWithBalsamiqFile:@"test-webview.bmml"
+                                                                    eventHandle:self];
+
+        [self loadDocument:@"WebViewFile.rtf" inView:[balsamiqLayer.nameAndControlDic objectForKey:@"webview"]];
+		[self addChild:balsamiqLayer];
 	}
 	return self;
 }

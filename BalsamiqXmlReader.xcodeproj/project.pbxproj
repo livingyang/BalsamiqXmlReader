@@ -392,7 +392,6 @@
 		18847B5A142A2E11005D7C4F /* BalsamiqControlData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BalsamiqControlData.m; sourceTree = "<group>"; };
 		18847B5B142A2E11005D7C4F /* BalsamiqFileParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BalsamiqFileParser.h; sourceTree = "<group>"; };
 		18847B5C142A2E11005D7C4F /* BalsamiqFileParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BalsamiqFileParser.m; sourceTree = "<group>"; };
-		18847B5D142A2E11005D7C4F /* BalsamiqReaderCreateDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; path = BalsamiqReaderCreateDelegate.h; sourceTree = "<group>"; };
 		18847B5E142A2E11005D7C4F /* CCAlertLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCAlertLayer.h; sourceTree = "<group>"; };
 		18847B5F142A2E11005D7C4F /* CCAlertLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCAlertLayer.m; sourceTree = "<group>"; };
 		18847B60142A2E11005D7C4F /* CCBalsamiqLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCBalsamiqLayer.h; sourceTree = "<group>"; };
@@ -842,7 +841,6 @@
 				18847B5A142A2E11005D7C4F /* BalsamiqControlData.m */,
 				18847B5B142A2E11005D7C4F /* BalsamiqFileParser.h */,
 				18847B5C142A2E11005D7C4F /* BalsamiqFileParser.m */,
-				18847B5D142A2E11005D7C4F /* BalsamiqReaderCreateDelegate.h */,
 				18847B5E142A2E11005D7C4F /* CCAlertLayer.h */,
 				18847B5F142A2E11005D7C4F /* CCAlertLayer.m */,
 				18847B60142A2E11005D7C4F /* CCBalsamiqLayer.h */,
@@ -887,6 +885,9 @@
 /* Begin PBXProject section */
 		1846F1271425060F00884CCC /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
 			buildConfigurationList = 1846F12A1425060F00884CCC /* Build configuration list for PBXProject "BalsamiqXmlReader" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
@@ -1096,6 +1097,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = BalsamiqXmlReader/Prefix.pch;
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = BalsamiqXmlReader/Resources/Info.plist;
 				OTHER_LDFLAGS = "-lz";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1111,6 +1113,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = BalsamiqXmlReader/Prefix.pch;
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = BalsamiqXmlReader/Resources/Info.plist;
 				OTHER_LDFLAGS = "-lz";
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -53,8 +53,7 @@
 	if( (self=[super init]))
 	{
 		[self addChild:[CCBalsamiqLayer layerWithBalsamiqFile:@"test-loadingbar.bmml"
-												  eventHandle:self
-												createdHandle:self]];
+												  eventHandle:self]];
 	}
 	return self;
 }

@@ -48,7 +48,6 @@
 
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
-	
 	NSLog(@"textField text = %@", textField.text);
 }
 
@@ -58,14 +57,23 @@
 																					 scene:[TestAlertLayer scene]]];
 }
 
-// on "init" you need to initialize your instance
 -(id) init
 {
 	if( (self=[super init]))
 	{
-		[self addChild:[CCBalsamiqLayer layerWithBalsamiqFile:@"main.bmml"
-												  eventHandle:self
-												createdHandle:self]];
+        CCBalsamiqLayer *layer = [CCBalsamiqLayer layerWithBalsamiqFile:@"main.bmml"
+                                                            eventHandle:self];
+        [self addChild:layer];
+        
+        // 设置按钮标签
+        [[layer.nameAndControlDic objectForKey:@"Next"] setText:@"MyNext"];
+        
+        // 获取指定精灵
+        id action = [CCRepeatForever actionWithAction:[CCRotateBy actionWithDuration:1.0f angle:360]];
+        [[layer.nameAndControlDic objectForKey:@"image_sprite"] runAction:action];
+        
+        // 获取指定文本框
+        [[layer.nameAndControlDic objectForKey:@"text-input"] setText:@"My input"];
 	}
 	return self;
 }

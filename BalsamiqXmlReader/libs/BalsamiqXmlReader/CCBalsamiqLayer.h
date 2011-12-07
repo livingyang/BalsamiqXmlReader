@@ -11,6 +11,13 @@
 
 @interface CCBalsamiqLayer : CCLayer
 {
+    /*!
+        @名    称：nameAndControlDic
+        @描    述：保存控件与其名字的字典
+        @备    注：
+    */
+    NSMutableDictionary *nameAndControlDic;
+    
 	/*!
 		@名    称：uiViewArray
 		@描    述：保存webView控件的数组
@@ -26,18 +33,27 @@
 	NSMutableDictionary *groupAndRadioDic;
 }
 
+@property (nonatomic, readonly) NSMutableDictionary *nameAndControlDic;
 @property (nonatomic, readonly) NSMutableArray *uiViewArray;
 
 // 带有事件的控件，如button，toggle，其事件的处理者为eventHandle
-// 控件创建完毕后，createdHandle将收到创建完毕的回调
 
-- (id)initWithBalsamiqFile:(NSString *)fileName eventHandle:(id)eventHandle createdHandle:(id)createdHandle;
+- (id)initWithBalsamiqFile:(NSString *)fileName eventHandle:(id)eventHandle;
 
-+ (id)layerWithBalsamiqFile:(NSString *)fileName eventHandle:(id)eventHandle createdHandle:(id)createdHandle;
++ (id)layerWithBalsamiqFile:(NSString *)fileName eventHandle:(id)eventHandle;
 
 @end
 
 // #1 CCBalsamiqLayer所创建的UITextField，会在内部进行释放，无须外部释放
+
+// #2 需要获取单选按钮事件的对象，实现以下方法即可
+
+@protocol BalsamiqReaderRadioItemDelegate
+
+@optional
+- (void)onRadioItemSelected:(CCMenuItemImage *)item withInfo:(NSString *)info;
+
+@end
 
 /*
  #2 若需要创建Toggle(CheckBox)，需要满足以下几点

@@ -7,14 +7,12 @@
 //
 
 #import "CCAlertLayer.h"
-#import "BalsamiqReaderCreateDelegate.h"
 #import "CCBalsamiqLayer.h"
+#import "CCMenuItemButton.h"
 
 @implementation CCAlertLayer
 
-@synthesize labelInfoDic;
-@synthesize buttonInfoDic;
-@synthesize parentNode;
+@synthesize balsamiqLayer;
 
 ////////////////////////////////////////////////////////
 #pragma mark 私有函数
@@ -34,65 +32,6 @@
 		{
 			return [CCScaleTo actionWithDuration:0 scale:1.0f];
 		}break;
-	}
-}
-
-////////////////////////////////////////////////////////
-#pragma mark 控件创建函数
-////////////////////////////////////////////////////////
-
-- (void)onButtonCreated:(CCMenuItemButton *)button name:(NSString *)name
-{
-	NSString *text = [self.buttonInfoDic objectForKey:name];
-	
-	if (text != nil)
-	{
-		[button setText:text];
-	}
-	
-	if ([self.parentNode respondsToSelector:@selector(onButtonCreated:name:)])
-	{
-		[self.parentNode onButtonCreated:button name:name];
-	}
-}
-
-- (void)onImageCreated:(CCSprite *)image name:(NSString *)name
-{
-	if ([self.parentNode respondsToSelector:@selector(onImageCreated:name:)])
-	{
-		[self.parentNode onImageCreated:image name:name];
-	}
-}
-
-- (void)onLabelCreated:(CCLabelTTF *)label name:(NSString *)name
-{
-	NSString *text = [self.labelInfoDic objectForKey:name];
-	
-	if (text != nil)
-	{
-		[label setString:text];
-	}
-	
-	if ([self.parentNode respondsToSelector:@selector(onLabelCreated:name:)])
-	{
-		[self.parentNode onLabelCreated:label name:name];
-	}
-}
-
-- (void)onTextInputCreated:(UITextField *)textInput name:(NSString *)name
-{
-	
-	if ([self.parentNode respondsToSelector:@selector(onTextInputCreated:name:)])
-	{
-		[self.parentNode onTextInputCreated:textInput name:name];
-	}
-}
-
-- (void)onWebViewCreated:(UIWebView *)webView name:(NSString *)name
-{
-	if ([self.parentNode respondsToSelector:@selector(onWebViewCreated:name:)])
-	{
-		[self.parentNode onWebViewCreated:webView name:name];
 	}
 }
 
@@ -120,6 +59,28 @@
 	return YES;
 }
 
+- (id)initWithColor:(ccColor4B)color
+      alertFileName:(NSString *)fileName
+    eventHandleNode:(CCNode *)eventHandleNode
+          showModal:(AlertShowModal)modal
+{
+	self = [super initWithColor:color];
+	if (self != nil)
+	{
+        balsamiqLayer = [CCBalsamiqLayer layerWithBalsamiqFile:fileName
+                                                   eventHandle:eventHandleNode];
+        balsamiqLayer.scale = 0;
+        balsamiqLayer.anchorPoint = ccp(0.5, 0.5);
+        balsamiqLayer.position = ccp([CCDirector sharedDirector].winSize.width / 2,
+                                     [CCDirector sharedDirector].winSize.height / 2);
+        
+        [self addChild:balsamiqLayer];
+        
+        [balsamiqLayer runAction:[CCAlertLayer getShowAction:modal]];
+	}
+	return self;
+}
+
 ////////////////////////////////////////////////////////
 #pragma mark 公共函数
 ////////////////////////////////////////////////////////
@@ -127,67 +88,21 @@
 + (id)showAlert:(NSString *)fileName
 	 parentNode:(CCNode *)parentNode
 	  showModal:(AlertShowModal)modal
-	  labelInfo:(NSDictionary *)labelInfoDic
-	 buttonInfo:(NSDictionary *)buttonInfoDic
 {
-	if (fileName == nil || parentNode == nil)
-	{
-		return nil;
-	}
-	
-	ccColor4B color = ccc4(0, 0, 0, 50);
-	CCAlertLayer *alert = [CCAlertLayer layerWithColor:color];
-	alert.parentNode = parentNode;
-	alert.labelInfoDic = labelInfoDic;
-	alert.buttonInfoDic = buttonInfoDic;
-	
-	CCLayer *layer = [CCBalsamiqLayer layerWithBalsamiqFile:fileName
-												eventHandle:parentNode
-											  createdHandle:alert];
-	layer.scale = 0;
-	layer.anchorPoint = ccp(0.5, 0.5);
-	layer.position = ccp([CCDirector sharedDirector].winSize.width / 2,
-						 [CCDirector sharedDirector].winSize.height / 2);
-	
-	[alert addChild:layer];
-	
-	[parentNode addChild:alert z:INT_MAX];
-	
-	[layer runAction:[CCAlertLayer getShowAction:modal]];
-	
-	return alert;
+    CCAlertLayer *alert = [[[CCAlertLayer alloc] initWithColor:ccc4(0, 0, 0, 50)
+                                                 alertFileName:fileName
+                                               eventHandleNode:parentNode
+                                                     showModal:modal] autorelease];
+    [parentNode addChild:alert z:INT_MAX];
+    return alert;
 }
 
 + (id)showAlert:(NSString *)fileName
 	 parentNode:(CCNode *)parentNode
-	  labelInfo:(NSDictionary *)labelInfoDic
-	 buttonInfo:(NSDictionary *)buttonInfoDic
 {
 	return [CCAlertLayer showAlert:fileName
 						parentNode:parentNode
-						 showModal:kPopAlertModal
-						 labelInfo:labelInfoDic
-						buttonInfo:buttonInfoDic];
-}
-
-+ (id)showAlert:(NSString *)fileName parentNode:(CCNode *)parentNode
-{
-	return [CCAlertLayer showAlert:fileName
-						parentNode:parentNode
-						 showModal:kPopAlertModal
-						 labelInfo:nil
-						buttonInfo:nil];
-}
-
-+ (id)showAlert:(NSString *)fileName
-	 parentNode:(CCNode *)parentNode
-	  showModal:(AlertShowModal)modal
-{
-	return [CCAlertLayer showAlert:fileName
-						parentNode:parentNode
-						 showModal:modal
-						 labelInfo:nil
-						buttonInfo:nil];
+						 showModal:kPopAlertModal];
 }
 
 + (void)removeAlertFromNode:(id)subNode

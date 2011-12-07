@@ -49,8 +49,7 @@
 	if( (self=[super init]))
 	{
 		[self addChild:[CCBalsamiqLayer layerWithBalsamiqFile:@"test-radio.bmml"
-												  eventHandle:self
-												createdHandle:self]];
+												  eventHandle:self]];
 	}
 	return self;
 }

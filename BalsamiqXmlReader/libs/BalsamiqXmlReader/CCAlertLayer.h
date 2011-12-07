@@ -15,17 +15,13 @@ typedef enum
 	kPopAlertModal,
 } AlertShowModal;
 
+@class CCBalsamiqLayer;
 @interface CCAlertLayer : CCLayerColor
 {
-	NSDictionary *labelInfoDic_;
-	NSDictionary *buttonInfoDic_;
-	
-	id parentNode_;
+    CCBalsamiqLayer *balsamiqLayer;
 }
 
-@property (nonatomic, assign) NSDictionary *labelInfoDic;
-@property (nonatomic, assign) NSDictionary *buttonInfoDic;
-@property (nonatomic, assign) id parentNode;
+@property (nonatomic, readonly) CCBalsamiqLayer *balsamiqLayer;
 
 + (id)showAlert:(NSString *)fileName
 	 parentNode:(CCNode *)parentNode;
@@ -33,17 +29,6 @@ typedef enum
 + (id)showAlert:(NSString *)fileName
 	 parentNode:(CCNode *)parentNode
 	  showModal:(AlertShowModal)modal;
-
-+ (id)showAlert:(NSString *)fileName
-	 parentNode:(CCNode *)parentNode
-	  labelInfo:(NSDictionary *)labelInfoDic
-	 buttonInfo:(NSDictionary *)buttonInfoDic;
-
-+ (id)showAlert:(NSString *)fileName
-	 parentNode:(CCNode *)parentNode
-	  showModal:(AlertShowModal)modal
-	  labelInfo:(NSDictionary *)labelInfoDic
-	 buttonInfo:(NSDictionary *)buttonInfoDic;
 
 + (void)removeAlertFromNode:(id)subNode;
 

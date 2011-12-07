@@ -15,13 +15,11 @@
 #import "CCLoadingBar.h"
 #import "BalsamiqFileParser.h"
 #import "BalsamiqReaderConfig.h"
-#import "BalsamiqReaderCreateDelegate.h"
 
 typedef struct
 {
 	CCMenu *menu;
 	id eventHandle;
-	id createdHandle;
 	NSString *fileDir;
 }ControlCreateInfo;
 
@@ -30,7 +28,7 @@ typedef struct
 
 @implementation CCBalsamiqLayer : CCLayer
 
-@synthesize uiViewArray;
+@synthesize nameAndControlDic, uiViewArray;
 
 ////////////////////////////////////////////////////////
 #pragma mark 私有函数
@@ -238,6 +236,18 @@ typedef struct
 	}
 }
 
+- (void)addControl:(id)control withName:(NSString *)name
+{
+    if (control == nil || name == nil || [name isEqualToString:@""])
+    {
+        return;
+    }
+    
+    NSAssert([nameAndControlDic objectForKey:name] == nil, @"CCBalsamiqLayer#addControl duplicate name = %@", name);
+    
+    [nameAndControlDic setObject:control forKey:name];
+}
+
 ////////////////////////////////////////////////////////
 #pragma mark 控件创建函数
 ////////////////////////////////////////////////////////
@@ -270,11 +280,7 @@ typedef struct
 		image.position = [self getMidPosition:data];
 		[self addChild:image z:zOrder];
 		
-		//有名字的图片，需要进行通知
-		if ([createInfo.createdHandle respondsToSelector:@selector(onImageCreated:name:)])
-		{
-			[createInfo.createdHandle onImageCreated:image name:customID];
-		}
+        [self addControl:image withName:customID];
 	}
 	else if ([customID hasPrefix:RADIO_PREFIX])
 	{
@@ -314,11 +320,7 @@ typedef struct
 								target:createInfo.eventHandle
 								   sel:eventSel];
 		
-		//发送事件
-		if ([createInfo.createdHandle respondsToSelector:@selector(onButtonCreated:name:)])
-		{
-			[createInfo.createdHandle onButtonCreated:button name:customID];
-		}
+        [self addControl:button withName:customID];
 	}	
 }
 
@@ -335,12 +337,7 @@ typedef struct
 	
 	[self addChild:label z:[[data.attributeDic objectForKey:@"zOrder"] intValue]];
 	
-	//发送事件
-	if ([createInfo.createdHandle respondsToSelector:@selector(onLabelCreated:name:)])
-	{
-		[createInfo.createdHandle onLabelCreated:label
-											name:[data.propertyDic objectForKey:@"customID"]];
-	}
+    [self addControl:label withName:[data.propertyDic objectForKey:@"customID"]];
 }
 
 /*!
@@ -384,12 +381,7 @@ typedef struct
 	
 	[uiViewArray addObject:textField];
 	
-	//发送事件
-	if ([createInfo.createdHandle respondsToSelector:@selector(onTextInputCreated:name:)])
-	{
-		[createInfo.createdHandle onTextInputCreated:textField
-												name:[data.propertyDic objectForKey:@"customID"]];
-	}
+    [self addControl:textField withName:[data.propertyDic objectForKey:@"customID"]];
 }
 
 - (void)createCanvas:(BalsamiqControlData *)data byCreateInfo:(ControlCreateInfo)createInfo
@@ -408,12 +400,7 @@ typedef struct
 	
 	[uiViewArray addObject:webView];
 	
-	//发送事件
-	if ([createInfo.createdHandle respondsToSelector:@selector(onWebViewCreated:name:)])
-	{
-		[createInfo.createdHandle onWebViewCreated:webView
-											  name:[data.propertyDic objectForKey:@"customID"]];
-	}
+    [self addControl:webView withName:[data.propertyDic objectForKey:@"customID"]];
 }
 
 - (void)createIcon:(BalsamiqControlData *)data byCreateInfo:(ControlCreateInfo)createInfo
@@ -438,11 +425,7 @@ typedef struct
 	loadingBar.position = [self getMidPosition:data];
 	[self addChild:loadingBar z:zOrder];
 	
-	//有名字的图片，需要进行通知
-	if ([createInfo.createdHandle respondsToSelector:@selector(onLoadingBarCreated:name:)])
-	{
-		[createInfo.createdHandle onLoadingBarCreated:loadingBar name:customID];
-	}
+    [self addControl:loadingBar withName:customID];
 }
 
 ////////////////////////////////////////////////////////
@@ -461,6 +444,7 @@ typedef struct
 
 - (void) dealloc
 {
+    [nameAndControlDic release];
 	[groupAndRadioDic release];
 	[uiViewArray release];
 	[super dealloc];
@@ -470,11 +454,12 @@ typedef struct
 #pragma mark 公共函数
 ////////////////////////////////////////////////////////
 
-- (id)initWithBalsamiqFile:(NSString *)fileName eventHandle:(id)eventHandle createdHandle:(id)createdHandle
+- (id)initWithBalsamiqFile:(NSString *)fileName eventHandle:(id)eventHandle
 {
 	self = [self init];
 	if (self != nil)
 	{
+        nameAndControlDic = [[NSMutableDictionary alloc] init];
 		uiViewArray = [[NSMutableArray alloc] init];
 		groupAndRadioDic = [[NSMutableDictionary alloc] init];
 		
@@ -511,7 +496,6 @@ typedef struct
 		{
 			menu,
 			eventHandle,
-			createdHandle,
 			[[[BalsamiqReaderConfig instance] getBalsamiqFilePath:fileName] stringByDeletingLastPathComponent],
 		};
 		
@@ -535,15 +519,17 @@ typedef struct
 		{
 			[radioManager selectFirstItem];
 		}
+        
+        // 5 打印各个控件信息
+        //CCLOG(@"Controls = %@", self.nameAndControlDic);
 	}
 	return self;
 }
 
-+ (id)layerWithBalsamiqFile:(NSString *)fileName eventHandle:(id)eventHandle createdHandle:(id)createdHandle
++ (id)layerWithBalsamiqFile:(NSString *)fileName eventHandle:(id)eventHandle
 {
 	return [[[CCBalsamiqLayer alloc] initWithBalsamiqFile:fileName
-											  eventHandle:eventHandle
-											createdHandle:createdHandle] autorelease];
+											  eventHandle:eventHandle] autorelease];
 }
 
 @end
