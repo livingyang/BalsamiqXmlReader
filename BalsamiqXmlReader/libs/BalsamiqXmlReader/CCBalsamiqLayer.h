@@ -42,6 +42,8 @@
 
 + (id)layerWithBalsamiqFile:(NSString *)fileName eventHandle:(id)eventHandle;
 
+- (id)getControlByName:(NSString *)name;
+
 @end
 
 // #1 CCBalsamiqLayer所创建的UITextField，会在内部进行释放，无须外部释放

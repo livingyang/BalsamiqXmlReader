@@ -47,8 +47,8 @@
 	CCAlertLayer *layer = [CCAlertLayer showAlert:@"alert-yes-no.bmml"
                                        parentNode:self];
     
-    [[layer.balsamiqLayer.nameAndControlDic objectForKey:@"Title"] setString:@"Pop Alert"];
-    [[layer.balsamiqLayer.nameAndControlDic objectForKey:@"Message"] setString:@"onPopAlertClick"];
+    [[layer.balsamiqLayer getControlByName:@"Title"] setString:@"Pop Alert"];
+    [[layer.balsamiqLayer getControlByName:@"Message"] setString:@"onPopAlertClick"];
 }
 
 - (void)onShowAlertClick:(id)sender
@@ -57,8 +57,8 @@
                                        parentNode:self
                                         showModal:kNormalShowModal];
     
-    [[layer.balsamiqLayer.nameAndControlDic objectForKey:@"Title"] setString:@"Show Alert"];
-    [[layer.balsamiqLayer.nameAndControlDic objectForKey:@"Message"] setString:@"onShowAlertClick"];
+    [[layer.balsamiqLayer getControlByName:@"Title"] setString:@"Show Alert"];
+    [[layer.balsamiqLayer getControlByName:@"Message"] setString:@"onShowAlertClick"];
 }
 
 - (void)onYesClick:(id)sender
@@ -66,8 +66,8 @@
 	CCAlertLayer *layer = [CCAlertLayer showAlert:@"alert-yes-no.bmml"
                                        parentNode:self];
     
-    [[layer.balsamiqLayer.nameAndControlDic objectForKey:@"Title"] setString:@"Pop Alert"];
-    [[layer.balsamiqLayer.nameAndControlDic objectForKey:@"Message"] setString:@"onYesClick"];
+    [[layer.balsamiqLayer getControlByName:@"Title"] setString:@"Pop Alert"];
+    [[layer.balsamiqLayer getControlByName:@"Message"] setString:@"onYesClick"];
 }
 
 - (void)onNoClick:(id)sender

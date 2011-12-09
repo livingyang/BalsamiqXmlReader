@@ -20,32 +20,53 @@
         <text>Back</text>
       </controlProperties>
     </control>
-    <control controlID="37" controlTypeID="com.balsamiq.mockups::Image" x="61" y="79" w="-1" h="-1" measuredW="151" measuredH="45" zOrder="4" locked="false" isInGroup="-1">
+    <control controlID="37" controlTypeID="com.balsamiq.mockups::Image" x="29" y="63" w="-1" h="-1" measuredW="151" measuredH="45" zOrder="4" locked="false" isInGroup="-1">
       <controlProperties>
         <customID>radio_btn1_1</customID>
         <src>../Common/button-normal.png</src>
         <text>Btn1_1</text>
       </controlProperties>
     </control>
-    <control controlID="39" controlTypeID="com.balsamiq.mockups::Image" x="61" y="153" w="-1" h="-1" measuredW="151" measuredH="45" zOrder="5" locked="false" isInGroup="-1">
+    <control controlID="39" controlTypeID="com.balsamiq.mockups::Image" x="29" y="197" w="-1" h="-1" measuredW="151" measuredH="45" zOrder="5" locked="false" isInGroup="-1">
       <controlProperties>
         <customID>radio_btn1_2</customID>
         <src>../Common/button-normal.png</src>
         <text>Btn1_2</text>
       </controlProperties>
     </control>
-    <control controlID="40" controlTypeID="com.balsamiq.mockups::Image" x="260" y="79" w="-1" h="-1" measuredW="151" measuredH="45" zOrder="6" locked="false" isInGroup="-1">
+    <control controlID="40" controlTypeID="com.balsamiq.mockups::Image" x="260" y="32" w="-1" h="-1" measuredW="151" measuredH="45" zOrder="6" locked="false" isInGroup="-1">
       <controlProperties>
         <customID>radio_btn2_1</customID>
         <src>../Common/button-normal.png</src>
         <text>Btn2_1</text>
       </controlProperties>
     </control>
-    <control controlID="41" controlTypeID="com.balsamiq.mockups::Image" x="260" y="153" w="-1" h="-1" measuredW="151" measuredH="45" zOrder="7" locked="false" isInGroup="-1">
+    <control controlID="41" controlTypeID="com.balsamiq.mockups::Image" x="260" y="78" w="-1" h="-1" measuredW="151" measuredH="45" zOrder="7" locked="false" isInGroup="-1">
       <controlProperties>
         <customID>radio_btn2_2</customID>
         <src>../Common/button-normal.png</src>
         <text>Btn2_2</text>
+      </controlProperties>
+    </control>
+    <control controlID="42" controlTypeID="com.balsamiq.mockups::Image" x="260" y="123" w="-1" h="-1" measuredW="151" measuredH="45" zOrder="8" locked="false" isInGroup="-1">
+      <controlProperties>
+        <customID>radio_btn2_3</customID>
+        <src>../Common/button-normal.png</src>
+        <text>Btn2_3</text>
+      </controlProperties>
+    </control>
+    <control controlID="43" controlTypeID="com.balsamiq.mockups::Image" x="260" y="168" w="-1" h="-1" measuredW="151" measuredH="45" zOrder="9" locked="false" isInGroup="-1">
+      <controlProperties>
+        <customID>radio_btn2_4</customID>
+        <src>../Common/button-normal.png</src>
+        <text>Btn2_4</text>
+      </controlProperties>
+    </control>
+    <control controlID="44" controlTypeID="com.balsamiq.mockups::Image" x="260" y="213" w="-1" h="-1" measuredW="151" measuredH="45" zOrder="10" locked="false" isInGroup="-1">
+      <controlProperties>
+        <customID>radio_btn2_5</customID>
+        <src>../Common/button-normal.png</src>
+        <text>Btn2_5</text>
       </controlProperties>
     </control>
   </controls>

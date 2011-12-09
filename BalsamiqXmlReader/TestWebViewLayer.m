@@ -53,7 +53,7 @@
         CCBalsamiqLayer *balsamiqLayer = [CCBalsamiqLayer layerWithBalsamiqFile:@"test-webview.bmml"
                                                                     eventHandle:self];
 
-        [self loadDocument:@"WebViewFile.rtf" inView:[balsamiqLayer.nameAndControlDic objectForKey:@"webview"]];
+        [self loadDocument:@"WebViewFile.rtf" inView:[balsamiqLayer getControlByName:@"webview"]];
 		[self addChild:balsamiqLayer];
 	}
 	return self;

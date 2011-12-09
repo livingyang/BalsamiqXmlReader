@@ -236,7 +236,7 @@ typedef struct
 	}
 }
 
-- (void)addControl:(id)control withName:(NSString *)name
+- (void)setControl:(id)control withName:(NSString *)name
 {
     if (control == nil || name == nil || [name isEqualToString:@""])
     {
@@ -258,10 +258,7 @@ typedef struct
 	NSString *picPath = [createInfo.fileDir stringByAppendingPathComponent:[data.propertyDic objectForKey:@"src"]];
 	
 	NSString *customID = [data.propertyDic objectForKey:@"customID"];
-	if (customID == nil)
-	{
-		customID = @"";
-	}
+    customID = (customID == nil) ? @"" : customID;
 	
 	int zOrder = [[data.attributeDic objectForKey:@"zOrder"] intValue];
 	
@@ -280,7 +277,7 @@ typedef struct
 		image.position = [self getMidPosition:data];
 		[self addChild:image z:zOrder];
 		
-        [self addControl:image withName:customID];
+        [self setControl:image withName:customID];
 	}
 	else if ([customID hasPrefix:RADIO_PREFIX])
 	{
@@ -320,7 +317,7 @@ typedef struct
 								target:createInfo.eventHandle
 								   sel:eventSel];
 		
-        [self addControl:button withName:customID];
+        [self setControl:button withName:customID];
 	}	
 }
 
@@ -337,7 +334,7 @@ typedef struct
 	
 	[self addChild:label z:[[data.attributeDic objectForKey:@"zOrder"] intValue]];
 	
-    [self addControl:label withName:[data.propertyDic objectForKey:@"customID"]];
+    [self setControl:label withName:[data.propertyDic objectForKey:@"customID"]];
 }
 
 /*!
@@ -381,7 +378,7 @@ typedef struct
 	
 	[uiViewArray addObject:textField];
 	
-    [self addControl:textField withName:[data.propertyDic objectForKey:@"customID"]];
+    [self setControl:textField withName:[data.propertyDic objectForKey:@"customID"]];
 }
 
 - (void)createCanvas:(BalsamiqControlData *)data byCreateInfo:(ControlCreateInfo)createInfo
@@ -400,7 +397,7 @@ typedef struct
 	
 	[uiViewArray addObject:webView];
 	
-    [self addControl:webView withName:[data.propertyDic objectForKey:@"customID"]];
+    [self setControl:webView withName:[data.propertyDic objectForKey:@"customID"]];
 }
 
 - (void)createIcon:(BalsamiqControlData *)data byCreateInfo:(ControlCreateInfo)createInfo
@@ -425,7 +422,7 @@ typedef struct
 	loadingBar.position = [self getMidPosition:data];
 	[self addChild:loadingBar z:zOrder];
 	
-    [self addControl:loadingBar withName:customID];
+    [self setControl:loadingBar withName:customID];
 }
 
 ////////////////////////////////////////////////////////
@@ -530,6 +527,11 @@ typedef struct
 {
 	return [[[CCBalsamiqLayer alloc] initWithBalsamiqFile:fileName
 											  eventHandle:eventHandle] autorelease];
+}
+
+- (id)getControlByName:(NSString *)name
+{
+    return [self.nameAndControlDic objectForKey:name];
 }
 
 @end

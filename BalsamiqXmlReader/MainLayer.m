@@ -66,14 +66,14 @@
         [self addChild:layer];
         
         // 设置按钮标签
-        [[layer.nameAndControlDic objectForKey:@"Next"] setText:@"MyNext"];
+        [[layer getControlByName:@"Next"] setText:@"MyNext"];
         
         // 获取指定精灵
         id action = [CCRepeatForever actionWithAction:[CCRotateBy actionWithDuration:1.0f angle:360]];
-        [[layer.nameAndControlDic objectForKey:@"image_sprite"] runAction:action];
+        [[layer getControlByName:@"image_sprite"] runAction:action];
         
         // 获取指定文本框
-        [[layer.nameAndControlDic objectForKey:@"text-input"] setText:@"My input"];
+        [[layer getControlByName:@"text-input"] setText:@"My input"];
 	}
 	return self;
 }
