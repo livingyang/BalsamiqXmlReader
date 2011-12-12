@@ -49,5 +49,12 @@
         <src>./image-icon.png</src>
       </controlProperties>
     </control>
+    <control controlID="35" controlTypeID="com.balsamiq.mockups::Image" x="329" y="146" w="-1" h="-1" measuredW="151" measuredH="45" zOrder="8" locked="false" isInGroup="-1">
+      <controlProperties>
+        <customID>Disable</customID>
+        <src>../Common/button-normal.png</src>
+        <text>disable</text>
+      </controlProperties>
+    </control>
   </controls>
 </mockup>

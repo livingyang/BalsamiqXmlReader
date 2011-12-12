@@ -187,9 +187,11 @@ typedef struct
 	int zOrder = [[data.attributeDic objectForKey:@"zOrder"] intValue];
 	
 	NSString* pressPicPath = [picPath stringByReplacingOccurrencesOfString:@"-normal" withString:@"-press"];
+	NSString* disablePicPath = [picPath stringByReplacingOccurrencesOfString:@"-normal" withString:@"-disable"];
 	
 	CCMenuItemButton *item = [CCMenuItemButton itemFromNormalImage:picPath 
 													 selectedImage:pressPicPath
+                                                     disabledImage:disablePicPath
 															target:target
 														  selector:sel];
 	

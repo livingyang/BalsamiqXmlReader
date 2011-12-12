@@ -57,6 +57,9 @@
 																					 scene:[TestAlertLayer scene]]];
 }
 
+- (void)onDisableClick:(id)sender
+{}
+
 -(id) init
 {
 	if( (self=[super init]))
@@ -67,6 +70,9 @@
         
         // 设置按钮标签
         [[layer getControlByName:@"Next"] setText:@"MyNext"];
+        
+        // 设置disable按钮
+        [[layer getControlByName:@"Disable"] setIsEnabled:NO];
         
         // 获取指定精灵
         id action = [CCRepeatForever actionWithAction:[CCRotateBy actionWithDuration:1.0f angle:360]];
