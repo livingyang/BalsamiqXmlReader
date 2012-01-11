@@ -30,6 +30,14 @@ typedef struct
 
 @synthesize nameAndControlDic, uiViewArray;
 
++(void)initialize
+{
+	if (self == [CCBalsamiqLayer class])
+	{
+        [[BalsamiqReaderConfig instance] loadBalsamiqConfigWithPropertyListFile:@"BalsamiqConfig"];
+	}
+}
+
 ////////////////////////////////////////////////////////
 #pragma mark 私有函数
 ////////////////////////////////////////////////////////

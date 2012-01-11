@@ -20,14 +20,6 @@
 
 @implementation MainLayer
 
-+(void)initialize
-{
-	if (self == [MainLayer class])
-	{
-        [[BalsamiqReaderConfig instance] loadBalsamiqConfigWithPropertyListFile:@"BalsamiqConfig"];
-	}
-}
-
 +(CCScene *) scene
 {
 	// 'scene' is an autorelease object.
