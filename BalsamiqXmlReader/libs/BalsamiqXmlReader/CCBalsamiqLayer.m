@@ -250,6 +250,21 @@ typedef struct
     [nameAndControlDic setObject:control forKey:name];
 }
 
+- (void)onNoneHandleButtonClick:(id)sender
+{
+    NSString *name = nil;
+    for (id key in [self.nameAndControlDic allKeys])
+    {
+        if ([self getControlByName:key] == sender)
+        {
+            name = key;
+            break;
+        }
+    }
+    
+    NSLog(@"CCBalsamiqLayer#onNoneHandleButtonClick name = %@, sender = %@", name, sender);
+}
+
 ////////////////////////////////////////////////////////
 #pragma mark 控件创建函数
 ////////////////////////////////////////////////////////
@@ -309,17 +324,25 @@ typedef struct
 		NSString* methodName = [NSString stringWithFormat:@"on%@Click:", customID];
 		SEL eventSel = sel_registerName([methodName UTF8String]);
 		
-		NSAssert([createInfo.eventHandle respondsToSelector:eventSel],
-				 @"BalsamiqXmlReader#createImage can't find handle %@ at %s",
-				 methodName,
-				 object_getClassName(createInfo.eventHandle));
-		
-		id button = [self createButton:data
-						  byCreateInfo:createInfo
-								target:createInfo.eventHandle
-								   sel:eventSel];
-		
-        [self setControl:button withName:customID];
+        if ([createInfo.eventHandle respondsToSelector:eventSel])
+        {
+            [self setControl:[self createButton:data
+                                   byCreateInfo:createInfo
+                                         target:createInfo.eventHandle
+                                            sel:eventSel]
+                    withName:customID];
+        }
+        else
+        {
+            [self setControl:[self createButton:data
+                                   byCreateInfo:createInfo
+                                         target:self
+                                            sel:@selector(onNoneHandleButtonClick:)]
+                    withName:customID];
+            
+            NSLog(@"CCBalsamiqLayer#createImage NoneHandleButton created, name = %@, handle = %@, methodName = %@",
+                  customID, createInfo.eventHandle, methodName);
+        }
 	}	
 }
 
