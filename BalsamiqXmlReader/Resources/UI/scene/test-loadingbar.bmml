@@ -3,7 +3,7 @@
     <control controlID="9" controlTypeID="com.balsamiq.mockups::ModalScreen" x="0" y="0" w="480" h="320" measuredW="320" measuredH="240" zOrder="0" locked="true" isInGroup="-1"/>
     <control controlID="24" controlTypeID="com.balsamiq.mockups::Image" x="0" y="0" w="-1" h="-1" measuredW="480" measuredH="320" zOrder="1" locked="false" isInGroup="-1">
       <controlProperties>
-        <src>./image-bg.png</src>
+        <src>./image-bg2.png</src>
       </controlProperties>
     </control>
     <control controlID="31" controlTypeID="com.balsamiq.mockups::Image" x="329" y="274" w="-1" h="-1" measuredW="151" measuredH="45" zOrder="2" locked="false" isInGroup="-1">

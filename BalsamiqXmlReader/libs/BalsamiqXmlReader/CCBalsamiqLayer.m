@@ -292,6 +292,7 @@ typedef struct
 	{
 		//无名字的情况下，创建图片
 		CCSprite *image = [CCSprite spriteWithFile:picPath];
+        [[CCTextureCache sharedTextureCache] removeTexture:image.texture];
 		
 		CGSize itemSize = [self getBalsamiqControlSize:data];
 		if (CGSizeEqualToSize(image.contentSize, itemSize) == NO)
