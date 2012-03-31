@@ -43,38 +43,9 @@ typedef struct
 ////////////////////////////////////////////////////////
 
 //格式字符串的特殊字符替换表
-- (NSDictionary *)charReplaceList
+- (NSString *)getDecodeText:(NSString *)text
 {
-	static NSDictionary *dic = nil;
-	
-	if (dic == nil)
-	{
-		dic = [[NSDictionary alloc] initWithObjectsAndKeys:
-			   @" ", @"%20",
-			   @"!", @"%21",
-			   @"?", @"%3F",
-			   @":", @"%3A",
-			   @"&", @"%26",
-			   nil];
-	}
-	return dic;
-}
-
-- (NSString *)getClearText:(NSString *)text
-{
-	if (text == nil)
-	{
-		return nil;
-	}
-	
-	NSArray *replaceStrArray = [[self charReplaceList] allKeys];
-	for (NSString *replaceStr in replaceStrArray)
-	{
-		text = [text stringByReplacingOccurrencesOfString:replaceStr
-											   withString:[[self charReplaceList] objectForKey:replaceStr]];
-	}
-	
-	return text;
+    return [text stringByReplacingPercentEscapesUsingEncoding:NSStringEncodingConversionAllowLossy];
 }
 
 - (ccColor3B)getColor:(int)value
@@ -184,16 +155,7 @@ typedef struct
 			target:(id)target
 			   sel:(SEL)sel
 {
-	NSString *picPath = [createInfo.fileDir stringByAppendingPathComponent:[data.propertyDic objectForKey:@"src"]];
-	
-	NSString *customID = [data.propertyDic objectForKey:@"customID"];
-	if (customID == nil)
-	{
-		customID = @"";
-	}
-	
-	int zOrder = [[data.attributeDic objectForKey:@"zOrder"] intValue];
-	
+	NSString *picPath = [createInfo.fileDir stringByAppendingPathComponent:[data.propertyDic objectForKey:@"src"]];	
 	NSString* pressPicPath = [picPath stringByReplacingOccurrencesOfString:@"-normal" withString:@"-press"];
 	NSString* disablePicPath = [picPath stringByReplacingOccurrencesOfString:@"-normal" withString:@"-disable"];
 	
@@ -211,6 +173,7 @@ typedef struct
 	}
 	item.position = [self getMidPosition:data];
 	
+	int zOrder = [[data.attributeDic objectForKey:@"zOrder"] intValue];
 	[createInfo.menu addChild:item z:zOrder];
 	if (createInfo.menu.zOrder < zOrder)
 	{
@@ -221,7 +184,7 @@ typedef struct
 	NSString *text = [data.propertyDic objectForKey:@"text"];
 	if (text != nil)
 	{
-		[item initLabel:[self getClearText:text] 
+		[item initLabel:[self getDecodeText:text] 
 			   fontName:[BalsamiqReaderConfig instance].balsamiqFontName
 			   fontSize:[self getBalsamiqControlTextSize:data]
 			normalColor:[BalsamiqReaderConfig instance].buttonNormalTextColor 
@@ -357,7 +320,7 @@ typedef struct
 
 - (void)createLabel:(BalsamiqControlData *)data byCreateInfo:(ControlCreateInfo)createInfo
 {
-    CCLabelTTF *label = [CCLabelTTF labelWithString:[self getClearText:[data.propertyDic objectForKey:@"text"]]
+    CCLabelTTF *label = [CCLabelTTF labelWithString:[self getDecodeText:[data.propertyDic objectForKey:@"text"]]
                                          dimensions:[self getBalsamiqControlSize:data]
                                           alignment:[self getBalsamiqControlAlign:data]
                                            fontName:[BalsamiqReaderConfig instance].balsamiqFontName
@@ -391,7 +354,7 @@ typedef struct
 	[textField setPaddingLeft:5 paddingTop:4];
 	
 	//nameTextField.transform = CGAffineTransformMakeRotation(M_PI * (90.0 / 180.0)); // rotate for landscape
-	textField.text = [self getClearText:[data.propertyDic objectForKey:@"text"]];
+	textField.text = [self getDecodeText:[data.propertyDic objectForKey:@"text"]];
 	textField.textColor = [self getUIColor:[BalsamiqReaderConfig instance].textInputColor alpha:1.0f];
 	textField.textAlignment = [self getBalsamiqControlAlign:data];
 	textField.font = [UIFont fontWithName:[[BalsamiqReaderConfig instance].balsamiqFontName stringByDeletingPathExtension]
