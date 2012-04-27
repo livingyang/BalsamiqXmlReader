@@ -886,7 +886,7 @@
 		1846F1271425060F00884CCC /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0430;
 			};
 			buildConfigurationList = 1846F12A1425060F00884CCC /* Build configuration list for PBXProject "BalsamiqXmlReader" */;
 			compatibilityVersion = "Xcode 3.2";
