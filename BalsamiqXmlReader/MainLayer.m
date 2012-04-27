@@ -35,15 +35,30 @@
 #pragma mark - 
 #pragma mark UITextFieldDelegate
 
+const CGPoint EditOffset = {0, 120};
+
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     [textField resignFirstResponder];
     return YES;
 }
 
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    NSLog(@"textFieldDidBeginEditing");
+    
+    self.position = ccpAdd(self.position, EditOffset);
+    textField.center = ccpSub(textField.center, EditOffset);
+    //[self runAction:[CCMoveBy actionWithDuration:MoveTime position:EditOffset]];
+}
+
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
-	NSLog(@"textField text = %@", textField.text);
+	NSLog(@"textFieldDidEndEditing text = %@", textField.text);
+    
+    self.position = ccpSub(self.position, EditOffset);
+    textField.center = ccpAdd(textField.center, EditOffset);
+    //[self runAction:[[CCMoveBy actionWithDuration:MoveTime position:EditOffset] reverse]];
 }
 
 - (void)onNextClick:(id)sender

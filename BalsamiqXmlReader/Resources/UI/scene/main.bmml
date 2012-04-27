@@ -1,7 +1,7 @@
 <mockup version="1.0" skin="sketch" measuredW="480" measuredH="320" mockupW="480" mockupH="320">
   <controls>
     <control controlID="9" controlTypeID="com.balsamiq.mockups::ModalScreen" x="0" y="0" w="480" h="320" measuredW="320" measuredH="240" zOrder="0" locked="true" isInGroup="-1"/>
-    <control controlID="22" controlTypeID="com.balsamiq.mockups::TextInput" x="21" y="42" w="135" h="-1" measuredW="68" measuredH="27" zOrder="2" locked="false" isInGroup="-1">
+    <control controlID="22" controlTypeID="com.balsamiq.mockups::TextInput" x="35" y="247" w="135" h="-1" measuredW="68" measuredH="27" zOrder="2" locked="false" isInGroup="-1">
       <controlProperties>
         <backgroundAlpha>0.25</backgroundAlpha>
         <color>13576743</color>
@@ -43,7 +43,7 @@
         <text>Next</text>
       </controlProperties>
     </control>
-    <control controlID="34" controlTypeID="com.balsamiq.mockups::Image" x="45" y="217" w="-1" h="-1" measuredW="57" measuredH="57" zOrder="7" locked="false" isInGroup="-1">
+    <control controlID="34" controlTypeID="com.balsamiq.mockups::Image" x="59" y="46" w="-1" h="-1" measuredW="57" measuredH="57" zOrder="7" locked="false" isInGroup="-1">
       <controlProperties>
         <customID>image_sprite</customID>
         <src>./image-icon.png</src>
