@@ -32,6 +32,13 @@
 		@备    注：例，customID = radio_test_btn1，则key = "test"
 	*/
 	NSMutableDictionary *groupAndRadioDic;
+    
+	/*!
+        @名    称：eventHandle_
+        @描    述：事件处理着，继承了CCBalsamiqLayerDelegate接口
+        @备    注：
+    */
+    id eventHandle_;
 }
 
 @property (nonatomic, readonly) NSMutableDictionary *nameAndControlDic;
@@ -46,6 +53,13 @@
 - (id)getControlByName:(NSString *)name;
 
 - (NSString *)getSelectedRadioByGroup:(NSString *)group;
+
+@end
+
+@protocol CCBalsamiqLayerDelegate <NSObject>
+
+@optional
+- (void)onBalsamiqLayerRadioSelected:(NSString *)radioName;
 
 @end
 

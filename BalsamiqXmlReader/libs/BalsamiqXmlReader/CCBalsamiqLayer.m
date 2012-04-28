@@ -204,6 +204,14 @@ typedef struct
 		if ([chkManager isSubitem:sender])
 		{
 			[chkManager selectItem:sender];
+            
+            if ([eventHandle_ respondsToSelector:@selector(onBalsamiqLayerRadioSelected:)])
+            {
+                [eventHandle_ performSelector:@selector(onBalsamiqLayerRadioSelected:)
+                                   withObject:chkManager.selectedItemInfo];
+            }
+            
+            break;
 		}
 	}
 }
@@ -454,6 +462,7 @@ typedef struct
         nameAndControlDic = [[NSMutableDictionary alloc] init];
 		uiViewArray = [[NSMutableArray alloc] init];
 		groupAndRadioDic = [[NSMutableDictionary alloc] init];
+        eventHandle_ = eventHandle;
 		
 		self.isRelativeAnchorPoint = YES;
 		self.anchorPoint = ccp(0, 0);
