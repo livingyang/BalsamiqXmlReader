@@ -49,7 +49,6 @@ const CGPoint EditOffset = {0, 120};
     
     self.position = ccpAdd(self.position, EditOffset);
     textField.center = ccpSub(textField.center, EditOffset);
-    //[self runAction:[CCMoveBy actionWithDuration:MoveTime position:EditOffset]];
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField
@@ -58,7 +57,6 @@ const CGPoint EditOffset = {0, 120};
     
     self.position = ccpSub(self.position, EditOffset);
     textField.center = ccpAdd(textField.center, EditOffset);
-    //[self runAction:[[CCMoveBy actionWithDuration:MoveTime position:EditOffset] reverse]];
 }
 
 - (void)onNextClick:(id)sender

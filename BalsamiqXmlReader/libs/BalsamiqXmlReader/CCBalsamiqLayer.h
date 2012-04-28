@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
+#import "RadioManager.h"
 
 @interface CCBalsamiqLayer : CCLayer
 {
@@ -27,8 +28,8 @@
 	
 	/*!
 		@名    称：radioArray
-		@描    述：保存radio控件的数组
-		@备    注：
+		@描    述：保存radio控件的数组,key = NSString, value = RadioManager
+		@备    注：例，customID = radio_test_btn1，则key = "test"
 	*/
 	NSMutableDictionary *groupAndRadioDic;
 }
@@ -44,18 +45,11 @@
 
 - (id)getControlByName:(NSString *)name;
 
+- (NSString *)getSelectedRadioByGroup:(NSString *)group;
+
 @end
 
 // #1 CCBalsamiqLayer所创建的UITextField，会在内部进行释放，无须外部释放
-
-// #2 需要获取单选按钮事件的对象，实现以下方法即可
-
-@protocol BalsamiqReaderRadioItemDelegate
-
-@optional
-- (void)onRadioItemSelected:(CCMenuItemImage *)item withInfo:(NSString *)info;
-
-@end
 
 /*
  #2 若需要创建Toggle(CheckBox)，需要满足以下几点

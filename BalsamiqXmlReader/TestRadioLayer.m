@@ -15,6 +15,8 @@
 
 @implementation TestRadioLayer
 
+@synthesize balsamiqLayer;
+
 +(CCScene *) scene
 {
 	// 'scene' is an autorelease object.
@@ -27,11 +29,6 @@
 	return scene;
 }
 
-- (void)onRadioItemSelected:(CCMenuItemImage *)item withInfo:(NSString *)info
-{
-	NSLog(@"item = %@ clicked, info = %@", item, info);
-}
-
 - (void)onBackClick:(id)sender
 {
 	[[CCDirector sharedDirector] replaceScene:[CCTransitionSlideInL transitionWithDuration:0.5f
@@ -40,6 +37,9 @@
 
 - (void)onNextClick:(id)sender
 {
+    NSLog(@"btn1 radio select item = %@", [self.balsamiqLayer getSelectedRadioByGroup:@"btn1"]);
+    NSLog(@"btn2 radio select item = %@", [self.balsamiqLayer getSelectedRadioByGroup:@"btn2"]);
+    
 	[[CCDirector sharedDirector] replaceScene:[CCTransitionSlideInR transitionWithDuration:0.5f
 																					 scene:[TestLoadingBarLayer scene]]];
 }
@@ -48,8 +48,9 @@
 {
 	if( (self=[super init]))
 	{
-		[self addChild:[CCBalsamiqLayer layerWithBalsamiqFile:@"test-radio.bmml"
-												  eventHandle:self]];
+        self.balsamiqLayer = [CCBalsamiqLayer layerWithBalsamiqFile:@"test-radio.bmml"
+                                                            eventHandle:self];
+		[self addChild:self.balsamiqLayer];
 	}
 	return self;
 }

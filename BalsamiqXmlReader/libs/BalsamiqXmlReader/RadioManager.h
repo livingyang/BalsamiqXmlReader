@@ -15,7 +15,7 @@
 	NSMutableDictionary *infoAndItemDic;
 }
 
-@property (nonatomic, assign) id /*<BalsamiqReaderDelegate>*/ delegate;
+@property (nonatomic, readonly) NSString *selectedItemInfo;
 
 - (void)addItem:(CCMenuItemImage *)item withInfo:(NSString *)info;
 

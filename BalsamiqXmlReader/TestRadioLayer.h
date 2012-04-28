@@ -9,10 +9,13 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
+@class CCBalsamiqLayer;
 @interface TestRadioLayer : CCLayer
 {
 
 }
+
+@property (nonatomic, assign) CCBalsamiqLayer *balsamiqLayer;
 
 +(CCScene *) scene;
 

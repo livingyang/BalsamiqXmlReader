@@ -12,8 +12,6 @@
 
 @implementation RadioManager
 
-@synthesize delegate;
-
 - (id) init
 {
 	self = [super init];
@@ -49,11 +47,6 @@
 		if (value == item)
 		{
 			[value selected];
-			
-			if ([self.delegate respondsToSelector:@selector(onRadioItemSelected:withInfo:)])
-			{
-				[self.delegate onRadioItemSelected:value withInfo:infoKey];
-			}
 		}
 		else
 		{
@@ -75,6 +68,20 @@
 		
 		[self selectItem:[infoAndItemDic objectForKey:[inOrderItemArray objectAtIndex:0]]];
 	}
+}
+
+- (NSString *)selectedItemInfo
+{
+    for (NSString *infoKey in [infoAndItemDic allKeys])
+	{
+		CCMenuItemImage *value = [infoAndItemDic valueForKey:infoKey];
+        if (value.isSelected)
+        {
+            return infoKey;
+        }
+    }
+    
+    return nil;
 }
 
 @end

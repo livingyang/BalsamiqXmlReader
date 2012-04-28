@@ -11,7 +11,6 @@
 #import "BalsamiqControlData.h"
 #import "CCMenuItemButton.h"
 #import "UIPaddingTextField.h"
-#import "RadioManager.h"
 #import "CCLoadingBar.h"
 #import "BalsamiqFileParser.h"
 #import "BalsamiqReaderConfig.h"
@@ -279,7 +278,6 @@ typedef struct
 		if (chkManager == nil)
 		{
 			chkManager = [[[RadioManager alloc] init] autorelease];
-			chkManager.delegate = createInfo.eventHandle;
 			[groupAndRadioDic setValue:chkManager forKey:[radioParamArray objectAtIndex:1]];
 		}
 		
@@ -514,7 +512,7 @@ typedef struct
 			[radioManager selectFirstItem];
 		}
         
-        // 5 打印各个控件信息
+        // *** 打印各个控件信息
         //CCLOG(@"Controls = %@", self.nameAndControlDic);
 	}
 	return self;
@@ -529,6 +527,12 @@ typedef struct
 - (id)getControlByName:(NSString *)name
 {
     return [self.nameAndControlDic objectForKey:name];
+}
+
+- (NSString *)getSelectedRadioByGroup:(NSString *)group
+{
+    RadioManager *radioManager = [groupAndRadioDic objectForKey:group];
+    return radioManager.selectedItemInfo;
 }
 
 @end
