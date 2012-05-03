@@ -10,7 +10,7 @@
 #import <objc/message.h>
 #import "BalsamiqControlData.h"
 #import "CCMenuItemButton.h"
-#import "UIPaddingTextField.h"
+#import "CCTextField.h"
 #import "CCLoadingBar.h"
 #import "BalsamiqFileParser.h"
 #import "BalsamiqReaderConfig.h"
@@ -44,7 +44,7 @@ typedef struct
 //格式字符串的特殊字符替换表
 - (NSString *)getDecodeText:(NSString *)text
 {
-    return [text stringByReplacingPercentEscapesUsingEncoding:NSStringEncodingConversionAllowLossy];
+    return [text stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
 }
 
 - (ccColor3B)getColor:(int)value
@@ -346,42 +346,19 @@ typedef struct
  @参    数：data
  @参    数：createInfo
  @返 回 值：
- @备    注：文本输入框的指针保存在layer的userData中
+ @备    注：
  */
 - (void)createTextInput:(BalsamiqControlData *)data byCreateInfo:(ControlCreateInfo)createInfo
 {
-	CGRect rect = {[self getBalsamiqControlPosition:data], [self getBalsamiqControlSize:data]};
-	rect.origin = [self convertToMidPosition:rect.origin
-									nodeSize:rect.size
-							 nodeAnchorPoint:ccp(0.5f, 0.5f)];
-	rect.origin = [[CCDirector sharedDirector] convertToUI:rect.origin];
+    CCTextField *ccTextField = [CCTextField textFieldWithFieldSize:[self getBalsamiqControlSize:data]
+                                                          fontName:[BalsamiqReaderConfig instance].balsamiqFontName
+                                                       andFontSize:[self getBalsamiqControlTextSize:data]];
+    ccTextField.position = [self getMidPosition:data];
+    ccTextField.anchorPoint = ccp(0.5f, 0.5f);
+    ccTextField.text = [self getDecodeText:[data.propertyDic objectForKey:@"text"]];
+	[self addChild:ccTextField z:[[data.attributeDic objectForKey:@"zOrder"] intValue]];
 	
-	UIPaddingTextField *textField = [[[UIPaddingTextField alloc] initWithFrame:rect] autorelease];
-	[textField setPaddingLeft:5 paddingTop:4];
-	
-	//nameTextField.transform = CGAffineTransformMakeRotation(M_PI * (90.0 / 180.0)); // rotate for landscape
-	textField.text = [self getDecodeText:[data.propertyDic objectForKey:@"text"]];
-	textField.textColor = [self getUIColor:[BalsamiqReaderConfig instance].textInputColor alpha:1.0f];
-	textField.textAlignment = [self getBalsamiqControlAlign:data];
-	textField.font = [UIFont fontWithName:[[BalsamiqReaderConfig instance].balsamiqFontName stringByDeletingPathExtension]
-									 size:[self getBalsamiqControlTextSize:data]];
-	
-	// NOTE: UITextField won't be visible by default without setting backGroundColor & borderStyle
-	//textField.backgroundColor = [self getUIBackgroundColor:data];
-	textField.borderStyle = UITextBorderStyleRoundedRect;
-	textField.clearButtonMode = UITextFieldViewModeWhileEditing;
-	
-	textField.delegate = createInfo.eventHandle; // set this layer as the UITextFieldDelegate
-	textField.returnKeyType = UIReturnKeyDone; // add the 'done' key to the keyboard
-	textField.autocorrectionType = UITextAutocorrectionTypeNo; // switch of auto correction
-	textField.autocapitalizationType = UITextAutocapitalizationTypeWords;
-	
-	// add the textField to the main game openGLVview
-	[[[CCDirector sharedDirector] openGLView] addSubview:textField];
-	
-	[uiViewArray addObject:textField];
-	
-    [self setControl:textField withName:[data.propertyDic objectForKey:@"customID"]];
+    [self setControl:ccTextField withName:[data.propertyDic objectForKey:@"customID"]];    
 }
 
 - (void)createCanvas:(BalsamiqControlData *)data byCreateInfo:(ControlCreateInfo)createInfo
@@ -434,9 +411,9 @@ typedef struct
 
 - (void)onExit
 {
-	for (UITextField *textField in uiViewArray)
+	for (UIView *view in uiViewArray)
 	{
-		[textField removeFromSuperview];
+		[view removeFromSuperview];
 	}
 	
 	[super onExit];

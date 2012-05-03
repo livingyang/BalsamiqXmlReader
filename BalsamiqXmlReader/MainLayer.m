@@ -13,7 +13,7 @@
 #import "BalsamiqControlData.h"
 #import "CCBalsamiqLayer.h"
 #import "CCAlertLayer.h"
-#import "CCBalsamiqScene.h"
+#import "CCTextField.h"
 
 #import "TestAlertLayer.h"
 #import "BalsamiqReaderConfig.h"
@@ -23,7 +23,7 @@
 +(CCScene *) scene
 {
 	// 'scene' is an autorelease object.
-	CCScene *scene = [CCBalsamiqScene node];
+	CCScene *scene = [CCScene node];
 	
 	// add layer as a child to scene
 	[scene addChild:[MainLayer node]];
@@ -87,7 +87,9 @@ const CGPoint EditOffset = {0, 120};
         [[layer getControlByName:@"image_sprite"] runAction:action];
         
         // 获取指定文本框
-        [[layer getControlByName:@"text-input"] setText:@"My input"];
+        CCTextField *textField = [layer getControlByName:@"text-input"];
+        textField.text = @"< My input >";
+        textField.debugMode = YES;
 	}
 	return self;
 }
