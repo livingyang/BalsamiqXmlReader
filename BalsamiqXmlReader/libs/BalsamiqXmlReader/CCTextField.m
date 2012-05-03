@@ -176,6 +176,9 @@
 	CGRect r = self.boundingBox;
 	r.origin = CGPointZero;
 	
+	for( CCNode *c = self.parent; c != nil; c = c.parent )
+		if( c.visible == NO )
+			return NO;
 	
 	if (CGRectContainsPoint(r, p)) {
 		
