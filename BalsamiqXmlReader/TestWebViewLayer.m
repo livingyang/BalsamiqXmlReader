@@ -50,7 +50,7 @@
 {
 	if( (self=[super init]))
 	{
-        CCBalsamiqLayer *balsamiqLayer = [CCBalsamiqLayer layerWithBalsamiqFile:@"test-webview.bmml"
+        CCBalsamiqLayer *balsamiqLayer = [CCBalsamiqLayer layerWithBalsamiqFile:@"3-test-webview.bmml"
                                                                     eventHandle:self];
 
         [self loadDocument:@"WebViewFile.rtf" inView:[balsamiqLayer getControlByName:@"webview"]];

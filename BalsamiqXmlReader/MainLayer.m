@@ -60,7 +60,7 @@ const CGPoint EditOffset = {0, 120};
 {
 	if( (self=[super init]))
 	{
-        CCBalsamiqLayer *layer = [CCBalsamiqLayer layerWithBalsamiqFile:@"main.bmml"
+        CCBalsamiqLayer *layer = [CCBalsamiqLayer layerWithBalsamiqFile:@"1-main.bmml"
                                                             eventHandle:self];
         [self addChild:layer];
         

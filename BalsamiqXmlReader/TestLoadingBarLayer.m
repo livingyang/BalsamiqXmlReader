@@ -39,7 +39,7 @@
 
 - (void)onLoadingAlertClick:(id)sender
 {
-	[CCAlertLayer showAlert:@"alert-loading.bmml"
+	[CCAlertLayer showAlert:@"5.1-alert-loading.bmml"
 				 parentNode:self];
 }
 
@@ -52,7 +52,7 @@
 {
 	if( (self=[super init]))
 	{
-		[self addChild:[CCBalsamiqLayer layerWithBalsamiqFile:@"test-loadingbar.bmml"
+		[self addChild:[CCBalsamiqLayer layerWithBalsamiqFile:@"5-test-loadingbar.bmml"
 												  eventHandle:self]];
 	}
 	return self;

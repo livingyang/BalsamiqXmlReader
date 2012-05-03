@@ -53,7 +53,7 @@
 {
 	if( (self=[super init]))
 	{
-        self.balsamiqLayer = [CCBalsamiqLayer layerWithBalsamiqFile:@"test-radio.bmml"
+        self.balsamiqLayer = [CCBalsamiqLayer layerWithBalsamiqFile:@"4-test-radio.bmml"
                                                             eventHandle:self];
 		[self addChild:self.balsamiqLayer];
 	}

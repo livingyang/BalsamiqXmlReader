@@ -44,7 +44,7 @@
 
 - (void)onPopAlertClick:(id)sender
 {
-	CCAlertLayer *layer = [CCAlertLayer showAlert:@"alert-yes-no.bmml"
+	CCAlertLayer *layer = [CCAlertLayer showAlert:@"2.1-alert-yes-no.bmml"
                                        parentNode:self];
     
     [[layer.balsamiqLayer getControlByName:@"Title"] setString:@"Pop Alert"];
@@ -53,7 +53,7 @@
 
 - (void)onShowAlertClick:(id)sender
 {
-	CCAlertLayer *layer = [CCAlertLayer showAlert:@"alert-yes-no.bmml"
+	CCAlertLayer *layer = [CCAlertLayer showAlert:@"2.1-alert-yes-no.bmml"
                                        parentNode:self
                                         showModal:kNormalShowModal];
     
@@ -63,7 +63,7 @@
 
 - (void)onYesClick:(id)sender
 {
-	CCAlertLayer *layer = [CCAlertLayer showAlert:@"alert-yes-no.bmml"
+	CCAlertLayer *layer = [CCAlertLayer showAlert:@"2.1-alert-yes-no.bmml"
                                        parentNode:self];
     
     [[layer.balsamiqLayer getControlByName:@"Title"] setString:@"Pop Alert"];
@@ -79,7 +79,7 @@
 {
 	if( (self=[super init]))
 	{
-		[self addChild:[CCBalsamiqLayer layerWithBalsamiqFile:@"test-alert.bmml"
+		[self addChild:[CCBalsamiqLayer layerWithBalsamiqFile:@"2-test-alert.bmml"
 												  eventHandle:self]];
 	}
 	return self;

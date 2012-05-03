@@ -140,6 +140,7 @@
 		18AF26D61425CCEE00D0D60F /* loading-bar-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 18AF26D41425CCEE00D0D60F /* loading-bar-hd.png */; };
 		18AF26D71425CCEE00D0D60F /* loading-bar.png in Resources */ = {isa = PBXBuildFile; fileRef = 18AF26D51425CCEE00D0D60F /* loading-bar.png */; };
 		278E86021552650C00AB548A /* CCTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 278E86011552650C00AB548A /* CCTextField.m */; };
+		278E860E155284AC00AB548A /* TestScrollLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 278E860D155284AC00AB548A /* TestScrollLayer.m */; };
 		27DC774F147C86C100890457 /* BalsamiqReaderConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 27DC774E147C86C100890457 /* BalsamiqReaderConfig.m */; };
 /* End PBXBuildFile section */
 
@@ -410,6 +411,8 @@
 		18AF26D51425CCEE00D0D60F /* loading-bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "loading-bar.png"; path = "Resources/loading-bar.png"; sourceTree = "<group>"; };
 		278E86001552650C00AB548A /* CCTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCTextField.h; sourceTree = "<group>"; };
 		278E86011552650C00AB548A /* CCTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCTextField.m; sourceTree = "<group>"; };
+		278E860C155284AC00AB548A /* TestScrollLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestScrollLayer.h; sourceTree = "<group>"; };
+		278E860D155284AC00AB548A /* TestScrollLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestScrollLayer.m; sourceTree = "<group>"; };
 		27DC774D147C86C100890457 /* BalsamiqReaderConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BalsamiqReaderConfig.h; sourceTree = "<group>"; };
 		27DC774E147C86C100890457 /* BalsamiqReaderConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BalsamiqReaderConfig.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -828,6 +831,8 @@
 				1846F2F014250CA800884CCC /* TestRadioLayer.m */,
 				1846F2F114250CA800884CCC /* TestLoadingBarLayer.h */,
 				1846F2F214250CA800884CCC /* TestLoadingBarLayer.m */,
+				278E860C155284AC00AB548A /* TestScrollLayer.h */,
+				278E860D155284AC00AB548A /* TestScrollLayer.m */,
 			);
 			name = TestLayer;
 			sourceTree = "<group>";
@@ -1046,6 +1051,7 @@
 				18847B7A142A2E11005D7C4F /* RadioManager.m in Sources */,
 				27DC774F147C86C100890457 /* BalsamiqReaderConfig.m in Sources */,
 				278E86021552650C00AB548A /* CCTextField.m in Sources */,
+				278E860E155284AC00AB548A /* TestScrollLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
