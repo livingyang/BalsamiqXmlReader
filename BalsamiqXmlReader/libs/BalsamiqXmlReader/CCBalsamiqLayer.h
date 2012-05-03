@@ -39,9 +39,23 @@
         @备    注：
     */
     id eventHandle_;
+    
+	/*!
+        @名    称：controlMenu
+        @描    述：所有按钮全部保存在这个menu中
+        @备    注：
+    */
+    CCMenu *controlMenu;
+    
+	/*!
+        @名    称：bmmlFilePath
+        @描    述：当前对象所对应的文件路径
+        @备    注：
+    */
+    NSString *bmmlFilePath;
 }
 
-@property (nonatomic, readonly) NSMutableDictionary *nameAndControlDic;
+@property (nonatomic, readonly) NSString *bmmlFilePath;
 @property (nonatomic, readonly) NSMutableArray *uiViewArray;
 
 // 带有事件的控件，如button，toggle，其事件的处理者为eventHandle

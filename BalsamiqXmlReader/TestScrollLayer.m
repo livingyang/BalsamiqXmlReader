@@ -24,7 +24,7 @@
 {
 	if( (self=[super init]))
 	{
-		[self addChild:[CCBalsamiqLayer layerWithBalsamiqFile:@"2-test-alert.bmml"
+		[self addChild:[CCBalsamiqLayer layerWithBalsamiqFile:@"6-test-scrolllayer.bmml"
 												  eventHandle:self]];
 	}
 	return self;

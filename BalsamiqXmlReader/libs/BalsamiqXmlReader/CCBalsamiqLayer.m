@@ -15,19 +15,13 @@
 #import "BalsamiqFileParser.h"
 #import "BalsamiqReaderConfig.h"
 
-typedef struct
-{
-	CCMenu *menu;
-	id eventHandle;
-	NSString *fileDir;
-}ControlCreateInfo;
-
 #define IMAGE_PREFIX @"image_"
 #define RADIO_PREFIX @"radio_"
 
 @implementation CCBalsamiqLayer : CCLayer
 
-@synthesize nameAndControlDic, uiViewArray;
+@synthesize bmmlFilePath;
+@synthesize uiViewArray;
 
 +(void)initialize
 {
@@ -149,13 +143,18 @@ typedef struct
 					  nodeAnchorPoint:ccp(0, 1)];
 }
 
+- (NSString *)getPicPath:(NSString *)src
+{
+    return [[bmmlFilePath stringByDeletingLastPathComponent] stringByAppendingPathComponent:src];
+}
+
 - (id)createButton:(BalsamiqControlData *)data
-	  byCreateInfo:(ControlCreateInfo)createInfo
 			target:(id)target
 			   sel:(SEL)sel
 {
-	NSString *picPath = [createInfo.fileDir stringByAppendingPathComponent:[data.propertyDic objectForKey:@"src"]];	
-	NSString* pressPicPath = [picPath stringByReplacingOccurrencesOfString:@"-normal" withString:@"-press"];
+	NSString *picPath = [self getPicPath:[data.propertyDic objectForKey:@"src"]];
+    
+    NSString* pressPicPath = [picPath stringByReplacingOccurrencesOfString:@"-normal" withString:@"-press"];
 	NSString* disablePicPath = [picPath stringByReplacingOccurrencesOfString:@"-normal" withString:@"-disable"];
 	
 	CCMenuItemButton *item = [CCMenuItemButton itemFromNormalImage:picPath 
@@ -173,10 +172,10 @@ typedef struct
 	item.position = [self getMidPosition:data];
 	
 	int zOrder = [[data.attributeDic objectForKey:@"zOrder"] intValue];
-	[createInfo.menu addChild:item z:zOrder];
-	if (createInfo.menu.zOrder < zOrder)
+	[controlMenu addChild:item z:zOrder];
+	if (controlMenu.zOrder < zOrder)
 	{
-		[createInfo.menu.parent reorderChild:createInfo.menu z:zOrder];
+		[controlMenu.parent reorderChild:controlMenu z:zOrder];
 	}
 	
 	//若有文本，则需要生成标签
@@ -231,7 +230,7 @@ typedef struct
 - (void)onNoneHandleButtonClick:(id)sender
 {
     NSString *name = nil;
-    for (id key in [self.nameAndControlDic allKeys])
+    for (id key in [nameAndControlDic allKeys])
     {
         if ([self getControlByName:key] == sender)
         {
@@ -247,10 +246,9 @@ typedef struct
 #pragma mark 控件创建函数
 ////////////////////////////////////////////////////////
 
-- (void)createImage:(BalsamiqControlData *)data byCreateInfo:(ControlCreateInfo)createInfo
+- (void)createImage:(BalsamiqControlData *)data
 {
-	//NSString *picPath = [[data.propertyDic objectForKey:@"src"] lastPathComponent];
-	NSString *picPath = [createInfo.fileDir stringByAppendingPathComponent:[data.propertyDic objectForKey:@"src"]];
+	NSString *picPath = [self getPicPath:[data.propertyDic objectForKey:@"src"]];
 	
 	NSString *customID = [data.propertyDic objectForKey:@"customID"];
     customID = (customID == nil) ? @"" : customID;
@@ -290,7 +288,6 @@ typedef struct
 		}
 		
 		id button = [self createButton:data
-						  byCreateInfo:createInfo
 								target:self
 								   sel:@selector(onRadioItemClick:)];
 		
@@ -302,29 +299,27 @@ typedef struct
 		NSString* methodName = [NSString stringWithFormat:@"on%@Click:", customID];
 		SEL eventSel = sel_registerName([methodName UTF8String]);
 		
-        if ([createInfo.eventHandle respondsToSelector:eventSel])
+        if ([eventHandle_ respondsToSelector:eventSel])
         {
             [self setControl:[self createButton:data
-                                   byCreateInfo:createInfo
-                                         target:createInfo.eventHandle
+                                         target:eventHandle_
                                             sel:eventSel]
                     withName:customID];
         }
         else
         {
             [self setControl:[self createButton:data
-                                   byCreateInfo:createInfo
                                          target:self
                                             sel:@selector(onNoneHandleButtonClick:)]
                     withName:customID];
             
             NSLog(@"CCBalsamiqLayer#createImage NoneHandleButton created, name = %@, handle = %@, methodName = %@",
-                  customID, createInfo.eventHandle, methodName);
+                  customID, eventHandle_, methodName);
         }
 	}	
 }
 
-- (void)createLabel:(BalsamiqControlData *)data byCreateInfo:(ControlCreateInfo)createInfo
+- (void)createLabel:(BalsamiqControlData *)data
 {
     CCLabelTTF *label = [CCLabelTTF labelWithString:[self getDecodeText:[data.propertyDic objectForKey:@"text"]]
                                          dimensions:[self getBalsamiqControlSize:data]
@@ -348,7 +343,7 @@ typedef struct
  @返 回 值：
  @备    注：
  */
-- (void)createTextInput:(BalsamiqControlData *)data byCreateInfo:(ControlCreateInfo)createInfo
+- (void)createTextInput:(BalsamiqControlData *)data
 {
     CCTextField *ccTextField = [CCTextField textFieldWithFieldSize:[self getBalsamiqControlSize:data]
                                                           fontName:[BalsamiqReaderConfig instance].balsamiqFontName
@@ -361,7 +356,7 @@ typedef struct
     [self setControl:ccTextField withName:[data.propertyDic objectForKey:@"customID"]];    
 }
 
-- (void)createCanvas:(BalsamiqControlData *)data byCreateInfo:(ControlCreateInfo)createInfo
+- (void)createCanvas:(BalsamiqControlData *)data
 {
 	CGRect rect = {[self getBalsamiqControlPosition:data], [self getBalsamiqControlSize:data]};
 	rect.origin = [self convertToMidPosition:rect.origin
@@ -372,15 +367,12 @@ typedef struct
 	UIWebView *webView = [[[UIWebView alloc] initWithFrame:rect] autorelease];
 	webView.backgroundColor = [self getUIBackgroundColor:data];
 	
-	// add the textField to the main game openGLVview
-	[[[CCDirector sharedDirector] openGLView] addSubview:webView];
-	
 	[uiViewArray addObject:webView];
 	
     [self setControl:webView withName:[data.propertyDic objectForKey:@"customID"]];
 }
 
-- (void)createIcon:(BalsamiqControlData *)data byCreateInfo:(ControlCreateInfo)createInfo
+- (void)createIcon:(BalsamiqControlData *)data
 {
 	NSString *customID = [data.propertyDic objectForKey:@"customID"];
 	if (customID == nil)
@@ -409,6 +401,16 @@ typedef struct
 #pragma mark 继承函数
 ////////////////////////////////////////////////////////
 
+- (void)onEnter
+{
+	for (UIView *view in uiViewArray)
+	{
+        [[[CCDirector sharedDirector] openGLView] addSubview:view];
+    }
+    
+    [super onEnter];
+}
+
 - (void)onExit
 {
 	for (UIView *view in uiViewArray)
@@ -421,6 +423,7 @@ typedef struct
 
 - (void) dealloc
 {
+    [bmmlFilePath release];
     [nameAndControlDic release];
 	[groupAndRadioDic release];
 	[uiViewArray release];
@@ -469,13 +472,10 @@ typedef struct
 		menu.contentSize = self.contentSize;
 		menu.position = ccp(0, 0);
 		menu.anchorPoint = ccp(0, 0);
-		
-		ControlCreateInfo createInfo = 
-		{
-			menu,
-			eventHandle,
-			[[[BalsamiqReaderConfig instance] getBalsamiqFilePath:fileName] stringByDeletingLastPathComponent],
-		};
+        
+        controlMenu = menu;
+        bmmlFilePath = [[NSString alloc] initWithString:
+                        [[BalsamiqReaderConfig instance] getBalsamiqFilePath:fileName]];
 		
 		// 3 生成各个控件
 		for (BalsamiqControlData *data in balsamiqData)
@@ -483,12 +483,12 @@ typedef struct
 			NSString *controlType = [[data.attributeDic objectForKey:@"controlTypeID"]
 									 substringFromIndex:[@"com.balsamiq.mockups::" length]];
 			
-			NSString* methodName = [NSString stringWithFormat:@"create%@:byCreateInfo:", controlType];
+			NSString* methodName = [NSString stringWithFormat:@"create%@:", controlType];
 			SEL creatorSel = sel_registerName([methodName UTF8String]);
 			
 			if ([self respondsToSelector:creatorSel])
 			{
-				objc_msgSend(self, creatorSel, data, createInfo);
+                [self performSelector:creatorSel withObject:data];
 			}
 		}
 		
@@ -512,7 +512,7 @@ typedef struct
 
 - (id)getControlByName:(NSString *)name
 {
-    return [self.nameAndControlDic objectForKey:name];
+    return [nameAndControlDic objectForKey:name];
 }
 
 - (NSString *)getSelectedRadioByGroup:(NSString *)group
