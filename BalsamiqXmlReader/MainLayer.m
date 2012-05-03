@@ -37,26 +37,14 @@
 
 const CGPoint EditOffset = {0, 120};
 
-- (BOOL)textFieldShouldReturn:(UITextField *)textField
-{
-    [textField resignFirstResponder];
-    return YES;
-}
 
-- (void)textFieldDidBeginEditing:(UITextField *)textField
+- (void)textFieldBeginEditing:(CCTextField *)textField
 {
-    NSLog(@"textFieldDidBeginEditing");
-    
     self.position = ccpAdd(self.position, EditOffset);
-    textField.center = ccpSub(textField.center, EditOffset);
 }
-
-- (void)textFieldDidEndEditing:(UITextField *)textField
+- (void)textFieldDidReturn:(CCTextField *)textField
 {
-	NSLog(@"textFieldDidEndEditing text = %@", textField.text);
-    
     self.position = ccpSub(self.position, EditOffset);
-    textField.center = ccpAdd(textField.center, EditOffset);
 }
 
 - (void)onNextClick:(id)sender
@@ -90,6 +78,7 @@ const CGPoint EditOffset = {0, 120};
         CCTextField *textField = [layer getControlByName:@"text-input"];
         textField.text = @"< My input >";
         textField.debugMode = YES;
+        textField.delegate = self;
 	}
 	return self;
 }

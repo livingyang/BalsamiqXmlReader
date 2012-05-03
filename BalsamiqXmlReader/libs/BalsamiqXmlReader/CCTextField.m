@@ -102,6 +102,13 @@
 	}
 }
 
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    if ([delegate_ respondsToSelector:@selector(textFieldBeginEditing:)]) {
+		[delegate_ textFieldBeginEditing:self];
+	}
+}
+
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
 
 	[self.textField resignFirstResponder];
@@ -126,7 +133,7 @@
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
 	
 	if ([delegate_ respondsToSelector:@selector(textField:shouldChangeCharactersInRange:replacementString:)]) {
-		if (![delegate_ textField:self shouldChangeCharactersInRange:range replacementString:string]) {
+		if (![(id<CCTextFieldDelegate>)delegate_ textField:self shouldChangeCharactersInRange:range replacementString:string]) {
 			return NO;
 		}
 	}

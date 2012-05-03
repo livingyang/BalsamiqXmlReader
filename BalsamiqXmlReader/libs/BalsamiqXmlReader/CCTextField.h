@@ -13,6 +13,7 @@
 
 @protocol CCTextFieldDelegate <NSObject>
 
+- (void)textFieldBeginEditing:(CCTextField *)textField;
 - (void)textFieldDidReturn:(CCTextField *)textField;
 - (BOOL)textField:(CCTextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string;
 
@@ -26,7 +27,7 @@
 	NSString * realString;
 }
 
-@property (nonatomic, assign) id<CCTextFieldDelegate> delegate;
+@property (nonatomic, assign) id delegate;  //<CCTextFieldDelegate>
 @property (nonatomic, assign) UITextField * textField;
 @property (nonatomic, assign) CCLabelTTF * label;
 @property (nonatomic, assign) NSUInteger maxLength;
