@@ -31,6 +31,13 @@ enum
 @end
 #endif
 
+@interface CCTableLayer (Private)
+
+- (void)updateTotalCellVisible;
+
+@end
+
+
 @implementation CCTableLayer
 
 @synthesize scrollDirection;
@@ -50,21 +57,24 @@ enum
 	if (self != nil)
     {
         self.isTouchEnabled = YES;
+		self.isRelativeAnchorPoint = YES;
+        
+        containerRect = CGRectZero;
+        scrollDirection = CGPointZero;
         
         tableAreaDebug = [CCLayerColor layerWithColor:ccc4(100, 0, 0, 100)
                                                 width:self.contentSize.width
                                                height:self.contentSize.height];
         [self addChild:tableAreaDebug];
+        tableAreaDebug.visible = NO;
+        
         cellContainer = [CCNode node];
         [self addChild:cellContainer];
         
-        colorLayer = [CCLayerColor layerWithColor:ccc4(100, 100, 100, 100)];
-        [cellContainer addChild:colorLayer];
-        
-        colorLayer.contentSize = CGSizeMake(100, 100);
-        containerRect = CGRectZero;
-        
-        scrollDirection = CGPointZero;
+        containerAreaLayer = [CCLayerColor layerWithColor:ccc4(100, 100, 100, 100)];
+        containerAreaLayer.contentSize = CGSizeMake(100, 100);
+        [cellContainer addChild:containerAreaLayer];
+        containerAreaLayer.visible = NO;
     }
     
     return self;
@@ -73,6 +83,14 @@ enum
 - (void)dealloc
 {
 	[super dealloc];
+}
+
+- (void)setIsDebug:(BOOL)debug
+{
+    isDebug = debug;
+    
+    containerAreaLayer.visible = debug;
+    tableAreaDebug.visible = debug;
 }
 
 - (CGPoint)centerContainerPos
@@ -96,16 +114,23 @@ enum
     CGRect cellRect = {cellPosInContainer, cell.contentSize};
     
     containerRect = CGRectUnion(containerRect, cellRect);
-    colorLayer.position = containerRect.origin;
-    colorLayer.contentSize = containerRect.size;
+    containerAreaLayer.position = containerRect.origin;
+    containerAreaLayer.contentSize = containerRect.size;
     
     cellContainer.position = self.centerContainerPos;
+    
+    [self updateTotalCellVisible];
 }
 
-- (void)updateCellContainer
+- (void)updateTotalCellVisible
 {
     for (CCNode *cell in cellContainer.children)
     {
+        if (cell == containerAreaLayer)
+        {
+            continue;
+        }
+        
         CGRect cellRectAtTable = {[self convertToNodeSpace:[cell convertToWorldSpace:CGPointZero]], cell.contentSize};
         
         if (CGRectIntersectsRect(cellRectAtTable, (CGRect){CGPointZero, self.contentSize}))
@@ -124,6 +149,8 @@ enum
     scrollDirection = direction;
     
     cellContainer.position = self.centerContainerPos;
+    
+    [self updateTotalCellVisible];
 }
 
 #pragma mark Touches
@@ -251,8 +278,8 @@ enum
 //		else
 //			offset = 0;
 //		self.position = ccp(desiredX - offset, 0);
-        NSLog(@"startSwipe = %@, touchPoint = %@", NSStringFromCGPoint(startSwipe_), NSStringFromCGPoint(touchPoint));
-        NSLog(@"cellContainer.position = %@", NSStringFromCGPoint(cellContainer.position));
+//        NSLog(@"startSwipe = %@, touchPoint = %@", NSStringFromCGPoint(startSwipe_), NSStringFromCGPoint(touchPoint));
+//        NSLog(@"cellContainer.position = %@", NSStringFromCGPoint(cellContainer.position));
         
         CGPoint offsetPos = ccpSub(touchPoint, startSwipe_);
         if (!CGPointEqualToPoint(CGPointZero, scrollDirection))
@@ -261,7 +288,7 @@ enum
         }
         
         cellContainer.position = ccpAdd(originCellContainerPos, offsetPos);
-        [self updateCellContainer];
+        [self updateTotalCellVisible];
 	}
 }
 

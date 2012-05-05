@@ -6,7 +6,7 @@
         <src>./image-bg.png</src>
       </controlProperties>
     </control>
-    <control controlID="31" controlTypeID="com.balsamiq.mockups::Image" x="0" y="275" w="-1" h="-1" measuredW="151" measuredH="45" zOrder="2" locked="false" isInGroup="-1">
+    <control controlID="31" controlTypeID="com.balsamiq.mockups::Image" x="0" y="273" w="-1" h="-1" measuredW="151" measuredH="45" zOrder="2" locked="false" isInGroup="-1">
       <controlProperties>
         <customID>Back</customID>
         <src>../Common/button-normal.png</src>
@@ -15,16 +15,16 @@
     </control>
     <control controlID="32" controlTypeID="com.balsamiq.mockups::Image" x="305" y="0" w="-1" h="-1" measuredW="151" measuredH="45" zOrder="3" locked="false" isInGroup="-1">
       <controlProperties>
-        <customID>Button1</customID>
+        <customID>SetDebug</customID>
         <src>../Common/button-normal.png</src>
-        <text>Button1</text>
+        <text>SetDebug</text>
       </controlProperties>
     </control>
     <control controlID="34" controlTypeID="com.balsamiq.mockups::Image" x="305" y="60" w="-1" h="-1" measuredW="151" measuredH="45" zOrder="4" locked="false" isInGroup="-1">
       <controlProperties>
-        <customID>Button2</customID>
+        <customID>SetDirection</customID>
         <src>../Common/button-normal.png</src>
-        <text>Button2</text>
+        <text>SetDirection</text>
       </controlProperties>
     </control>
     <control controlID="35" controlTypeID="com.balsamiq.mockups::Image" x="329" y="274" w="-1" h="-1" measuredW="151" measuredH="45" zOrder="5" locked="false" isInGroup="-1">
@@ -32,6 +32,13 @@
         <customID>Next</customID>
         <src>../Common/button-normal.png</src>
         <text>Next</text>
+      </controlProperties>
+    </control>
+    <control controlID="41" controlTypeID="com.balsamiq.mockups::Canvas" x="49" y="25" w="216" h="192" measuredW="100" measuredH="70" zOrder="6" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderStyle>roundedSolid</borderStyle>
+        <customID>table1</customID>
+        <verticalScrollbar>true</verticalScrollbar>
       </controlProperties>
     </control>
   </controls>

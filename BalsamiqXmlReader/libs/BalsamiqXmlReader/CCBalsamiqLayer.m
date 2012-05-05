@@ -11,6 +11,7 @@
 #import "BalsamiqControlData.h"
 #import "CCMenuItemButton.h"
 #import "CCTextField.h"
+#import "CCTableLayer.h"
 #import "CCLoadingBar.h"
 #import "BalsamiqFileParser.h"
 #import "BalsamiqReaderConfig.h"
@@ -345,15 +346,15 @@
  */
 - (void)createTextInput:(BalsamiqControlData *)data
 {
-    CCTextField *ccTextField = [CCTextField textFieldWithFieldSize:[self getBalsamiqControlSize:data]
+    CCTextField *textField = [CCTextField textFieldWithFieldSize:[self getBalsamiqControlSize:data]
                                                           fontName:[BalsamiqReaderConfig instance].balsamiqFontName
                                                        andFontSize:[self getBalsamiqControlTextSize:data]];
-    ccTextField.position = [self getMidPosition:data];
-    ccTextField.anchorPoint = ccp(0.5f, 0.5f);
-    ccTextField.text = [self getDecodeText:[data.propertyDic objectForKey:@"text"]];
-	[self addChild:ccTextField z:[[data.attributeDic objectForKey:@"zOrder"] intValue]];
+    textField.position = [self getMidPosition:data];
+    textField.anchorPoint = ccp(0.5f, 0.5f);
+    textField.text = [self getDecodeText:[data.propertyDic objectForKey:@"text"]];
+	[self addChild:textField z:[[data.attributeDic objectForKey:@"zOrder"] intValue]];
 	
-    [self setControl:ccTextField withName:[data.propertyDic objectForKey:@"customID"]];    
+    [self setControl:textField withName:[data.propertyDic objectForKey:@"customID"]];    
 }
 
 - (void)createTextArea:(BalsamiqControlData *)data
@@ -370,6 +371,17 @@
 	[uiViewArray addObject:webView];
 	
     [self setControl:webView withName:[data.propertyDic objectForKey:@"customID"]];
+}
+
+- (void)createCanvas:(BalsamiqControlData *)data
+{
+    CCTableLayer *tableLayer = [CCTableLayer node];
+    tableLayer.contentSize = [self getBalsamiqControlSize:data];
+    tableLayer.anchorPoint = ccp(0.5f, 0.5f);
+    tableLayer.position = [self getMidPosition:data];
+    
+    [self addChild:tableLayer z:[[data.attributeDic objectForKey:@"zOrder"] intValue]];
+    [self setControl:tableLayer withName:[data.propertyDic objectForKey:@"customID"]];
 }
 
 - (void)createIcon:(BalsamiqControlData *)data

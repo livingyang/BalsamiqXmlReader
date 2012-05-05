@@ -11,7 +11,7 @@
 
 @interface CCTableLayer : CCLayer
 {
-    CCLayerColor *colorLayer;
+    CCLayerColor *containerAreaLayer;
     CCLayerColor *tableAreaDebug;
     
     CCNode *cellContainer;
@@ -37,7 +37,7 @@
 
 @property (nonatomic, readwrite) CGPoint scrollDirection;
 
-@property BOOL isDebug;
+@property (nonatomic, readwrite) BOOL isDebug;
 
 - (void)addCell:(CCNode *)cell;
 

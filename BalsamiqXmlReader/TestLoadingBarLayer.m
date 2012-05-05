@@ -11,6 +11,8 @@
 #import "CCAlertLayer.h"
 #import "CCBalsamiqLayer.h"
 
+#import "TestScrollLayer.h"
+
 @implementation TestLoadingBarLayer
 
 +(CCScene *) scene
@@ -25,6 +27,9 @@
 	return scene;
 }
 
+#pragma mark -
+#pragma mark layer navigation
+
 - (void)onBackClick:(id)sender
 {
 	[[CCDirector sharedDirector] replaceScene:[CCTransitionSlideInL transitionWithDuration:0.5f
@@ -33,8 +38,8 @@
 
 - (void)onNextClick:(id)sender
 {
-//	[[CCDirector sharedDirector] replaceScene:[CCTransitionSlideInR transitionWithDuration:0.5f
-//																					 scene:[TestAlertLayer scene]]];
+	[[CCDirector sharedDirector] replaceScene:[CCTransitionSlideInR transitionWithDuration:0.5f
+																					 scene:[TestScrollLayer scene]]];
 }
 
 - (void)onLoadingAlertClick:(id)sender
