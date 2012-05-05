@@ -356,7 +356,7 @@
     [self setControl:ccTextField withName:[data.propertyDic objectForKey:@"customID"]];    
 }
 
-- (void)createCanvas:(BalsamiqControlData *)data
+- (void)createTextArea:(BalsamiqControlData *)data
 {
 	CGRect rect = {[self getBalsamiqControlPosition:data], [self getBalsamiqControlSize:data]};
 	rect.origin = [self convertToMidPosition:rect.origin

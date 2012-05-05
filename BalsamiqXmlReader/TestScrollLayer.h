@@ -9,9 +9,12 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
+@class CCTableLayer;
 @interface TestScrollLayer : CCLayer {
     
 }
+
+@property (nonatomic, assign) CCTableLayer *tableLayer;
 
 +(CCScene *) scene;
 @end

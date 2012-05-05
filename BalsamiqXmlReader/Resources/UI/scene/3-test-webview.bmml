@@ -20,13 +20,10 @@
         <text>Back</text>
       </controlProperties>
     </control>
-    <control controlID="36" controlTypeID="com.balsamiq.mockups::Canvas" x="0" y="0" w="480" h="260" measuredW="100" measuredH="70" zOrder="4" locked="false" isInGroup="-1">
+    <control controlID="37" controlTypeID="com.balsamiq.mockups::TextArea" x="0" y="0" w="480" h="260" measuredW="200" measuredH="140" zOrder="4" locked="false" isInGroup="-1">
       <controlProperties>
-        <backgroundAlpha>0.5</backgroundAlpha>
-        <borderColor>16770457</borderColor>
-        <borderStyle>none</borderStyle>
         <customID>webview</customID>
-        <verticalScrollbar>true</verticalScrollbar>
+        <text>my%20web%20view</text>
       </controlProperties>
     </control>
   </controls>
