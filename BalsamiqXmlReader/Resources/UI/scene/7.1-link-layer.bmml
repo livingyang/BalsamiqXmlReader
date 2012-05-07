@@ -1,0 +1,24 @@
+<mockup version="1.0" skin="sketch" measuredW="266" measuredH="163" mockupW="266" mockupH="163">
+  <controls>
+    <control controlID="9" controlTypeID="com.balsamiq.mockups::ModalScreen" x="0" y="0" w="266" h="163" measuredW="320" measuredH="240" zOrder="0" locked="true" isInGroup="-1"/>
+    <control controlID="42" controlTypeID="com.balsamiq.mockups::Image" x="31" y="97" w="-1" h="-1" measuredW="57" measuredH="57" zOrder="1" locked="false" isInGroup="-1">
+      <controlProperties>
+        <src>./image-icon.png</src>
+      </controlProperties>
+    </control>
+    <control controlID="43" controlTypeID="com.balsamiq.mockups::Image" x="155" y="113" w="-1" h="-1" measuredW="111" measuredH="41" zOrder="2" locked="false" isInGroup="-1">
+      <controlProperties>
+        <customID>Button</customID>
+        <src>./button-alert-normal.png</src>
+        <text>Button</text>
+      </controlProperties>
+    </control>
+    <control controlID="44" controlTypeID="com.balsamiq.mockups::Label" x="88" y="33" w="-1" h="-1" measuredW="91" measuredH="28" zOrder="3" locked="false" isInGroup="-1">
+      <controlProperties>
+        <color>15110456</color>
+        <size>20</size>
+        <text>Link-layer</text>
+      </controlProperties>
+    </control>
+  </controls>
+</mockup>

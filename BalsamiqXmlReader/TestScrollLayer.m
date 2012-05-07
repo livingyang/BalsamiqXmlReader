@@ -10,6 +10,7 @@
 #import "CCBalsamiqLayer.h"
 #import "CCTableLayer.h"
 #import "TestLoadingBarLayer.h"
+#import "TestLinkLayer.h"
 
 @implementation TestScrollLayer
 
@@ -75,8 +76,8 @@
 
 - (void)onNextClick:(id)sender
 {
-//	[[CCDirector sharedDirector] replaceScene:[CCTransitionSlideInR transitionWithDuration:0.5f
-//																					 scene:[TestAlertLayer scene]]];
+	[[CCDirector sharedDirector] replaceScene:[CCTransitionSlideInR transitionWithDuration:0.5f
+																					 scene:[TestLinkLayer scene]]];
 }
 
 @end

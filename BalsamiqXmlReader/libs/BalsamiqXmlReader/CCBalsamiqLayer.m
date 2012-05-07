@@ -132,21 +132,21 @@
 	return textAlign;
 }
 
-- (CGPoint)convertToMidPosition:(CGPoint)nodePosition
-					   nodeSize:(CGSize)nodeSize
-				nodeAnchorPoint:(CGPoint)nodeAnchorPoint
+- (CGPoint)convertControlPosition:(CGPoint)controlPosition 
+                         nodeSize:(CGSize)nodeSize
+                  withAnchorPoint:(CGPoint)anchorPoint
 {
-	nodePosition.y = self.contentSize.height - nodePosition.y;
-	CGPoint offsetAnchor = ccpSub(ccp(0.5, 0.5), nodeAnchorPoint);
-	
-	return ccpAdd(nodePosition, ccp(offsetAnchor.x * nodeSize.width, offsetAnchor.y * nodeSize.height));
+    controlPosition.y = self.contentSize.height - controlPosition.y;
+	CGPoint offsetAnchor = ccpSub(anchorPoint, ccp(0, 1));
+    
+	return ccpAdd(controlPosition, ccp(offsetAnchor.x * nodeSize.width, offsetAnchor.y * nodeSize.height));
 }
 
 - (CGPoint)getMidPosition:(BalsamiqControlData *)data
 {
-	return [self convertToMidPosition:[self getBalsamiqControlPosition:data]
-							 nodeSize:[self getBalsamiqControlSize:data]
-					  nodeAnchorPoint:ccp(0, 1)];
+    return [self convertControlPosition:[self getBalsamiqControlPosition:data]
+                               nodeSize:[self getBalsamiqControlSize:data]
+                        withAnchorPoint:ccp(0.5f, 0.5f)];
 }
 
 - (NSString *)getPicPath:(NSString *)src
@@ -365,9 +365,9 @@
 - (void)createTextArea:(BalsamiqControlData *)data
 {
 	CGRect rect = {[self getBalsamiqControlPosition:data], [self getBalsamiqControlSize:data]};
-	rect.origin = [self convertToMidPosition:rect.origin
-									nodeSize:rect.size
-							 nodeAnchorPoint:ccp(0.5f, 0.5f)];
+	rect.origin = [self convertControlPosition:rect.origin 
+                                      nodeSize:rect.size
+                               withAnchorPoint:ccp(0, 1)];
 	rect.origin = [[CCDirector sharedDirector] convertToUI:rect.origin];
 	
 	UIWebView *webView = [[[UIWebView alloc] initWithFrame:rect] autorelease];
@@ -412,6 +412,25 @@
 	[self addChild:loadingBar z:zOrder];
 	
     [self setControl:loadingBar withName:customID];
+}
+
+- (void)createFieldSet:(BalsamiqControlData *)data
+{
+    NSString *bmmlFileName = [self getDecodeText:[data.propertyDic objectForKey:@"text"]];
+    
+    CCBalsamiqLayer *layer = [CCBalsamiqLayer layerWithBalsamiqFile:bmmlFileName eventHandle:eventHandle_];
+    layer.position = [self convertControlPosition:[self getBalsamiqControlPosition:data]
+                                         nodeSize:[self getBalsamiqControlSize:data]
+                                  withAnchorPoint:ccp(0, 0)];
+    [self addChild:layer z:[[data.attributeDic objectForKey:@"zOrder"] intValue]];
+    [self setControl:layer withName:[data.propertyDic objectForKey:@"customID"]];
+    
+    if (CGSizeEqualToSize(layer.contentSize, [self getBalsamiqControlSize:data]) == false)
+    {
+        CCLOG(@"CCBalsamiqLayer#createFieldSet link layer contentSize is not equal, link layer = %@, id = %@",
+              bmmlFileName,
+              [data.propertyDic objectForKey:@"customID"]);
+    }
 }
 
 ////////////////////////////////////////////////////////
