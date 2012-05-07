@@ -80,7 +80,7 @@
 @protocol CCBalsamiqLayerDelegate <NSObject>
 
 @optional
-- (void)onBalsamiqLayerRadioSelected:(NSString *)radioName;
+- (void)onBalsamiqLayerRadioSelected:(NSString *)radioGroup itemName:(NSString *)itemName;
 
 @end
 

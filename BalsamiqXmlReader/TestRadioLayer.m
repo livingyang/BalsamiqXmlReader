@@ -44,9 +44,9 @@
 																					 scene:[TestLoadingBarLayer scene]]];
 }
 
-- (void)onBalsamiqLayerRadioSelected:(NSString *)radioName
+- (void)onBalsamiqLayerRadioSelected:(NSString *)radioName itemName:(NSString *)itemName
 {
-    NSLog(@"select radio = %@", radioName);
+    NSLog(@"select radio = %@, item name = %@", radioName, itemName);
 }
 
 -(id) init

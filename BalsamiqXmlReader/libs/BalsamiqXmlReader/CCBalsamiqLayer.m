@@ -227,15 +227,18 @@
 
 - (void)onRadioItemClick:(id)sender
 {
-	for (RadioManager *chkManager in [groupAndRadioDic allValues])
-	{
+    for (NSString *radioGroup in [groupAndRadioDic allKeys])
+    {
+        RadioManager *chkManager = [groupAndRadioDic objectForKey:radioGroup];
+        
 		if ([chkManager isSubitem:sender])
 		{
 			[chkManager selectItem:sender];
             
-            if ([eventHandle_ respondsToSelector:@selector(onBalsamiqLayerRadioSelected:)])
+            if ([eventHandle_ respondsToSelector:@selector(onBalsamiqLayerRadioSelected:itemName:)])
             {
-                [eventHandle_ performSelector:@selector(onBalsamiqLayerRadioSelected:)
+                [eventHandle_ performSelector:@selector(onBalsamiqLayerRadioSelected:itemName:)
+                                   withObject:radioGroup
                                    withObject:chkManager.selectedItemInfo];
             }
             
