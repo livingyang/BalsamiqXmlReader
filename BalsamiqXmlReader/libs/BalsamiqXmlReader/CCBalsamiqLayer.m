@@ -132,6 +132,29 @@
 	return textAlign;
 }
 
+- (CGPoint)getAnchorPointWithTextAlignment:(CCTextAlignment)align
+{
+    switch (align)
+    {
+        case CCTextAlignmentLeft:
+        {
+            return ccp(0.0f, 0.5f);
+        }break;
+        case CCTextAlignmentCenter:
+        {
+            return ccp(0.5f, 0.5f);
+        }break;
+        case CCTextAlignmentRight:
+        {
+            return ccp(1.0f, 0.5f);
+        }break;
+        default:
+        {
+            return ccp(0.5f, 0.5f);
+        }break;
+    }
+}
+
 - (CGPoint)convertControlPosition:(CGPoint)controlPosition 
                          nodeSize:(CGSize)nodeSize
                   withAnchorPoint:(CGPoint)anchorPoint
@@ -328,11 +351,13 @@
 - (void)createLabel:(BalsamiqControlData *)data
 {
     CCLabelTTF *label = [CCLabelTTF labelWithString:[self getDecodeText:[data.propertyDic objectForKey:@"text"]]
-                                         dimensions:[self getBalsamiqControlSize:data]
-                                          alignment:[self getBalsamiqControlAlign:data]
                                            fontName:[BalsamiqReaderConfig instance].balsamiqFontName
                                            fontSize:[self getBalsamiqControlTextSize:data]];
-    label.position = [self getMidPosition:data];
+    
+    label.anchorPoint = [self getAnchorPointWithTextAlignment:[self getBalsamiqControlAlign:data]];
+    label.position = [self convertControlPosition:[self getBalsamiqControlPosition:data]
+                                         nodeSize:[self getBalsamiqControlSize:data]
+                                  withAnchorPoint:label.anchorPoint];
 	
 	label.color = [self getColor:[[data.propertyDic objectForKey:@"color"] intValue]];
 	

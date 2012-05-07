@@ -65,5 +65,11 @@
         <text>NoneHandle</text>
       </controlProperties>
     </control>
+    <control controlID="37" controlTypeID="com.balsamiq.mockups::Label" x="217" y="199" w="-1" h="-1" measuredW="102" measuredH="85" zOrder="10" locked="false" isInGroup="-1">
+      <controlProperties>
+        <size>72</size>
+        <text>Big</text>
+      </controlProperties>
+    </control>
   </controls>
 </mockup>
