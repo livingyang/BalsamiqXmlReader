@@ -70,6 +70,11 @@
 
 - (NSMutableArray *)getControlsDataByData:(NSData *)balsamiqData
 {
+    if (balsamiqData == nil)
+    {
+        return nil;
+    }
+    
     curParseArray = [NSMutableArray array];
     isParsingProperties = NO;
     
