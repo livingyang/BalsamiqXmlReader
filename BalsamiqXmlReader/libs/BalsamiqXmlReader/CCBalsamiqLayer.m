@@ -97,10 +97,15 @@
 	return size;
 }
 
-- (CGPoint)getBalsamiqControlPosition:(BalsamiqControlData *)data
+- (CGPoint)parseDataPosition:(BalsamiqControlData *)data
 {
 	return ccp([[data.attributeDic objectForKey:@"x"] intValue],
 			   [[data.attributeDic objectForKey:@"y"] intValue]);
+}
+
+- (CGPoint)getBalsamiqControlPosition:(BalsamiqControlData *)data
+{
+    return ccpSub([self parseDataPosition:data], originControlPosition);
 }
 
 - (int)getBalsamiqControlTextSize:(BalsamiqControlData *)data
@@ -455,6 +460,7 @@
 		uiViewArray = [[NSMutableArray alloc] init];
 		groupAndRadioDic = [[NSMutableDictionary alloc] init];
         eventHandle_ = eventHandle;
+        originControlPosition = ccp(0, 0);
 		
 		self.isRelativeAnchorPoint = YES;
 		self.anchorPoint = ccp(0, 0);
@@ -474,6 +480,7 @@
 			if ([@"com.balsamiq.mockups::ModalScreen" isEqualToString:[data.attributeDic objectForKey:@"controlTypeID"]])
 			{
 				self.contentSize = [self getBalsamiqControlSize:data];
+                originControlPosition = [self parseDataPosition:data];
 				break;
 			}
 		}

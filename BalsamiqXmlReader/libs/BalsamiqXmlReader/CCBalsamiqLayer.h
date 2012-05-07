@@ -53,6 +53,13 @@
         @备    注：
     */
     NSString *bmmlFilePath;
+    
+	/*!
+        @名    称：originControlPosition
+        @描    述：modalScreen的初始位置，用于定位窗体的初始位置
+        @备    注：
+    */
+    CGPoint originControlPosition;
 }
 
 @property (nonatomic, readonly) NSString *bmmlFilePath;
