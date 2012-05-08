@@ -30,6 +30,21 @@
     NSLog(@"CCTableLayer#onButtonClick sender tag = %d", [sender tag]);
 }
 
+- (void)createCell:(int)count atTableLayer:(CCTableLayer *)tabLayer
+{
+    for (int i = 0; i < count; ++i)
+    {
+        CCBalsamiqLayer *cell = [CCBalsamiqLayer layerWithBalsamiqFile:@"6.1-cell.bmml"
+                                                           eventHandle:self];
+        cell.position = ccp(0, 100 * i);
+        
+        CCMenuItemImage *button = [cell getControlByName:@"Button"];
+        button.tag = i;
+        
+        [tabLayer addCell:cell];
+    }
+}
+
 -(id) init
 {
 	if( (self=[super init]))
@@ -40,17 +55,7 @@
         
         self.tableLayer = [layer getControlByName:@"table1"];
         
-        for (int i = 0; i < 4; ++i)
-        {
-            CCBalsamiqLayer *cell = [CCBalsamiqLayer layerWithBalsamiqFile:@"6.1-cell.bmml"
-                                                               eventHandle:self];
-            cell.position = ccp(0, 100 * i);
-            
-            CCMenuItemImage *button = [cell getControlByName:@"Button"];
-            button.tag = i;
-            
-            [self.tableLayer addCell:cell];
-        }
+        [self createCell:4 atTableLayer:self.tableLayer];
 	}
 	return self;
 }
@@ -63,6 +68,13 @@
 - (void)onSetDirectionClick:(id)sender
 {
     self.tableLayer.scrollDirection = ccp(0, 1);
+}
+
+- (void)onResetItemClick:(id)sender
+{
+    [self.tableLayer removeAllCell];
+    
+    [self createCell:3 atTableLayer:self.tableLayer];
 }
 
 #pragma mark -

@@ -41,5 +41,12 @@
         <verticalScrollbar>true</verticalScrollbar>
       </controlProperties>
     </control>
+    <control controlID="42" controlTypeID="com.balsamiq.mockups::Image" x="305" y="120" w="-1" h="-1" measuredW="151" measuredH="45" zOrder="7" locked="false" isInGroup="-1">
+      <controlProperties>
+        <customID>ResetItem</customID>
+        <src>../Common/button-normal.png</src>
+        <text>ResetItem</text>
+      </controlProperties>
+    </control>
   </controls>
 </mockup>

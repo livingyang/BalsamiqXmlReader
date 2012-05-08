@@ -101,6 +101,18 @@ enum
     return ccpSub(offsetPos, containerRect.origin);
 }
 
+- (void)updateContainerRect:(CGRect)rect
+{
+    containerRect = rect;
+    
+    containerAreaLayer.position = containerRect.origin;
+    containerAreaLayer.contentSize = containerRect.size;
+    
+    cellContainer.position = self.centerContainerPos;
+    
+    [self updateTotalCellVisible];
+}
+
 - (void)addCell:(CCNode *)cell
 {
     if (cell.rotation != 0)
@@ -113,13 +125,22 @@ enum
     CGPoint cellPosInContainer = [cellContainer convertToNodeSpace:[cell convertToWorldSpace:CGPointZero]];
     CGRect cellRect = {cellPosInContainer, cell.contentSize};
     
-    containerRect = CGRectUnion(containerRect, cellRect);
-    containerAreaLayer.position = containerRect.origin;
-    containerAreaLayer.contentSize = containerRect.size;
+    [self updateContainerRect:CGRectUnion(containerRect, cellRect)];
+}
+
+- (void)removeAllCell
+{
+    for (int i = cellContainer.children.count - 1; i >= 0; --i)
+    {
+        CCNode *cell = [cellContainer.children objectAtIndex:i];
+        
+        if (cell != containerAreaLayer)
+        {
+            [cellContainer removeChild:cell cleanup:YES];
+        }
+    }
     
-    cellContainer.position = self.centerContainerPos;
-    
-    [self updateTotalCellVisible];
+    [self updateContainerRect:CGRectZero];
 }
 
 - (void)updateTotalCellVisible
@@ -210,7 +231,6 @@ enum
 {
     if( scrollTouch_ == touch ) {
         scrollTouch_ = nil;
-        //[self selectPage: currentScreen_];
     }
 }
 
@@ -256,31 +276,12 @@ enum
 		
 		// Avoid jerk after state change.
 		startSwipe_ = touchPoint;
-		
-		//if (self.stealTouches)
-        {
-			[self claimTouch: touch];
-        }
-		
-//		if ([self.delegate respondsToSelector:@selector(scrollLayerScrollingStarted:)])
-//		{
-//			[self.delegate scrollLayerScrollingStarted: self];
-//		}
+
+        [self claimTouch: touch];
 	}
 	
 	if (state_ == kCCScrollLayerStateSliding)
 	{
-//		CGFloat desiredX = (- currentScreen_ * (self.contentSize.width - self.pagesWidthOffset)) + touchPoint.x - startSwipe_;
-//		int page = [self pageNumberForPosition:ccp(desiredX, 0)];
-//		CGFloat offset = desiredX - [self positionForPageWithNumber:page].x; 
-//		if ((page == 0 && offset > 0) || (page == [layers_ count] - 1 && offset < 0))
-//			offset -= marginOffset_ * offset / [[CCDirector sharedDirector] winSize].width;
-//		else
-//			offset = 0;
-//		self.position = ccp(desiredX - offset, 0);
-//        NSLog(@"startSwipe = %@, touchPoint = %@", NSStringFromCGPoint(startSwipe_), NSStringFromCGPoint(touchPoint));
-//        NSLog(@"cellContainer.position = %@", NSStringFromCGPoint(cellContainer.position));
-        
         CGPoint offsetPos = ccpSub(touchPoint, startSwipe_);
         if (!CGPointEqualToPoint(CGPointZero, scrollDirection))
         {
@@ -300,21 +301,6 @@ enum
 	
 	CGPoint touchPoint = [touch locationInView:[touch view]];
 	touchPoint = [[CCDirector sharedDirector] convertToGL:touchPoint];
-	
-//	int selectedPage = currentScreen_;
-//	CGFloat delta = touchPoint.x - startSwipe_;
-//	if (fabsf(delta) >= self.minimumTouchLengthToChangePage)
-//	{
-//		selectedPage = [self pageNumberForPosition:self.position];
-//		if (selectedPage == currentScreen_)
-//		{
-//			if (delta < 0.f && selectedPage < [layers_ count] - 1)
-//				selectedPage++;
-//			else if (delta > 0.f && selectedPage > 0)
-//				selectedPage--;
-//		}
-//	}
-//	[self moveToPage:selectedPage];	
 }
 
 #endif

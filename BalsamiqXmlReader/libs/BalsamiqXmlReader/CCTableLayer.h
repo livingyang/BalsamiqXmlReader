@@ -41,4 +41,6 @@
 
 - (void)addCell:(CCNode *)cell;
 
+- (void)removeAllCell;
+
 @end
