@@ -254,7 +254,10 @@
         return;
     }
     
-    NSAssert([nameAndControlDic objectForKey:name] == nil, @"CCBalsamiqLayer#addControl duplicate name = %@", name);
+    NSAssert([nameAndControlDic objectForKey:name] == nil,
+             @"CCBalsamiqLayer#addControl duplicate name = %@, bmml file = %@",
+             name,
+             self.bmmlFilePath);
     
     [nameAndControlDic setObject:control forKey:name];
 }
