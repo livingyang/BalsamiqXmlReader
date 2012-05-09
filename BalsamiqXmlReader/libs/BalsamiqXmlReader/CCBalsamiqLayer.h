@@ -73,14 +73,13 @@
 
 - (id)getControlByName:(NSString *)name;
 
+
+/*!
+    @名    称：getSelectedRadioByGroup
+    @描    述：get radio select item name by radio group
+    @备    注：单击单选框时，对应的调用方法为：- (void)on[group]RadioSelected:(NSString *)itemName
+*/
 - (NSString *)getSelectedRadioByGroup:(NSString *)group;
-
-@end
-
-@protocol CCBalsamiqLayerDelegate <NSObject>
-
-@optional
-- (void)onBalsamiqLayerRadioSelected:(NSString *)radioGroup itemName:(NSString *)itemName;
 
 @end
 

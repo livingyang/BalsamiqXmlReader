@@ -235,10 +235,10 @@
 		{
 			[chkManager selectItem:sender];
             
-            if ([eventHandle_ respondsToSelector:@selector(onBalsamiqLayerRadioSelected:itemName:)])
+            SEL radioClickSel = NSSelectorFromString([NSString stringWithFormat:@"on%@RadioSelected:", radioGroup]);
+            if ([eventHandle_ respondsToSelector:radioClickSel])
             {
-                [eventHandle_ performSelector:@selector(onBalsamiqLayerRadioSelected:itemName:)
-                                   withObject:radioGroup
+                [eventHandle_ performSelector:radioClickSel
                                    withObject:chkManager.selectedItemInfo];
             }
             
