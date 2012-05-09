@@ -85,6 +85,22 @@ enum
 	[super dealloc];
 }
 
+- (void) visit
+{
+    if (!self.visible)
+    {
+        return;
+    }
+    
+    glEnable(GL_SCISSOR_TEST);
+    float x = self.position.x - self.anchorPoint.x * self.contentSize.width;
+    float y = self.position.y - self.anchorPoint.y * self.contentSize.height;
+    
+    glScissor(x, y, self.contentSize.width, self.contentSize.height);   
+    [super visit];
+    glDisable(GL_SCISSOR_TEST);
+}
+
 - (void)setIsDebug:(BOOL)debug
 {
     isDebug = debug;
