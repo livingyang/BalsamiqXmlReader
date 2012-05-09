@@ -54,6 +54,11 @@
     NSLog(@"TestRadioLayer#onBtn2RadioSelected item name = %@", itemName);
 }
 
+- (void)onSelect_radio_Btn2_2:(id)sender
+{
+    NSLog(@"TestRadioLayer#onSelect_radio_Btn2_2 item = %@", sender);
+}
+
 -(id) init
 {
 	if( (self=[super init]))

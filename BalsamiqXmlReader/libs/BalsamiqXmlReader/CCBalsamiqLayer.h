@@ -78,6 +78,7 @@
     @名    称：getSelectedRadioByGroup
     @描    述：get radio select item name by radio group
     @备    注：单击单选框时，对应的调用方法为：- (void)on[group]RadioSelected:(NSString *)itemName
+    @备    注：新增单个单选框的调用，方法为：- (void)onSelect_[itemName]:(id)sender
 */
 - (NSString *)getSelectedRadioByGroup:(NSString *)group;
 

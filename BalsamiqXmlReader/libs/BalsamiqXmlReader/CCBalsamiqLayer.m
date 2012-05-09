@@ -242,6 +242,13 @@
                                    withObject:chkManager.selectedItemInfo];
             }
             
+            SEL itemClickSel = NSSelectorFromString([NSString stringWithFormat:@"onSelect_%@:", chkManager.selectedItemInfo]);
+            if ([eventHandle_ respondsToSelector:itemClickSel])
+            {
+                [eventHandle_ performSelector:itemClickSel
+                                   withObject:sender];
+            }
+            
             break;
 		}
 	}
