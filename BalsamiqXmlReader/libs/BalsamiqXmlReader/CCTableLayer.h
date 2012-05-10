@@ -11,9 +11,6 @@
 
 @interface CCTableLayer : CCLayer
 {
-    CCLayerColor *containerAreaLayer;
-    CCLayerColor *tableAreaDebug;
-    
     CCNode *cellContainer;
     CGPoint originCellContainerPos;
     CGRect containerRect;

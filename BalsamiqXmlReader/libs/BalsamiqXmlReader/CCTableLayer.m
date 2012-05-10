@@ -44,13 +44,6 @@ enum
 @synthesize minimumTouchLengthToSlide;
 @synthesize isDebug;
 
-- (void)setContentSize:(CGSize)contentSize
-{
-    [super setContentSize:contentSize];
-    
-    tableAreaDebug.contentSize = contentSize;
-}
-
 - (id)init
 {
     self = [super init];
@@ -62,19 +55,8 @@ enum
         containerRect = CGRectZero;
         scrollDirection = CGPointZero;
         
-        tableAreaDebug = [CCLayerColor layerWithColor:ccc4(100, 0, 0, 100)
-                                                width:self.contentSize.width
-                                               height:self.contentSize.height];
-        [self addChild:tableAreaDebug];
-        tableAreaDebug.visible = NO;
-        
         cellContainer = [CCNode node];
         [self addChild:cellContainer];
-        
-        containerAreaLayer = [CCLayerColor layerWithColor:ccc4(100, 100, 100, 100)];
-        containerAreaLayer.contentSize = CGSizeMake(100, 100);
-        [cellContainer addChild:containerAreaLayer];
-        containerAreaLayer.visible = NO;
     }
     
     return self;
@@ -101,12 +83,27 @@ enum
     glDisable(GL_SCISSOR_TEST);
 }
 
-- (void)setIsDebug:(BOOL)debug
+- (CGRect)getCellContainerInTableLayer:(CGPoint)cellContainerPosition
 {
-    isDebug = debug;
-    
-    containerAreaLayer.visible = debug;
-    tableAreaDebug.visible = debug;
+    return (CGRect){ccpAdd(cellContainerPosition, containerRect.origin), containerRect.size};
+}
+
+- (void)draw
+{
+    if (isDebug)
+    {
+        glDisable(GL_SCISSOR_TEST);
+        
+        glColor4ub(100, 100, 100, 100);
+        ccDrawSolidRect(CGPointZero, ccp(self.contentSize.width, self.contentSize.height));
+        
+        glColor4ub(100, 0, 0, 100);
+        CGRect rect = [self getCellContainerInTableLayer:cellContainer.position];
+        
+        ccDrawSolidRect(rect.origin, ccp(rect.origin.x + rect.size.width, rect.origin.y + rect.size.height));
+        
+        glEnable(GL_SCISSOR_TEST);
+    }
 }
 
 - (CGPoint)centerContainerPos
@@ -120,9 +117,6 @@ enum
 - (void)updateContainerRect:(CGRect)rect
 {
     containerRect = rect;
-    
-    containerAreaLayer.position = containerRect.origin;
-    containerAreaLayer.contentSize = containerRect.size;
     
     cellContainer.position = self.centerContainerPos;
     
@@ -141,20 +135,14 @@ enum
     CGPoint cellPosInContainer = [cellContainer convertToNodeSpace:[cell convertToWorldSpace:CGPointZero]];
     CGRect cellRect = {cellPosInContainer, cell.contentSize};
     
+    containerRect = CGRectUnion(containerRect, cellRect);
+    
     [self updateContainerRect:CGRectUnion(containerRect, cellRect)];
 }
 
 - (void)removeAllCell
 {
-    for (int i = cellContainer.children.count - 1; i >= 0; --i)
-    {
-        CCNode *cell = [cellContainer.children objectAtIndex:i];
-        
-        if (cell != containerAreaLayer)
-        {
-            [cellContainer removeChild:cell cleanup:YES];
-        }
-    }
+    [cellContainer removeAllChildrenWithCleanup:YES];
     
     [self updateContainerRect:CGRectZero];
 }
@@ -163,11 +151,6 @@ enum
 {
     for (CCNode *cell in cellContainer.children)
     {
-        if (cell == containerAreaLayer)
-        {
-            continue;
-        }
-        
         CGRect cellRectAtTable = {[self convertToNodeSpace:[cell convertToWorldSpace:CGPointZero]], cell.contentSize};
         
         if (CGRectIntersectsRect(cellRectAtTable, (CGRect){CGPointZero, self.contentSize}))
@@ -304,8 +287,21 @@ enum
             offsetPos = ccpProject(offsetPos, scrollDirection);
         }
         
-        cellContainer.position = ccpAdd(originCellContainerPos, offsetPos);
-        [self updateTotalCellVisible];
+        CGPoint targetPosition = ccpAdd(originCellContainerPos, offsetPos);
+        
+        CGRect beforeRect = [self getCellContainerInTableLayer:cellContainer.position];
+        CGRect afterRect = [self getCellContainerInTableLayer:targetPosition];
+        CGRect tableRect = {CGPointZero, self.contentSize};
+        
+        beforeRect = CGRectIntersection(beforeRect, tableRect);
+        afterRect = CGRectIntersection(afterRect, tableRect);
+        
+        if (afterRect.size.width >= beforeRect.size.width
+            && afterRect.size.height >= beforeRect.size.height)
+        {
+            cellContainer.position = targetPosition;
+            [self updateTotalCellVisible];
+        }
 	}
 }
 
