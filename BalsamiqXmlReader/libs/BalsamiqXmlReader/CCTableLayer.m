@@ -78,7 +78,10 @@ enum
     float x = self.position.x - self.anchorPoint.x * self.contentSize.width;
     float y = self.position.y - self.anchorPoint.y * self.contentSize.height;
     
-    glScissor(x, y, self.contentSize.width, self.contentSize.height);   
+    glScissor(x * CC_CONTENT_SCALE_FACTOR(),
+              y * CC_CONTENT_SCALE_FACTOR(),
+              self.contentSize.width * CC_CONTENT_SCALE_FACTOR(),
+              self.contentSize.height * CC_CONTENT_SCALE_FACTOR());   
     [super visit];
     glDisable(GL_SCISSOR_TEST);
 }
