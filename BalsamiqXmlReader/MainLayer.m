@@ -13,7 +13,6 @@
 #import "BalsamiqControlData.h"
 #import "CCBalsamiqLayer.h"
 #import "CCAlertLayer.h"
-#import "CCTextField.h"
 
 #import "TestAlertLayer.h"
 #import "BalsamiqReaderConfig.h"
@@ -32,19 +31,32 @@
 	return scene;
 }
 
+
 #pragma mark - 
 #pragma mark UITextFieldDelegate
 
-const CGPoint EditOffset = {0, 120};
+const CGPoint EditOffset = {0, 160};
 
-
-- (void)textFieldBeginEditing:(CCTextField *)textField
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    self.position = ccpAdd(self.position, EditOffset);
+    [textField resignFirstResponder];
+    return YES;
 }
-- (void)textFieldDidReturn:(CCTextField *)textField
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField
 {
+    NSLog(@"textFieldDidBeginEditing");
+    
+    self.position = ccpAdd(self.position, EditOffset);
+    textField.center = ccpSub(textField.center, EditOffset);
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+	NSLog(@"textFieldDidEndEditing text = %@", textField.text);
+    
     self.position = ccpSub(self.position, EditOffset);
+    textField.center = ccpAdd(textField.center, EditOffset);
 }
 
 - (void)onNextClick:(id)sender
@@ -75,10 +87,7 @@ const CGPoint EditOffset = {0, 120};
         [[layer getControlByName:@"image_sprite"] runAction:action];
         
         // 获取指定文本框
-        CCTextField *textField = [layer getControlByName:@"text-input"];
-        textField.text = @"< My input >";
-        textField.debugMode = YES;
-        textField.delegate = self;
+        [[layer getControlByName:@"text-input"] setText:@"My input"];
 	}
 	return self;
 }

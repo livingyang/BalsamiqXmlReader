@@ -10,7 +10,7 @@
 #import <objc/message.h>
 #import "BalsamiqControlData.h"
 #import "CCMenuItemButton.h"
-#import "CCTextField.h"
+#import "UIPaddingTextField.h"
 #import "CCTableLayer.h"
 #import "CCLoadingBar.h"
 #import "BalsamiqFileParser.h"
@@ -389,15 +389,38 @@
  */
 - (void)createTextInput:(BalsamiqControlData *)data
 {
-    CCTextField *textField = [CCTextField textFieldWithFieldSize:[self getBalsamiqControlSize:data]
-                                                          fontName:[BalsamiqReaderConfig instance].balsamiqFontName
-                                                       andFontSize:[self getBalsamiqControlTextSize:data]];
-    textField.position = [self getMidPosition:data];
-    textField.anchorPoint = ccp(0.5f, 0.5f);
-    textField.text = [self getDecodeText:[data.propertyDic objectForKey:@"text"]];
-	[self addChild:textField z:[[data.attributeDic objectForKey:@"zOrder"] intValue]];
+	CGRect rect = {[self getBalsamiqControlPosition:data], [self getBalsamiqControlSize:data]};
+	rect.origin = [self convertControlPosition:rect.origin 
+                                      nodeSize:rect.size
+                               withAnchorPoint:ccp(0, 1)];
+	rect.origin = [[CCDirector sharedDirector] convertToUI:rect.origin];
 	
-    [self setControl:textField withName:[data.propertyDic objectForKey:@"customID"]];    
+	UIPaddingTextField *textField = [[[UIPaddingTextField alloc] initWithFrame:rect] autorelease];
+	[textField setPaddingLeft:5 paddingTop:4];
+	
+	//nameTextField.transform = CGAffineTransformMakeRotation(M_PI * (90.0 / 180.0)); // rotate for landscape
+	textField.text = [self getDecodeText:[data.propertyDic objectForKey:@"text"]];
+	textField.textColor = [self getUIColor:[BalsamiqReaderConfig instance].textInputColor alpha:1.0f];
+	textField.textAlignment = [self getBalsamiqControlAlign:data];
+	textField.font = [UIFont fontWithName:[[BalsamiqReaderConfig instance].balsamiqFontName stringByDeletingPathExtension]
+									 size:[self getBalsamiqControlTextSize:data]];
+	
+	// NOTE: UITextField won't be visible by default without setting backGroundColor & borderStyle
+	//textField.backgroundColor = [self getUIBackgroundColor:data];
+	textField.borderStyle = UITextBorderStyleRoundedRect;
+	textField.clearButtonMode = UITextFieldViewModeWhileEditing;
+	
+	textField.delegate = eventHandle_; // set this layer as the UITextFieldDelegate
+	textField.returnKeyType = UIReturnKeyDone; // add the 'done' key to the keyboard
+	textField.autocorrectionType = UITextAutocorrectionTypeNo; // switch of auto correction
+	textField.autocapitalizationType = UITextAutocapitalizationTypeWords;
+	
+	// add the textField to the main game openGLVview
+	[[[CCDirector sharedDirector] openGLView] addSubview:textField];
+	
+	[uiViewArray addObject:textField];
+	
+    [self setControl:textField withName:[data.propertyDic objectForKey:@"customID"]];
 }
 
 - (void)createTextArea:(BalsamiqControlData *)data
