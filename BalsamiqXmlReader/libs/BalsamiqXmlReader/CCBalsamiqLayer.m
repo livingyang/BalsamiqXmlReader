@@ -18,6 +18,7 @@
 
 #define IMAGE_PREFIX @"image_"
 #define RADIO_PREFIX @"radio_"
+#define TOGGLE_PREFIX @"toggle_"
 
 @implementation CCBalsamiqLayer : CCLayer
 
@@ -225,6 +226,39 @@
 	return item;
 }
 
+- (id)createToggle:(BalsamiqControlData *)data
+			target:(id)target
+			   sel:(SEL)sel
+{
+	NSString *picPath = [self getPicPath:[data.propertyDic objectForKey:@"src"]];
+    
+    NSString* checkedPicPath = [picPath stringByReplacingOccurrencesOfString:@"-unchecked" withString:@"-checked"];
+	
+    CCMenuItemToggle *toggle = [CCMenuItemToggle itemWithTarget:target
+                                                       selector:sel
+                                                          items:
+                                [CCMenuItemImage itemFromNormalImage:picPath selectedImage:picPath],
+                                [CCMenuItemImage itemFromNormalImage:checkedPicPath selectedImage:checkedPicPath],
+                                nil];
+    
+	CGSize itemSize = [self getBalsamiqControlSize:data];
+	if (CGSizeEqualToSize(toggle.contentSize, itemSize) == NO)
+	{
+		toggle.scaleX = itemSize.width / toggle.contentSize.width;
+		toggle.scaleY = itemSize.height / toggle.contentSize.height;
+	}
+	toggle.position = [self getMidPosition:data];
+	
+	int zOrder = [[data.attributeDic objectForKey:@"zOrder"] intValue];
+	[controlMenu addChild:toggle z:zOrder];
+	if (controlMenu.zOrder < zOrder)
+	{
+		[controlMenu.parent reorderChild:controlMenu z:zOrder];
+	}
+	
+	return toggle;
+}
+
 - (void)onRadioItemClick:(id)sender
 {
     for (NSString *radioGroup in [groupAndRadioDic allKeys])
@@ -335,11 +369,32 @@
 		
 		[chkManager addItem:button withInfo:customID];
 	}
+	else if ([customID hasPrefix:TOGGLE_PREFIX])
+    {
+        NSString *methodName = [NSString stringWithFormat:@"onClick_%@:", customID];
+        
+		SEL eventSel = NSSelectorFromString(methodName);
+		
+        if ([eventHandle_ respondsToSelector:eventSel])
+        {
+            [self setControl:[self createToggle:data
+                                         target:eventHandle_
+                                            sel:eventSel]
+                    withName:customID];
+        }
+        else
+        {
+            [self setControl:[self createToggle:data
+                                         target:self
+                                            sel:@selector(onNoneHandleButtonClick:)]
+                    withName:customID];
+        }
+    }
 	else
 	{
 		//生成事件名称
 		NSString* methodName = [NSString stringWithFormat:@"on%@Click:", customID];
-		SEL eventSel = sel_registerName([methodName UTF8String]);
+		SEL eventSel = NSSelectorFromString(methodName);
 		
         if ([eventHandle_ respondsToSelector:eventSel])
         {
@@ -583,7 +638,7 @@
 									 substringFromIndex:[@"com.balsamiq.mockups::" length]];
 			
 			NSString* methodName = [NSString stringWithFormat:@"create%@:", controlType];
-			SEL creatorSel = sel_registerName([methodName UTF8String]);
+			SEL creatorSel = NSSelectorFromString(methodName);
 			
 			if ([self respondsToSelector:creatorSel])
 			{

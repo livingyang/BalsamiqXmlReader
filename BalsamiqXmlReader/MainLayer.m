@@ -12,6 +12,7 @@
 
 #import "BalsamiqControlData.h"
 #import "CCBalsamiqLayer.h"
+#import "CCBalsamiqScene.h"
 #import "CCAlertLayer.h"
 
 #import "TestAlertLayer.h"
@@ -22,7 +23,7 @@
 +(CCScene *) scene
 {
 	// 'scene' is an autorelease object.
-	CCScene *scene = [CCScene node];
+	CCScene *scene = [CCBalsamiqScene node];
 	
 	// add layer as a child to scene
 	[scene addChild:[MainLayer node]];
@@ -67,6 +68,11 @@ const CGPoint EditOffset = {0, 160};
 
 - (void)onDisableClick:(id)sender
 {}
+
+- (void)onClick_toggle_ok:(CCMenuItemToggle *)toggle
+{
+    NSLog(@"MainLayer#onClick_toggle_ok toggle index = %d", toggle.selectedIndex);
+}
 
 -(id) init
 {

@@ -15,8 +15,7 @@
     </control>
     <control controlID="35" controlTypeID="com.balsamiq.mockups::Image" x="0" y="275" w="-1" h="-1" measuredW="151" measuredH="45" zOrder="3" locked="false" isInGroup="-1">
       <controlProperties>
-        <customID>
-        Back</customID>
+        <customID>Back</customID>
         <src>../Common/button-normal.png</src>
         <text>Back</text>
       </controlProperties>
