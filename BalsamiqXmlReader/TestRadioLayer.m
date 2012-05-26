@@ -37,8 +37,8 @@
 
 - (void)onNextClick:(id)sender
 {
-    NSLog(@"btn1 radio select item = %@", [self.balsamiqLayer getSelectedRadioByGroup:@"btn1"]);
-    NSLog(@"btn2 radio select item = %@", [self.balsamiqLayer getSelectedRadioByGroup:@"btn2"]);
+    NSLog(@"Btn1 radio select item = %@", [self.balsamiqLayer getRadioManagerByGroup:@"Btn1"].selectedItemInfo);
+    NSLog(@"Btn2 radio select item = %@", [self.balsamiqLayer getRadioManagerByGroup:@"Btn2"].selectedItemInfo);
     
 	[[CCDirector sharedDirector] replaceScene:[CCTransitionSlideInR transitionWithDuration:0.5f
 																					 scene:[TestLoadingBarLayer scene]]];
@@ -66,6 +66,8 @@
         self.balsamiqLayer = [CCBalsamiqLayer layerWithBalsamiqFile:@"4-test-radio.bmml"
                                                             eventHandle:self];
 		[self addChild:self.balsamiqLayer];
+        
+        [self.balsamiqLayer selectRadioItem:@"radio_Btn2_2"];
 	}
 	return self;
 }

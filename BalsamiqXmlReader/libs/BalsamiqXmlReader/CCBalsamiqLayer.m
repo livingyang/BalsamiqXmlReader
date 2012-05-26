@@ -178,6 +178,18 @@
     return [[bmmlFilePath stringByDeletingLastPathComponent] stringByAppendingPathComponent:src];
 }
 
+- (NSString *)getRadioGroup:(NSString *)radioItemName
+{
+    NSArray *radioParamArray = [radioItemName componentsSeparatedByString:@"_"];
+    
+    if (radioParamArray.count == 3)
+    {
+        return [radioParamArray objectAtIndex:1];
+    }
+    
+    return nil;
+}
+
 - (id)createButton:(BalsamiqControlData *)data
 			target:(id)target
 			   sel:(SEL)sel
@@ -351,16 +363,14 @@
 	}
 	else if ([customID hasPrefix:RADIO_PREFIX])
 	{
-		NSArray *radioParamArray = [customID componentsSeparatedByString:@"_"];
-		NSAssert(radioParamArray.count == 3,
-				 @"CCBalsamiqLayer#createImage radio param count = %d",
-				 radioParamArray.count);
+        NSString *radioGroup = [self getRadioGroup:customID];
+        NSAssert(radioGroup.length > 0, @"CCBalsamiqLayer#createImage radio param error");
 		
-		RadioManager *chkManager = [groupAndRadioDic objectForKey:[radioParamArray objectAtIndex:1]];
+		RadioManager *chkManager = [groupAndRadioDic objectForKey:radioGroup];
 		if (chkManager == nil)
 		{
 			chkManager = [[[RadioManager alloc] init] autorelease];
-			[groupAndRadioDic setValue:chkManager forKey:[radioParamArray objectAtIndex:1]];
+			[groupAndRadioDic setValue:chkManager forKey:radioGroup];
 		}
 		
 		id button = [self createButton:data
@@ -645,12 +655,6 @@
                 [self performSelector:creatorSel withObject:data];
 			}
 		}
-		
-		// 4 初始化Radio控件
-		for (RadioManager *radioManager in [groupAndRadioDic allValues])
-		{
-			[radioManager selectFirstItem];
-		}
         
         // *** 打印各个控件信息
         //CCLOG(@"Controls = %@", self.nameAndControlDic);
@@ -669,10 +673,16 @@
     return [nameAndControlDic objectForKey:name];
 }
 
-- (NSString *)getSelectedRadioByGroup:(NSString *)group
+- (RadioManager *)getRadioManagerByGroup:(NSString *)group
 {
     RadioManager *radioManager = [groupAndRadioDic objectForKey:group];
-    return radioManager.selectedItemInfo;
+    return radioManager;
+}
+
+- (void)selectRadioItem:(NSString *)selectItemName
+{
+    [[groupAndRadioDic objectForKey:[self getRadioGroup:selectItemName]]
+     selectItemByName:selectItemName];
 }
 
 @end

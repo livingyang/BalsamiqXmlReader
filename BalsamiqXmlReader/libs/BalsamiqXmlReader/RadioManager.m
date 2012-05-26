@@ -55,19 +55,14 @@
 	}
 }
 
+- (void)selectItemByName:(NSString *)itemName
+{
+    [self selectItem:[infoAndItemDic valueForKey:itemName]];
+}
+
 - (BOOL)isSubitem:(CCMenuItemImage *)item
 {
 	return [[infoAndItemDic allValues] containsObject:item];
-}
-
-- (void)selectFirstItem
-{
-	if (infoAndItemDic.count > 0)
-	{
-		NSArray *inOrderItemArray = [[infoAndItemDic allKeys] sortedArrayUsingSelector:@selector(compare:)];
-		
-		[self selectItem:[infoAndItemDic objectForKey:[inOrderItemArray objectAtIndex:0]]];
-	}
 }
 
 - (NSString *)selectedItemInfo

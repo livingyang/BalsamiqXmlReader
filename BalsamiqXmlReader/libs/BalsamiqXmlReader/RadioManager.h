@@ -21,8 +21,8 @@
 
 - (void)selectItem:(CCMenuItemImage *)item;
 
-- (BOOL)isSubitem:(CCMenuItemImage *)item;
+- (void)selectItemByName:(NSString *)itemName;
 
-- (void)selectFirstItem;
+- (BOOL)isSubitem:(CCMenuItemImage *)item;
 
 @end
