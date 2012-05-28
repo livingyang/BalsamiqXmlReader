@@ -77,5 +77,11 @@
         <src>./chk-unchecked.png</src>
       </controlProperties>
     </control>
+    <control controlID="40" controlTypeID="com.balsamiq.mockups::Image" x="242" y="57" w="-1" h="-1" measuredW="111" measuredH="41" zOrder="12" locked="false" isInGroup="-1">
+      <controlProperties>
+        <customID>bar_test</customID>
+        <src>./button-alert-normal.png</src>
+      </controlProperties>
+    </control>
   </controls>
 </mockup>

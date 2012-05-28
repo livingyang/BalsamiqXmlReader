@@ -94,6 +94,10 @@ const CGPoint EditOffset = {0, 160};
         
         // 获取指定文本框
         [[layer getControlByName:@"text-input"] setText:@"My input"];
+        
+        // 获取bar
+        CCProgressTimer *bar = [layer getControlByName:@"bar_test"];
+        bar.percentage = 70;
 	}
 	return self;
 }

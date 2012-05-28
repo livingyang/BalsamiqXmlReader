@@ -18,6 +18,7 @@
 
 #define IMAGE_PREFIX @"image_"
 #define RADIO_PREFIX @"radio_"
+#define BAR_PREFIX @"bar_"
 #define TOGGLE_PREFIX @"toggle_"
 
 @implementation CCBalsamiqLayer : CCLayer
@@ -400,6 +401,24 @@
                     withName:customID];
         }
     }
+	else if ([customID hasPrefix:BAR_PREFIX])
+    {
+		//创建Bar控件
+		CCProgressTimer *bar = [CCProgressTimer progressWithFile:picPath];
+        bar.type = kCCProgressTimerTypeHorizontalBarLR;
+		bar.percentage = 100;
+        
+		CGSize itemSize = [self getBalsamiqControlSize:data];
+		if (CGSizeEqualToSize(bar.contentSize, itemSize) == NO)
+		{
+			bar.scaleX = itemSize.width / bar.contentSize.width;
+			bar.scaleY = itemSize.height / bar.contentSize.height;
+		}
+		bar.position = [self getMidPosition:data];
+		[self addChild:bar z:zOrder];
+		
+        [self setControl:bar withName:customID];
+    }
 	else
 	{
 		//生成事件名称
@@ -588,6 +607,11 @@
     [bmmlFilePath release];
     [nameAndControlDic release];
 	[groupAndRadioDic release];
+    
+    for (UIView *view in uiViewArray)
+	{
+		[view removeFromSuperview];
+	}
 	[uiViewArray release];
 	[super dealloc];
 }
