@@ -15,6 +15,9 @@
     CGPoint originCellContainerPos;
     CGRect containerRect;
     
+    CGRect maxDisplayRect;
+    CGPoint lastContainerPosHasMaxDisplay;
+    
 	// Internal state of scrollLayer (scrolling or idle).
 	int state_;
     

@@ -14,6 +14,8 @@ enum
 	kCCScrollLayerStateSliding,
 };
 
+#define TAG_MOVE_BACK (12345)
+
 #ifdef __IPHONE_OS_VERSION_MAX_ALLOWED
 @interface CCTouchDispatcher (targetedHandlersGetter)
 
@@ -29,14 +31,41 @@ enum
 }
 
 @end
-#endif
 
-@interface CCTableLayer (Private)
+@implementation CCMenuItemSprite (TableLayerBoundEnable)
 
-- (void)updateTotalCellVisible;
+- (BOOL)isEnabled
+{
+    CCNode *tableParent = self.parent;
+    while ([tableParent isKindOfClass:[CCTableLayer class]] == NO)
+    {
+        if (tableParent == nil)
+        {
+            break;
+        }
+        
+        tableParent = tableParent.parent;
+    }
+    
+    if (tableParent == nil)
+    {
+        return super.isEnabled;
+    }
+    else
+    {
+        CGPoint pointInTable = [self convertToWorldSpace:CGPointZero];
+        pointInTable = [tableParent convertToNodeSpace:pointInTable];
+        
+        CGRect tableRect = {CGPointZero, tableParent.contentSize};
+        CGRect selfRect = {pointInTable, self.contentSize};
+        
+        return CGRectContainsRect(tableRect, selfRect) && super.isEnabled;
+    }
+}
 
 @end
 
+#endif
 
 @implementation CCTableLayer
 
@@ -54,6 +83,7 @@ enum
         
         containerRect = CGRectZero;
         scrollDirection = CGPointZero;
+        maxDisplayRect = CGRectZero;
         
         cellContainer = [CCNode node];
         [self addChild:cellContainer];
@@ -123,7 +153,8 @@ enum
     
     cellContainer.position = self.centerContainerPos;
     
-    [self updateTotalCellVisible];
+    maxDisplayRect = CGRectIntersection([self getCellContainerInTableLayer:cellContainer.position],
+                                        (CGRect){CGPointZero, self.contentSize});
 }
 
 - (void)addCell:(CCNode *)cell
@@ -150,30 +181,11 @@ enum
     [self updateContainerRect:CGRectZero];
 }
 
-- (void)updateTotalCellVisible
-{
-    for (CCNode *cell in cellContainer.children)
-    {
-        CGRect cellRectAtTable = {[self convertToNodeSpace:[cell convertToWorldSpace:CGPointZero]], cell.contentSize};
-        
-        if (CGRectIntersectsRect(cellRectAtTable, (CGRect){CGPointZero, self.contentSize}))
-        {
-            cell.visible = YES;
-        }
-        else
-        {
-            cell.visible = NO;
-        }
-    }
-}
-
 - (void)setScrollDirection:(CGPoint)direction
 {
     scrollDirection = direction;
     
     cellContainer.position = self.centerContainerPos;
-    
-    [self updateTotalCellVisible];
 }
 
 #pragma mark Touches
@@ -236,6 +248,25 @@ enum
     }
 }
 
+- (void)stopMoveCellContainerWhenMaxRect:(ccTime)dt
+{
+    if ([cellContainer getActionByTag:TAG_MOVE_BACK] == nil)
+    {
+        [self unschedule:@selector(stopMoveCellContainerWhenMaxRect:)];
+        return;
+    }
+    
+    CGRect curContainerDisplayRect = [self getCellContainerInTableLayer:cellContainer.position];
+    CGRect tableRect = {CGPointZero, self.contentSize};
+    curContainerDisplayRect = CGRectIntersection(curContainerDisplayRect, tableRect);
+    
+    if (curContainerDisplayRect.size.width >= maxDisplayRect.size.width
+        && curContainerDisplayRect.size.height >= maxDisplayRect.size.height)
+    {
+        [cellContainer stopActionByTag:TAG_MOVE_BACK];
+    }
+}
+
 -(BOOL) ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event
 {
     if (CGRectContainsPoint((CGRect){CGPointZero, self.contentSize},
@@ -256,6 +287,8 @@ enum
 	startSwipe_ = touchPoint;
     originCellContainerPos = cellContainer.position;
 	state_ = kCCScrollLayerStateIdle;
+    
+    [cellContainer stopActionByTag:TAG_MOVE_BACK];
 	return YES;
 }
 
@@ -292,18 +325,18 @@ enum
         
         CGPoint targetPosition = ccpAdd(originCellContainerPos, offsetPos);
         
-        CGRect beforeRect = [self getCellContainerInTableLayer:cellContainer.position];
-        CGRect afterRect = [self getCellContainerInTableLayer:targetPosition];
+        CGRect newRect = [self getCellContainerInTableLayer:targetPosition];
         CGRect tableRect = {CGPointZero, self.contentSize};
         
-        beforeRect = CGRectIntersection(beforeRect, tableRect);
-        afterRect = CGRectIntersection(afterRect, tableRect);
+        newRect = CGRectIntersection(newRect, tableRect);
+
+        cellContainer.position = targetPosition;
         
-        if (afterRect.size.width >= beforeRect.size.width
-            && afterRect.size.height >= beforeRect.size.height)
+        if (newRect.size.width >= maxDisplayRect.size.width &&
+            newRect.size.height >= maxDisplayRect.size.height)
         {
-            cellContainer.position = targetPosition;
-            [self updateTotalCellVisible];
+            lastContainerPosHasMaxDisplay = targetPosition;
+            NSLog(@"record point = %@ !!", NSStringFromCGPoint(targetPosition));
         }
 	}
 }
@@ -316,6 +349,13 @@ enum
 	
 	CGPoint touchPoint = [touch locationInView:[touch view]];
 	touchPoint = [[CCDirector sharedDirector] convertToGL:touchPoint];
+    
+    CCAction *moveAction = [CCMoveTo actionWithDuration:ccpDistance(cellContainer.position, lastContainerPosHasMaxDisplay) / 400
+                                               position:lastContainerPosHasMaxDisplay];
+    moveAction.tag = TAG_MOVE_BACK;
+    [cellContainer runAction:moveAction];
+    
+    [self schedule:@selector(stopMoveCellContainerWhenMaxRect:)];
 }
 
 #endif
