@@ -18,19 +18,19 @@
 #pragma mark 私有函数
 ////////////////////////////////////////////////////////
 
-+ (CCAction *)getShowAction:(AlertShowModal)modal
+- (void)runActionWithModal:(AlertShowModal)modal
 {
 	switch (modal)
 	{
 		case kPopAlertModal:
 		{
-			return [CCSequence actions:
-					[CCEaseElasticOut actionWithAction:[CCScaleTo actionWithDuration:1.2 scale:1]],
-					 nil];
+            self.balsamiqLayer.scale = 0.01f;
+            [self.balsamiqLayer runAction:[CCSequence actions:
+                                           [CCEaseElasticOut actionWithAction:[CCScaleTo actionWithDuration:1.2 scale:1]],
+                                           nil]];
 		}break;
 		default:
 		{
-			return [CCScaleTo actionWithDuration:0 scale:1.0f];
 		}break;
 	}
 }
@@ -69,14 +69,13 @@
 	{
         balsamiqLayer = [CCBalsamiqLayer layerWithBalsamiqFile:fileName
                                                    eventHandle:eventHandleNode];
-        balsamiqLayer.scale = 0;
         balsamiqLayer.anchorPoint = ccp(0.5, 0.5);
         balsamiqLayer.position = ccp([CCDirector sharedDirector].winSize.width / 2,
                                      [CCDirector sharedDirector].winSize.height / 2);
         
         [self addChild:balsamiqLayer];
         
-        [balsamiqLayer runAction:[CCAlertLayer getShowAction:modal]];
+        [self runActionWithModal:modal];
 	}
 	return self;
 }

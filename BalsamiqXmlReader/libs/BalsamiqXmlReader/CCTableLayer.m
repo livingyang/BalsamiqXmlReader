@@ -336,7 +336,6 @@ enum
             newRect.size.height >= maxDisplayRect.size.height)
         {
             lastContainerPosHasMaxDisplay = targetPosition;
-            NSLog(@"record point = %@ !!", NSStringFromCGPoint(targetPosition));
         }
 	}
 }
@@ -350,8 +349,9 @@ enum
 	CGPoint touchPoint = [touch locationInView:[touch view]];
 	touchPoint = [[CCDirector sharedDirector] convertToGL:touchPoint];
     
-    CCAction *moveAction = [CCMoveTo actionWithDuration:ccpDistance(cellContainer.position, lastContainerPosHasMaxDisplay) / 400
-                                               position:lastContainerPosHasMaxDisplay];
+    CCActionInterval *moveAction = [CCMoveTo actionWithDuration:ccpDistance(cellContainer.position, lastContainerPosHasMaxDisplay) / 400
+                                                       position:lastContainerPosHasMaxDisplay];
+    moveAction = [CCEaseExponentialOut actionWithAction:moveAction];
     moveAction.tag = TAG_MOVE_BACK;
     [cellContainer runAction:moveAction];
     
