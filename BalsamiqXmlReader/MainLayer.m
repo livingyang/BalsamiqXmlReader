@@ -72,6 +72,8 @@ const CGPoint EditOffset = {0, 160};
 - (void)onClick_toggle_ok:(CCMenuItemToggle *)toggle
 {
     NSLog(@"MainLayer#onClick_toggle_ok toggle index = %d", toggle.selectedIndex);
+    
+    NSLog(@"toggle balsamiqLayer = %@", [CCBalsamiqLayer getBalsamiqLayerFromChild:toggle]);
 }
 
 -(id) init

@@ -349,7 +349,6 @@
 	{
 		//无名字的情况下，创建图片
 		CCSprite *image = [CCSprite spriteWithFile:picPath];
-        [[CCTextureCache sharedTextureCache] removeTexture:image.texture];
 		
 		CGSize itemSize = [self getBalsamiqControlSize:data];
 		if (CGSizeEqualToSize(image.contentSize, itemSize) == NO)
@@ -707,6 +706,21 @@
 {
     [[groupAndRadioDic objectForKey:[self getRadioGroup:selectItemName]]
      selectItemByName:selectItemName];
+}
+
++ (CCBalsamiqLayer *)getBalsamiqLayerFromChild:(id)node
+{
+    while ([node isKindOfClass:[CCBalsamiqLayer class]] == NO)
+    {
+        if ([node parent] == nil)
+        {
+            return nil;
+        }
+        
+        node = [node parent];
+    }
+    
+    return node;
 }
 
 @end

@@ -84,4 +84,6 @@
 
 - (void)selectRadioItem:(NSString *)selectItemName;
 
++ (CCBalsamiqLayer *)getBalsamiqLayerFromChild:(id)node;
+
 @end
