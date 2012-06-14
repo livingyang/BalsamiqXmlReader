@@ -36,31 +36,23 @@ enum
 
 - (BOOL)isEnabled
 {
-    CCNode *tableParent = self.parent;
-    while ([tableParent isKindOfClass:[CCTableLayer class]] == NO)
+    for (CCNode *nodeParent = self;
+         nodeParent != nil;
+         nodeParent = nodeParent.parent)
     {
-        if (tableParent == nil)
+        if ([nodeParent isKindOfClass:[CCTableLayer class]])
         {
-            break;
+            CGPoint pointInTable = [self convertToWorldSpace:CGPointZero];
+            pointInTable = [nodeParent convertToNodeSpace:pointInTable];
+            
+            CGRect tableRect = {CGPointZero, nodeParent.contentSize};
+            CGRect selfRect = {pointInTable, self.contentSize};
+            
+            return CGRectContainsRect(tableRect, selfRect) && super.isEnabled;
         }
-        
-        tableParent = tableParent.parent;
     }
     
-    if (tableParent == nil)
-    {
-        return super.isEnabled;
-    }
-    else
-    {
-        CGPoint pointInTable = [self convertToWorldSpace:CGPointZero];
-        pointInTable = [tableParent convertToNodeSpace:pointInTable];
-        
-        CGRect tableRect = {CGPointZero, tableParent.contentSize};
-        CGRect selfRect = {pointInTable, self.contentSize};
-        
-        return CGRectContainsRect(tableRect, selfRect) && super.isEnabled;
-    }
+    return super.isEnabled;
 }
 
 @end
