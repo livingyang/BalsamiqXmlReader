@@ -61,9 +61,13 @@ enum
 
 @implementation CCTableLayer
 
-@synthesize scrollDirection;
+@synthesize cellContainer;
+
 @synthesize minimumTouchLengthToSlide;
 @synthesize isDebug;
+
+@synthesize vectorMove;
+@synthesize maxDistance;
 
 - (id)init
 {
@@ -73,12 +77,11 @@ enum
         self.isTouchEnabled = YES;
 		self.isRelativeAnchorPoint = YES;
         
-        containerRect = CGRectZero;
-        scrollDirection = CGPointZero;
-        maxDisplayRect = CGRectZero;
-        
         cellContainer = [CCNode node];
         [self addChild:cellContainer];
+        
+        self.vectorMove = CGPointZero;
+        maxDistance = 0;
     }
     
     return self;
@@ -108,76 +111,15 @@ enum
     glDisable(GL_SCISSOR_TEST);
 }
 
-- (CGRect)getCellContainerInTableLayer:(CGPoint)cellContainerPosition
-{
-    return (CGRect){ccpAdd(cellContainerPosition, containerRect.origin), containerRect.size};
-}
-
 - (void)draw
 {
     if (isDebug)
     {
-        glDisable(GL_SCISSOR_TEST);
+        glLineWidth(3);
         
-        glColor4ub(100, 100, 100, 100);
-        ccDrawSolidRect(CGPointZero, ccp(self.contentSize.width, self.contentSize.height));
-        
-        glColor4ub(100, 0, 0, 100);
-        CGRect rect = [self getCellContainerInTableLayer:cellContainer.position];
-        
-        ccDrawSolidRect(rect.origin, ccp(rect.origin.x + rect.size.width, rect.origin.y + rect.size.height));
-        
-        glEnable(GL_SCISSOR_TEST);
+        glColor4ub(0, 0, 100, 200);
+        ccDrawSolidRect(CGPointZero, ccpFromSize(self.contentSize));
     }
-}
-
-- (CGPoint)centerContainerPos
-{
-    CGPoint offsetPos = ccp((self.contentSize.width - containerRect.size.width) / 2,
-                            (self.contentSize.height - containerRect.size.height) / 2);
-    
-    return ccpSub(offsetPos, containerRect.origin);
-}
-
-- (void)updateContainerRect:(CGRect)rect
-{
-    containerRect = rect;
-    
-    cellContainer.position = self.centerContainerPos;
-    
-    maxDisplayRect = CGRectIntersection([self getCellContainerInTableLayer:cellContainer.position],
-                                        (CGRect){CGPointZero, self.contentSize});
-}
-
-- (void)addCell:(CCNode *)cell
-{
-    if (cell.rotation != 0)
-    {
-        CCLOG(@"CCTableLayer#addCell cell rotation != 0");
-    }
-    
-    [cellContainer addChild:cell];
-    
-    CGPoint cellPosInContainer = [cellContainer convertToNodeSpace:[cell convertToWorldSpace:CGPointZero]];
-    CGRect cellRect = {cellPosInContainer, cell.contentSize};
-    
-    containerRect = CGRectUnion(containerRect, cellRect);
-    
-    [self updateContainerRect:CGRectUnion(containerRect, cellRect)];
-}
-
-- (void)removeAllCell
-{
-    [cellContainer removeAllChildrenWithCleanup:YES];
-    
-    [self updateContainerRect:CGRectZero];
-}
-
-- (void)setScrollDirection:(CGPoint)direction
-{
-    scrollDirection = direction;
-    
-    cellContainer.position = self.centerContainerPos;
 }
 
 #pragma mark Touches
@@ -240,25 +182,6 @@ enum
     }
 }
 
-- (void)stopMoveCellContainerWhenMaxRect:(ccTime)dt
-{
-    if ([cellContainer getActionByTag:TAG_MOVE_BACK] == nil)
-    {
-        [self unschedule:@selector(stopMoveCellContainerWhenMaxRect:)];
-        return;
-    }
-    
-    CGRect curContainerDisplayRect = [self getCellContainerInTableLayer:cellContainer.position];
-    CGRect tableRect = {CGPointZero, self.contentSize};
-    curContainerDisplayRect = CGRectIntersection(curContainerDisplayRect, tableRect);
-    
-    if (curContainerDisplayRect.size.width >= maxDisplayRect.size.width
-        && curContainerDisplayRect.size.height >= maxDisplayRect.size.height)
-    {
-        [cellContainer stopActionByTag:TAG_MOVE_BACK];
-    }
-}
-
 -(BOOL) ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event
 {
     if (CGRectContainsPoint((CGRect){CGPointZero, self.contentSize},
@@ -277,10 +200,12 @@ enum
 	touchPoint = [[CCDirector sharedDirector] convertToGL:touchPoint];
 	
 	startSwipe_ = touchPoint;
-    originCellContainerPos = cellContainer.position;
+    startTouchCellContainerPos = cellContainer.position;
 	state_ = kCCScrollLayerStateIdle;
     
     [cellContainer stopActionByTag:TAG_MOVE_BACK];
+    
+    vectorInertia = CGPointZero;
 	return YES;
 }
 
@@ -305,31 +230,51 @@ enum
 		startSwipe_ = touchPoint;
 
         [self claimTouch: touch];
+        
+        lastTouchTimeStamp = touch.timestamp;
 	}
 	
 	if (state_ == kCCScrollLayerStateSliding)
 	{
         CGPoint offsetPos = ccpSub(touchPoint, startSwipe_);
-        if (!CGPointEqualToPoint(CGPointZero, scrollDirection))
+        
+        if (!CGPointEqualToPoint(CGPointZero, self.vectorMove))
         {
-            offsetPos = ccpProject(offsetPos, scrollDirection);
+            offsetPos = ccpProject(offsetPos, self.vectorMove);
         }
         
-        CGPoint targetPosition = ccpAdd(originCellContainerPos, offsetPos);
-        
-        CGRect newRect = [self getCellContainerInTableLayer:targetPosition];
-        CGRect tableRect = {CGPointZero, self.contentSize};
-        
-        newRect = CGRectIntersection(newRect, tableRect);
-
+        CGPoint targetPosition = ccpAdd(startTouchCellContainerPos, offsetPos);
         cellContainer.position = targetPosition;
         
-        if (newRect.size.width >= maxDisplayRect.size.width &&
-            newRect.size.height >= maxDisplayRect.size.height)
-        {
-            lastContainerPosHasMaxDisplay = targetPosition;
-        }
+        [self updateInertia];
 	}
+}
+
+- (CGPoint)getCellCentainerPosFromDistance:(float)distance
+{
+    if (CGPointEqualToPoint(self.vectorMove, CGPointZero))
+    {
+        return originCellContainerPos;
+    }
+    
+    return ccpAdd(originCellContainerPos, ccpMult(ccpNormalize(self.vectorMove), distance));
+}
+
+- (float)getDistanceFromPos:(CGPoint)pos
+{
+    return ccpDot(ccpNormalize(self.vectorMove), pos);
+}
+
+- (float)curDistance
+{
+    CGPoint offsetPos = ccpSub(cellContainer.position, originCellContainerPos);
+    return ccpDot(ccpNormalize(self.vectorMove), offsetPos);
+}
+
+- (CGPoint)getInertiaPos
+{
+    return ccp(vectorInertia.x * fabsf(vectorInertia.x),
+               -vectorInertia.y * fabsf(vectorInertia.y));
 }
 
 - (void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event
@@ -341,15 +286,105 @@ enum
 	CGPoint touchPoint = [touch locationInView:[touch view]];
 	touchPoint = [[CCDirector sharedDirector] convertToGL:touchPoint];
     
-    CCActionInterval *moveAction = [CCMoveTo actionWithDuration:ccpDistance(cellContainer.position, lastContainerPosHasMaxDisplay) / 400
-                                                       position:lastContainerPosHasMaxDisplay];
-    moveAction = [CCEaseExponentialOut actionWithAction:moveAction];
-    moveAction.tag = TAG_MOVE_BACK;
-    [cellContainer runAction:moveAction];
+    [self updateInertia];
     
-    [self schedule:@selector(stopMoveCellContainerWhenMaxRect:)];
+    float curDistance = 0;
+    float targetDistance = 0;
+    float moveBackDistance = 0;
+    
+    if (!CGPointEqualToPoint(self.vectorMove, CGPointZero) && maxDistance > 0)
+    {
+        curDistance = self.curDistance;
+        
+        targetDistance = curDistance + [self getDistanceFromPos:[self getInertiaPos]];
+        
+        targetDistance = clampf(targetDistance, -100, maxDistance + 100);
+        
+        moveBackDistance = clampf(targetDistance, 0, maxDistance);
+    }
+    
+    CGPoint targetPos = [self getCellCentainerPosFromDistance:targetDistance];
+    CGPoint moveBackPos = [self getCellCentainerPosFromDistance:moveBackDistance];
+    
+    id moveToTargetAction = [CCEaseExponentialOut actionWithAction:
+                             [CCMoveTo actionWithDuration:fabsf(targetDistance - curDistance) / 400 position:targetPos]];
+    id moveBackAction = [CCEaseExponentialOut actionWithAction:
+                         [CCMoveTo actionWithDuration:fabsf(targetDistance - moveBackDistance) / 400 position:moveBackPos]];
+    CCSequence *action = [CCSequence actions:moveToTargetAction, moveBackAction, nil];
+    action.tag = TAG_MOVE_BACK;
+    
+    [cellContainer runAction:action];
 }
 
 #endif
+
+- (void)updateInertia
+{
+    float increaseRate = scrollTouch_.timestamp - lastTouchTimeStamp;
+    lastTouchTimeStamp = scrollTouch_.timestamp;
+    increaseRate = clampf(1 - increaseRate, 0, 1);
+    
+    CGPoint increaseInertia = ccpMult(vectorInertia, increaseRate);
+    
+    CGPoint offsetTouchMove = ccpSub([scrollTouch_ locationInView:scrollTouch_.view],
+                                     [scrollTouch_ previousLocationInView:scrollTouch_.view]);
+    
+    vectorInertia = ccpMidpoint(increaseInertia, offsetTouchMove);
+}
+
+- (CGRect)getCellContainerRect:(CCNode *)container
+{
+    CGRect nodeContainRect = CGRectZero;
+    for (CCNode *node in container.children)
+    {
+        CGPoint nodePoint = [container convertToNodeSpace:[node convertToWorldSpace:CGPointZero]];
+        nodeContainRect = CGRectUnion(nodeContainRect, (CGRect){nodePoint, node.contentSize});
+    }
+    
+    return nodeContainRect;
+}
+
+- (void)setCellContainer:(CCNode *)container
+{    
+    [self removeChild:cellContainer cleanup:YES];
+    cellContainer = container;
+    [self addChild:cellContainer];
+    
+    originCellContainerPos = cellContainer.position;
+}
+
+- (CGPoint)getPosFromRect:(CGRect)rect withDirection:(CGPoint)direction
+{
+    CGPoint offsetDirection = ccpAdd(ccp(1, 1), ccpNormalize(direction));
+    return ccpAdd(rect.origin, ccpCompMult(offsetDirection, ccp(rect.size.width / 2, rect.size.height / 2)));
+    CGPoint offsetPos = ccpCompMult(ccpNormalize(direction), ccpFromSize(rect.size));
+    return ccpAdd(ccpAdd(rect.origin, ccpFromSize(rect.size)), ccpMult(offsetPos, 0.5f));
+}
+
+- (void)setCellContainer:(CCNode *)container autoSetWithVectorMove:(CGPoint)vecMove
+{
+    self.vectorMove = vecMove;
+    
+    CGRect nodeContainRect = [self getCellContainerRect:container];
+    self.maxDistance = [self getMaxDistanceFromContainer:container];
+    
+    CGPoint cellAttachPos = [self getPosFromRect:nodeContainRect withDirection:vecMove];
+    CGPoint tableAttachPos = [self getPosFromRect:(CGRect){CGPointZero, self.contentSize} withDirection:vecMove];
+    
+    container.position = ccpSub(tableAttachPos, cellAttachPos);
+    
+    [self setCellContainer:container];
+}
+
+- (float)getMaxDistanceFromContainer:(CCNode *)container
+{
+    CGRect nodeContainRect = [self getCellContainerRect:container];
+    
+    CGPoint subSize = ccpSub(ccpFromSize(nodeContainRect.size), ccpFromSize(self.contentSize));
+    subSize.x = subSize.x > 0 ? subSize.x : 0;
+    subSize.y = subSize.y > 0 ? subSize.y : 0;
+    
+    return ccpLength(ccpProject(subSize, self.vectorMove));
+}
 
 @end

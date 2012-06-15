@@ -9,15 +9,27 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
+/*
+ 
+ --------------------------------D
+ |                               |
+ |                               |
+ |     -------------------C      |
+ |     |                  |      |
+ |     |                  |      |
+ |     |    LayerRect     |      |
+ |     |                  |      |
+ |     |                  |      |
+ |     B-------------------      |
+ |                               |
+ |      CellContainerRect        |
+ |                               |
+ A-------------------------------|
+ 
+ */
+
 @interface CCTableLayer : CCLayer
 {
-    CCNode *cellContainer;
-    CGPoint originCellContainerPos;
-    CGRect containerRect;
-    
-    CGRect maxDisplayRect;
-    CGPoint lastContainerPosHasMaxDisplay;
-    
 	// Internal state of scrollLayer (scrolling or idle).
 	int state_;
     
@@ -28,6 +40,14 @@
 	// Holds the touch that started the scroll
 	UITouch *scrollTouch_;
 #endif
+    
+    CCNode *cellContainer;
+    CGPoint startTouchCellContainerPos;
+    CGPoint originCellContainerPos;
+    
+    // inertia
+    NSTimeInterval lastTouchTimeStamp;
+    CGPoint vectorInertia;
 }
 
 /** Calibration property. Minimum moving touch length that is enough
@@ -35,12 +55,18 @@
  */
 @property CGFloat minimumTouchLengthToSlide;
 
-@property (nonatomic, readwrite) CGPoint scrollDirection;
+@property BOOL isDebug;
 
-@property (nonatomic, readwrite) BOOL isDebug;
+// cellContain move vector
+@property CGPoint vectorMove;
+@property float maxDistance;
+@property (nonatomic, readonly) float curDistance;
+@property (nonatomic, readonly) CCNode *cellContainer;
 
-- (void)addCell:(CCNode *)cell;
+- (void)setCellContainer:(CCNode *)container;
 
-- (void)removeAllCell;
+- (void)setCellContainer:(CCNode *)container autoSetWithVectorMove:(CGPoint)vecMove;
+
+- (float)getMaxDistanceFromContainer:(CCNode *)container;
 
 @end

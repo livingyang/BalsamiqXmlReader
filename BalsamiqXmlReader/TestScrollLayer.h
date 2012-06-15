@@ -10,8 +10,8 @@
 #import "cocos2d.h"
 
 @class CCTableLayer;
-@interface TestScrollLayer : CCLayer {
-    
+@interface TestScrollLayer : CCLayer
+{
 }
 
 @property (nonatomic, assign) CCTableLayer *tableLayer;

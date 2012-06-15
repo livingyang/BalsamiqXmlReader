@@ -20,28 +20,21 @@
         <text>SetDebug</text>
       </controlProperties>
     </control>
-    <control controlID="34" controlTypeID="com.balsamiq.mockups::Image" x="305" y="60" w="-1" h="-1" measuredW="151" measuredH="45" zOrder="4" locked="false" isInGroup="-1">
-      <controlProperties>
-        <customID>SetDirection</customID>
-        <src>../Common/button-normal.png</src>
-        <text>SetDirection</text>
-      </controlProperties>
-    </control>
-    <control controlID="35" controlTypeID="com.balsamiq.mockups::Image" x="329" y="274" w="-1" h="-1" measuredW="151" measuredH="45" zOrder="5" locked="false" isInGroup="-1">
+    <control controlID="35" controlTypeID="com.balsamiq.mockups::Image" x="329" y="274" w="-1" h="-1" measuredW="151" measuredH="45" zOrder="4" locked="false" isInGroup="-1">
       <controlProperties>
         <customID>Next</customID>
         <src>../Common/button-normal.png</src>
         <text>Next</text>
       </controlProperties>
     </control>
-    <control controlID="41" controlTypeID="com.balsamiq.mockups::Canvas" x="49" y="25" w="241" h="219" measuredW="100" measuredH="70" zOrder="6" locked="false" isInGroup="-1">
+    <control controlID="41" controlTypeID="com.balsamiq.mockups::Canvas" x="39" y="24" w="241" h="219" measuredW="100" measuredH="70" zOrder="5" locked="false" isInGroup="-1">
       <controlProperties>
         <borderStyle>roundedSolid</borderStyle>
         <customID>table1</customID>
         <verticalScrollbar>true</verticalScrollbar>
       </controlProperties>
     </control>
-    <control controlID="42" controlTypeID="com.balsamiq.mockups::Image" x="305" y="120" w="-1" h="-1" measuredW="151" measuredH="45" zOrder="7" locked="false" isInGroup="-1">
+    <control controlID="42" controlTypeID="com.balsamiq.mockups::Image" x="305" y="60" w="-1" h="-1" measuredW="151" measuredH="45" zOrder="6" locked="false" isInGroup="-1">
       <controlProperties>
         <customID>ResetItem</customID>
         <src>../Common/button-normal.png</src>

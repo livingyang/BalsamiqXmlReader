@@ -13,9 +13,11 @@
         <text>Button</text>
       </controlProperties>
     </control>
-    <control controlID="44" controlTypeID="com.balsamiq.mockups::Label" x="138" y="11" w="-1" h="-1" measuredW="44" measuredH="28" zOrder="3" locked="false" isInGroup="-1">
+    <control controlID="44" controlTypeID="com.balsamiq.mockups::Label" x="119" y="10" w="-1" h="-1" measuredW="44" measuredH="28" zOrder="3" locked="false" isInGroup="-1">
       <controlProperties>
+        <align>center</align>
         <color>15110456</color>
+        <customID>title</customID>
         <size>20</size>
         <text>Title</text>
       </controlProperties>
