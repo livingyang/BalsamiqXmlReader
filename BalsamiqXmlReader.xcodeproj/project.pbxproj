@@ -132,13 +132,11 @@
 		18847B73142A2E11005D7C4F /* CCAlertLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 18847B5F142A2E11005D7C4F /* CCAlertLayer.m */; };
 		18847B74142A2E11005D7C4F /* CCBalsamiqLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 18847B61142A2E11005D7C4F /* CCBalsamiqLayer.m */; };
 		18847B75142A2E11005D7C4F /* CCBalsamiqScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 18847B63142A2E11005D7C4F /* CCBalsamiqScene.m */; };
-		18847B78142A2E11005D7C4F /* CCLoadingBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 18847B6A142A2E11005D7C4F /* CCLoadingBar.m */; };
+		18847B78142A2E11005D7C4F /* CCSprite+LoadingBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 18847B6A142A2E11005D7C4F /* CCSprite+LoadingBar.m */; };
 		18847B79142A2E11005D7C4F /* CCMenuItemButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 18847B6C142A2E11005D7C4F /* CCMenuItemButton.m */; };
 		18847B7A142A2E11005D7C4F /* RadioManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 18847B6E142A2E11005D7C4F /* RadioManager.m */; };
 		18AF26D11425CBA000D0D60F /* Vanilla.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 18AF26D01425CBA000D0D60F /* Vanilla.ttf */; };
 		18AF26D31425CC7500D0D60F /* WebViewFile.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 18AF26D21425CC7500D0D60F /* WebViewFile.rtf */; };
-		18AF26D61425CCEE00D0D60F /* loading-bar-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 18AF26D41425CCEE00D0D60F /* loading-bar-hd.png */; };
-		18AF26D71425CCEE00D0D60F /* loading-bar.png in Resources */ = {isa = PBXBuildFile; fileRef = 18AF26D51425CCEE00D0D60F /* loading-bar.png */; };
 		27552DE01557BB5E0031A7F9 /* TestLinkLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 27552DDF1557BB5E0031A7F9 /* TestLinkLayer.m */; };
 		278E860E155284AC00AB548A /* TestScrollLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 278E860D155284AC00AB548A /* TestScrollLayer.m */; };
 		278E8616155295C200AB548A /* CCTableLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 278E8615155295C200AB548A /* CCTableLayer.m */; };
@@ -401,16 +399,14 @@
 		18847B61142A2E11005D7C4F /* CCBalsamiqLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCBalsamiqLayer.m; sourceTree = "<group>"; };
 		18847B62142A2E11005D7C4F /* CCBalsamiqScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCBalsamiqScene.h; sourceTree = "<group>"; };
 		18847B63142A2E11005D7C4F /* CCBalsamiqScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCBalsamiqScene.m; sourceTree = "<group>"; };
-		18847B69142A2E11005D7C4F /* CCLoadingBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCLoadingBar.h; sourceTree = "<group>"; };
-		18847B6A142A2E11005D7C4F /* CCLoadingBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCLoadingBar.m; sourceTree = "<group>"; };
+		18847B69142A2E11005D7C4F /* CCSprite+LoadingBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CCSprite+LoadingBar.h"; sourceTree = "<group>"; };
+		18847B6A142A2E11005D7C4F /* CCSprite+LoadingBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CCSprite+LoadingBar.m"; sourceTree = "<group>"; };
 		18847B6B142A2E11005D7C4F /* CCMenuItemButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCMenuItemButton.h; sourceTree = "<group>"; };
 		18847B6C142A2E11005D7C4F /* CCMenuItemButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCMenuItemButton.m; sourceTree = "<group>"; };
 		18847B6D142A2E11005D7C4F /* RadioManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RadioManager.h; sourceTree = "<group>"; };
 		18847B6E142A2E11005D7C4F /* RadioManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RadioManager.m; sourceTree = "<group>"; };
 		18AF26D01425CBA000D0D60F /* Vanilla.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Vanilla.ttf; path = Resources/Vanilla.ttf; sourceTree = "<group>"; };
 		18AF26D21425CC7500D0D60F /* WebViewFile.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; name = WebViewFile.rtf; path = Resources/WebViewFile.rtf; sourceTree = "<group>"; };
-		18AF26D41425CCEE00D0D60F /* loading-bar-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "loading-bar-hd.png"; path = "Resources/loading-bar-hd.png"; sourceTree = "<group>"; };
-		18AF26D51425CCEE00D0D60F /* loading-bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "loading-bar.png"; path = "Resources/loading-bar.png"; sourceTree = "<group>"; };
 		27552DDE1557BB5E0031A7F9 /* TestLinkLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestLinkLayer.h; sourceTree = "<group>"; };
 		27552DDF1557BB5E0031A7F9 /* TestLinkLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestLinkLayer.m; sourceTree = "<group>"; };
 		278E860C155284AC00AB548A /* TestScrollLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestScrollLayer.h; sourceTree = "<group>"; };
@@ -493,8 +489,6 @@
 		1846F1451425060F00884CCC /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				18AF26D41425CCEE00D0D60F /* loading-bar-hd.png */,
-				18AF26D51425CCEE00D0D60F /* loading-bar.png */,
 				18AF26D01425CBA000D0D60F /* Vanilla.ttf */,
 				1846F2FA14250CF200884CCC /* UI */,
 				1846F1461425060F00884CCC /* Default.png */,
@@ -860,8 +854,8 @@
 				18847B61142A2E11005D7C4F /* CCBalsamiqLayer.m */,
 				18847B62142A2E11005D7C4F /* CCBalsamiqScene.h */,
 				18847B63142A2E11005D7C4F /* CCBalsamiqScene.m */,
-				18847B69142A2E11005D7C4F /* CCLoadingBar.h */,
-				18847B6A142A2E11005D7C4F /* CCLoadingBar.m */,
+				18847B69142A2E11005D7C4F /* CCSprite+LoadingBar.h */,
+				18847B6A142A2E11005D7C4F /* CCSprite+LoadingBar.m */,
 				18847B6B142A2E11005D7C4F /* CCMenuItemButton.h */,
 				18847B6C142A2E11005D7C4F /* CCMenuItemButton.m */,
 				27927B471563A4F900AAAD7A /* UIPaddingTextField.h */,
@@ -937,8 +931,6 @@
 				1846F2FB14250CF200884CCC /* UI in Resources */,
 				18AF26D11425CBA000D0D60F /* Vanilla.ttf in Resources */,
 				18AF26D31425CC7500D0D60F /* WebViewFile.rtf in Resources */,
-				18AF26D61425CCEE00D0D60F /* loading-bar-hd.png in Resources */,
-				18AF26D71425CCEE00D0D60F /* loading-bar.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1056,7 +1048,7 @@
 				18847B73142A2E11005D7C4F /* CCAlertLayer.m in Sources */,
 				18847B74142A2E11005D7C4F /* CCBalsamiqLayer.m in Sources */,
 				18847B75142A2E11005D7C4F /* CCBalsamiqScene.m in Sources */,
-				18847B78142A2E11005D7C4F /* CCLoadingBar.m in Sources */,
+				18847B78142A2E11005D7C4F /* CCSprite+LoadingBar.m in Sources */,
 				18847B79142A2E11005D7C4F /* CCMenuItemButton.m in Sources */,
 				18847B7A142A2E11005D7C4F /* RadioManager.m in Sources */,
 				27DC774F147C86C100890457 /* BalsamiqReaderConfig.m in Sources */,

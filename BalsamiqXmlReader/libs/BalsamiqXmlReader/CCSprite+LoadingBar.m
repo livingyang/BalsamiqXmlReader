@@ -1,52 +1,49 @@
 //
-//  CCLoadingBar.m
-//  study_LoadingBar
+//  CCSprite+LoadingBar.m
+//  
 //
 //  Created by lee living on 11-8-31.
 //  Copyright 2011 LieHuo Tech. All rights reserved.
 //
 
-#import "CCLoadingBar.h"
+#import "CCSprite+LoadingBar.h"
 
-//#define LOADING_BAR_PIC @"loading-bar.png"
-//
-//#define BAR_LEAF_COUNT (12)
+#define TAG_LOADING_ACTION (12121)
 
-@implementation CCLoadingBar
+@implementation CCSprite (LoadingBar)
 
-- (void)updateBar:(ccTime)dt
+- (void)loadingWithInterval:(float)interval
 {
-	elaspeTime += dt;
-	
-	int curBarLeaf = fmod(elaspeTime, barDisplayCycle) / barDisplayCycle * barLeafCount;
-	self.rotation = 360 / barLeafCount * curBarLeaf;
+    [self stopActionByTag:TAG_LOADING_ACTION];
+    
+    id action = [CCSequence actions:
+                 [CCRotateBy actionWithDuration:interval angle:360],
+                 nil];
+    
+    CCRepeatForever *repeatAction = [CCRepeatForever actionWithAction:action];
+    repeatAction.tag = TAG_LOADING_ACTION;
+    
+    [self runAction:repeatAction];
 }
 
-- (void)setBarDisplayCycle:(float)displayCycle barLeafCount:(int)leafCount
+- (void)loadingWithInterval:(float)interval angle:(float)angle
 {
-	NSAssert(displayCycle > 0 && leafCount > 0,
-			 @"CCLoadingBar#setBarDisplayCycle param error");
-	
-	barDisplayCycle = displayCycle;
-	barLeafCount = leafCount;
+    [self stopActionByTag:TAG_LOADING_ACTION];
+    
+    id action = [CCSequence actions:
+                 [CCRotateBy actionWithDuration:0 angle:angle],
+                 [CCDelayTime actionWithDuration:interval],
+                 nil];
+    
+    CCRepeatForever *repeatAction = [CCRepeatForever actionWithAction:action];
+    repeatAction.tag = TAG_LOADING_ACTION;
+    
+    [self runAction:repeatAction];
 }
 
-- (void)setBarSize:(float)size
+- (void)stopLoading
 {
-	self.scaleX = size / self.contentSize.width;
-	self.scaleY = size / self.contentSize.height;
-}
-
-- (void)onEnter
-{
-	[self schedule:@selector(updateBar:)];
-	[super onEnter];
-}
-
-- (void)onExit
-{
-	[self unschedule:@selector(updateBar:)];
-	[super onExit];
+    [self stopActionByTag:TAG_LOADING_ACTION];
 }
 
 @end

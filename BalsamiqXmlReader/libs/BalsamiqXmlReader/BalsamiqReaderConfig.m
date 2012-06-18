@@ -18,7 +18,7 @@ ccColor3B ccColor3BFromNSString(NSString *str);
 
 @implementation BalsamiqReaderConfig
 
-@synthesize balsamiqFontName, buttonNormalTextColor, buttonSelectTextColor, textInputColor, balsamiqRootDir, loadingBarPic;
+@synthesize balsamiqFontName, buttonNormalTextColor, buttonSelectTextColor, textInputColor, balsamiqRootDir;
 
 + (BalsamiqReaderConfig *)instance
 {
@@ -42,7 +42,6 @@ ccColor3B ccColor3BFromNSString(NSString *str);
         
         balsamiqFontName = @"Arial";
         balsamiqRootDir = @"";
-        loadingBarPic = @"loading-bar.png";
 	}
 	return self;
 }

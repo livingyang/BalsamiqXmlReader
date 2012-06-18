@@ -1,6 +1,6 @@
 //
-//  CCLoadingBar.h
-//  study_LoadingBar
+//  CCSprite+LoadingBar.h
+//  
 //
 //  Created by lee living on 11-8-31.
 //  Copyright 2011 LieHuo Tech. All rights reserved.
@@ -9,17 +9,12 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
-@interface CCLoadingBar : CCSprite
-{
-	float barDisplayCycle;
-	
-	float elaspeTime;
-	
-	int barLeafCount;
-}
+@interface CCSprite (LoadingBar)
 
-- (void)setBarDisplayCycle:(float)displayCycle barLeafCount:(int)leafCount;
+- (void)loadingWithInterval:(float)interval;
 
-- (void)setBarSize:(float)size;
+- (void)loadingWithInterval:(float)interval angle:(float)angle;
+
+- (void)stopLoading;
 
 @end

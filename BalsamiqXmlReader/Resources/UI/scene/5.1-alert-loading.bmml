@@ -13,7 +13,7 @@
         <text>Cancle</text>
       </controlProperties>
     </control>
-    <control controlID="16" controlTypeID="com.balsamiq.mockups::Label" x="0" y="175" w="320" h="27" measuredW="188" measuredH="27" zOrder="3" locked="false" isInGroup="-1">
+    <control controlID="16" controlTypeID="com.balsamiq.mockups::Label" x="0" y="175" w="320" h="27" measuredW="131" measuredH="28" zOrder="3" locked="false" isInGroup="-1">
       <controlProperties>
         <align>center</align>
         <color>10066329</color>
@@ -22,10 +22,10 @@
         <text>Please%20waiting</text>
       </controlProperties>
     </control>
-    <control controlID="17" controlTypeID="com.balsamiq.mockups::Icon" x="144" y="217" w="-1" h="-1" measuredW="32" measuredH="32" zOrder="4" locked="false" isInGroup="-1">
+    <control controlID="18" controlTypeID="com.balsamiq.mockups::Image" x="135" y="208" w="50" h="50" measuredW="66" measuredH="66" zOrder="4" locked="false" isInGroup="-1">
       <controlProperties>
-        <borderStyle>none</borderStyle>
-        <icon>SpinningIcon%7Cmedium</icon>
+        <customID>image_loading</customID>
+        <src>./loading-bar.png</src>
       </controlProperties>
     </control>
   </controls>

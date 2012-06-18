@@ -12,7 +12,6 @@
 #import "CCMenuItemButton.h"
 #import "UIPaddingTextField.h"
 #import "CCTableLayer.h"
-#import "CCLoadingBar.h"
 #import "BalsamiqFileParser.h"
 #import "BalsamiqReaderConfig.h"
 
@@ -308,10 +307,12 @@
         return;
     }
     
-    NSAssert([nameAndControlDic objectForKey:name] == nil,
-             @"CCBalsamiqLayer#addControl duplicate name = %@, bmml file = %@",
-             name,
-             self.bmmlFilePath);
+    if ([nameAndControlDic objectForKey:name] != nil)
+    {
+        CCLOG(@"CCBalsamiqLayer#addControl duplicate name = %@, bmml file = %@",
+              name,
+              self.bmmlFilePath);
+    }
     
     [nameAndControlDic setObject:control forKey:name];
 }
@@ -531,31 +532,6 @@
     
     [self addChild:tableLayer z:[[data.attributeDic objectForKey:@"zOrder"] intValue]];
     [self setControl:tableLayer withName:[data.propertyDic objectForKey:@"customID"]];
-}
-
-- (void)createIcon:(BalsamiqControlData *)data
-{
-	NSString *customID = [data.propertyDic objectForKey:@"customID"];
-	if (customID == nil)
-	{
-		customID = @"";
-	}
-	
-	int zOrder = [[data.attributeDic objectForKey:@"zOrder"] intValue];
-	
-	//无名字的情况下，创建图片
-	CCLoadingBar *loadingBar = [CCLoadingBar spriteWithFile:[BalsamiqReaderConfig instance].loadingBarPic];
-	[loadingBar setBarDisplayCycle:1.0 barLeafCount:12];
-	
-	CGSize itemSize = [self getBalsamiqControlSize:data];
-	if (CGSizeEqualToSize(loadingBar.contentSize, itemSize) == NO)
-	{
-		[loadingBar setBarSize:itemSize.width];
-	}
-	loadingBar.position = [self getMidPosition:data];
-	[self addChild:loadingBar z:zOrder];
-	
-    [self setControl:loadingBar withName:customID];
 }
 
 - (void)createFieldSet:(BalsamiqControlData *)data

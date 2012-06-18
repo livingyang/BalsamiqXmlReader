@@ -16,7 +16,6 @@
     ccColor3B buttonSelectTextColor;
     ccColor3B textInputColor;
     NSString *balsamiqRootDir;
-    NSString *loadingBarPic;
     
     NSDictionary *bmmlAndPathDic;
 }
@@ -26,7 +25,6 @@
 @property ccColor3B buttonSelectTextColor;
 @property ccColor3B textInputColor;
 @property (nonatomic, copy) NSString *balsamiqRootDir;
-@property (nonatomic, copy) NSString *loadingBarPic;
 
 + (BalsamiqReaderConfig *)instance;
 

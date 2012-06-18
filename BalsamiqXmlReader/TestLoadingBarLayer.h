@@ -9,9 +9,10 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
+@class CCBalsamiqLayer;
 @interface TestLoadingBarLayer : CCLayer
 {
-
+    CCBalsamiqLayer *layer;
 }
 
 +(CCScene *) scene;
