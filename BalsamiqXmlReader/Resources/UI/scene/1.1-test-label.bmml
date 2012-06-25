@@ -1,0 +1,54 @@
+<mockup version="1.0" skin="sketch" measuredW="480" measuredH="320" mockupW="480" mockupH="320">
+  <controls>
+    <control controlID="9" controlTypeID="com.balsamiq.mockups::ModalScreen" x="0" y="0" w="480" h="320" measuredW="320" measuredH="240" zOrder="0" locked="true" isInGroup="-1"/>
+    <control controlID="24" controlTypeID="com.balsamiq.mockups::Image" x="0" y="0" w="-1" h="-1" measuredW="480" measuredH="320" zOrder="1" locked="false" isInGroup="-1">
+      <controlProperties>
+        <src>./image-bg.png</src>
+      </controlProperties>
+    </control>
+    <control controlID="27" controlTypeID="com.balsamiq.mockups::Label" x="249" y="153" w="225" h="20" measuredW="61" measuredH="21" zOrder="2" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Label%20left</text>
+      </controlProperties>
+    </control>
+    <control controlID="28" controlTypeID="com.balsamiq.mockups::Label" x="249" y="188" w="225" h="20" measuredW="79" measuredH="21" zOrder="3" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>center</align>
+        <text>Label%20center</text>
+        <underline>false</underline>
+      </controlProperties>
+    </control>
+    <control controlID="29" controlTypeID="com.balsamiq.mockups::Label" x="249" y="223" w="225" h="20" measuredW="66" measuredH="21" zOrder="4" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>right</align>
+        <text>Label%20right</text>
+      </controlProperties>
+    </control>
+    <control controlID="30" controlTypeID="com.balsamiq.mockups::Image" x="0" y="275" w="-1" h="-1" measuredW="151" measuredH="45" zOrder="5" locked="false" isInGroup="-1">
+      <controlProperties>
+        <customID>Back</customID>
+        <src>../Common/button-normal.png</src>
+        <text>Back</text>
+      </controlProperties>
+    </control>
+    <control controlID="31" controlTypeID="com.balsamiq.mockups::Image" x="329" y="274" w="-1" h="-1" measuredW="151" measuredH="45" zOrder="6" locked="false" isInGroup="-1">
+      <controlProperties>
+        <customID>Next</customID>
+        <src>../Common/button-normal.png</src>
+        <text>Next</text>
+      </controlProperties>
+    </control>
+    <control controlID="33" controlTypeID="com.balsamiq.mockups::Label" x="310" y="39" w="-1" h="-1" measuredW="102" measuredH="85" zOrder="7" locked="false" isInGroup="-1">
+      <controlProperties>
+        <size>72</size>
+        <text>Big</text>
+      </controlProperties>
+    </control>
+    <control controlID="34" controlTypeID="com.balsamiq.mockups::TextArea" x="22" y="48" w="-1" h="-1" measuredW="200" measuredH="140" zOrder="8" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>center</align>
+        <text>This%20is%20a%20test%20text%20area.%0Anext%20line%0Anext%20line....%0AThe%20end.</text>
+      </controlProperties>
+    </control>
+  </controls>
+</mockup>

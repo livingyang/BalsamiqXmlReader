@@ -20,10 +20,15 @@
         <text>Back</text>
       </controlProperties>
     </control>
-    <control controlID="37" controlTypeID="com.balsamiq.mockups::TextArea" x="0" y="0" w="480" h="260" measuredW="200" measuredH="140" zOrder="4" locked="false" isInGroup="-1">
+    <control controlID="51" controlTypeID="com.balsamiq.mockups::TitleWindow" x="0" y="0" w="480" h="260" measuredW="450" measuredH="400" zOrder="4" locked="false" isInGroup="-1">
       <controlProperties>
+        <bottomheight>27</bottomheight>
+        <close>false</close>
         <customID>webview</customID>
+        <dragger>true</dragger>
+        <maximizeRestore>false</maximizeRestore>
         <text>my%20web%20view</text>
+        <topheight>33</topheight>
       </controlProperties>
     </control>
   </controls>

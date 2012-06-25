@@ -15,20 +15,15 @@
 #import "CCBalsamiqScene.h"
 #import "CCAlertLayer.h"
 
-#import "TestAlertLayer.h"
+#import "TestLabelLayer.h"
 #import "BalsamiqReaderConfig.h"
 
 @implementation MainLayer
 
 +(CCScene *) scene
 {
-	// 'scene' is an autorelease object.
 	CCScene *scene = [CCBalsamiqScene node];
-	
-	// add layer as a child to scene
 	[scene addChild:[MainLayer node]];
-	
-	// return the scene
 	return scene;
 }
 
@@ -63,7 +58,7 @@ const CGPoint EditOffset = {0, 160};
 - (void)onNextClick:(id)sender
 {
 	[[CCDirector sharedDirector] replaceScene:[CCTransitionSlideInR transitionWithDuration:0.5f
-																					 scene:[TestAlertLayer scene]]];
+																					 scene:[TestLabelLayer scene]]];
 }
 
 - (void)onDisableClick:(id)sender

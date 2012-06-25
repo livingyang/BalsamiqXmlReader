@@ -141,6 +141,7 @@
 		278E860E155284AC00AB548A /* TestScrollLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 278E860D155284AC00AB548A /* TestScrollLayer.m */; };
 		278E8616155295C200AB548A /* CCTableLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 278E8615155295C200AB548A /* CCTableLayer.m */; };
 		27927B491563A4F900AAAD7A /* UIPaddingTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 27927B481563A4F900AAAD7A /* UIPaddingTextField.m */; };
+		27A0457A1598316C00643C89 /* TestLabelLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A045791598316C00643C89 /* TestLabelLayer.m */; };
 		27DC774F147C86C100890457 /* BalsamiqReaderConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 27DC774E147C86C100890457 /* BalsamiqReaderConfig.m */; };
 /* End PBXBuildFile section */
 
@@ -415,6 +416,8 @@
 		278E8615155295C200AB548A /* CCTableLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCTableLayer.m; sourceTree = "<group>"; };
 		27927B471563A4F900AAAD7A /* UIPaddingTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIPaddingTextField.h; sourceTree = "<group>"; };
 		27927B481563A4F900AAAD7A /* UIPaddingTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIPaddingTextField.m; sourceTree = "<group>"; };
+		27A045781598316C00643C89 /* TestLabelLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; path = TestLabelLayer.h; sourceTree = "<group>"; };
+		27A045791598316C00643C89 /* TestLabelLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestLabelLayer.m; sourceTree = "<group>"; };
 		27DC774D147C86C100890457 /* BalsamiqReaderConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BalsamiqReaderConfig.h; sourceTree = "<group>"; };
 		27DC774E147C86C100890457 /* BalsamiqReaderConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BalsamiqReaderConfig.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -823,6 +826,8 @@
 			children = (
 				1846F2E914250CA800884CCC /* MainLayer.h */,
 				1846F2EA14250CA800884CCC /* MainLayer.m */,
+				27A045781598316C00643C89 /* TestLabelLayer.h */,
+				27A045791598316C00643C89 /* TestLabelLayer.m */,
 				1846F2EB14250CA800884CCC /* TestAlertLayer.h */,
 				1846F2EC14250CA800884CCC /* TestAlertLayer.m */,
 				1846F2ED14250CA800884CCC /* TestWebViewLayer.h */,
@@ -1056,6 +1061,7 @@
 				278E8616155295C200AB548A /* CCTableLayer.m in Sources */,
 				27552DE01557BB5E0031A7F9 /* TestLinkLayer.m in Sources */,
 				27927B491563A4F900AAAD7A /* UIPaddingTextField.m in Sources */,
+				27A0457A1598316C00643C89 /* TestLabelLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

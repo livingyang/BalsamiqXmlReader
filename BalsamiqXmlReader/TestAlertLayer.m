@@ -13,27 +13,22 @@
 #import "CCAlertLayer.h"
 #import "CCBalsamiqScene.h"
 
-#import "MainLayer.h"
+#import "TestLabelLayer.h"
 #import "TestWebViewLayer.h"
 
 @implementation TestAlertLayer
 
 +(CCScene *) scene
 {
-	// 'scene' is an autorelease object.
 	CCScene *scene = [CCScene node];
-
-	// add layer as a child to scene
 	[scene addChild:[TestAlertLayer node]];
-	
-	// return the scene
 	return scene;
 }
 
 - (void)onBackClick:(id)sender
 {
 	[[CCDirector sharedDirector] replaceScene:[CCTransitionSlideInL transitionWithDuration:0.5f
-																					 scene:[MainLayer scene]]];
+																					 scene:[TestLabelLayer scene]]];
 }
 
 - (void)onNextClick:(id)sender

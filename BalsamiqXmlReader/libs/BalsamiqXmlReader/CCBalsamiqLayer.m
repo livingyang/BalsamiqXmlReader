@@ -56,23 +56,6 @@
 	return [UIColor colorWithRed:color4F.r green:color4F.g blue:color4F.b alpha:alpha];
 }
 
-- (UIColor *)getUIBackgroundColor:(BalsamiqControlData *)data
-{
-	ccColor3B backgroundColor = ccWHITE;
-	if ([data.propertyDic objectForKey:@"color"] != nil)
-	{
-		backgroundColor = [self getColor:[[data.propertyDic objectForKey:@"color"] intValue]];
-	}
-	
-	float alpha = 1.0f;
-	if ([data.propertyDic objectForKey:@"backgroundAlpha"] != nil)
-	{
-		alpha = [[data.propertyDic objectForKey:@"backgroundAlpha"] floatValue];
-	}
-	
-	return [self getUIColor:backgroundColor alpha:alpha];
-}
-
 - (CGSize)getBalsamiqControlSize:(BalsamiqControlData *)data
 {
 	CGSize size = CGSizeZero;
@@ -463,6 +446,26 @@
     [self setControl:label withName:[data.propertyDic objectForKey:@"customID"]];
 }
 
+- (void)createTextArea:(BalsamiqControlData *)data
+{
+    CCLabelTTF *label = [CCLabelTTF labelWithString:[self getDecodeText:[data.propertyDic objectForKey:@"text"]]
+                                         dimensions:[self getBalsamiqControlSize:data]
+                                          alignment:[self getBalsamiqControlAlign:data]
+                                           fontName:[BalsamiqReaderConfig instance].balsamiqFontName
+                                           fontSize:[self getBalsamiqControlTextSize:data]];
+    
+    label.anchorPoint = [self getAnchorPointWithTextAlignment:[self getBalsamiqControlAlign:data]];
+    label.position = [self convertControlPosition:[self getBalsamiqControlPosition:data]
+                                         nodeSize:[self getBalsamiqControlSize:data]
+                                  withAnchorPoint:label.anchorPoint];
+	
+	label.color = [self getColor:[[data.propertyDic objectForKey:@"color"] intValue]];
+	
+	[self addChild:label z:[[data.attributeDic objectForKey:@"zOrder"] intValue]];
+	
+    [self setControl:label withName:[data.propertyDic objectForKey:@"customID"]];
+}
+
 /*!
  @名    称：createTextInput
  @描    述：创建文本输入框
@@ -490,7 +493,6 @@
 									 size:[self getBalsamiqControlTextSize:data]];
 	
 	// NOTE: UITextField won't be visible by default without setting backGroundColor & borderStyle
-	//textField.backgroundColor = [self getUIBackgroundColor:data];
 	textField.borderStyle = UITextBorderStyleRoundedRect;
 	textField.clearButtonMode = UITextFieldViewModeWhileEditing;
 	
@@ -507,7 +509,7 @@
     [self setControl:textField withName:[data.propertyDic objectForKey:@"customID"]];
 }
 
-- (void)createTextArea:(BalsamiqControlData *)data
+- (void)createTitleWindow:(BalsamiqControlData *)data
 {
 	CGRect rect = {[self getBalsamiqControlPosition:data], [self getBalsamiqControlSize:data]};
 	rect.origin = [self convertControlPosition:rect.origin 
@@ -516,8 +518,6 @@
 	rect.origin = [[CCDirector sharedDirector] convertToUI:rect.origin];
 	
 	UIWebView *webView = [[[UIWebView alloc] initWithFrame:rect] autorelease];
-	webView.backgroundColor = [self getUIBackgroundColor:data];
-	
 	[uiViewArray addObject:webView];
 	
     [self setControl:webView withName:[data.propertyDic objectForKey:@"customID"]];

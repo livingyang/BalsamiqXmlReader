@@ -53,7 +53,9 @@
         CCBalsamiqLayer *balsamiqLayer = [CCBalsamiqLayer layerWithBalsamiqFile:@"3-test-webview.bmml"
                                                                     eventHandle:self];
 
-        [self loadDocument:@"WebViewFile.rtf" inView:[balsamiqLayer getControlByName:@"webview"]];
+        UIWebView *webView = [balsamiqLayer getControlByName:@"webview"];
+        webView.backgroundColor = [UIColor whiteColor];
+        [self loadDocument:@"WebViewFile.rtf" inView:webView];
 		[self addChild:balsamiqLayer];
 	}
 	return self;
