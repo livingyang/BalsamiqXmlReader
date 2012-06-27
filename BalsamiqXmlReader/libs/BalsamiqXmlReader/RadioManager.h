@@ -7,15 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "cocos2d.h"
 
-@class CCMenuItemImage;
-@class CCLayer;
 @interface RadioManager : NSObject
 {
 	NSMutableDictionary *infoAndItemDic;
     
-    id layerParent;
-    NSMutableDictionary *itemNameAndSelectLayerDic;
+    id tabParent;
+    NSMutableDictionary *itemNameAndTabDic;
 }
 
 @property (nonatomic, readonly) NSString *selectedItemInfo;
@@ -28,6 +27,6 @@
 
 - (BOOL)isSubitem:(CCMenuItemImage *)item;
 
-- (void)setItemAndSelectLayer:(NSDictionary *)itemAndSelectLayerDic;
+- (void)setItemName:(NSString *)itemName withTab:(CCNode *)tab;
 
 @end

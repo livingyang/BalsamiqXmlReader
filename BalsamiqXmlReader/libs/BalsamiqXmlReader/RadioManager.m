@@ -7,7 +7,6 @@
 //
 
 #import "RadioManager.h"
-#import "cocos2d.h"
 #import "CCBalsamiqLayer.h"
 
 @implementation RadioManager
@@ -18,7 +17,7 @@
 	if (self != nil) 
 	{
 		infoAndItemDic = [[NSMutableDictionary alloc] init];
-        itemNameAndSelectLayerDic = [[NSMutableDictionary alloc] init];
+        itemNameAndTabDic = [[NSMutableDictionary alloc] init];
 	}
 	return self;
 }
@@ -26,7 +25,7 @@
 - (void) dealloc
 {
 	[infoAndItemDic release];
-    [itemNameAndSelectLayerDic release];
+    [itemNameAndTabDic release];
 	[super dealloc];
 }
 
@@ -56,7 +55,7 @@
 		}
 	}
     
-    [self updateSelectLayer];
+    [self updateSelectTab];
 }
 
 - (void)selectItemByName:(NSString *)itemName
@@ -83,71 +82,50 @@
     return nil;
 }
 
-- (void)updateLayerParent
+- (void)updateSelectTab
 {
-    layerParent = nil;
+    NSString *selectTabName = self.selectedItemInfo;
     
-    for (CCLayer *layer in [itemNameAndSelectLayerDic allValues])
+    for (NSString *tabName in [itemNameAndTabDic allKeys])
     {
-        if (layer.parent != nil)
-        {
-            if (layerParent == nil)
-            {
-                layerParent = layer.parent;
-                [layer removeFromParentAndCleanup:NO];
-            }
-            else
-            {
-                if (layerParent != layer.parent)
-                {
-                    CCLOG(@"RadioManager#updateLayerParent error layerParent != layer.parent");
-                }
-                
-                [layer removeFromParentAndCleanup:NO];
-            }
-        }
-    }
-    
-    if (layerParent == nil)
-    {
-        CCLOG(@"RadioManager#updateLayerParent error layerParent == nil");
-    }
-}
-
-- (void)updateSelectLayer
-{
-    NSString *selectName = self.selectedItemInfo;
-    
-    for (NSString *itemName in [itemNameAndSelectLayerDic allKeys])
-    {
-        CCLayer *layer = [itemNameAndSelectLayerDic objectForKey:itemName];
+        CCNode *tab = [itemNameAndTabDic objectForKey:tabName];
         
-        if ([selectName isEqualToString:itemName])
+        if ([selectTabName isEqualToString:tabName])
         {
-            [layerParent addChild:layer];
+            [tabParent addChild:tab];
         }
         else
         {
-            [layer removeFromParentAndCleanup:NO];
+            [tab removeFromParentAndCleanup:NO];
         }
     }
 }
 
-- (void)setItemAndSelectLayer:(NSDictionary *)itemAndSelectLayerDic
+- (void)setItemName:(NSString *)itemName withTab:(CCNode *)tab
 {
-    [itemNameAndSelectLayerDic removeAllObjects];
-    [itemNameAndSelectLayerDic addEntriesFromDictionary:itemAndSelectLayerDic];
-    
-    for (NSString *itemName in [itemNameAndSelectLayerDic allKeys])
+    if ([itemNameAndTabDic objectForKey:itemName] != nil)
     {
-        if ([infoAndItemDic objectForKey:itemName] == nil)
-        {
-            CCLOG(@"RadioManager#setItemAndSelectLayer: %@ is invalid item", itemName);
-        }
+        CCLOG(@"RadioManager#setItemName duplicate tab = %@", itemName);
+        return;
     }
     
-    [self updateLayerParent];
-    [self updateSelectLayer];
+    [itemNameAndTabDic setObject:tab forKey:itemName];
+    if (tab.parent != nil)
+    {
+        if (tabParent == nil)
+        {
+            tabParent = tab.parent;
+        }
+        else
+        {
+            if (tabParent != tab.parent)
+            {
+                CCLOG(@"RadioManager#setItemName error layerParent != node.parent");
+            }
+        }
+        
+        [tab removeFromParentAndCleanup:NO];
+    }
 }
 
 @end

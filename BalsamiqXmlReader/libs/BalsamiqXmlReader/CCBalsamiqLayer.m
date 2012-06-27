@@ -19,6 +19,7 @@
 #define RADIO_PREFIX @"radio_"
 #define BAR_PREFIX @"bar_"
 #define TOGGLE_PREFIX @"toggle_"
+#define TAB_PREFIX @"tab_"
 
 @implementation CCBalsamiqLayer : CCLayer
 
@@ -315,6 +316,33 @@
     NSLog(@"CCBalsamiqLayer#onNoneHandleButtonClick name = %@, sender = %@", name, sender);
 }
 
+- (RadioManager *)getOrCreateRadioManager:(NSString *)radioGroup
+{
+    if (radioGroup.length == 0)
+    {
+        CCLOG(@"CCBalsamiqLayer#getOrCreateRadioManager radioGroup is invalid!");
+        return nil;
+    }
+    
+    RadioManager *chkManager = [groupAndRadioDic objectForKey:radioGroup];
+    if (chkManager == nil)
+    {
+        chkManager = [[[RadioManager alloc] init] autorelease];
+        [groupAndRadioDic setValue:chkManager forKey:radioGroup];
+    }
+    
+    return chkManager;
+}
+
+- (void)checkAndSetTab:(NSString *)name node:(CCNode *)node
+{
+    if ([name hasPrefix:TAB_PREFIX])
+    {
+        NSString *tabName = [name stringByReplacingOccurrencesOfString:TAB_PREFIX withString:RADIO_PREFIX];
+        [[self getOrCreateRadioManager:[self getRadioGroup:name]] setItemName:tabName withTab:node];
+    }
+}
+
 ////////////////////////////////////////////////////////
 #pragma mark 控件创建函数
 ////////////////////////////////////////////////////////
@@ -350,18 +378,11 @@
         NSString *radioGroup = [self getRadioGroup:customID];
         NSAssert(radioGroup.length > 0, @"CCBalsamiqLayer#createImage radio param error");
 		
-		RadioManager *chkManager = [groupAndRadioDic objectForKey:radioGroup];
-		if (chkManager == nil)
-		{
-			chkManager = [[[RadioManager alloc] init] autorelease];
-			[groupAndRadioDic setValue:chkManager forKey:radioGroup];
-		}
-		
 		id button = [self createButton:data
 								target:self
 								   sel:@selector(onRadioItemClick:)];
 		
-		[chkManager addItem:button withInfo:customID];
+		[[self getOrCreateRadioManager:radioGroup] addItem:button withInfo:customID];
 	}
 	else if ([customID hasPrefix:TOGGLE_PREFIX])
     {
@@ -532,6 +553,8 @@
     
     [self addChild:tableLayer z:[[data.attributeDic objectForKey:@"zOrder"] intValue]];
     [self setControl:tableLayer withName:[data.propertyDic objectForKey:@"customID"]];
+    
+    [self checkAndSetTab:[data.propertyDic objectForKey:@"customID"] node:tableLayer];
 }
 
 - (void)createFieldSet:(BalsamiqControlData *)data
@@ -544,6 +567,8 @@
                                   withAnchorPoint:ccp(0, 0)];
     [self addChild:layer z:[[data.attributeDic objectForKey:@"zOrder"] intValue]];
     [self setControl:layer withName:[data.propertyDic objectForKey:@"customID"]];
+    
+    [self checkAndSetTab:[data.propertyDic objectForKey:@"customID"] node:layer];
     
     if (CGSizeEqualToSize(layer.contentSize, [self getBalsamiqControlSize:data]) == false)
     {

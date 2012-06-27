@@ -1,5 +1,5 @@
 //
-//  TestRadioTableLayer.h
+//  TestTabsLayer.h
 //  BalsamiqXmlReader
 //
 //  Created by 青宝 中 on 12-6-27.
@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
-@interface TestRadioTableLayer : CCLayer {
+@interface TestTabsLayer : CCLayer {
     
 }
 
