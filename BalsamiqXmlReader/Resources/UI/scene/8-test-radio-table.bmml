@@ -1,0 +1,63 @@
+<mockup version="1.0" skin="sketch" measuredW="480" measuredH="320" mockupW="480" mockupH="320">
+  <controls>
+    <control controlID="9" controlTypeID="com.balsamiq.mockups::ModalScreen" x="0" y="0" w="480" h="320" measuredW="320" measuredH="240" zOrder="0" locked="true" isInGroup="-1"/>
+    <control controlID="24" controlTypeID="com.balsamiq.mockups::Image" x="0" y="0" w="-1" h="-1" measuredW="480" measuredH="320" zOrder="1" locked="false" isInGroup="-1">
+      <controlProperties>
+        <src>./image-bg.png</src>
+      </controlProperties>
+    </control>
+    <control controlID="31" controlTypeID="com.balsamiq.mockups::Image" x="0" y="273" w="-1" h="-1" measuredW="151" measuredH="45" zOrder="2" locked="false" isInGroup="-1">
+      <controlProperties>
+        <customID>Back</customID>
+        <src>../Common/button-normal.png</src>
+        <text>Back</text>
+      </controlProperties>
+    </control>
+    <control controlID="35" controlTypeID="com.balsamiq.mockups::Image" x="329" y="274" w="-1" h="-1" measuredW="151" measuredH="45" zOrder="3" locked="false" isInGroup="-1">
+      <controlProperties>
+        <customID>Next</customID>
+        <src>../Common/button-normal.png</src>
+        <text>Next</text>
+      </controlProperties>
+    </control>
+    <control controlID="42" controlTypeID="com.balsamiq.mockups::FieldSet" x="78" y="63" w="197" h="151" measuredW="200" measuredH="170" zOrder="4" locked="false" isInGroup="-1">
+      <controlProperties>
+        <customID>page1</customID>
+        <text>7.1-link-layer.bmml</text>
+      </controlProperties>
+    </control>
+    <control controlID="43" controlTypeID="com.balsamiq.mockups::FieldSet" x="116" y="92" w="181" h="146" measuredW="200" measuredH="170" zOrder="5" locked="false" isInGroup="-1">
+      <controlProperties>
+        <customID>page2</customID>
+        <text>7.1-link-layer.bmml</text>
+      </controlProperties>
+    </control>
+    <control controlID="44" controlTypeID="com.balsamiq.mockups::FieldSet" x="160" y="121" w="167" h="149" measuredW="200" measuredH="170" zOrder="6" locked="false" isInGroup="-1">
+      <controlProperties>
+        <customID>page3</customID>
+        <text>7.1-link-layer.bmml</text>
+      </controlProperties>
+    </control>
+    <control controlID="45" controlTypeID="com.balsamiq.mockups::Image" x="18" y="10" w="-1" h="-1" measuredW="151" measuredH="45" zOrder="7" locked="false" isInGroup="-1">
+      <controlProperties>
+        <customID>radio_Page_1</customID>
+        <src>../Common/button-normal.png</src>
+        <text>Page1</text>
+      </controlProperties>
+    </control>
+    <control controlID="46" controlTypeID="com.balsamiq.mockups::Image" x="169" y="9" w="-1" h="-1" measuredW="151" measuredH="45" zOrder="8" locked="false" isInGroup="-1">
+      <controlProperties>
+        <customID>radio_Page_2</customID>
+        <src>../Common/button-normal.png</src>
+        <text>Page2</text>
+      </controlProperties>
+    </control>
+    <control controlID="47" controlTypeID="com.balsamiq.mockups::Image" x="320" y="9" w="-1" h="-1" measuredW="151" measuredH="45" zOrder="9" locked="false" isInGroup="-1">
+      <controlProperties>
+        <customID>radio_Page_3</customID>
+        <src>../Common/button-normal.png</src>
+        <text>Page3</text>
+      </controlProperties>
+    </control>
+  </controls>
+</mockup>

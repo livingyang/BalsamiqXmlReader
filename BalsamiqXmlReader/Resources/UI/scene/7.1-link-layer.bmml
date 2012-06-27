@@ -16,6 +16,7 @@
     <control controlID="44" controlTypeID="com.balsamiq.mockups::Label" x="88" y="33" w="-1" h="-1" measuredW="91" measuredH="28" zOrder="3" locked="false" isInGroup="-1">
       <controlProperties>
         <color>15110456</color>
+        <customID>title</customID>
         <size>20</size>
         <text>Link-layer</text>
       </controlProperties>

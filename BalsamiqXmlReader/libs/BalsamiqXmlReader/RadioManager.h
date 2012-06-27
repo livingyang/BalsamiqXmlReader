@@ -9,10 +9,13 @@
 #import <Foundation/Foundation.h>
 
 @class CCMenuItemImage;
-
+@class CCLayer;
 @interface RadioManager : NSObject
 {
 	NSMutableDictionary *infoAndItemDic;
+    
+    id layerParent;
+    NSMutableDictionary *itemNameAndSelectLayerDic;
 }
 
 @property (nonatomic, readonly) NSString *selectedItemInfo;
@@ -24,5 +27,7 @@
 - (void)selectItemByName:(NSString *)itemName;
 
 - (BOOL)isSubitem:(CCMenuItemImage *)item;
+
+- (void)setItemAndSelectLayer:(NSDictionary *)itemAndSelectLayerDic;
 
 @end

@@ -8,6 +8,7 @@
 
 #import "TestLinkLayer.h"
 #import "TestScrollLayer.h"
+#import "TestRadioTableLayer.h"
 #import "CCBalsamiqLayer.h"
 
 @implementation TestLinkLayer
@@ -43,6 +44,8 @@
 
 - (void)onNextClick:(id)sender
 {
+	[[CCDirector sharedDirector] replaceScene:[CCTransitionSlideInR transitionWithDuration:0.5f
+																					 scene:[TestRadioTableLayer scene]]];
 }
 
 @end

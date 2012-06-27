@@ -35,7 +35,7 @@
     
 	/*!
         @名    称：eventHandle_
-        @描    述：事件处理着，继承了CCBalsamiqLayerDelegate接口
+        @描    述：事件处理者
         @备    注：
     */
     id eventHandle_;
