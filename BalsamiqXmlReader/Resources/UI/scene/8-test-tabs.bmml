@@ -20,41 +20,41 @@
         <text>Next</text>
       </controlProperties>
     </control>
-    <control controlID="42" controlTypeID="com.balsamiq.mockups::FieldSet" x="18" y="122" w="167" h="149" measuredW="200" measuredH="170" zOrder="4" locked="false" isInGroup="-1">
+    <control controlID="42" controlTypeID="com.balsamiq.mockups::FieldSet" x="18" y="121" w="167" h="149" measuredW="200" measuredH="170" zOrder="4" locked="false" isInGroup="-1">
       <controlProperties>
-        <customID>tab_Page_1</customID>
+        <customID>tab_tab_page1</customID>
         <text>7.1-link-layer.bmml</text>
       </controlProperties>
     </control>
-    <control controlID="43" controlTypeID="com.balsamiq.mockups::FieldSet" x="18" y="122" w="167" h="149" measuredW="200" measuredH="170" zOrder="5" locked="false" isInGroup="-1">
+    <control controlID="43" controlTypeID="com.balsamiq.mockups::FieldSet" x="18" y="121" w="167" h="149" measuredW="200" measuredH="170" zOrder="5" locked="false" isInGroup="-1">
       <controlProperties>
-        <customID>tab_Page_2</customID>
+        <customID>tab_tab_page2</customID>
         <text>7.1-link-layer.bmml</text>
       </controlProperties>
     </control>
-    <control controlID="44" controlTypeID="com.balsamiq.mockups::FieldSet" x="18" y="122" w="167" h="149" measuredW="200" measuredH="170" zOrder="6" locked="false" isInGroup="-1">
+    <control controlID="44" controlTypeID="com.balsamiq.mockups::FieldSet" x="18" y="121" w="167" h="149" measuredW="200" measuredH="170" zOrder="6" locked="false" isInGroup="-1">
       <controlProperties>
-        <customID>tab_Page_3</customID>
+        <customID>tab_tab_page3</customID>
         <text>7.1-link-layer.bmml</text>
       </controlProperties>
     </control>
     <control controlID="45" controlTypeID="com.balsamiq.mockups::Image" x="18" y="0" w="-1" h="-1" measuredW="151" measuredH="45" zOrder="7" locked="false" isInGroup="-1">
       <controlProperties>
-        <customID>radio_Page_1</customID>
+        <customID>radio_tab_page1</customID>
         <src>../Common/button-normal.png</src>
         <text>Page1</text>
       </controlProperties>
     </control>
     <control controlID="46" controlTypeID="com.balsamiq.mockups::Image" x="18" y="37" w="-1" h="-1" measuredW="151" measuredH="45" zOrder="8" locked="false" isInGroup="-1">
       <controlProperties>
-        <customID>radio_Page_2</customID>
+        <customID>radio_tab_page2</customID>
         <src>../Common/button-normal.png</src>
         <text>Page2</text>
       </controlProperties>
     </control>
     <control controlID="47" controlTypeID="com.balsamiq.mockups::Image" x="18" y="73" w="-1" h="-1" measuredW="151" measuredH="45" zOrder="9" locked="false" isInGroup="-1">
       <controlProperties>
-        <customID>radio_Page_3</customID>
+        <customID>radio_tab_page3</customID>
         <src>../Common/button-normal.png</src>
         <text>Page3</text>
       </controlProperties>

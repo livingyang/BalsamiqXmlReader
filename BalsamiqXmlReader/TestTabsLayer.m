@@ -29,11 +29,11 @@
                                                             eventHandle:self];
 		[self addChild:layer];
         
-        [layer selectRadioItem:@"radio_Page_1"];
+        [layer selectRadioItem:@"radio_tab_page1"];
         
-        [[[layer getControlByName:@"tab_Page_1"] getControlByName:@"title"] setString:@"page1"];
-        [[[layer getControlByName:@"tab_Page_2"] getControlByName:@"title"] setString:@"page2"];
-        [[[layer getControlByName:@"tab_Page_3"] getControlByName:@"title"] setString:@"page3"];
+        [[[layer getControlByName:@"tab_tab_page1"] getControlByName:@"title"] setString:@"page1"];
+        [[[layer getControlByName:@"tab_tab_page2"] getControlByName:@"title"] setString:@"page2"];
+        [[[layer getControlByName:@"tab_tab_page3"] getControlByName:@"title"] setString:@"page3"];
         
         
         [[layer getRadioManagerByGroup:@"CustomPage"] setItemName:@"radio_CustomPage_1"

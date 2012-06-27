@@ -338,7 +338,7 @@
 {
     if ([name hasPrefix:TAB_PREFIX])
     {
-        NSString *tabName = [name stringByReplacingOccurrencesOfString:TAB_PREFIX withString:RADIO_PREFIX];
+        NSString *tabName = [name stringByReplacingCharactersInRange:NSMakeRange(0, TAB_PREFIX.length) withString:RADIO_PREFIX];
         [[self getOrCreateRadioManager:[self getRadioGroup:name]] setItemName:tabName withTab:node];
     }
 }
