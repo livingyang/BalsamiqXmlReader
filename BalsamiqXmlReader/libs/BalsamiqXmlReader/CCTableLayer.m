@@ -100,13 +100,14 @@ enum
     }
     
     glEnable(GL_SCISSOR_TEST);
-    CGPoint scissorLeftBottom = [self convertToWorldSpace:CGPointZero];
-    CGPoint scissorRightTop = [self convertToWorldSpace:ccpFromSize(self.contentSize)];
     
-    glScissor(scissorLeftBottom.x,
-              scissorLeftBottom.y,
-              scissorRightTop.x - scissorLeftBottom.x,
-              scissorRightTop.y - scissorLeftBottom.y);
+    CGRect visitRect =
+    {
+        [self convertToWorldSpace:CGPointZero],
+        self.contentSize,
+    };
+    visitRect = CC_RECT_POINTS_TO_PIXELS(visitRect);
+    glScissor(visitRect.origin.x, visitRect.origin.y, visitRect.size.width, visitRect.size.height);
     
     [super visit];
     glDisable(GL_SCISSOR_TEST);
