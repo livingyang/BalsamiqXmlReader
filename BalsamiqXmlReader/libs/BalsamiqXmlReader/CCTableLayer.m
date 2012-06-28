@@ -100,13 +100,14 @@ enum
     }
     
     glEnable(GL_SCISSOR_TEST);
-    float x = self.position.x - self.anchorPoint.x * self.contentSize.width;
-    float y = self.position.y - self.anchorPoint.y * self.contentSize.height;
+    CGPoint scissorLeftBottom = [self convertToWorldSpace:CGPointZero];
+    CGPoint scissorRightTop = [self convertToWorldSpace:ccpFromSize(self.contentSize)];
     
-    glScissor(x * CC_CONTENT_SCALE_FACTOR(),
-              y * CC_CONTENT_SCALE_FACTOR(),
-              self.contentSize.width * CC_CONTENT_SCALE_FACTOR(),
-              self.contentSize.height * CC_CONTENT_SCALE_FACTOR());   
+    glScissor(scissorLeftBottom.x,
+              scissorLeftBottom.y,
+              scissorRightTop.x - scissorLeftBottom.x,
+              scissorRightTop.y - scissorLeftBottom.y);
+    
     [super visit];
     glDisable(GL_SCISSOR_TEST);
 }
