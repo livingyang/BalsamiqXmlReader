@@ -89,14 +89,11 @@
     for (NSString *tabName in [itemNameAndTabDic allKeys])
     {
         CCNode *tab = [itemNameAndTabDic objectForKey:tabName];
+        [tab removeFromParentAndCleanup:NO];
         
         if ([selectTabName isEqualToString:tabName])
         {
             [tabParent addChild:tab];
-        }
-        else
-        {
-            [tab removeFromParentAndCleanup:NO];
         }
     }
 }
