@@ -11,20 +11,17 @@
 
 @interface BalsamiqReaderConfig : NSObject
 {
-    NSString *balsamiqFontName;
-    ccColor3B buttonNormalTextColor;
-    ccColor3B buttonSelectTextColor;
-    ccColor3B textInputColor;
-    NSString *balsamiqRootDir;
-    
     NSDictionary *bmmlAndPathDic;
 }
 
+@property (nonatomic, copy) NSString *balsamiqRootDir;
 @property (nonatomic, copy) NSString *balsamiqFontName;
 @property ccColor3B buttonNormalTextColor;
 @property ccColor3B buttonSelectTextColor;
+
+@property ccColor3B buttonSelectImageColor;
+@property ccColor3B buttonDisableImageColor;
 @property ccColor3B textInputColor;
-@property (nonatomic, copy) NSString *balsamiqRootDir;
 
 + (BalsamiqReaderConfig *)instance;
 

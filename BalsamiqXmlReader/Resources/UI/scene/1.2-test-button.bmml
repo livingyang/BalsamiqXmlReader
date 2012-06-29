@@ -1,0 +1,62 @@
+<mockup version="1.0" skin="sketch" measuredW="480" measuredH="320" mockupW="480" mockupH="320">
+  <controls>
+    <control controlID="9" controlTypeID="com.balsamiq.mockups::ModalScreen" x="0" y="0" w="480" h="320" measuredW="320" measuredH="240" zOrder="0" locked="true" isInGroup="-1"/>
+    <control controlID="24" controlTypeID="com.balsamiq.mockups::Image" x="0" y="0" w="-1" h="-1" measuredW="480" measuredH="320" zOrder="1" locked="false" isInGroup="-1">
+      <controlProperties>
+        <src>./image-bg.png</src>
+      </controlProperties>
+    </control>
+    <control controlID="42" controlTypeID="com.balsamiq.mockups::Image" x="304" y="77" w="-1" h="-1" measuredW="120" measuredH="90" zOrder="2" locked="false" isInGroup="-1">
+      <controlProperties>
+        <customID>OneNormal</customID>
+        <src>./btn-green-normal.png</src>
+        <text>normal</text>
+      </controlProperties>
+    </control>
+    <control controlID="43" controlTypeID="com.balsamiq.mockups::Image" x="0" y="273" w="-1" h="-1" measuredW="151" measuredH="45" zOrder="3" locked="false" isInGroup="-1">
+      <controlProperties>
+        <customID>Back</customID>
+        <src>../Common/button-normal.png</src>
+        <text>Back</text>
+      </controlProperties>
+    </control>
+    <control controlID="44" controlTypeID="com.balsamiq.mockups::Image" x="329" y="274" w="-1" h="-1" measuredW="151" measuredH="45" zOrder="4" locked="false" isInGroup="-1">
+      <controlProperties>
+        <customID>Next</customID>
+        <src>../Common/button-normal.png</src>
+        <text>Next</text>
+      </controlProperties>
+    </control>
+    <control controlID="46" controlTypeID="com.balsamiq.mockups::Label" x="24" y="40" w="-1" h="-1" measuredW="127" measuredH="21" zOrder="5" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Button%20has%20all%20images.</text>
+      </controlProperties>
+    </control>
+    <control controlID="47" controlTypeID="com.balsamiq.mockups::Image" x="19" y="152" w="-1" h="-1" measuredW="151" measuredH="45" zOrder="6" locked="false" isInGroup="-1">
+      <controlProperties>
+        <customID>AllDisable</customID>
+        <src>../Common/button-normal.png</src>
+        <text>disable</text>
+      </controlProperties>
+    </control>
+    <control controlID="48" controlTypeID="com.balsamiq.mockups::Image" x="18" y="92" w="-1" h="-1" measuredW="151" measuredH="45" zOrder="7" locked="false" isInGroup="-1">
+      <controlProperties>
+        <customID>AllNormal</customID>
+        <src>../Common/button-normal.png</src>
+        <text>normal</text>
+      </controlProperties>
+    </control>
+    <control controlID="49" controlTypeID="com.balsamiq.mockups::Label" x="299" y="39" w="-1" h="-1" measuredW="130" measuredH="21" zOrder="8" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Button%20has%20one%20image.</text>
+      </controlProperties>
+    </control>
+    <control controlID="50" controlTypeID="com.balsamiq.mockups::Image" x="304" y="167" w="-1" h="-1" measuredW="120" measuredH="90" zOrder="9" locked="false" isInGroup="-1">
+      <controlProperties>
+        <customID>OneDisable</customID>
+        <src>./btn-green-normal.png</src>
+        <text>disable</text>
+      </controlProperties>
+    </control>
+  </controls>
+</mockup>

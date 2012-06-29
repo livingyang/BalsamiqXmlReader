@@ -179,15 +179,31 @@
 			   sel:(SEL)sel
 {
 	NSString *picPath = [self getPicPath:[data.propertyDic objectForKey:@"src"]];
-    
     NSString* pressPicPath = [picPath stringByReplacingOccurrencesOfString:@"-normal" withString:@"-press"];
 	NSString* disablePicPath = [picPath stringByReplacingOccurrencesOfString:@"-normal" withString:@"-disable"];
 	
-	CCMenuItemButton *item = [CCMenuItemButton itemFromNormalImage:picPath 
-													 selectedImage:pressPicPath
-                                                     disabledImage:disablePicPath
-															target:target
-														  selector:sel];
+    CCSprite *normalSprite = [CCSprite spriteWithFile:picPath];
+    NSAssert(normalSprite != nil, @"CCBalsamiqLayer#createButton normalSprite is nil");
+    CCSprite *selectSprite = [CCSprite spriteWithFile:pressPicPath];
+    CCSprite *disableSprite = [CCSprite spriteWithFile:disablePicPath];
+    
+    if (selectSprite == nil)
+    {
+        selectSprite = [CCSprite spriteWithFile:picPath];
+        selectSprite.color = [BalsamiqReaderConfig instance].buttonSelectImageColor;
+    }
+    
+    if (disableSprite == nil)
+    {
+        disableSprite = [CCSprite spriteWithFile:picPath];
+        disableSprite.color = [BalsamiqReaderConfig instance].buttonDisableImageColor;
+    }
+    
+	CCMenuItemButton *item = [CCMenuItemButton itemFromNormalSprite:normalSprite
+                                                     selectedSprite:selectSprite
+                                                     disabledSprite:disableSprite
+                                                             target:target
+                                                           selector:sel];
 	
 	CGSize itemSize = [self getBalsamiqControlSize:data];
 	if (CGSizeEqualToSize(item.contentSize, itemSize) == NO)

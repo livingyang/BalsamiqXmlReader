@@ -27,33 +27,19 @@
         <text>Next</text>
       </controlProperties>
     </control>
-    <control controlID="34" controlTypeID="com.balsamiq.mockups::Image" x="172" y="98" w="-1" h="-1" measuredW="57" measuredH="57" zOrder="4" locked="false" isInGroup="-1">
+    <control controlID="34" controlTypeID="com.balsamiq.mockups::Image" x="167" y="116" w="-1" h="-1" measuredW="57" measuredH="57" zOrder="4" locked="false" isInGroup="-1">
       <controlProperties>
         <customID>image_sprite</customID>
         <src>./image-icon.png</src>
       </controlProperties>
     </control>
-    <control controlID="35" controlTypeID="com.balsamiq.mockups::Image" x="442" y="209" w="-1" h="-1" measuredW="151" measuredH="45" zOrder="5" locked="false" isInGroup="-1">
-      <controlProperties>
-        <customID>Disable</customID>
-        <src>../Common/button-normal.png</src>
-        <text>disable</text>
-      </controlProperties>
-    </control>
-    <control controlID="36" controlTypeID="com.balsamiq.mockups::Image" x="442" y="269" w="-1" h="-1" measuredW="151" measuredH="45" zOrder="6" locked="false" isInGroup="-1">
-      <controlProperties>
-        <customID>NoneHandle</customID>
-        <src>../Common/button-normal.png</src>
-        <text>NoneHandle</text>
-      </controlProperties>
-    </control>
-    <control controlID="39" controlTypeID="com.balsamiq.mockups::Image" x="334" y="105" w="-1" h="-1" measuredW="50" measuredH="50" zOrder="7" locked="false" isInGroup="-1">
+    <control controlID="39" controlTypeID="com.balsamiq.mockups::Image" x="328" y="173" w="-1" h="-1" measuredW="50" measuredH="50" zOrder="5" locked="false" isInGroup="-1">
       <controlProperties>
         <customID>toggle_ok</customID>
         <src>./chk-unchecked.png</src>
       </controlProperties>
     </control>
-    <control controlID="40" controlTypeID="com.balsamiq.mockups::Image" x="461" y="114" w="-1" h="-1" measuredW="111" measuredH="41" zOrder="8" locked="false" isInGroup="-1">
+    <control controlID="40" controlTypeID="com.balsamiq.mockups::Image" x="461" y="123" w="-1" h="-1" measuredW="111" measuredH="41" zOrder="6" locked="false" isInGroup="-1">
       <controlProperties>
         <customID>bar_test</customID>
         <src>./button-alert-normal.png</src>

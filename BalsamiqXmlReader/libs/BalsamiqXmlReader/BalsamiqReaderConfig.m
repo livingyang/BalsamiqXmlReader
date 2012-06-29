@@ -12,13 +12,16 @@
 #define KEY_BALSAMIQ_FONT_NAME @"FontName"
 #define KEY_BALSAMIQ_BTN_NORMAL_TEXT_COLOR @"ButtonNormalTextColor"
 #define KEY_BALSAMIQ_BTN_SELECT_TEXT_COLOR @"ButtonSelectTextColor"
+#define KEY_BALSAMIQ_BTN_SELECT_IMAGE_COLOR @"ButtonSelectImageColor"
+#define KEY_BALSAMIQ_BTN_DISABLE_IMAGE_COLOR @"ButtonDisableImageColor"
 #define KEY_BALSAMIQ_INPUT_TEXT_COLOR @"TextInputColor"
 
-ccColor3B ccColor3BFromNSString(NSString *str);
+ccColor3B ccColor3BFromNSString(NSString *str, ccColor3B defaultColor);
 
 @implementation BalsamiqReaderConfig
 
-@synthesize balsamiqFontName, buttonNormalTextColor, buttonSelectTextColor, textInputColor, balsamiqRootDir;
+@synthesize balsamiqRootDir, balsamiqFontName;
+@synthesize buttonNormalTextColor, buttonSelectTextColor, buttonSelectImageColor, buttonDisableImageColor, textInputColor;
 
 + (BalsamiqReaderConfig *)instance
 {
@@ -36,12 +39,16 @@ ccColor3B ccColor3BFromNSString(NSString *str);
 	self = [super init];
 	if (self != nil)
 	{
-        buttonNormalTextColor = (ccColor3B){255, 255, 255};
-        buttonSelectTextColor = (ccColor3B){200, 200, 200};
-        textInputColor = (ccColor3B){200, 200, 200};
+        self.balsamiqRootDir = @"";
+        self.balsamiqFontName = @"Arial";
         
-        balsamiqFontName = @"Arial";
-        balsamiqRootDir = @"";
+        self.buttonNormalTextColor = (ccColor3B){255, 255, 255};
+        self.buttonSelectTextColor = (ccColor3B){200, 200, 200};
+        
+        self.buttonSelectImageColor = (ccColor3B){200, 200, 200};
+        self.buttonDisableImageColor = (ccColor3B){150, 150, 150}; 
+        
+        self.textInputColor = (ccColor3B){200, 200, 200};
 	}
 	return self;
 }
@@ -49,6 +56,8 @@ ccColor3B ccColor3BFromNSString(NSString *str);
 - (void) dealloc
 {
     [bmmlAndPathDic release];
+    self.balsamiqRootDir = nil;
+    self.balsamiqFontName = nil;
     
 	[super dealloc];
 }
@@ -142,40 +151,35 @@ ccColor3B ccColor3BFromNSString(NSString *str);
 		balsamiqFontName = [configDic objectForKey:KEY_BALSAMIQ_FONT_NAME];
 		[balsamiqFontName retain];
 	}
+    
+    buttonNormalTextColor = ccColor3BFromNSString([configDic objectForKey:KEY_BALSAMIQ_BTN_NORMAL_TEXT_COLOR],
+                                                  buttonNormalTextColor);
+    buttonSelectTextColor = ccColor3BFromNSString([configDic objectForKey:KEY_BALSAMIQ_BTN_SELECT_TEXT_COLOR],
+                                                  buttonSelectTextColor);
+    
+    buttonSelectImageColor = ccColor3BFromNSString([configDic objectForKey:KEY_BALSAMIQ_BTN_SELECT_IMAGE_COLOR],
+                                                   buttonSelectImageColor);
+    buttonDisableImageColor = ccColor3BFromNSString([configDic objectForKey:KEY_BALSAMIQ_BTN_DISABLE_IMAGE_COLOR],
+                                                    buttonDisableImageColor);
 	
-	if ([configDic objectForKey:KEY_BALSAMIQ_BTN_NORMAL_TEXT_COLOR] != nil)
-	{
-		buttonNormalTextColor =
-		ccColor3BFromNSString([configDic objectForKey:KEY_BALSAMIQ_BTN_NORMAL_TEXT_COLOR]);
-	}
-	
-	if ([configDic objectForKey:KEY_BALSAMIQ_BTN_SELECT_TEXT_COLOR] != nil)
-	{
-		buttonSelectTextColor =
-		ccColor3BFromNSString([configDic objectForKey:KEY_BALSAMIQ_BTN_SELECT_TEXT_COLOR]);
-	}
-	
-	if ([configDic objectForKey:KEY_BALSAMIQ_INPUT_TEXT_COLOR] != nil)
-	{
-		textInputColor =
-		ccColor3BFromNSString([configDic objectForKey:KEY_BALSAMIQ_INPUT_TEXT_COLOR]);
-	}
+    textInputColor = ccColor3BFromNSString([configDic objectForKey:KEY_BALSAMIQ_INPUT_TEXT_COLOR],
+                                           textInputColor);
 }
 
 @end
 
-ccColor3B ccColor3BFromNSString(NSString *str)
+ccColor3B ccColor3BFromNSString(NSString *str, ccColor3B defaultColor)
 {
-	if (str == nil)
+	if (str.length == 0)
 	{
-		return ccWHITE;
+		return defaultColor;
 	}
 	
 	NSArray *sep = [[str stringByReplacingOccurrencesOfString:@" " withString:@""]
 					componentsSeparatedByString:@","];
 	if (sep.count != 3)
 	{
-		return ccWHITE;
+		return defaultColor;
 	}
 	
 	ccColor3B color = 

@@ -14,6 +14,10 @@
 		<string>100, 100, 100</string>
 		<key>ButtonSelectTextColor</key>
 		<string>0, 0, 0</string>
+		<key>ButtonSelectImageColor</key>
+		<string>200, 200, 200</string>
+		<key>ButtonDisableImageColor</key>
+		<string>150, 150, 150</string>
 		<key>TextInputColor</key>
 		<string>200, 200, 200</string>
 	</dict>

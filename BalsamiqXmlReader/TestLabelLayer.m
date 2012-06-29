@@ -9,7 +9,7 @@
 #import "TestLabelLayer.h"
 #import "CCBalsamiqLayer.h"
 #import "MainLayer.h"
-#import "TestAlertLayer.h"
+#import "TestButtonLayer.h"
 
 @implementation TestLabelLayer
 
@@ -29,7 +29,7 @@
 - (void)onNextClick:(id)sender
 {
 	[[CCDirector sharedDirector] replaceScene:[CCTransitionSlideInR transitionWithDuration:0.5f
-																					 scene:[TestAlertLayer scene]]];
+																					 scene:[TestButtonLayer scene]]];
 }
 
 -(id) init

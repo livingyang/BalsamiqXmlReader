@@ -13,7 +13,7 @@
 #import "CCAlertLayer.h"
 #import "CCBalsamiqScene.h"
 
-#import "TestLabelLayer.h"
+#import "TestButtonLayer.h"
 #import "TestWebViewLayer.h"
 
 @implementation TestAlertLayer
@@ -28,7 +28,7 @@
 - (void)onBackClick:(id)sender
 {
 	[[CCDirector sharedDirector] replaceScene:[CCTransitionSlideInL transitionWithDuration:0.5f
-																					 scene:[TestLabelLayer scene]]];
+																					 scene:[TestButtonLayer scene]]];
 }
 
 - (void)onNextClick:(id)sender
