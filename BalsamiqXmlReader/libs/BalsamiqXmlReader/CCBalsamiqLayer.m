@@ -187,15 +187,13 @@
     CCSprite *selectSprite = [CCSprite spriteWithFile:pressPicPath];
     CCSprite *disableSprite = [CCSprite spriteWithFile:disablePicPath];
     
-    if (selectSprite == nil)
+    if ([pressPicPath isEqualToString:picPath])
     {
-        selectSprite = [CCSprite spriteWithFile:picPath];
         selectSprite.color = [BalsamiqReaderConfig instance].buttonSelectImageColor;
     }
     
-    if (disableSprite == nil)
+    if ([disablePicPath isEqualToString:picPath])
     {
-        disableSprite = [CCSprite spriteWithFile:picPath];
         disableSprite.color = [BalsamiqReaderConfig instance].buttonDisableImageColor;
     }
     

@@ -9,7 +9,7 @@
     <control controlID="42" controlTypeID="com.balsamiq.mockups::Image" x="304" y="77" w="-1" h="-1" measuredW="120" measuredH="90" zOrder="2" locked="false" isInGroup="-1">
       <controlProperties>
         <customID>OneNormal</customID>
-        <src>./btn-green-normal.png</src>
+        <src>./btn-green.png</src>
         <text>normal</text>
       </controlProperties>
     </control>
@@ -54,7 +54,7 @@
     <control controlID="50" controlTypeID="com.balsamiq.mockups::Image" x="304" y="167" w="-1" h="-1" measuredW="120" measuredH="90" zOrder="9" locked="false" isInGroup="-1">
       <controlProperties>
         <customID>OneDisable</customID>
-        <src>./btn-green-normal.png</src>
+        <src>./btn-green.png</src>
         <text>disable</text>
       </controlProperties>
     </control>
