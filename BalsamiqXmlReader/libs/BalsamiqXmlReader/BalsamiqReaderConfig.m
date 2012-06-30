@@ -20,7 +20,7 @@ ccColor3B ccColor3BFromNSString(NSString *str, ccColor3B defaultColor);
 
 @implementation BalsamiqReaderConfig
 
-@synthesize balsamiqRootDir, balsamiqFontName;
+@synthesize rootDir, balsamiqFontName;
 @synthesize buttonNormalTextColor, buttonSelectTextColor, buttonSelectImageColor, buttonDisableImageColor, textInputColor;
 
 + (BalsamiqReaderConfig *)instance
@@ -39,7 +39,7 @@ ccColor3B ccColor3BFromNSString(NSString *str, ccColor3B defaultColor);
 	self = [super init];
 	if (self != nil)
 	{
-        self.balsamiqRootDir = @"";
+        self.rootDir = @"";
         self.balsamiqFontName = @"Arial";
         
         self.buttonNormalTextColor = (ccColor3B){255, 255, 255};
@@ -56,7 +56,7 @@ ccColor3B ccColor3BFromNSString(NSString *str, ccColor3B defaultColor);
 - (void) dealloc
 {
     [bmmlAndPathDic release];
-    self.balsamiqRootDir = nil;
+    self.rootDir = nil;
     self.balsamiqFontName = nil;
     
 	[super dealloc];
@@ -75,7 +75,7 @@ ccColor3B ccColor3BFromNSString(NSString *str, ccColor3B defaultColor);
 		return nil;
 	}
 	
-	filePath = [balsamiqRootDir stringByAppendingPathComponent:filePath];
+	filePath = [rootDir stringByAppendingPathComponent:filePath];
 	
 	return filePath;
 }
@@ -92,7 +92,7 @@ ccColor3B ccColor3BFromNSString(NSString *str, ccColor3B defaultColor);
 	[self loadBalsamiqConfig:dic];
 }
 
-- (void)setBalsamiqRootDir:(NSString *)rootDir
+- (void)setBalsamiqRootDir:(NSString *)dir
 {
 	if (bmmlAndPathDic != nil)
 	{
@@ -100,22 +100,21 @@ ccColor3B ccColor3BFromNSString(NSString *str, ccColor3B defaultColor);
         bmmlAndPathDic = nil;
     }
     
-    balsamiqRootDir = [[NSString alloc] initWithString:[[[NSBundle mainBundle] bundlePath]
-                                                        stringByAppendingPathComponent:rootDir]];
+    self.rootDir = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:dir];
     
     BOOL isDir;
-    if ([[NSFileManager defaultManager] fileExistsAtPath:balsamiqRootDir isDirectory:&isDir] == NO)
+    if ([[NSFileManager defaultManager] fileExistsAtPath:self.rootDir isDirectory:&isDir] == NO)
     {
-        NSAssert(0, @"CCBalsamiqLayer#%@ rootDir = %@ is nil", NSStringFromSelector(_cmd), rootDir);
+        NSAssert(0, @"CCBalsamiqLayer#%@ rootDir = %@ is nil", NSStringFromSelector(_cmd), dir);
     }
     else if (isDir == NO)
     {
-        NSAssert(0, @"CCBalsamiqLayer#%@ rootDir = %@ is not dir", NSStringFromSelector(_cmd), rootDir);
+        NSAssert(0, @"CCBalsamiqLayer#%@ rootDir = %@ is not dir", NSStringFromSelector(_cmd), dir);
     }
     
     
     NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
-    for (NSString *fileName in [[NSFileManager defaultManager] subpathsOfDirectoryAtPath:balsamiqRootDir error:nil])
+    for (NSString *fileName in [[NSFileManager defaultManager] subpathsOfDirectoryAtPath:self.rootDir error:nil])
     {
         if ([[fileName pathExtension] isEqualToString:@"bmml"])
         {

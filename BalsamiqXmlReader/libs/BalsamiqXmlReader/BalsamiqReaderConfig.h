@@ -14,7 +14,7 @@
     NSDictionary *bmmlAndPathDic;
 }
 
-@property (nonatomic, copy) NSString *balsamiqRootDir;
+@property (nonatomic, copy) NSString *rootDir;
 @property (nonatomic, copy) NSString *balsamiqFontName;
 @property ccColor3B buttonNormalTextColor;
 @property ccColor3B buttonSelectTextColor;
@@ -41,7 +41,7 @@
     @返 回 值：
     @备    注：使用本类时，必须设置一个界面文件的存放目录
 */
-- (void)setBalsamiqRootDir:(NSString *)rootDir;
+- (void)setBalsamiqRootDir:(NSString *)dir;
 
 /*!
     @名    称：loadBalsamiqConfig
