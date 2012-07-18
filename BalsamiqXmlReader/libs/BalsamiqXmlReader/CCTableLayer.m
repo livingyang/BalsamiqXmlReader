@@ -252,7 +252,10 @@ enum
 	}
 }
 
-- (CGPoint)getCellCentainerPosFromDistance:(float)distance
+#pragma mark -
+#pragma mark move distance manage
+
+- (CGPoint)getPositionFromDistance:(float)distance
 {
     if (CGPointEqualToPoint(self.vectorMove, CGPointZero))
     {
@@ -262,16 +265,24 @@ enum
     return ccpAdd(originCellContainerPos, ccpMult(ccpNormalize(self.vectorMove), distance));
 }
 
-- (float)getDistanceFromPos:(CGPoint)pos
+- (float)getDistanceFromPosition:(CGPoint)pos
 {
-    return ccpDot(ccpNormalize(self.vectorMove), pos);
+    return ccpDot(ccpNormalize(self.vectorMove), ccpSub(pos, originCellContainerPos));
 }
 
 - (float)curDistance
 {
-    CGPoint offsetPos = ccpSub(cellContainer.position, originCellContainerPos);
-    return ccpDot(ccpNormalize(self.vectorMove), offsetPos);
+    return [self getDistanceFromPosition:cellContainer.position];
 }
+
+- (void)setCurDistance:(float)curDistance
+{
+    [cellContainer stopActionByTag:TAG_MOVE_BACK];
+    cellContainer.position = [self getPositionFromDistance:clampf(curDistance, 0, self.maxDistance)];
+}
+
+#pragma mark -
+#pragma mark inertia manager
 
 - (CGPoint)getInertiaPos
 {
@@ -298,15 +309,15 @@ enum
     {
         curDistance = self.curDistance;
         
-        targetDistance = curDistance + [self getDistanceFromPos:[self getInertiaPos]];
+        targetDistance = [self getDistanceFromPosition:ccpAdd(cellContainer.position, [self getInertiaPos])];
         
         targetDistance = clampf(targetDistance, -100, maxDistance + 100);
         
         moveBackDistance = clampf(targetDistance, 0, maxDistance);
     }
     
-    CGPoint targetPos = [self getCellCentainerPosFromDistance:targetDistance];
-    CGPoint moveBackPos = [self getCellCentainerPosFromDistance:moveBackDistance];
+    CGPoint targetPos = [self getPositionFromDistance:targetDistance];
+    CGPoint moveBackPos = [self getPositionFromDistance:moveBackDistance];
     
     id moveToTargetAction = [CCEaseExponentialOut actionWithAction:
                              [CCMoveTo actionWithDuration:fabsf(targetDistance - curDistance) / 400 position:targetPos]];
@@ -340,7 +351,11 @@ enum
     for (CCNode *node in container.children)
     {
         CGPoint nodePoint = [container convertToNodeSpace:[node convertToWorldSpace:CGPointZero]];
-        nodeContainRect = CGRectUnion(nodeContainRect, (CGRect){nodePoint, node.contentSize});
+        CGRect nodeRect = {nodePoint, node.contentSize};
+        
+        nodeContainRect = CGRectEqualToRect(CGRectZero, nodeContainRect)
+        ? nodeRect
+        : CGRectUnion(nodeContainRect, nodeRect);
     }
     
     return nodeContainRect;
@@ -359,8 +374,6 @@ enum
 {
     CGPoint offsetDirection = ccpAdd(ccp(1, 1), ccpNormalize(direction));
     return ccpAdd(rect.origin, ccpCompMult(offsetDirection, ccp(rect.size.width / 2, rect.size.height / 2)));
-    CGPoint offsetPos = ccpCompMult(ccpNormalize(direction), ccpFromSize(rect.size));
-    return ccpAdd(ccpAdd(rect.origin, ccpFromSize(rect.size)), ccpMult(offsetPos, 0.5f));
 }
 
 - (void)setCellContainer:(CCNode *)container autoSetWithVectorMove:(CGPoint)vecMove
@@ -387,6 +400,28 @@ enum
     subSize.y = subSize.y > 0 ? subSize.y : 0;
     
     return ccpLength(ccpProject(subSize, self.vectorMove));
+}
+
+- (void)resetMaxDistance
+{
+    self.maxDistance = [self getMaxDistanceFromContainer:cellContainer];
+}
+
+- (float)getCellDistance:(CCNode *)cell
+{
+    while (cell != nil)
+    {
+        if (cell.parent == cellContainer)
+        {
+            CGPoint tableCenterPos = ccp(self.contentSize.width / 2, self.contentSize.height / 2);
+            tableCenterPos = [cellContainer convertToNodeSpace:[self convertToWorldSpace:tableCenterPos]];
+            
+            return [self getDistanceFromPosition:ccpAdd(ccpSub(tableCenterPos, cell.position), cellContainer.position)];
+        }
+        cell = cell.parent;
+    }
+    
+    return self.curDistance;
 }
 
 @end

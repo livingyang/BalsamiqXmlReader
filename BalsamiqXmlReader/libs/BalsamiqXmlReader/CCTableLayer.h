@@ -42,8 +42,10 @@
 #endif
     
     CCNode *cellContainer;
-    CGPoint startTouchCellContainerPos;
     CGPoint originCellContainerPos;
+    
+    // touch start position
+    CGPoint startTouchCellContainerPos;
     
     // inertia
     NSTimeInterval lastTouchTimeStamp;
@@ -60,13 +62,15 @@
 // cellContain move vector
 @property CGPoint vectorMove;
 @property float maxDistance;
-@property (nonatomic, readonly) float curDistance;
+@property (nonatomic, readwrite) float curDistance;
 @property (nonatomic, readonly) CCNode *cellContainer;
 
 - (void)setCellContainer:(CCNode *)container;
-
 - (void)setCellContainer:(CCNode *)container autoSetWithVectorMove:(CGPoint)vecMove;
 
-- (float)getMaxDistanceFromContainer:(CCNode *)container;
+- (void)resetMaxDistance;
+
+// 未实现
+- (float)getCellDistance:(CCNode *)cell;
 
 @end

@@ -43,19 +43,37 @@
             layer.position = ccp(layer.position.x, layer.position.y - cell.contentSize.height);
             
             [[cell getControlByName:@"Button"] setTag:-1];
-            [[cell getControlByName:@"title"] setString:@"New cell!!"];
+            [[cell getControlByName:@"title"] setString:[NSString stringWithFormat:@"New cell %d", arc4random()]];
             
             [tableLayer.cellContainer addChild:cell];
         }
         
-        tableLayer.maxDistance = [tableLayer getMaxDistanceFromContainer:tableLayer.cellContainer];
+        [tableLayer resetMaxDistance];
     }
 }
 
+- (void)createHorizontalCell:(int)count
+{
+    CCNode *container = [CCNode node];
+    
+    for (int i = 2; i < count + 2; ++i)
+    {
+        CCBalsamiqLayer *cell = [CCBalsamiqLayer layerWithBalsamiqFile:@"6.1-cell.bmml"
+                                                           eventHandle:self];
+        
+        cell.position = ccpCompMult(ccp(-1, 0), ccpMult(ccpFromSize(cell.contentSize), i));
+        
+        [[cell getControlByName:@"Button"] setTag:i];
+        [[cell getControlByName:@"title"] setString:[NSString stringWithFormat:@"cell id = %d", i]];
+        
+        [container addChild:cell];
+    }
+    
+    
+    [self.tableLayer setCellContainer:container autoSetWithVectorMove:ccp(-1, 0)];
+}
 
-- (void)createCell:(int)count
-      atTableLayer:(CCTableLayer *)tabLayer
-    withVectorMove:(CGPoint)vectorMove
+- (void)createVerticalCell:(int)count
 {
     CCNode *container = [CCNode node];
     
@@ -64,7 +82,7 @@
         CCBalsamiqLayer *cell = [CCBalsamiqLayer layerWithBalsamiqFile:@"6.1-cell.bmml"
                                                            eventHandle:self];
         
-        cell.position = ccpCompMult(vectorMove, ccpMult(ccpFromSize(cell.contentSize), i));
+        cell.position = ccpCompMult(ccp(0, 1), ccpMult(ccpFromSize(cell.contentSize), i));
         
         [[cell getControlByName:@"Button"] setTag:i];
         [[cell getControlByName:@"title"] setString:[NSString stringWithFormat:@"cell id = %d", i]];
@@ -76,8 +94,7 @@
         [container addChild:cell];
     }
     
-    
-    [tabLayer setCellContainer:container autoSetWithVectorMove:vectorMove];
+    [self.tableLayer setCellContainer:container autoSetWithVectorMove:ccp(0, 1)];
 }
 
 -(id) init
@@ -90,7 +107,7 @@
         
         self.tableLayer = [layer getControlByName:@"table1"];
         
-        [self createCell:2 atTableLayer:self.tableLayer withVectorMove:ccp(0, 1)];
+        [self createVerticalCell:2];
 	}
 	return self;
 }
@@ -100,9 +117,17 @@
     self.tableLayer.isDebug = !self.tableLayer.isDebug;
 }
 
+- (void)onSetPositionClick:(id)sender
+{
+    CCBalsamiqLayer *randomCell = [self.tableLayer.cellContainer.children objectAtIndex:
+                                   arc4random() % self.tableLayer.cellContainer.children.count];
+    NSLog(@"randomCell title = %@", [[randomCell getControlByName:@"title"] string]);
+    self.tableLayer.curDistance = [self.tableLayer getCellDistance:randomCell];
+}
+
 - (void)onResetItemClick:(id)sender
 {
-    [self createCell:4 atTableLayer:self.tableLayer withVectorMove:ccp(-1, 0)];
+    [self createHorizontalCell:6];
 }
 
 #pragma mark -
