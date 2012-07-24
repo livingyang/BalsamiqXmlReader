@@ -227,7 +227,7 @@
 			   fontSize:[self getBalsamiqControlTextSize:data]
 			normalColor:[BalsamiqReaderConfig instance].buttonNormalTextColor 
 			selectColor:[BalsamiqReaderConfig instance].buttonSelectTextColor
-		   disableColor:ccBLACK];
+		   disableColor:[BalsamiqReaderConfig instance].buttonDisableTextColor];
 		
 		item.label.scaleX = 1 / item.scaleX;
 		item.label.scaleY = 1 / item.scaleY;

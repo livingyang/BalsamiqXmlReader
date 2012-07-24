@@ -14,6 +14,8 @@
 		<string>100, 100, 100</string>
 		<key>ButtonSelectTextColor</key>
 		<string>0, 0, 0</string>
+		<key>ButtonDisableTextColor</key>
+		<string>255, 0, 0</string>
 		<key>ButtonSelectImageColor</key>
 		<string>200, 200, 200</string>
 		<key>ButtonDisableImageColor</key>

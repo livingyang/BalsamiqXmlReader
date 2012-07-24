@@ -61,6 +61,7 @@ enum
 
 @implementation CCTableLayer
 
+@synthesize delegate;
 @synthesize cellContainer;
 
 @synthesize minimumTouchLengthToSlide;
@@ -324,6 +325,14 @@ enum
     id moveBackAction = [CCEaseExponentialOut actionWithAction:
                          [CCMoveTo actionWithDuration:fabsf(targetDistance - moveBackDistance) / 400 position:moveBackPos]];
     CCSequence *action = [CCSequence actions:moveToTargetAction, moveBackAction, nil];
+    
+    if (self.delegate != nil)
+    {
+        action = [CCSequence actions:
+                  action,
+                  [CCCallFuncO actionWithTarget:self.delegate selector:@selector(onMoveDone:) object:self],
+                  nil];
+    }
     action.tag = TAG_MOVE_BACK;
     
     [cellContainer runAction:action];

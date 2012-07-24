@@ -8,9 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
+#import "CCTableLayer.h"
 
-@class CCTableLayer;
-@interface TestScrollLayer : CCLayer
+@interface TestScrollLayer : CCLayer <CCTableLayerDelegate>
 {
 }
 

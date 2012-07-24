@@ -52,6 +52,8 @@
     CGPoint vectorInertia;
 }
 
+@property (nonatomic, assign) id<CCTargetedTouchDelegate> delegate;
+
 /** Calibration property. Minimum moving touch length that is enough
  * to cancel menu items and start scrolling a layer. 
  */
@@ -72,5 +74,11 @@
 
 // 未实现
 - (float)getCellDistance:(CCNode *)cell;
+
+@end
+
+@protocol CCTableLayerDelegate <NSObject>
+
+- (void)onMoveDone:(CCTableLayer *)tableLayer;
 
 @end

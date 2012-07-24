@@ -10,8 +10,11 @@
 
 #define KEY_BALSAMIQ_ROOT_DIR @"RootDir"
 #define KEY_BALSAMIQ_FONT_NAME @"FontName"
+
 #define KEY_BALSAMIQ_BTN_NORMAL_TEXT_COLOR @"ButtonNormalTextColor"
 #define KEY_BALSAMIQ_BTN_SELECT_TEXT_COLOR @"ButtonSelectTextColor"
+#define KEY_BALSAMIQ_BTN_DISABLE_TEXT_COLOR @"ButtonDisableTextColor"
+
 #define KEY_BALSAMIQ_BTN_SELECT_IMAGE_COLOR @"ButtonSelectImageColor"
 #define KEY_BALSAMIQ_BTN_DISABLE_IMAGE_COLOR @"ButtonDisableImageColor"
 #define KEY_BALSAMIQ_INPUT_TEXT_COLOR @"TextInputColor"
@@ -21,7 +24,8 @@ ccColor3B ccColor3BFromNSString(NSString *str, ccColor3B defaultColor);
 @implementation BalsamiqReaderConfig
 
 @synthesize rootDir, balsamiqFontName;
-@synthesize buttonNormalTextColor, buttonSelectTextColor, buttonSelectImageColor, buttonDisableImageColor, textInputColor;
+@synthesize buttonNormalTextColor, buttonSelectTextColor, buttonDisableTextColor;
+@synthesize buttonSelectImageColor, buttonDisableImageColor, textInputColor;
 
 + (BalsamiqReaderConfig *)instance
 {
@@ -44,6 +48,7 @@ ccColor3B ccColor3BFromNSString(NSString *str, ccColor3B defaultColor);
         
         self.buttonNormalTextColor = (ccColor3B){255, 255, 255};
         self.buttonSelectTextColor = (ccColor3B){200, 200, 200};
+        self.buttonDisableTextColor = (ccColor3B){255, 0, 0};
         
         self.buttonSelectImageColor = (ccColor3B){200, 200, 200};
         self.buttonDisableImageColor = (ccColor3B){150, 150, 150}; 
@@ -155,6 +160,8 @@ ccColor3B ccColor3BFromNSString(NSString *str, ccColor3B defaultColor);
                                                   buttonNormalTextColor);
     buttonSelectTextColor = ccColor3BFromNSString([configDic objectForKey:KEY_BALSAMIQ_BTN_SELECT_TEXT_COLOR],
                                                   buttonSelectTextColor);
+    buttonDisableTextColor = ccColor3BFromNSString([configDic objectForKey:KEY_BALSAMIQ_BTN_DISABLE_TEXT_COLOR],
+                                                   buttonDisableTextColor);
     
     buttonSelectImageColor = ccColor3BFromNSString([configDic objectForKey:KEY_BALSAMIQ_BTN_SELECT_IMAGE_COLOR],
                                                    buttonSelectImageColor);

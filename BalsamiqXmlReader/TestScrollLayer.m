@@ -8,7 +8,6 @@
 
 #import "TestScrollLayer.h"
 #import "CCBalsamiqLayer.h"
-#import "CCTableLayer.h"
 #import "TestLoadingBarLayer.h"
 #import "TestLinkLayer.h"
 #import "CCMenuItemButton.h"
@@ -97,6 +96,11 @@
     [self.tableLayer setCellContainer:container autoSetWithVectorMove:ccp(0, 1)];
 }
 
+- (void)onMoveDone:(CCTableLayer *)table
+{
+    NSLog(@"TestScrollLayer#onMoveDone %@", table);
+}
+
 -(id) init
 {
 	if( (self=[super init]))
@@ -106,6 +110,7 @@
 		[self addChild:layer];
         
         self.tableLayer = [layer getControlByName:@"table1"];
+        self.tableLayer.delegate = self;
         
         [self createVerticalCell:2];
 	}
