@@ -25,7 +25,7 @@ ccColor3B ccColor3BFromNSString(NSString *str, ccColor3B defaultColor);
 
 @synthesize rootDir, balsamiqFontName;
 @synthesize buttonNormalTextColor, buttonSelectTextColor, buttonDisableTextColor;
-@synthesize buttonSelectImageColor, buttonDisableImageColor, textInputColor;
+@synthesize buttonSelectImageColor, buttonDisableImageColor;
 
 + (BalsamiqReaderConfig *)instance
 {
@@ -51,9 +51,7 @@ ccColor3B ccColor3BFromNSString(NSString *str, ccColor3B defaultColor);
         self.buttonDisableTextColor = (ccColor3B){255, 0, 0};
         
         self.buttonSelectImageColor = (ccColor3B){200, 200, 200};
-        self.buttonDisableImageColor = (ccColor3B){150, 150, 150}; 
-        
-        self.textInputColor = (ccColor3B){200, 200, 200};
+        self.buttonDisableImageColor = (ccColor3B){150, 150, 150};
 	}
 	return self;
 }
@@ -167,9 +165,6 @@ ccColor3B ccColor3BFromNSString(NSString *str, ccColor3B defaultColor);
                                                    buttonSelectImageColor);
     buttonDisableImageColor = ccColor3BFromNSString([configDic objectForKey:KEY_BALSAMIQ_BTN_DISABLE_IMAGE_COLOR],
                                                     buttonDisableImageColor);
-	
-    textInputColor = ccColor3BFromNSString([configDic objectForKey:KEY_BALSAMIQ_INPUT_TEXT_COLOR],
-                                           textInputColor);
 }
 
 @end

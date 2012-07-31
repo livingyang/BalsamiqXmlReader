@@ -22,7 +22,6 @@
 
 @property ccColor3B buttonSelectImageColor;
 @property ccColor3B buttonDisableImageColor;
-@property ccColor3B textInputColor;
 
 + (BalsamiqReaderConfig *)instance;
 

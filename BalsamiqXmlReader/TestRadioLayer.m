@@ -8,9 +8,8 @@
 
 #import "TestRadioLayer.h"
 
-#import "CCBalsamiqScene.h"
 #import "CCBalsamiqLayer.h"
-#import "TestWebViewLayer.h"
+#import "TestAlertLayer.h"
 #import "TestLoadingBarLayer.h"
 
 @implementation TestRadioLayer
@@ -32,7 +31,7 @@
 - (void)onBackClick:(id)sender
 {
 	[[CCDirector sharedDirector] replaceScene:[CCTransitionSlideInL transitionWithDuration:0.5f
-																					 scene:[TestWebViewLayer scene]]];
+																					 scene:[TestAlertLayer scene]]];
 }
 
 - (void)onNextClick:(id)sender

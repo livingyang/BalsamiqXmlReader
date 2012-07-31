@@ -123,7 +123,6 @@
 		1846F29B1425061100884CCC /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1846F29A1425061100884CCC /* RootViewController.m */; };
 		1846F2F314250CA800884CCC /* MainLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1846F2EA14250CA800884CCC /* MainLayer.m */; };
 		1846F2F414250CA800884CCC /* TestAlertLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1846F2EC14250CA800884CCC /* TestAlertLayer.m */; };
-		1846F2F514250CA800884CCC /* TestWebViewLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1846F2EE14250CA800884CCC /* TestWebViewLayer.m */; };
 		1846F2F614250CA800884CCC /* TestRadioLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1846F2F014250CA800884CCC /* TestRadioLayer.m */; };
 		1846F2F714250CA800884CCC /* TestLoadingBarLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1846F2F214250CA800884CCC /* TestLoadingBarLayer.m */; };
 		1846F2FB14250CF200884CCC /* UI in Resources */ = {isa = PBXBuildFile; fileRef = 1846F2FA14250CF200884CCC /* UI */; };
@@ -131,7 +130,6 @@
 		18847B72142A2E11005D7C4F /* BalsamiqFileParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 18847B5C142A2E11005D7C4F /* BalsamiqFileParser.m */; };
 		18847B73142A2E11005D7C4F /* CCAlertLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 18847B5F142A2E11005D7C4F /* CCAlertLayer.m */; };
 		18847B74142A2E11005D7C4F /* CCBalsamiqLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 18847B61142A2E11005D7C4F /* CCBalsamiqLayer.m */; };
-		18847B75142A2E11005D7C4F /* CCBalsamiqScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 18847B63142A2E11005D7C4F /* CCBalsamiqScene.m */; };
 		18847B78142A2E11005D7C4F /* CCSprite+LoadingBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 18847B6A142A2E11005D7C4F /* CCSprite+LoadingBar.m */; };
 		18847B79142A2E11005D7C4F /* CCMenuItemButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 18847B6C142A2E11005D7C4F /* CCMenuItemButton.m */; };
 		18847B7A142A2E11005D7C4F /* RadioManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 18847B6E142A2E11005D7C4F /* RadioManager.m */; };
@@ -140,10 +138,11 @@
 		27552DE01557BB5E0031A7F9 /* TestLinkLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 27552DDF1557BB5E0031A7F9 /* TestLinkLayer.m */; };
 		278E860E155284AC00AB548A /* TestScrollLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 278E860D155284AC00AB548A /* TestScrollLayer.m */; };
 		278E8616155295C200AB548A /* CCTableLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 278E8615155295C200AB548A /* CCTableLayer.m */; };
-		27927B491563A4F900AAAD7A /* UIPaddingTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 27927B481563A4F900AAAD7A /* UIPaddingTextField.m */; };
 		27A0457A1598316C00643C89 /* TestLabelLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A045791598316C00643C89 /* TestLabelLayer.m */; };
 		27A04786159AB8AF00643C89 /* TestTabsLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A04785159AB8AF00643C89 /* TestTabsLayer.m */; };
 		27A047E9159D7A7700643C89 /* TestButtonLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A047E8159D7A7700643C89 /* TestButtonLayer.m */; };
+		27A11FA515C7710400B146BB /* CCLabelWithTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A11FA415C7710400B146BB /* CCLabelWithTextField.m */; };
+		27A11FA915C7731100B146BB /* TestTextFieldLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 27A11FA815C7731100B146BB /* TestTextFieldLayer.m */; };
 		27DC774F147C86C100890457 /* BalsamiqReaderConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 27DC774E147C86C100890457 /* BalsamiqReaderConfig.m */; };
 /* End PBXBuildFile section */
 
@@ -385,8 +384,6 @@
 		1846F2EA14250CA800884CCC /* MainLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainLayer.m; sourceTree = "<group>"; };
 		1846F2EB14250CA800884CCC /* TestAlertLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestAlertLayer.h; sourceTree = "<group>"; };
 		1846F2EC14250CA800884CCC /* TestAlertLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestAlertLayer.m; sourceTree = "<group>"; };
-		1846F2ED14250CA800884CCC /* TestWebViewLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestWebViewLayer.h; sourceTree = "<group>"; };
-		1846F2EE14250CA800884CCC /* TestWebViewLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestWebViewLayer.m; sourceTree = "<group>"; };
 		1846F2EF14250CA800884CCC /* TestRadioLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestRadioLayer.h; sourceTree = "<group>"; };
 		1846F2F014250CA800884CCC /* TestRadioLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestRadioLayer.m; sourceTree = "<group>"; };
 		1846F2F114250CA800884CCC /* TestLoadingBarLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestLoadingBarLayer.h; sourceTree = "<group>"; };
@@ -400,8 +397,6 @@
 		18847B5F142A2E11005D7C4F /* CCAlertLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCAlertLayer.m; sourceTree = "<group>"; };
 		18847B60142A2E11005D7C4F /* CCBalsamiqLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCBalsamiqLayer.h; sourceTree = "<group>"; };
 		18847B61142A2E11005D7C4F /* CCBalsamiqLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCBalsamiqLayer.m; sourceTree = "<group>"; };
-		18847B62142A2E11005D7C4F /* CCBalsamiqScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCBalsamiqScene.h; sourceTree = "<group>"; };
-		18847B63142A2E11005D7C4F /* CCBalsamiqScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCBalsamiqScene.m; sourceTree = "<group>"; };
 		18847B69142A2E11005D7C4F /* CCSprite+LoadingBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CCSprite+LoadingBar.h"; sourceTree = "<group>"; };
 		18847B6A142A2E11005D7C4F /* CCSprite+LoadingBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CCSprite+LoadingBar.m"; sourceTree = "<group>"; };
 		18847B6B142A2E11005D7C4F /* CCMenuItemButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCMenuItemButton.h; sourceTree = "<group>"; };
@@ -416,14 +411,16 @@
 		278E860D155284AC00AB548A /* TestScrollLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestScrollLayer.m; sourceTree = "<group>"; };
 		278E8614155295C200AB548A /* CCTableLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCTableLayer.h; sourceTree = "<group>"; };
 		278E8615155295C200AB548A /* CCTableLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCTableLayer.m; sourceTree = "<group>"; };
-		27927B471563A4F900AAAD7A /* UIPaddingTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIPaddingTextField.h; sourceTree = "<group>"; };
-		27927B481563A4F900AAAD7A /* UIPaddingTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIPaddingTextField.m; sourceTree = "<group>"; };
 		27A045781598316C00643C89 /* TestLabelLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestLabelLayer.h; sourceTree = "<group>"; };
 		27A045791598316C00643C89 /* TestLabelLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestLabelLayer.m; sourceTree = "<group>"; };
 		27A04784159AB8AF00643C89 /* TestTabsLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestTabsLayer.h; sourceTree = "<group>"; };
 		27A04785159AB8AF00643C89 /* TestTabsLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestTabsLayer.m; sourceTree = "<group>"; };
 		27A047E7159D7A7700643C89 /* TestButtonLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestButtonLayer.h; sourceTree = "<group>"; };
 		27A047E8159D7A7700643C89 /* TestButtonLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestButtonLayer.m; sourceTree = "<group>"; };
+		27A11FA315C7710400B146BB /* CCLabelWithTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCLabelWithTextField.h; sourceTree = "<group>"; };
+		27A11FA415C7710400B146BB /* CCLabelWithTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCLabelWithTextField.m; sourceTree = "<group>"; };
+		27A11FA715C7731100B146BB /* TestTextFieldLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestTextFieldLayer.h; sourceTree = "<group>"; };
+		27A11FA815C7731100B146BB /* TestTextFieldLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestTextFieldLayer.m; sourceTree = "<group>"; };
 		27DC774D147C86C100890457 /* BalsamiqReaderConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BalsamiqReaderConfig.h; sourceTree = "<group>"; };
 		27DC774E147C86C100890457 /* BalsamiqReaderConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BalsamiqReaderConfig.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -836,10 +833,10 @@
 				27A045791598316C00643C89 /* TestLabelLayer.m */,
 				27A047E7159D7A7700643C89 /* TestButtonLayer.h */,
 				27A047E8159D7A7700643C89 /* TestButtonLayer.m */,
+				27A11FA715C7731100B146BB /* TestTextFieldLayer.h */,
+				27A11FA815C7731100B146BB /* TestTextFieldLayer.m */,
 				1846F2EB14250CA800884CCC /* TestAlertLayer.h */,
 				1846F2EC14250CA800884CCC /* TestAlertLayer.m */,
-				1846F2ED14250CA800884CCC /* TestWebViewLayer.h */,
-				1846F2EE14250CA800884CCC /* TestWebViewLayer.m */,
 				1846F2EF14250CA800884CCC /* TestRadioLayer.h */,
 				1846F2F014250CA800884CCC /* TestRadioLayer.m */,
 				1846F2F114250CA800884CCC /* TestLoadingBarLayer.h */,
@@ -867,18 +864,16 @@
 				18847B5F142A2E11005D7C4F /* CCAlertLayer.m */,
 				18847B60142A2E11005D7C4F /* CCBalsamiqLayer.h */,
 				18847B61142A2E11005D7C4F /* CCBalsamiqLayer.m */,
-				18847B62142A2E11005D7C4F /* CCBalsamiqScene.h */,
-				18847B63142A2E11005D7C4F /* CCBalsamiqScene.m */,
 				18847B69142A2E11005D7C4F /* CCSprite+LoadingBar.h */,
 				18847B6A142A2E11005D7C4F /* CCSprite+LoadingBar.m */,
 				18847B6B142A2E11005D7C4F /* CCMenuItemButton.h */,
 				18847B6C142A2E11005D7C4F /* CCMenuItemButton.m */,
-				27927B471563A4F900AAAD7A /* UIPaddingTextField.h */,
-				27927B481563A4F900AAAD7A /* UIPaddingTextField.m */,
 				18847B6D142A2E11005D7C4F /* RadioManager.h */,
 				18847B6E142A2E11005D7C4F /* RadioManager.m */,
 				278E8614155295C200AB548A /* CCTableLayer.h */,
 				278E8615155295C200AB548A /* CCTableLayer.m */,
+				27A11FA315C7710400B146BB /* CCLabelWithTextField.h */,
+				27A11FA415C7710400B146BB /* CCLabelWithTextField.m */,
 			);
 			name = BalsamiqXmlReader;
 			path = libs/BalsamiqXmlReader;
@@ -1055,14 +1050,12 @@
 				1846F29B1425061100884CCC /* RootViewController.m in Sources */,
 				1846F2F314250CA800884CCC /* MainLayer.m in Sources */,
 				1846F2F414250CA800884CCC /* TestAlertLayer.m in Sources */,
-				1846F2F514250CA800884CCC /* TestWebViewLayer.m in Sources */,
 				1846F2F614250CA800884CCC /* TestRadioLayer.m in Sources */,
 				1846F2F714250CA800884CCC /* TestLoadingBarLayer.m in Sources */,
 				18847B71142A2E11005D7C4F /* BalsamiqControlData.m in Sources */,
 				18847B72142A2E11005D7C4F /* BalsamiqFileParser.m in Sources */,
 				18847B73142A2E11005D7C4F /* CCAlertLayer.m in Sources */,
 				18847B74142A2E11005D7C4F /* CCBalsamiqLayer.m in Sources */,
-				18847B75142A2E11005D7C4F /* CCBalsamiqScene.m in Sources */,
 				18847B78142A2E11005D7C4F /* CCSprite+LoadingBar.m in Sources */,
 				18847B79142A2E11005D7C4F /* CCMenuItemButton.m in Sources */,
 				18847B7A142A2E11005D7C4F /* RadioManager.m in Sources */,
@@ -1070,10 +1063,11 @@
 				278E860E155284AC00AB548A /* TestScrollLayer.m in Sources */,
 				278E8616155295C200AB548A /* CCTableLayer.m in Sources */,
 				27552DE01557BB5E0031A7F9 /* TestLinkLayer.m in Sources */,
-				27927B491563A4F900AAAD7A /* UIPaddingTextField.m in Sources */,
 				27A0457A1598316C00643C89 /* TestLabelLayer.m in Sources */,
 				27A04786159AB8AF00643C89 /* TestTabsLayer.m in Sources */,
 				27A047E9159D7A7700643C89 /* TestButtonLayer.m in Sources */,
+				27A11FA515C7710400B146BB /* CCLabelWithTextField.m in Sources */,
+				27A11FA915C7731100B146BB /* TestTextFieldLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

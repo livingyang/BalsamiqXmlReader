@@ -12,7 +12,6 @@
 
 #import "BalsamiqControlData.h"
 #import "CCBalsamiqLayer.h"
-#import "CCBalsamiqScene.h"
 #import "CCAlertLayer.h"
 
 #import "TestLabelLayer.h"
@@ -22,37 +21,9 @@
 
 +(CCScene *) scene
 {
-	CCScene *scene = [CCBalsamiqScene node];
+	CCScene *scene = [CCScene node];
 	[scene addChild:[MainLayer node]];
 	return scene;
-}
-
-
-#pragma mark - 
-#pragma mark UITextFieldDelegate
-
-const CGPoint EditOffset = {0, 160};
-
-- (BOOL)textFieldShouldReturn:(UITextField *)textField
-{
-    [textField resignFirstResponder];
-    return YES;
-}
-
-- (void)textFieldDidBeginEditing:(UITextField *)textField
-{
-    NSLog(@"textFieldDidBeginEditing");
-    
-    self.position = ccpAdd(self.position, EditOffset);
-    textField.center = ccpSub(textField.center, EditOffset);
-}
-
-- (void)textFieldDidEndEditing:(UITextField *)textField
-{
-	NSLog(@"textFieldDidEndEditing text = %@", textField.text);
-    
-    self.position = ccpSub(self.position, EditOffset);
-    textField.center = ccpAdd(textField.center, EditOffset);
 }
 
 - (void)onNextClick:(id)sender
@@ -89,19 +60,11 @@ const CGPoint EditOffset = {0, 160};
         id action = [CCRepeatForever actionWithAction:[CCRotateBy actionWithDuration:1.0f angle:360]];
         [[layer getControlByName:@"image_sprite"] runAction:action];
         
-        // 获取指定文本框
-        [[layer getControlByName:@"text-input"] setText:@"My input"];
-        
         // 获取bar
         CCProgressTimer *bar = [layer getControlByName:@"bar_test"];
         bar.percentage = 70;
 	}
 	return self;
-}
-
-- (void) dealloc
-{
-	[super dealloc];
 }
 
 @end

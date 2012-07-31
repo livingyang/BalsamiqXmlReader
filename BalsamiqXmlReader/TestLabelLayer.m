@@ -13,7 +13,7 @@
 
 @implementation TestLabelLayer
 
-+(CCScene *) scene
++ (CCScene *)scene
 {
 	CCScene *scene = [CCScene node];
 	[scene addChild:[TestLabelLayer node]];

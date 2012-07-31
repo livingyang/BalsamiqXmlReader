@@ -11,10 +11,9 @@
 #import "BalsamiqControlData.h"
 #import "CCBalsamiqLayer.h"
 #import "CCAlertLayer.h"
-#import "CCBalsamiqScene.h"
 
-#import "TestButtonLayer.h"
-#import "TestWebViewLayer.h"
+#import "TestTextFieldLayer.h"
+#import "TestRadioLayer.h"
 
 @implementation TestAlertLayer
 
@@ -28,13 +27,13 @@
 - (void)onBackClick:(id)sender
 {
 	[[CCDirector sharedDirector] replaceScene:[CCTransitionSlideInL transitionWithDuration:0.5f
-																					 scene:[TestButtonLayer scene]]];
+																					 scene:[TestTextFieldLayer scene]]];
 }
 
 - (void)onNextClick:(id)sender
 {
 	[[CCDirector sharedDirector] replaceScene:[CCTransitionSlideInR transitionWithDuration:0.5f
-																					 scene:[TestWebViewLayer scene]]];
+																					 scene:[TestRadioLayer scene]]];
 }
 
 - (void)onPopAlertClick:(id)sender

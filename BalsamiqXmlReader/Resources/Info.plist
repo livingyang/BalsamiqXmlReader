@@ -20,8 +20,6 @@
 		<string>200, 200, 200</string>
 		<key>ButtonDisableImageColor</key>
 		<string>150, 150, 150</string>
-		<key>TextInputColor</key>
-		<string>200, 200, 200</string>
 	</dict>
 	<key>UIAppFonts</key>
 	<array>

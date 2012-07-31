@@ -10,7 +10,7 @@
 #import <objc/message.h>
 #import "BalsamiqControlData.h"
 #import "CCMenuItemButton.h"
-#import "UIPaddingTextField.h"
+#import "CCLabelWithTextField.h"
 #import "CCTableLayer.h"
 #import "BalsamiqFileParser.h"
 #import "BalsamiqReaderConfig.h"
@@ -24,7 +24,6 @@
 @implementation CCBalsamiqLayer : CCLayer
 
 @synthesize bmmlFilePath;
-@synthesize uiViewArray;
 
 +(void)initialize
 {
@@ -481,6 +480,33 @@
     [self setControl:label withName:[data.propertyDic objectForKey:@"customID"]];
 }
 
+/*!
+    @名    称：createSubTitle
+    @描    述：创建文本输入框
+    @参    数：data
+    @参    数：createInfo
+    @返 回 值：
+    @备    注：
+*/
+- (void)createSubTitle:(BalsamiqControlData *)data
+{
+    CCLabelWithTextField *label = [CCLabelWithTextField labelWithString:[self getDecodeText:[data.propertyDic objectForKey:@"text"]]
+                                                             dimensions:[self getBalsamiqControlSize:data]
+                                                              alignment:[self getBalsamiqControlAlign:data]
+                                                               fontName:[BalsamiqReaderConfig instance].balsamiqFontName
+                                                               fontSize:[self getBalsamiqControlTextSize:data]];
+    
+    label.position = [self convertControlPosition:[self getBalsamiqControlPosition:data]
+                                         nodeSize:[self getBalsamiqControlSize:data]
+                                  withAnchorPoint:label.anchorPoint];
+	
+	label.color = [self getColor:[[data.propertyDic objectForKey:@"color"] intValue]];
+	
+	[self addChild:label z:[[data.attributeDic objectForKey:@"zOrder"] intValue]];
+	
+    [self setControl:label withName:[data.propertyDic objectForKey:@"customID"]];
+}
+
 - (void)createTextArea:(BalsamiqControlData *)data
 {
     CCLabelTTF *label = [CCLabelTTF labelWithString:[self getDecodeText:[data.propertyDic objectForKey:@"text"]]
@@ -499,63 +525,6 @@
 	[self addChild:label z:[[data.attributeDic objectForKey:@"zOrder"] intValue]];
 	
     [self setControl:label withName:[data.propertyDic objectForKey:@"customID"]];
-}
-
-/*!
- @名    称：createTextInput
- @描    述：创建文本输入框
- @参    数：data
- @参    数：createInfo
- @返 回 值：
- @备    注：
- */
-- (void)createTextInput:(BalsamiqControlData *)data
-{
-	CGRect rect = {[self getBalsamiqControlPosition:data], [self getBalsamiqControlSize:data]};
-	rect.origin = [self convertControlPosition:rect.origin 
-                                      nodeSize:rect.size
-                               withAnchorPoint:ccp(0, 1)];
-	rect.origin = [[CCDirector sharedDirector] convertToUI:rect.origin];
-	
-	UIPaddingTextField *textField = [[[UIPaddingTextField alloc] initWithFrame:rect] autorelease];
-	[textField setPaddingLeft:5 paddingTop:4];
-	
-	//nameTextField.transform = CGAffineTransformMakeRotation(M_PI * (90.0 / 180.0)); // rotate for landscape
-	textField.text = [self getDecodeText:[data.propertyDic objectForKey:@"text"]];
-	textField.textColor = [self getUIColor:[BalsamiqReaderConfig instance].textInputColor alpha:1.0f];
-	textField.textAlignment = [self getBalsamiqControlAlign:data];
-	textField.font = [UIFont fontWithName:[[BalsamiqReaderConfig instance].balsamiqFontName stringByDeletingPathExtension]
-									 size:[self getBalsamiqControlTextSize:data]];
-	
-	// NOTE: UITextField won't be visible by default without setting backGroundColor & borderStyle
-	textField.borderStyle = UITextBorderStyleRoundedRect;
-	textField.clearButtonMode = UITextFieldViewModeWhileEditing;
-	
-	textField.delegate = eventHandle_; // set this layer as the UITextFieldDelegate
-	textField.returnKeyType = UIReturnKeyDone; // add the 'done' key to the keyboard
-	textField.autocorrectionType = UITextAutocorrectionTypeNo; // switch of auto correction
-	textField.autocapitalizationType = UITextAutocapitalizationTypeWords;
-	
-	// add the textField to the main game openGLVview
-	[[[CCDirector sharedDirector] openGLView] addSubview:textField];
-	
-	[uiViewArray addObject:textField];
-	
-    [self setControl:textField withName:[data.propertyDic objectForKey:@"customID"]];
-}
-
-- (void)createTitleWindow:(BalsamiqControlData *)data
-{
-	CGRect rect = {[self getBalsamiqControlPosition:data], [self getBalsamiqControlSize:data]};
-	rect.origin = [self convertControlPosition:rect.origin 
-                                      nodeSize:rect.size
-                               withAnchorPoint:ccp(0, 1)];
-	rect.origin = [[CCDirector sharedDirector] convertToUI:rect.origin];
-	
-	UIWebView *webView = [[[UIWebView alloc] initWithFrame:rect] autorelease];
-	[uiViewArray addObject:webView];
-	
-    [self setControl:webView withName:[data.propertyDic objectForKey:@"customID"]];
 }
 
 - (void)createCanvas:(BalsamiqControlData *)data
@@ -596,25 +565,6 @@
 #pragma mark 继承函数
 ////////////////////////////////////////////////////////
 
-- (void)onEnter
-{
-	for (UIView *view in uiViewArray)
-	{
-        [[[CCDirector sharedDirector] openGLView] addSubview:view];
-    }
-    
-    [super onEnter];
-}
-
-- (void)onExit
-{
-	for (UIView *view in uiViewArray)
-	{
-		[view removeFromSuperview];
-	}
-	
-	[super onExit];
-}
 
 - (void) dealloc
 {
@@ -622,11 +572,6 @@
     [nameAndControlDic release];
 	[groupAndRadioDic release];
     
-    for (UIView *view in uiViewArray)
-	{
-		[view removeFromSuperview];
-	}
-	[uiViewArray release];
 	[super dealloc];
 }
 
@@ -640,7 +585,6 @@
 	if (self != nil)
 	{
         nameAndControlDic = [[NSMutableDictionary alloc] init];
-		uiViewArray = [[NSMutableArray alloc] init];
 		groupAndRadioDic = [[NSMutableDictionary alloc] init];
         eventHandle_ = eventHandle;
         originControlPosition = ccp(0, 0);

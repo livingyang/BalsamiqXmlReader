@@ -18,13 +18,6 @@
         @备    注：
     */
     NSMutableDictionary *nameAndControlDic;
-    
-	/*!
-		@名    称：uiViewArray
-		@描    述：保存webView控件的数组
-		@备    注：
-	*/
-	NSMutableArray *uiViewArray;
 	
 	/*!
 		@名    称：radioArray
@@ -63,7 +56,6 @@
 }
 
 @property (nonatomic, readonly) NSString *bmmlFilePath;
-@property (nonatomic, readonly) NSMutableArray *uiViewArray;
 
 // 带有事件的控件，如button，toggle，其事件的处理者为eventHandle
 
