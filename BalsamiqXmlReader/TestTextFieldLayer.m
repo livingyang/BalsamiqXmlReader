@@ -63,7 +63,7 @@ const CGPoint EditOffsetPos = {0, 120};
     }
 }
 
-- (void)onLabel:(CCLabelWithTextField *)label textFieldShouldReturn:(UITextField *)textField
+- (void)onLabel:(CCLabelWithTextField *)label textFieldDidEndEditing:(UITextField *)textField
 {
     if (label == [balsamiqLayer getControlByName:@"bottom"])
     {

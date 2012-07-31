@@ -12,7 +12,9 @@
 @class CCLabelWithTextField;
 @protocol CCLabelWithTextFieldDelegate <NSObject>
 
+@optional
 - (void)onLabel:(CCLabelWithTextField *)label textFieldShouldBeginEditing:(UITextField *)textField;
+- (void)onLabel:(CCLabelWithTextField *)label textFieldDidEndEditing:(UITextField *)textField;
 - (void)onLabel:(CCLabelWithTextField *)label textFieldShouldReturn:(UITextField *)textField;
 
 @end

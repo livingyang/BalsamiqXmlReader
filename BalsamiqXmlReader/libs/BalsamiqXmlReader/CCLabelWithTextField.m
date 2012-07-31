@@ -30,7 +30,27 @@
             [self convertToWorldSpace:ccp(0, self.contentSize.height)]];
 }
 
--(void) registerWithTouchDispatcher
+- (void)showTextFieldKeyboard
+{
+    [[[CCDirector sharedDirector] openGLView] addSubview:self.textField];
+    [self.textField becomeFirstResponder];
+    
+    [[CCTouchDispatcher sharedDispatcher] setPriority:kCCMenuTouchPriority * 2 forDelegate:self];
+}
+
+- (void)hideTextFieldKeyboard
+{
+    [self.textField resignFirstResponder];
+    [self.textField removeFromSuperview];
+    
+    self.string = self.textField.secureTextEntry
+    ? [self getSecrueString:self.realString]
+    : self.realString;
+    
+    [[CCTouchDispatcher sharedDispatcher] setPriority:kCCMenuTouchPriority forDelegate:self];
+}
+
+- (void)registerWithTouchDispatcher
 {
 	[[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self
                                                      priority:kCCMenuTouchPriority
@@ -63,11 +83,18 @@
 
 - (BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event
 {
-    return CGRectContainsPoint(self.textureRect, [self convertTouchToNodeSpace:touch]);
+    return (CGRectContainsPoint(self.textureRect, [self convertTouchToNodeSpace:touch])
+            || self.textField.isFirstResponder);
 }
 
 - (void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event
 {
+    if (self.textField.isFirstResponder)
+    {
+        [self hideTextFieldKeyboard];
+        return;
+    }
+    
     self.textField.frame = (CGRect){[self textFieldPosition], self.contentSize};
     self.textField.textAlignment = alignment_;
     self.textField.textColor = [UIColor colorWithRed:self.color.r / 255.0f
@@ -77,9 +104,8 @@
     self.textField.font = [UIFont fontWithName:fontName_ size:fontSize_];
     
     self.string = @"";
-
-    [[[CCDirector sharedDirector] openGLView] addSubview:self.textField];
-    [self.textField becomeFirstResponder];
+    
+    [self showTextFieldKeyboard];
 }
 
 - (NSString *)realString
@@ -109,20 +135,31 @@
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
 {
-    [self.delegate onLabel:self textFieldShouldBeginEditing:textField];
+    if ([self.delegate respondsToSelector:@selector(onLabel:textFieldShouldBeginEditing:)])
+    {
+        [self.delegate onLabel:self textFieldShouldBeginEditing:textField];
+    }
     
     self.textField.frame = (CGRect){[self textFieldPosition], self.contentSize};
     return YES;
 }
 
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    if ([self.delegate respondsToSelector:@selector(onLabel:textFieldDidEndEditing:)])
+    {
+        [self.delegate onLabel:self textFieldDidEndEditing:textField];
+    }
+}
+
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-	[textField resignFirstResponder];
-    [textField removeFromSuperview];
+    if ([self.delegate respondsToSelector:@selector(onLabel:textFieldShouldReturn:)])
+    {
+        [self.delegate onLabel:self textFieldShouldReturn:textField];
+    }
     
-    self.string = textField.secureTextEntry ? [self getSecrueString:self.realString] : self.realString;
-    
-    [self.delegate onLabel:self textFieldShouldReturn:textField];
+    [self hideTextFieldKeyboard];
     
     return YES;
 }
