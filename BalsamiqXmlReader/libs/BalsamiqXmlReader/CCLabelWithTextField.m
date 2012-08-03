@@ -101,7 +101,7 @@
                                                green:self.color.g / 255.0f
                                                 blue:self.color.b / 255.0f
                                                alpha:self.opacity / 255.0f];
-    self.textField.font = [UIFont fontWithName:fontName_ size:fontSize_];
+    self.textField.font = [UIFont fontWithName:fontName_ size:fontSize_ / CC_CONTENT_SCALE_FACTOR()];
     
     self.string = @"";
     
