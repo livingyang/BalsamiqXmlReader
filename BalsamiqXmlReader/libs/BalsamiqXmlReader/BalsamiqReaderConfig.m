@@ -17,7 +17,8 @@
 
 #define KEY_BALSAMIQ_BTN_SELECT_IMAGE_COLOR @"ButtonSelectImageColor"
 #define KEY_BALSAMIQ_BTN_DISABLE_IMAGE_COLOR @"ButtonDisableImageColor"
-#define KEY_BALSAMIQ_INPUT_TEXT_COLOR @"TextInputColor"
+
+#define KEY_BALSAMIQ_ALERT_OPACITY @"AlertOpacity"
 
 ccColor3B ccColor3BFromNSString(NSString *str, ccColor3B defaultColor);
 
@@ -26,6 +27,7 @@ ccColor3B ccColor3BFromNSString(NSString *str, ccColor3B defaultColor);
 @synthesize rootDir, balsamiqFontName;
 @synthesize buttonNormalTextColor, buttonSelectTextColor, buttonDisableTextColor;
 @synthesize buttonSelectImageColor, buttonDisableImageColor;
+@synthesize alertOpacity;
 
 + (BalsamiqReaderConfig *)instance
 {
@@ -52,6 +54,8 @@ ccColor3B ccColor3BFromNSString(NSString *str, ccColor3B defaultColor);
         
         self.buttonSelectImageColor = (ccColor3B){200, 200, 200};
         self.buttonDisableImageColor = (ccColor3B){150, 150, 150};
+        
+        self.alertOpacity = 50;
 	}
 	return self;
 }
@@ -154,17 +158,21 @@ ccColor3B ccColor3BFromNSString(NSString *str, ccColor3B defaultColor);
 		[balsamiqFontName retain];
 	}
     
-    buttonNormalTextColor = ccColor3BFromNSString([configDic objectForKey:KEY_BALSAMIQ_BTN_NORMAL_TEXT_COLOR],
-                                                  buttonNormalTextColor);
-    buttonSelectTextColor = ccColor3BFromNSString([configDic objectForKey:KEY_BALSAMIQ_BTN_SELECT_TEXT_COLOR],
-                                                  buttonSelectTextColor);
-    buttonDisableTextColor = ccColor3BFromNSString([configDic objectForKey:KEY_BALSAMIQ_BTN_DISABLE_TEXT_COLOR],
-                                                   buttonDisableTextColor);
+    self.buttonNormalTextColor = ccColor3BFromNSString([configDic objectForKey:KEY_BALSAMIQ_BTN_NORMAL_TEXT_COLOR],
+                                                       self.buttonNormalTextColor);
+    self.buttonSelectTextColor = ccColor3BFromNSString([configDic objectForKey:KEY_BALSAMIQ_BTN_SELECT_TEXT_COLOR],
+                                                       self.buttonSelectTextColor);
+    self.buttonDisableTextColor = ccColor3BFromNSString([configDic objectForKey:KEY_BALSAMIQ_BTN_DISABLE_TEXT_COLOR],
+                                                        self.buttonDisableTextColor);
     
-    buttonSelectImageColor = ccColor3BFromNSString([configDic objectForKey:KEY_BALSAMIQ_BTN_SELECT_IMAGE_COLOR],
-                                                   buttonSelectImageColor);
-    buttonDisableImageColor = ccColor3BFromNSString([configDic objectForKey:KEY_BALSAMIQ_BTN_DISABLE_IMAGE_COLOR],
-                                                    buttonDisableImageColor);
+    self.buttonSelectImageColor = ccColor3BFromNSString([configDic objectForKey:KEY_BALSAMIQ_BTN_SELECT_IMAGE_COLOR],
+                                                        self.buttonSelectImageColor);
+    self.buttonDisableImageColor = ccColor3BFromNSString([configDic objectForKey:KEY_BALSAMIQ_BTN_DISABLE_IMAGE_COLOR],
+                                                         self.buttonDisableImageColor);
+    
+    self.alertOpacity = ([configDic objectForKey:KEY_BALSAMIQ_ALERT_OPACITY] == nil)
+    ? self.alertOpacity
+    : [[configDic objectForKey:KEY_BALSAMIQ_ALERT_OPACITY] intValue];
 }
 
 @end

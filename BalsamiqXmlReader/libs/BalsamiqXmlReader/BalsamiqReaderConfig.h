@@ -16,12 +16,15 @@
 
 @property (nonatomic, copy) NSString *rootDir;
 @property (nonatomic, copy) NSString *balsamiqFontName;
+
 @property ccColor3B buttonNormalTextColor;
 @property ccColor3B buttonSelectTextColor;
 @property ccColor3B buttonDisableTextColor;
 
 @property ccColor3B buttonSelectImageColor;
 @property ccColor3B buttonDisableImageColor;
+
+@property int alertOpacity;
 
 + (BalsamiqReaderConfig *)instance;
 

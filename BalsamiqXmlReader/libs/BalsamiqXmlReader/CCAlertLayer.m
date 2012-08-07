@@ -9,6 +9,7 @@
 #import "CCAlertLayer.h"
 #import "CCBalsamiqLayer.h"
 #import "CCMenuItemButton.h"
+#import "BalsamiqReaderConfig.h"
 
 @implementation CCAlertLayer
 
@@ -18,11 +19,11 @@
 #pragma mark 私有函数
 ////////////////////////////////////////////////////////
 
-- (void)runActionWithModal:(AlertShowModal)modal
+- (void)runActionWithModal:(CCAlertLayerMode)modal
 {
 	switch (modal)
 	{
-		case kPopAlertModal:
+		case CCAlertLayerPopMode:
 		{
             self.balsamiqLayer.scale = 0.01f;
             [self.balsamiqLayer runAction:[CCSequence actions:
@@ -62,7 +63,7 @@
 - (id)initWithColor:(ccColor4B)color
       alertFileName:(NSString *)fileName
     eventHandleNode:(CCNode *)eventHandleNode
-          showModal:(AlertShowModal)modal
+          showModal:(CCAlertLayerMode)modal
 {
 	self = [super initWithColor:color];
 	if (self != nil)
@@ -86,9 +87,9 @@
 
 + (id)showAlert:(NSString *)fileName
 	 parentNode:(CCNode *)parentNode
-	  showModal:(AlertShowModal)modal
+	  showModal:(CCAlertLayerMode)modal
 {
-    CCAlertLayer *alert = [[[CCAlertLayer alloc] initWithColor:ccc4(0, 0, 0, 50)
+    CCAlertLayer *alert = [[[CCAlertLayer alloc] initWithColor:ccc4(0, 0, 0, [BalsamiqReaderConfig instance].alertOpacity)
                                                  alertFileName:fileName
                                                eventHandleNode:parentNode
                                                      showModal:modal] autorelease];
@@ -101,7 +102,7 @@
 {
 	return [CCAlertLayer showAlert:fileName
 						parentNode:parentNode
-						 showModal:kPopAlertModal];
+						 showModal:CCAlertLayerNormalMode];
 }
 
 + (void)removeAlertFromNode:(id)subNode

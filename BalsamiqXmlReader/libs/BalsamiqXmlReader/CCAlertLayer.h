@@ -11,9 +11,9 @@
 
 typedef enum
 {
-	kNormalShowModal,
-	kPopAlertModal,
-} AlertShowModal;
+	CCAlertLayerNormalMode,
+	CCAlertLayerPopMode,
+} CCAlertLayerMode;
 
 @class CCBalsamiqLayer;
 @interface CCAlertLayer : CCLayerColor
@@ -28,7 +28,7 @@ typedef enum
 
 + (id)showAlert:(NSString *)fileName
 	 parentNode:(CCNode *)parentNode
-	  showModal:(AlertShowModal)modal;
+	  showModal:(CCAlertLayerMode)modal;
 
 + (void)removeAlertFromNode:(id)subNode;
 
