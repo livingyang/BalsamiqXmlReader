@@ -60,6 +60,7 @@
 @property CGFloat minimumTouchLengthToSlide;
 
 @property BOOL isDebug;
+@property BOOL isMenuItemContainsEnable;  // NO - Intersect enable
 
 // cellContain move vector
 @property CGPoint vectorMove;

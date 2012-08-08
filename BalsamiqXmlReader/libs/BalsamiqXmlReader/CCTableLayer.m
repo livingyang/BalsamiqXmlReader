@@ -36,6 +36,11 @@ enum
 
 - (BOOL)isEnabled
 {
+    if (super.isEnabled == NO)
+    {
+        return super.isEnabled;
+    }
+    
     for (CCNode *nodeParent = self;
          nodeParent != nil;
          nodeParent = nodeParent.parent)
@@ -48,7 +53,9 @@ enum
             CGRect tableRect = {CGPointZero, nodeParent.contentSize};
             CGRect selfRect = {pointInTable, self.contentSize};
             
-            return CGRectContainsRect(tableRect, selfRect) && super.isEnabled;
+            return ((CCTableLayer *)nodeParent).isMenuItemContainsEnable
+            ? CGRectContainsRect(tableRect, selfRect)
+            : CGRectIntersectsRect(tableRect, selfRect);
         }
     }
     
@@ -66,6 +73,7 @@ enum
 
 @synthesize minimumTouchLengthToSlide;
 @synthesize isDebug;
+@synthesize isMenuItemContainsEnable;
 
 @synthesize vectorMove;
 @synthesize maxDistance;
@@ -326,7 +334,7 @@ enum
                          [CCMoveTo actionWithDuration:fabsf(targetDistance - moveBackDistance) / 400 position:moveBackPos]];
     CCSequence *action = [CCSequence actions:moveToTargetAction, moveBackAction, nil];
     
-    if (self.delegate != nil)
+    if (self.delegate != nil && state_ == kCCScrollLayerStateSliding)
     {
         action = [CCSequence actions:
                   action,
@@ -398,6 +406,8 @@ enum
     container.position = ccpSub(tableAttachPos, cellAttachPos);
     
     [self setCellContainer:container];
+    
+    self.isMenuItemContainsEnable = (self.vectorMove.x == 0);
 }
 
 - (float)getMaxDistanceFromContainer:(CCNode *)container
