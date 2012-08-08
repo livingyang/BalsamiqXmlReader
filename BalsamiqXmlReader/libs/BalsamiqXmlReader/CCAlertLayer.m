@@ -107,29 +107,22 @@
 
 + (void)removeAlertFromNode:(id)subNode
 {
-	CCAlertLayer *alert = [CCAlertLayer getAlertLayerFromNode:subNode];
-	
-	[alert.parent removeChild:alert cleanup:YES];
+    [[CCAlertLayer getAlertLayerFromNode:subNode] removeFromParentAndCleanup:YES];
 }
 
 + (CCAlertLayer *)getAlertLayerFromNode:(id)subNode
 {
-	if (subNode == nil || [subNode isKindOfClass:[CCNode class]] == NO)
-	{
-		return nil;
-	}
-	
-	while (subNode != nil)
-	{
-		if ([subNode isKindOfClass:[CCAlertLayer class]])
-		{
-			break;
-		}
-		
-		subNode = [subNode parent];
-	}
-	
-	return subNode;
+    while ([subNode isKindOfClass:[CCAlertLayer class]] == NO)
+    {
+        if ([subNode parent] == nil)
+        {
+            return nil;
+        }
+        
+        subNode = [subNode parent];
+    }
+    
+    return subNode;
 }
 
 @end

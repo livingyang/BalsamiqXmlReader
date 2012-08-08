@@ -73,3 +73,14 @@
 }
 
 @end
+
+@implementation CCAction (TraceDealloc)
+
+- (void)dealloc
+{
+    NSLog(@"cocos2d: deallocing %@", self);
+    
+    [super dealloc];
+}
+
+@end

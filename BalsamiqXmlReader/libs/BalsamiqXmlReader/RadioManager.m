@@ -89,7 +89,7 @@
     for (NSString *tabName in [itemNameAndTabDic allKeys])
     {
         CCNode *tab = [itemNameAndTabDic objectForKey:tabName];
-        [tab removeFromParentAndCleanup:NO];
+        [tab removeFromParentAndCleanup:YES];
         
         if ([selectTabName isEqualToString:tabName])
         {
@@ -121,7 +121,7 @@
             }
         }
         
-        [tab removeFromParentAndCleanup:NO];
+        [tab removeFromParentAndCleanup:YES];
     }
 }
 
