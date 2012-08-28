@@ -347,12 +347,13 @@
     return chkManager;
 }
 
-- (void)checkAndSetTab:(NSString *)name node:(CCNode *)node
+- (void)checkAndSetTab:(NSString *)tabName node:(CCNode *)node
 {
-    if ([name hasPrefix:TAB_PREFIX])
+    if ([tabName hasPrefix:TAB_PREFIX])
     {
-        NSString *tabName = [name stringByReplacingCharactersInRange:NSMakeRange(0, TAB_PREFIX.length) withString:RADIO_PREFIX];
-        [[self getOrCreateRadioManager:[self getRadioGroup:name]] setItemName:tabName withTab:node];
+        RadioManager *tabRadioManager = [self getOrCreateRadioManager:
+                                         [TAB_PREFIX stringByReplacingOccurrencesOfString:@"_" withString:@""]];
+        [tabRadioManager setItemName:[RADIO_PREFIX stringByAppendingString:tabName] withTab:node];
     }
 }
 

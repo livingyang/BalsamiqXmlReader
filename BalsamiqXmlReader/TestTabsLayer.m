@@ -31,9 +31,9 @@
         
         [layer selectRadioItem:@"radio_tab_page1"];
         
-        [[[layer getControlByName:@"tab_tab_page1"] getControlByName:@"title"] setString:@"page1"];
-        [[[layer getControlByName:@"tab_tab_page2"] getControlByName:@"title"] setString:@"page2"];
-        [[[layer getControlByName:@"tab_tab_page3"] getControlByName:@"title"] setString:@"page3"];
+        [[[layer getControlByName:@"tab_page1"] getControlByName:@"title"] setString:@"page1"];
+        [[[layer getControlByName:@"tab_page2"] getControlByName:@"title"] setString:@"page2"];
+        [[[layer getControlByName:@"tab_page3"] getControlByName:@"title"] setString:@"page3"];
         
         
         [[layer getRadioManagerByGroup:@"CustomPage"] setItemName:@"radio_CustomPage_1"
