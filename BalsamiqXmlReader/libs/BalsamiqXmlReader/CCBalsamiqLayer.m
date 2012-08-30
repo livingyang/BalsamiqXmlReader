@@ -23,7 +23,7 @@
 
 @implementation CCBalsamiqLayer : CCLayer
 
-@synthesize bmmlFilePath;
+@synthesize bmmlFileName;
 
 +(void)initialize
 {
@@ -36,6 +36,11 @@
 ////////////////////////////////////////////////////////
 #pragma mark 私有函数
 ////////////////////////////////////////////////////////
+
+- (NSString *)bmmlFilePath
+{
+    return [[BalsamiqReaderConfig instance] getBalsamiqFilePath:self.bmmlFileName];
+}
 
 //格式字符串的特殊字符替换表
 - (NSString *)getDecodeText:(NSString *)text
@@ -158,7 +163,7 @@
 
 - (NSString *)getPicPath:(NSString *)src
 {
-    return [[bmmlFilePath stringByDeletingLastPathComponent] stringByAppendingPathComponent:src];
+    return [[self.bmmlFilePath stringByDeletingLastPathComponent] stringByAppendingPathComponent:src];
 }
 
 - (NSString *)getRadioGroup:(NSString *)radioItemName
@@ -308,7 +313,7 @@
     {
         CCLOG(@"CCBalsamiqLayer#addControl duplicate name = %@, bmml file = %@",
               name,
-              self.bmmlFilePath);
+              self.bmmlFileName);
     }
     
     [nameAndControlDic setObject:control forKey:name];
@@ -543,9 +548,9 @@
 
 - (void)createFieldSet:(BalsamiqControlData *)data
 {
-    NSString *bmmlFileName = [self getDecodeText:[data.propertyDic objectForKey:@"text"]];
+    NSString *fileName = [self getDecodeText:[data.propertyDic objectForKey:@"text"]];
     
-    CCBalsamiqLayer *layer = [CCBalsamiqLayer layerWithBalsamiqFile:bmmlFileName eventHandle:eventHandle_];
+    CCBalsamiqLayer *layer = [CCBalsamiqLayer layerWithBalsamiqFile:fileName eventHandle:eventHandle_];
     layer.position = [self convertControlPosition:[self getBalsamiqControlPosition:data]
                                          nodeSize:[self getBalsamiqControlSize:data]
                                   withAnchorPoint:ccp(0, 0)];
@@ -557,7 +562,7 @@
     if (CGSizeEqualToSize(layer.contentSize, [self getBalsamiqControlSize:data]) == false)
     {
         CCLOG(@"CCBalsamiqLayer#createFieldSet link layer contentSize is not equal, link layer = %@, id = %@",
-              bmmlFileName,
+              fileName,
               [data.propertyDic objectForKey:@"customID"]);
     }
 }
@@ -569,7 +574,8 @@
 
 - (void) dealloc
 {
-    [bmmlFilePath release];
+    self.bmmlFileName = nil;
+    
     [nameAndControlDic release];
 	[groupAndRadioDic release];
     
@@ -602,6 +608,8 @@
 			return nil;
 		}
 		
+        self.bmmlFileName = fileName;
+        
 		// 1 初始化layer
 		for (BalsamiqControlData *data in balsamiqData)
 		{
@@ -621,8 +629,6 @@
 		menu.anchorPoint = ccp(0, 0);
         
         controlMenu = menu;
-        bmmlFilePath = [[NSString alloc] initWithString:
-                        [[BalsamiqReaderConfig instance] getBalsamiqFilePath:fileName]];
 		
 		// 3 生成各个控件
 		for (BalsamiqControlData *data in balsamiqData)

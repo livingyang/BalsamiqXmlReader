@@ -41,13 +41,6 @@
     CCMenu *controlMenu;
     
 	/*!
-        @名    称：bmmlFilePath
-        @描    述：当前对象所对应的文件路径
-        @备    注：
-    */
-    NSString *bmmlFilePath;
-    
-	/*!
         @名    称：originControlPosition
         @描    述：modalScreen的初始位置，用于定位窗体的初始位置
         @备    注：
@@ -55,6 +48,9 @@
     CGPoint originControlPosition;
 }
 
+@property (nonatomic, copy) NSString *bmmlFileName;
+
+// source bmml file path
 @property (nonatomic, readonly) NSString *bmmlFilePath;
 
 // 带有事件的控件，如button，toggle，其事件的处理者为eventHandle
