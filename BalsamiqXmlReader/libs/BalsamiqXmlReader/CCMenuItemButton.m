@@ -11,6 +11,9 @@
 @implementation CCMenuItemButton
 
 @synthesize label;
+@synthesize labelNormalColor;
+@synthesize labelSelectColor;
+@synthesize labelDisableColor;
 
 - (NSString *)text
 {
@@ -53,9 +56,9 @@
 	[self addChild:self.label];
 	self.label.position = ccp(self.contentSize.width / 2, self.contentSize.height / 2);
 	
-	_labelNormalColor = normalColor;
-	_labelSelectColor = selectColor;
-	_labelDisableColor = disableColor;
+	self.labelNormalColor = normalColor;
+	self.labelSelectColor = selectColor;
+	self.labelDisableColor = disableColor;
 	
 	//判断标签状态
 	if ([self isEnabled])
@@ -82,7 +85,7 @@
 		return;
 	}
 	
-	self.label.color = _labelSelectColor;
+	self.label.color = self.labelSelectColor;
 }
 
 - (void)unselected
@@ -94,7 +97,7 @@
 		return;
 	}
 	
-	self.label.color = _labelNormalColor;
+	self.label.color = self.labelNormalColor;
 }
 
 
@@ -109,11 +112,11 @@
 	
 	if (enabled)
 	{
-		self.label.color = _labelNormalColor;
+		self.label.color = self.labelNormalColor;
 	}
 	else
 	{
-		self.label.color = _labelDisableColor;
+		self.label.color = self.labelDisableColor;
 	}
 }
 

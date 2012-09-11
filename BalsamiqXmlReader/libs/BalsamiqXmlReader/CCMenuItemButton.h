@@ -11,16 +11,13 @@
 
 //加入标签的显示
 @interface CCMenuItemButton : CCMenuItemImage 
-{
-	CCLabelTTF *_label;
-	
-	ccColor3B _labelNormalColor;
-	ccColor3B _labelSelectColor;
-	ccColor3B _labelDisableColor;
-}
 
 @property (nonatomic, assign) NSString *text;
 @property (nonatomic, assign) CCLabelTTF *label;
+
+@property ccColor3B labelNormalColor;
+@property ccColor3B labelSelectColor;
+@property ccColor3B labelDisableColor;
 
 - (void)initLabel:(NSString *)text 
 		 fontName:(NSString *)name 
