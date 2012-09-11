@@ -13,40 +13,54 @@
         <text>Next</text>
       </controlProperties>
     </control>
-    <control controlID="34" controlTypeID="com.balsamiq.mockups::Image" x="174" y="201" w="-1" h="-1" measuredW="57" measuredH="57" zOrder="3" locked="false" isInGroup="-1">
+    <control controlID="34" controlTypeID="com.balsamiq.mockups::Image" x="182" y="111" w="-1" h="-1" measuredW="57" measuredH="57" zOrder="3" locked="false" isInGroup="-1">
       <controlProperties>
         <customID>image_sprite</customID>
         <src>./image-icon.png</src>
       </controlProperties>
     </control>
-    <control controlID="39" controlTypeID="com.balsamiq.mockups::Image" x="320" y="126" w="-1" h="-1" measuredW="50" measuredH="50" zOrder="4" locked="false" isInGroup="-1">
+    <control controlID="39" controlTypeID="com.balsamiq.mockups::Image" x="328" y="142" w="-1" h="-1" measuredW="50" measuredH="50" zOrder="4" locked="false" isInGroup="-1">
       <controlProperties>
         <customID>toggle_ok</customID>
         <src>./chk-unchecked.png</src>
       </controlProperties>
     </control>
-    <control controlID="40" controlTypeID="com.balsamiq.mockups::Image" x="448" y="221" w="-1" h="-1" measuredW="111" measuredH="41" zOrder="5" locked="false" isInGroup="-1">
+    <control controlID="40" controlTypeID="com.balsamiq.mockups::Image" x="461" y="118" w="-1" h="-1" measuredW="111" measuredH="41" zOrder="5" locked="false" isInGroup="-1">
       <controlProperties>
         <customID>bar_test</customID>
         <src>./button-alert-normal.png</src>
       </controlProperties>
     </control>
-    <control controlID="41" controlTypeID="com.balsamiq.mockups::Label" x="150" y="166" w="-1" h="-1" measuredW="103" measuredH="21" zOrder="6" locked="false" isInGroup="-1">
+    <control controlID="41" controlTypeID="com.balsamiq.mockups::Label" x="180" y="75" w="-1" h="-1" measuredW="59" measuredH="21" zOrder="6" locked="false" isInGroup="-1">
       <controlProperties>
         <align>center</align>
-        <text>image%28CCSprite%29</text>
+        <text>CCSprite</text>
       </controlProperties>
     </control>
-    <control controlID="42" controlTypeID="com.balsamiq.mockups::Label" x="253" y="90" w="-1" h="-1" measuredW="185" measuredH="21" zOrder="7" locked="false" isInGroup="-1">
+    <control controlID="42" controlTypeID="com.balsamiq.mockups::Label" x="293" y="111" w="-1" h="-1" measuredW="120" measuredH="21" zOrder="7" locked="false" isInGroup="-1">
       <controlProperties>
         <align>center</align>
-        <text>checkbox%28CCMenuItemToggle%29</text>
+        <text>CCMenuItemToggle</text>
       </controlProperties>
     </control>
-    <control controlID="43" controlTypeID="com.balsamiq.mockups::Label" x="433" y="181" w="-1" h="-1" measuredW="138" measuredH="21" zOrder="8" locked="false" isInGroup="-1">
+    <control controlID="43" controlTypeID="com.balsamiq.mockups::Label" x="461" y="75" w="-1" h="-1" measuredW="109" measuredH="21" zOrder="8" locked="false" isInGroup="-1">
       <controlProperties>
         <align>center</align>
-        <text>bar%28CCProgressTimer%29</text>
+        <text>CCProgressTimer</text>
+      </controlProperties>
+    </control>
+    <control controlID="44" controlTypeID="com.balsamiq.mockups::Image" x="448" y="217" w="-1" h="-1" measuredW="111" measuredH="41" zOrder="9" locked="false" isInGroup="-1">
+      <controlProperties>
+        <customID>RandomBar</customID>
+        <src>./button-alert-normal.png</src>
+        <text>random%20bar</text>
+      </controlProperties>
+    </control>
+    <control controlID="45" controlTypeID="com.balsamiq.mockups::Image" x="165" y="216" w="-1" h="-1" measuredW="111" measuredH="41" zOrder="10" locked="false" isInGroup="-1">
+      <controlProperties>
+        <customID>RotateSprite</customID>
+        <src>./button-alert-normal.png</src>
+        <text>rotate</text>
       </controlProperties>
     </control>
   </controls>

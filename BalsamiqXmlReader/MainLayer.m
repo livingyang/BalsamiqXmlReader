@@ -42,6 +42,26 @@
     NSLog(@"toggle balsamiqLayer = %@", [CCBalsamiqLayer getBalsamiqLayerFromChild:toggle]);
 }
 
+- (void)onRandomBarClick:(id)sender
+{
+    barTest.percentage = arc4random() % 101;
+}
+
+- (void)onRotateSpriteClick:(id)sender
+{
+    int tagAction = 100;
+    if ([sprTest getActionByTag:tagAction] != nil)
+    {
+        [sprTest stopActionByTag:tagAction];
+        return;
+    }
+    
+    CCRepeatForever *action = [CCRepeatForever actionWithAction:
+                               [CCRotateBy actionWithDuration:1.0f angle:360]];
+    action.tag = tagAction;
+    [sprTest runAction:action];
+}
+
 -(id) init
 {
 	if( (self=[super init]))
@@ -50,19 +70,11 @@
                                                             eventHandle:self];
         [self addChild:layer];
         
-        // 设置按钮标签
         [[layer getControlByName:@"Next"] setText:@"MyNext"];
-        
-        // 设置disable按钮
         [[layer getControlByName:@"Disable"] setIsEnabled:NO];
         
-        // 获取指定精灵
-        id action = [CCRepeatForever actionWithAction:[CCRotateBy actionWithDuration:1.0f angle:360]];
-        [[layer getControlByName:@"image_sprite"] runAction:action];
-        
-        // 获取bar
-        CCProgressTimer *bar = [layer getControlByName:@"bar_test"];
-        bar.percentage = 70;
+        sprTest = [layer getControlByName:@"image_sprite"];
+        barTest = [layer getControlByName:@"bar_test"];
 	}
 	return self;
 }

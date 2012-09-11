@@ -10,7 +10,7 @@
 #import "cocos2d.h"
 
 //加入标签的显示
-@interface CCMenuItemButton : CCMenuItemImage 
+@interface CCMenuItemButton : CCMenuItemSprite
 
 @property (nonatomic, assign) NSString *text;
 @property (nonatomic, assign) CCLabelTTF *label;

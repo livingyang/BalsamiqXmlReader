@@ -13,6 +13,8 @@
 // HelloWorldLayer
 @interface MainLayer : CCLayer
 {
+    CCSprite *sprTest;
+    CCProgressTimer *barTest;
 }
 
 // returns a CCScene that contains the HelloWorldLayer as the only child
