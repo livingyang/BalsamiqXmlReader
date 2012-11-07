@@ -45,7 +45,12 @@
 //格式字符串的特殊字符替换表
 - (NSString *)getDecodeText:(NSString *)text
 {
-    return [text stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSString *convertedString = [[text stringByReplacingOccurrencesOfString:@"%u" withString:@"\\u"] mutableCopy];
+    
+    CFStringRef transform = CFSTR("Any-Hex/Java");
+    CFStringTransform((__bridge CFMutableStringRef)convertedString, NULL, transform, YES);
+    
+    return [convertedString stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
 }
 
 - (ccColor3B)getColor:(int)value
