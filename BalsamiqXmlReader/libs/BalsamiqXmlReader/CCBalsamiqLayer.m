@@ -221,12 +221,10 @@
 	}
 	item.position = [self getMidPosition:data];
 	
-	int zOrder = [[data.attributeDic objectForKey:@"zOrder"] intValue];
-	[controlMenu addChild:item z:zOrder];
-	if (controlMenu.zOrder < zOrder)
-	{
-		[controlMenu.parent reorderChild:controlMenu z:zOrder];
-	}
+    CCMenu *menu = [CCMenu menuWithItems:item, nil];
+    menu.anchorPoint = CGPointZero;
+    menu.position = CGPointZero;
+    [self addChild:menu z:[[data.attributeDic objectForKey:@"zOrder"] intValue]];
 	
 	//若有文本，则需要生成标签
 	NSString *text = [data.propertyDic objectForKey:@"text"];
@@ -269,12 +267,10 @@
 	}
 	toggle.position = [self getMidPosition:data];
 	
-	int zOrder = [[data.attributeDic objectForKey:@"zOrder"] intValue];
-	[controlMenu addChild:toggle z:zOrder];
-	if (controlMenu.zOrder < zOrder)
-	{
-		[controlMenu.parent reorderChild:controlMenu z:zOrder];
-	}
+    CCMenu *menu = [CCMenu menuWithItems:toggle, nil];
+    menu.anchorPoint = CGPointZero;
+    menu.position = CGPointZero;
+    [self addChild:menu z:[[data.attributeDic objectForKey:@"zOrder"] intValue]];
 	
 	return toggle;
 }
@@ -627,16 +623,7 @@
 			}
 		}
 		
-		// 2 生成创建的环境
-		CCMenu *menu = [CCMenu menuWithItems:nil];
-		[self addChild:menu];
-		menu.contentSize = self.contentSize;
-		menu.position = ccp(0, 0);
-		menu.anchorPoint = ccp(0, 0);
-        
-        controlMenu = menu;
-		
-		// 3 生成各个控件
+		// 2 生成各个控件
 		for (BalsamiqControlData *data in balsamiqData)
 		{
 			NSString *controlType = [[data.attributeDic objectForKey:@"controlTypeID"]

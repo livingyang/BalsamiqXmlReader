@@ -34,13 +34,6 @@
     id eventHandle_;
     
 	/*!
-        @名    称：controlMenu
-        @描    述：所有按钮全部保存在这个menu中
-        @备    注：
-    */
-    CCMenu *controlMenu;
-    
-	/*!
         @名    称：originControlPosition
         @描    述：modalScreen的初始位置，用于定位窗体的初始位置
         @备    注：
