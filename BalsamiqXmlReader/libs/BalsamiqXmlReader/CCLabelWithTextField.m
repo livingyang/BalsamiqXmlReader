@@ -32,10 +32,10 @@
 
 - (void)showTextFieldKeyboard
 {
-    [[[CCDirector sharedDirector] openGLView] addSubview:self.textField];
+    [[CCDirector sharedDirector].view addSubview:self.textField];
     [self.textField becomeFirstResponder];
     
-    [[CCTouchDispatcher sharedDispatcher] setPriority:kCCMenuTouchPriority * 2 forDelegate:self];
+    [[CCDirector sharedDirector].touchDispatcher setPriority:kCCMenuHandlerPriority * 2 forDelegate:self];
 }
 
 - (void)hideTextFieldKeyboard
@@ -47,13 +47,13 @@
     ? [self getSecrueString:self.realString]
     : self.realString;
     
-    [[CCTouchDispatcher sharedDispatcher] setPriority:kCCMenuTouchPriority forDelegate:self];
+    [[CCDirector sharedDirector].touchDispatcher setPriority:kCCMenuHandlerPriority forDelegate:self];
 }
 
 - (void)registerWithTouchDispatcher
 {
-	[[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self
-                                                     priority:kCCMenuTouchPriority
+	[[CCDirector sharedDirector].touchDispatcher addTargetedDelegate:self
+                                                     priority:kCCMenuHandlerPriority
                                               swallowsTouches:YES];
 }
 
@@ -76,7 +76,7 @@
 
 - (void)onExit
 {
-    [[CCTouchDispatcher sharedDispatcher] removeDelegate:self];
+    [[CCDirector sharedDirector].touchDispatcher removeDelegate:self];
     
     [super onExit];
 }
@@ -101,7 +101,7 @@
                                                green:self.color.g / 255.0f
                                                 blue:self.color.b / 255.0f
                                                alpha:self.opacity / 255.0f];
-    self.textField.font = [UIFont fontWithName:self.fontName size:self.fontSize / CC_CONTENT_SCALE_FACTOR()];
+    self.textField.font = [UIFont fontWithName:self.fontName size:self.fontSize];
     
     self.string = @"";
     

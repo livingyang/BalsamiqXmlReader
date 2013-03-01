@@ -42,8 +42,8 @@
 
 - (void)onEnter
 {
-	[[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self
-													 priority:kCCMenuTouchPriority
+	[[CCDirector sharedDirector].touchDispatcher addTargetedDelegate:self
+													 priority:kCCMenuHandlerPriority
 											  swallowsTouches:YES];
 	
 	[super onEnter];
@@ -51,7 +51,7 @@
 
 - (void)onExit
 {
-	[[CCTouchDispatcher sharedDispatcher] removeDelegate:self];
+	[[CCDirector sharedDirector].touchDispatcher removeDelegate:self];
 	[super onExit];
 }
 

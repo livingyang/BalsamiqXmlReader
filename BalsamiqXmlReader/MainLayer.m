@@ -75,6 +75,8 @@
         
         sprTest = [layer getControlByName:@"image_sprite"];
         barTest = [layer getControlByName:@"bar_test"];
+        barTest.barChangeRate = ccp(1, 0);
+        barTest.midpoint = ccp(0, 0);
 	}
 	return self;
 }

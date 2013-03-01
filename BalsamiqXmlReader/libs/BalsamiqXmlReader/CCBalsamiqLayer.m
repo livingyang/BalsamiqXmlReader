@@ -602,7 +602,7 @@
         eventHandle_ = eventHandle;
         originControlPosition = ccp(0, 0);
 		
-//		self.isRelativeAnchorPoint = YES;
+		self.ignoreAnchorPointForPosition = NO;
 		self.anchorPoint = ccp(0, 0);
 		
 		NSMutableArray *balsamiqData = [[BalsamiqFileParser instance] getControlsData:
