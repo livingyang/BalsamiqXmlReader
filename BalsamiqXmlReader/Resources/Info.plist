@@ -2,31 +2,27 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>CFBundleDevelopmentRegion</key>
-	<string>English</string>
 	<key>BalsamiqConfig</key>
 	<dict>
-		<key>RootDir</key>
-		<string>UI</string>
-		<key>FontName</key>
-		<string>Vanilla</string>
-		<key>ButtonNormalTextColor</key>
-		<string>100, 100, 100</string>
-		<key>ButtonSelectTextColor</key>
-		<string>0, 0, 0</string>
-		<key>ButtonDisableTextColor</key>
-		<string>255, 0, 0</string>
-		<key>ButtonSelectImageColor</key>
-		<string>200, 200, 200</string>
-		<key>ButtonDisableImageColor</key>
-		<string>150, 150, 150</string>
 		<key>AlertOpacity</key>
 		<string>100</string>
+		<key>ButtonDisableImageColor</key>
+		<string>150, 150, 150</string>
+		<key>ButtonDisableTextColor</key>
+		<string>255, 0, 0</string>
+		<key>ButtonNormalTextColor</key>
+		<string>100, 100, 100</string>
+		<key>ButtonSelectImageColor</key>
+		<string>200, 200, 200</string>
+		<key>ButtonSelectTextColor</key>
+		<string>0, 0, 0</string>
+		<key>FontName</key>
+		<string>Vanilla</string>
+		<key>RootDir</key>
+		<string>UI</string>
 	</dict>
-	<key>UIAppFonts</key>
-	<array>
-		<string>Vanilla.ttf</string>
-	</array>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>English</string>
 	<key>CFBundleDisplayName</key>
 	<string>${PRODUCT_NAME}</string>
 	<key>CFBundleExecutable</key>
@@ -56,9 +52,11 @@
 	<string>1.0</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Vanilla.ttf</string>
+	</array>
 	<key>UIPrerenderedIcon</key>
-	<true/>
-	<key>UIStatusBarHidden</key>
 	<true/>
 	<key>UIRequiredDeviceCapabilities</key>
 	<dict>
@@ -67,5 +65,9 @@
 		<key>opengles-1</key>
 		<true/>
 	</dict>
+	<key>UIStatusBarHidden</key>
+	<true/>
+	<key>UISupportedInterfaceOrientations</key>
+	<array/>
 </dict>
 </plist>
