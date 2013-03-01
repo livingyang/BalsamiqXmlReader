@@ -83,8 +83,8 @@ enum
     self = [super init];
 	if (self != nil)
     {
-        self.isTouchEnabled = YES;
-		self.isRelativeAnchorPoint = YES;
+        self.touchEnabled = YES;
+//		self.isRelativeAnchorPoint = YES;
         
         cellContainer = [CCNode node];
         [self addChild:cellContainer];
@@ -128,8 +128,8 @@ enum
     {
         glLineWidth(3);
         
-        glColor4ub(0, 0, 100, 200);
-        ccDrawSolidRect(CGPointZero, ccpFromSize(self.contentSize));
+//        glColor4ub(0, 0, 100, 200);
+        ccDrawSolidRect(CGPointZero, ccpFromSize(self.contentSize), ccc4FFromccc3B(ccWHITE));
     }
 }
 

@@ -96,12 +96,12 @@
     }
     
     self.textField.frame = (CGRect){[self textFieldPosition], self.contentSize};
-    self.textField.textAlignment = alignment_;
+    self.textField.textAlignment = self.horizontalAlignment;
     self.textField.textColor = [UIColor colorWithRed:self.color.r / 255.0f
                                                green:self.color.g / 255.0f
                                                 blue:self.color.b / 255.0f
                                                alpha:self.opacity / 255.0f];
-    self.textField.font = [UIFont fontWithName:fontName_ size:fontSize_ / CC_CONTENT_SCALE_FACTOR()];
+    self.textField.font = [UIFont fontWithName:self.fontName size:self.fontSize / CC_CONTENT_SCALE_FACTOR()];
     
     self.string = @"";
     

@@ -1,20 +1,28 @@
 //
 //  AppDelegate.h
-//  BalsamiqXmlReader
+//  study_NewBalsamiqLayer
 //
-//  Created by apple on 11-9-18.
-//  Copyright __MyCompanyName__ 2011年. All rights reserved.
+//  Created by 中 青宝 on 13-3-1.
+//  Copyright zqgame 2013年. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
+#import "cocos2d.h"
 
-@class RootViewController;
+// Added only for iOS 6 support
+@interface MyNavigationController : UINavigationController <CCDirectorDelegate>
+@end
 
-@interface AppDelegate : NSObject <UIApplicationDelegate> {
-	UIWindow			*window;
-	RootViewController	*viewController;
+@interface AppController : NSObject <UIApplicationDelegate>
+{
+	UIWindow *window_;
+	MyNavigationController *navController_;
+    
+	CCDirectorIOS	*director_;							// weak ref
 }
 
 @property (nonatomic, retain) UIWindow *window;
+@property (readonly) MyNavigationController *navController;
+@property (readonly) CCDirectorIOS *director;
 
 @end

@@ -48,7 +48,7 @@
     NSString *convertedString = [[text stringByReplacingOccurrencesOfString:@"%u" withString:@"\\u"] mutableCopy];
     
     CFStringRef transform = CFSTR("Any-Hex/Java");
-    CFStringTransform((__bridge CFMutableStringRef)convertedString, NULL, transform, YES);
+    CFStringTransform((CFMutableStringRef)convertedString, NULL, transform, YES);
     
     return [convertedString stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
 }
@@ -113,14 +113,14 @@
 - (CCTextAlignment)getBalsamiqControlAlign:(BalsamiqControlData *)data
 {
 	NSString *align = [data.propertyDic objectForKey:@"align"];
-	CCTextAlignment textAlign = CCTextAlignmentLeft;
+	CCTextAlignment textAlign = kCCTextAlignmentLeft;
 	if ([align isEqualToString:@"right"])
 	{
-		textAlign = CCTextAlignmentRight;
+		textAlign = kCCTextAlignmentRight;
 	}
 	else if ([align isEqualToString:@"center"])
 	{
-		textAlign = CCTextAlignmentCenter;
+		textAlign = kCCTextAlignmentCenter;
 	}
 	
 	return textAlign;
@@ -130,15 +130,15 @@
 {
     switch (align)
     {
-        case CCTextAlignmentLeft:
+        case kCCTextAlignmentLeft:
         {
             return ccp(0.0f, 0.5f);
         }break;
-        case CCTextAlignmentCenter:
+        case kCCTextAlignmentCenter:
         {
             return ccp(0.5f, 0.5f);
         }break;
-        case CCTextAlignmentRight:
+        case kCCTextAlignmentRight:
         {
             return ccp(1.0f, 0.5f);
         }break;
@@ -206,11 +206,12 @@
         disableSprite.color = [BalsamiqReaderConfig instance].buttonDisableImageColor;
     }
     
-	CCMenuItemButton *item = [CCMenuItemButton itemFromNormalSprite:normalSprite
+	CCMenuItemButton *item = [CCMenuItemButton itemWithNormalSprite:normalSprite
                                                      selectedSprite:selectSprite
                                                      disabledSprite:disableSprite
                                                              target:target
                                                            selector:sel];
+    
 	
 	CGSize itemSize = [self getBalsamiqControlSize:data];
 	if (CGSizeEqualToSize(item.contentSize, itemSize) == NO)
@@ -256,8 +257,8 @@
     CCMenuItemToggle *toggle = [CCMenuItemToggle itemWithTarget:target
                                                        selector:sel
                                                           items:
-                                [CCMenuItemImage itemFromNormalImage:picPath selectedImage:picPath],
-                                [CCMenuItemImage itemFromNormalImage:checkedPicPath selectedImage:checkedPicPath],
+                                [CCMenuItemImage itemWithNormalImage:picPath selectedImage:picPath],
+                                [CCMenuItemImage itemWithNormalImage:checkedPicPath selectedImage:checkedPicPath],
                                 nil];
     
 	CGSize itemSize = [self getBalsamiqControlSize:data];
@@ -432,8 +433,8 @@
 	else if ([customID hasPrefix:BAR_PREFIX])
     {
 		//创建Bar控件
-		CCProgressTimer *bar = [CCProgressTimer progressWithFile:picPath];
-        bar.type = kCCProgressTimerTypeHorizontalBarLR;
+		CCProgressTimer *bar = [CCProgressTimer progressWithSprite:[CCSprite spriteWithFile:picPath]];
+        bar.type = kCCProgressTimerTypeBar;
 		bar.percentage = 100;
         
 		CGSize itemSize = [self getBalsamiqControlSize:data];
@@ -502,10 +503,10 @@
 - (void)createSubTitle:(BalsamiqControlData *)data
 {
     CCLabelWithTextField *label = [CCLabelWithTextField labelWithString:[self getDecodeText:[data.propertyDic objectForKey:@"text"]]
-                                                             dimensions:[self getBalsamiqControlSize:data]
-                                                              alignment:[self getBalsamiqControlAlign:data]
                                                                fontName:[BalsamiqReaderConfig instance].balsamiqFontName
-                                                               fontSize:[self getBalsamiqControlTextSize:data]];
+                                                               fontSize:[self getBalsamiqControlTextSize:data]
+                                                             dimensions:[self getBalsamiqControlSize:data]
+                                                              hAlignment:[self getBalsamiqControlAlign:data]];
     
     label.position = [self convertControlPosition:[self getBalsamiqControlPosition:data]
                                          nodeSize:[self getBalsamiqControlSize:data]
@@ -521,10 +522,10 @@
 - (void)createTextArea:(BalsamiqControlData *)data
 {
     CCLabelTTF *label = [CCLabelTTF labelWithString:[self getDecodeText:[data.propertyDic objectForKey:@"text"]]
-                                         dimensions:[self getBalsamiqControlSize:data]
-                                          alignment:[self getBalsamiqControlAlign:data]
                                            fontName:[BalsamiqReaderConfig instance].balsamiqFontName
-                                           fontSize:[self getBalsamiqControlTextSize:data]];
+                                           fontSize:[self getBalsamiqControlTextSize:data]
+                                         dimensions:[self getBalsamiqControlSize:data]
+                                          hAlignment:[self getBalsamiqControlAlign:data]];
     
     label.anchorPoint = [self getAnchorPointWithTextAlignment:[self getBalsamiqControlAlign:data]];
     label.position = [self convertControlPosition:[self getBalsamiqControlPosition:data]
@@ -601,7 +602,7 @@
         eventHandle_ = eventHandle;
         originControlPosition = ccp(0, 0);
 		
-		self.isRelativeAnchorPoint = YES;
+//		self.isRelativeAnchorPoint = YES;
 		self.anchorPoint = ccp(0, 0);
 		
 		NSMutableArray *balsamiqData = [[BalsamiqFileParser instance] getControlsData:

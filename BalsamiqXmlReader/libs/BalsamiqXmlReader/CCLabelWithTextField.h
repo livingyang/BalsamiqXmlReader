@@ -19,7 +19,7 @@
 
 @end
 
-@interface CCLabelWithTextField : CCLabelTTF <CCTargetedTouchDelegate, UITextFieldDelegate>
+@interface CCLabelWithTextField : CCLabelTTF <CCTouchOneByOneDelegate, UITextFieldDelegate>
 {
     UITextField *textField_;
 }

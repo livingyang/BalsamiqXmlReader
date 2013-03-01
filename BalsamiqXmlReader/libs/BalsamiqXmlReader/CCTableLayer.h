@@ -52,7 +52,7 @@
     CGPoint vectorInertia;
 }
 
-@property (nonatomic, assign) id<CCTargetedTouchDelegate> delegate;
+@property (nonatomic, assign) id<CCTouchOneByOneDelegate> delegate;
 
 /** Calibration property. Minimum moving touch length that is enough
  * to cancel menu items and start scrolling a layer. 
