@@ -83,3 +83,9 @@
 - (void)onMoveDone:(CCTableLayer *)tableLayer;
 
 @end
+
+@interface CCTableMenu : CCMenu {
+    
+}
+
+@end

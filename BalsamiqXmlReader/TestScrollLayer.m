@@ -8,13 +8,15 @@
 
 #import "TestScrollLayer.h"
 #import "CCBalsamiqLayer.h"
+#import "CCAlertLayer.h"
 #import "TestLoadingBarLayer.h"
 #import "TestLinkLayer.h"
 #import "CCMenuItemButton.h"
 
 @implementation TestScrollLayer
 
-@synthesize tableLayer;
+@synthesize tableVLayer;
+@synthesize tableHLayer;
 
 +(CCScene *) scene
 {
@@ -44,10 +46,10 @@
             [[cell getControlByName:@"Button"] setTag:-1];
             [[cell getControlByName:@"title"] setString:[NSString stringWithFormat:@"New cell %d", arc4random()]];
             
-            [tableLayer.cellContainer addChild:cell];
+            [tableVLayer.cellContainer addChild:cell];
         }
         
-        [tableLayer resetMaxDistance];
+        [tableVLayer resetMaxDistance];
     }
 }
 
@@ -69,7 +71,7 @@
     }
     
     
-    [self.tableLayer setCellContainer:container autoSetWithVectorMove:ccp(-1, 0)];
+    [self.tableHLayer setCellContainer:container autoSetWithVectorMove:ccp(-1, 0)];
 }
 
 - (void)createVerticalCell:(int)count
@@ -93,7 +95,7 @@
         [container addChild:cell];
     }
     
-    [self.tableLayer setCellContainer:container autoSetWithVectorMove:ccp(0, 1)];
+    [self.tableVLayer setCellContainer:container autoSetWithVectorMove:ccp(0, 1)];
 }
 
 - (void)onMoveDone:(CCTableLayer *)table
@@ -109,30 +111,44 @@
                                                             eventHandle:self];
 		[self addChild:layer];
         
-        self.tableLayer = [layer getControlByName:@"table1"];
-        self.tableLayer.delegate = self;
+        self.tableVLayer = [layer getControlByName:@"tableV"];
+        self.tableVLayer.delegate = self;
+        self.tableHLayer = [layer getControlByName:@"tableH"];
+        self.tableHLayer.delegate = self;
         
         [self createVerticalCell:2];
+        [self createHorizontalCell:10];
 	}
 	return self;
 }
 
 - (void)onSetDebugClick:(id)sender
 {
-    self.tableLayer.isDebug = !self.tableLayer.isDebug;
+    self.tableVLayer.isDebug = !self.tableVLayer.isDebug;
+    self.tableHLayer.isDebug = self.tableVLayer.isDebug;
 }
 
 - (void)onSetPositionClick:(id)sender
 {
-    CCBalsamiqLayer *randomCell = [self.tableLayer.cellContainer.children objectAtIndex:
-                                   arc4random() % self.tableLayer.cellContainer.children.count];
-    NSLog(@"randomCell title = %@", [[randomCell getControlByName:@"title"] string]);
-    self.tableLayer.curDistance = [self.tableLayer getCellDistance:randomCell];
+//    CCBalsamiqLayer *randomCell = [self.tableLayer.cellContainer.children objectAtIndex:
+//                                   arc4random() % self.tableLayer.cellContainer.children.count];
+//    NSLog(@"randomCell title = %@", [[randomCell getControlByName:@"title"] string]);
+//    self.tableLayer.curDistance = [self.tableLayer getCellDistance:randomCell];
 }
 
 - (void)onResetItemClick:(id)sender
 {
-    [self createHorizontalCell:6];
+    [CCAlertLayer showAlert:@"2.1-alert-yes-no.bmml" parentNode:self];
+}
+
+- (void)onYesClick:(id)sender
+{
+	[CCAlertLayer removeAlertFromNode:sender];
+}
+
+- (void)onNoClick:(id)sender
+{
+	[CCAlertLayer removeAlertFromNode:sender];
 }
 
 #pragma mark -

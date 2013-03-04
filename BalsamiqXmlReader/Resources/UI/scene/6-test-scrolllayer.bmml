@@ -1,4 +1,4 @@
-<mockup version="1.0" skin="sketch" measuredW="480" measuredH="320" mockupW="480" mockupH="320">
+<mockup version="1.0" skin="sketch" fontFace="Balsamiq Sans" measuredW="480" measuredH="320" mockupW="480" mockupH="320">
   <controls>
     <control controlID="9" controlTypeID="com.balsamiq.mockups::ModalScreen" x="0" y="0" w="480" h="320" measuredW="320" measuredH="240" zOrder="0" locked="true" isInGroup="-1"/>
     <control controlID="24" controlTypeID="com.balsamiq.mockups::Image" x="0" y="0" w="-1" h="-1" measuredW="480" measuredH="320" zOrder="1" locked="false" isInGroup="-1">
@@ -13,7 +13,7 @@
         <text>Back</text>
       </controlProperties>
     </control>
-    <control controlID="32" controlTypeID="com.balsamiq.mockups::Image" x="305" y="0" w="-1" h="-1" measuredW="151" measuredH="45" zOrder="3" locked="false" isInGroup="-1">
+    <control controlID="32" controlTypeID="com.balsamiq.mockups::Image" x="329" y="149" w="-1" h="-1" measuredW="151" measuredH="45" zOrder="3" locked="false" isInGroup="-1">
       <controlProperties>
         <customID>SetDebug</customID>
         <src>../Common/button-normal.png</src>
@@ -27,25 +27,32 @@
         <text>Next</text>
       </controlProperties>
     </control>
-    <control controlID="41" controlTypeID="com.balsamiq.mockups::Canvas" x="39" y="24" w="241" h="219" measuredW="100" measuredH="70" zOrder="5" locked="false" isInGroup="-1">
-      <controlProperties>
-        <borderStyle>roundedSolid</borderStyle>
-        <customID>table1</customID>
-        <verticalScrollbar>true</verticalScrollbar>
-      </controlProperties>
-    </control>
-    <control controlID="42" controlTypeID="com.balsamiq.mockups::Image" x="305" y="127" w="-1" h="-1" measuredW="151" measuredH="45" zOrder="6" locked="false" isInGroup="-1">
+    <control controlID="42" controlTypeID="com.balsamiq.mockups::Image" x="329" y="232" w="-1" h="-1" measuredW="151" measuredH="45" zOrder="5" locked="false" isInGroup="-1">
       <controlProperties>
         <customID>ResetItem</customID>
         <src>../Common/button-normal.png</src>
         <text>ResetItem</text>
       </controlProperties>
     </control>
-    <control controlID="43" controlTypeID="com.balsamiq.mockups::Image" x="305" y="60" w="-1" h="-1" measuredW="151" measuredH="45" zOrder="7" locked="false" isInGroup="-1">
+    <control controlID="43" controlTypeID="com.balsamiq.mockups::Image" x="329" y="194" w="-1" h="-1" measuredW="151" measuredH="45" zOrder="6" locked="false" isInGroup="-1">
       <controlProperties>
         <customID>SetPosition</customID>
         <src>../Common/button-normal.png</src>
         <text>SetPosition</text>
+      </controlProperties>
+    </control>
+    <control controlID="44" controlTypeID="com.balsamiq.mockups::Canvas" x="35" y="55" w="279" h="219" measuredW="100" measuredH="70" zOrder="7" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderStyle>roundedSolid</borderStyle>
+        <customID>tableV</customID>
+        <verticalScrollbar>true</verticalScrollbar>
+      </controlProperties>
+    </control>
+    <control controlID="45" controlTypeID="com.balsamiq.mockups::Canvas" x="7" y="0" w="461" h="52" measuredW="100" measuredH="70" zOrder="8" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderStyle>roundedSolid</borderStyle>
+        <customID>tableH</customID>
+        <verticalScrollbar>true</verticalScrollbar>
       </controlProperties>
     </control>
   </controls>

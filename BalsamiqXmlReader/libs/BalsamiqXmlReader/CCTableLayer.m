@@ -32,38 +32,6 @@ enum
 
 @end
 
-@implementation CCMenuItemSprite (TableLayerBoundEnable)
-
-- (BOOL)isEnabled
-{
-    if (super.isEnabled == NO)
-    {
-        return super.isEnabled;
-    }
-    
-    for (CCNode *nodeParent = self;
-         nodeParent != nil;
-         nodeParent = nodeParent.parent)
-    {
-        if ([nodeParent isKindOfClass:[CCTableLayer class]])
-        {
-            CGPoint pointInTable = [self convertToWorldSpace:CGPointZero];
-            pointInTable = [nodeParent convertToNodeSpace:pointInTable];
-            
-            CGRect tableRect = {CGPointZero, nodeParent.contentSize};
-            CGRect selfRect = {pointInTable, self.contentSize};
-            
-            return ((CCTableLayer *)nodeParent).isMenuItemContainsEnable
-            ? CGRectContainsRect(tableRect, selfRect)
-            : CGRectIntersectsRect(tableRect, selfRect);
-        }
-    }
-    
-    return super.isEnabled;
-}
-
-@end
-
 #endif
 
 @implementation CCTableLayer
@@ -126,8 +94,6 @@ enum
 {
     if (isDebug)
     {
-//        glLineWidth(3);
-        
         ccDrawSolidRect(CGPointZero, ccpFromSize(self.contentSize), ccc4FFromccc3B(ccWHITE));
     }
 }
@@ -440,6 +406,64 @@ enum
     }
     
     return self.curDistance;
+}
+
+@end
+
+@implementation CCTableMenu
+
+//- (BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event
+//{
+//	for( CCNode *c = self.parent; c != nil; c = c.parent )
+//    {
+//        if ([c isKindOfClass:[CCTableLayer class]])
+//        {
+//            if (!CGRectContainsPoint((CGRect){CGPointZero, c.contentSize}, [c convertTouchToNodeSpace:touch]))
+//            {
+//                return NO;
+//            }
+//        }
+//    }
+//    
+//	return [super ccTouchBegan:touch withEvent:event];
+//}
+
+//-(CCMenuItem *) itemForTouch: (UITouch *) touch
+//{
+//    return [super itemForTouch:touch];
+//}
+
+-(CCMenuItem *) itemForTouch: (UITouch *) touch
+{
+	CGPoint touchLocation = [touch locationInView: [touch view]];
+	touchLocation = [[CCDirector sharedDirector] convertToGL: touchLocation];
+    
+	CCMenuItem* item;
+	CCARRAY_FOREACH(_children, item){
+		// ignore invisible and disabled items: issue #779, #866
+		if ( [item visible] && [item isEnabled] ) {
+            
+			CGPoint local = [item convertToNodeSpace:touchLocation];
+			CGRect r = [item activeArea];
+            
+			if( CGRectContainsPoint( r, local ) )
+            {
+                for( CCNode *c = self.parent; c != nil; c = c.parent )
+                {
+                    if ([c isKindOfClass:[CCTableLayer class]])
+                    {
+                        CGRect itemRectInTable = {[c convertToNodeSpace:[item convertToWorldSpace:CGPointZero]], item.contentSize};
+                        
+                        CCTableLayer *tableLayer = (CCTableLayer *)c;
+                        return ((tableLayer.isMenuItemContainsEnable && CGRectIntersectsRect((CGRect){CGPointZero, tableLayer.contentSize}, itemRectInTable))
+                                || (tableLayer.isMenuItemContainsEnable && CGRectContainsRect((CGRect){CGPointZero, tableLayer.contentSize}, itemRectInTable))) ? item : nil;
+                    }
+                }
+				return item;
+            }
+		}
+	}
+	return nil;
 }
 
 @end

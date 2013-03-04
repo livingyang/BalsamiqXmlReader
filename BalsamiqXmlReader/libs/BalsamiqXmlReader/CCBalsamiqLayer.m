@@ -221,7 +221,7 @@
 	}
 	item.position = [self getMidPosition:data];
 	
-    CCMenu *menu = [CCMenu menuWithItems:item, nil];
+    CCMenu *menu = [CCTableMenu menuWithItems:item, nil];
     menu.anchorPoint = CGPointZero;
     menu.position = CGPointZero;
     [self addChild:menu z:[[data.attributeDic objectForKey:@"zOrder"] intValue]];
@@ -267,7 +267,7 @@
 	}
 	toggle.position = [self getMidPosition:data];
 	
-    CCMenu *menu = [CCMenu menuWithItems:toggle, nil];
+    CCMenu *menu = [CCTableMenu menuWithItems:toggle, nil];
     menu.anchorPoint = CGPointZero;
     menu.position = CGPointZero;
     [self addChild:menu z:[[data.attributeDic objectForKey:@"zOrder"] intValue]];

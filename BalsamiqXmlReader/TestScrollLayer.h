@@ -14,7 +14,8 @@
 {
 }
 
-@property (nonatomic, assign) CCTableLayer *tableLayer;
+@property (nonatomic, assign) CCTableLayer *tableVLayer;
+@property (nonatomic, assign) CCTableLayer *tableHLayer;
 
 +(CCScene *) scene;
 @end
